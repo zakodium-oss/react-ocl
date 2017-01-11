@@ -1,0 +1,46 @@
+{
+  "name": "react-ocl",
+  "version": "0.0.0",
+  "description": "React components integrating OpenChemLib",
+  "keywords": [
+    "react",
+    "react-component",
+    "ocl",
+    "openchemlib"
+  ],
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neptunjs/react-ocl.git"
+  },
+  "homepage": "https://github.com/neptunjs/react-ocl#readme",
+  "bugs": "https://github.com/neptunjs/react-ocl/issues",
+  "author": "Michaël Zasso <targos@protonmail.com>",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "test": "NODE_ENV=test karma start"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "openchemlib": "^4.7.2"
+  },
+  "peerDependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-env": "^1.1.8",
+    "babel-preset-react": "^6.16.0",
+    "eslint": "^3.13.1",
+    "eslint-config-cheminfo": "^1.6.0",
+    "eslint-plugin-no-only-tests": "^1.1.0",
+    "eslint-plugin-react": "^6.9.0",
+    "npm-run-all": "^4.0.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "webpack": "2.2.0-rc.3",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
