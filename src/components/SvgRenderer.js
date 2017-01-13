@@ -1,5 +1,5 @@
 import React from 'react';
-import {Molecule} from 'openchemlib/full';
+import {Molecule} from 'openchemlib/minimal';
 
 import {applyDefaultRendererOptions} from '../util/defaultRenderer';
 

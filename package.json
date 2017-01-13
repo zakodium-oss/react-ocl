@@ -22,7 +22,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "openchemlib": "^4.7.2"
+    "openchemlib": "^5.0.0"
   },
   "peerDependencies": {
     "react": "^15.4.2",
