@@ -1,0 +1,21 @@
+exports[`test Molecule renders 1`] = `
+<div
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "<svg id=\"mol1\" xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"1200px\" height=\"800px\" viewBox=\"0 0 1200 800\">
+    	<style> #mol1 {pointer-events:none; }  #mol1 .event  { pointer-events:all;}  </style>
+    	<text x=\"584\" y=\"398\" font-family=\" Helvetica\" font-size=\"14\" fill=\"rgb(255,13,13)\">O</text>
+    	<line x1=\"610\" y1=\"406\" x2=\"631\" y2=\"394\" style=\"stroke:rgb(0,0,0);stroke-width:1\"/>
+    	<line x1=\"596\" y1=\"397\" x2=\"610\" y2=\"406\" style=\"stroke:rgb(0,0,0);stroke-width:1\"/>
+    	<line x1=\"568\" y1=\"406\" x2=\"583\" y2=\"397\" style=\"stroke:rgb(0,0,0);stroke-width:1\"/>
+    	<line id=\"mol1:Bond:1-0\" class=\"event\" x1=\"610\" y1=\"406\" x2=\"631\" y2=\"394\" stroke-width=\"8\" stroke-opacity=\"0\"/>
+    	<line id=\"mol1:Bond:2-1\" class=\"event\" x1=\"589\" y1=\"394\" x2=\"610\" y2=\"406\" stroke-width=\"8\" stroke-opacity=\"0\"/>
+    	<line id=\"mol1:Bond:3-2\" class=\"event\" x1=\"568\" y1=\"406\" x2=\"589\" y2=\"394\" stroke-width=\"8\" stroke-opacity=\"0\"/>
+    	<circle id=\"mol1:Atom:0\" class=\"event\" cx=\"631\" cy=\"394\" r=\"8\" fill-opacity=\"0\"/>
+    	<circle id=\"mol1:Atom:1\" class=\"event\" cx=\"610\" cy=\"406\" r=\"8\" fill-opacity=\"0\"/>
+    	<circle id=\"mol1:Atom:2\" class=\"event\" cx=\"589\" cy=\"394\" r=\"8\" fill-opacity=\"0\"/>
+    	<circle id=\"mol1:Atom:3\" class=\"event\" cx=\"568\" cy=\"406\" r=\"8\" fill-opacity=\"0\"/>
+    </svg>",
+    }
+  } />
+`;

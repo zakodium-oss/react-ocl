@@ -37,9 +37,11 @@
     "eslint-config-cheminfo": "^1.6.0",
     "eslint-plugin-no-only-tests": "^1.1.0",
     "eslint-plugin-react": "^6.9.0",
+    "jest-cli": "^18.1.0",
     "npm-run-all": "^4.0.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-test-renderer": "^15.4.2",
     "webpack": "2.2.0-rc.3",
     "webpack-dev-server": "^1.16.2"
   }
