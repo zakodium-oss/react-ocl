@@ -8,7 +8,7 @@
     "ocl",
     "openchemlib"
   ],
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/neptunjs/react-ocl.git"
@@ -17,8 +17,11 @@
   "bugs": "https://github.com/neptunjs/react-ocl/issues",
   "author": "Michaël Zasso <targos@protonmail.com>",
   "scripts": {
+    "compile": "babel src --out-dir lib --ignore __tests__ --quiet",
+    "compile-es6": "babel src --out-dir lib-es6 --ignore __tests__ --quiet --no-modules",
     "start": "webpack-dev-server",
-    "test": "NODE_ENV=test karma start"
+    "test": "NODE_ENV=test karma start",
+    "prepublishOnly": "run-p compile"
   },
   "license": "MIT",
   "dependencies": {
@@ -29,6 +32,7 @@
     "react-dom": "^15.4.2"
   },
   "devDependencies": {
+    "babel-cli": "^6.22.2",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
     "babel-preset-env": "^1.1.8",
