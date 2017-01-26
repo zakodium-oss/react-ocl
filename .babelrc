@@ -1,3 +1,15 @@
 {
-  "presets": ["env", "react"]
+  "presets": ["react"],
+  "env": {
+    "es6": {
+      "presets": [
+        ["env", {"modules": false}]
+      ]
+    },
+    "development": {
+      "presets": [
+        "env"
+      ]
+    }
+  }
 }

@@ -9,9 +9,11 @@
     "openchemlib"
   ],
   "files": [
-    "lib"
+    "lib",
+    "lib-es6"
   ],
   "main": "lib/index.js",
+  "module": "lib-es6/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/neptunjs/react-ocl.git"
@@ -21,10 +23,10 @@
   "author": "Michaël Zasso <targos@protonmail.com>",
   "scripts": {
     "compile": "babel src --out-dir lib --ignore __tests__ --quiet",
-    "compile-es6": "babel src --out-dir lib-es6 --ignore __tests__ --quiet --no-modules",
+    "compile-es6": "BABEL_ENV=es6 babel src --out-dir lib-es6 --ignore __tests__ --quiet",
     "start": "webpack-dev-server",
     "test": "jest",
-    "prepublishOnly": "run-p compile"
+    "prepublishOnly": "run-p compile compile-es6"
   },
   "license": "MIT",
   "dependencies": {
