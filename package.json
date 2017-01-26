@@ -8,6 +8,9 @@
     "ocl",
     "openchemlib"
   ],
+  "files": [
+    "lib"
+  ],
   "main": "lib/index.js",
   "repository": {
     "type": "git",
