@@ -1,15 +1,22 @@
 'use strict';
 
+const fs = require('fs');
 const path = require('path');
 
+const examples = fs.readdirSync(path.join(__dirname, 'examples'));
+const entry = {};
+for (const example of examples) {
+    const key = `./examples/${example}/bundle`;
+    const value = `./examples/${example}/app`;
+    entry[key] = value;
+}
+
 module.exports = {
-    entry: [
-        path.join(__dirname, 'examples/svg-renderer/app.js')
-    ],
+    entry: entry,
     output: {
-        path: path.join(__dirname, 'examples/svg-renderer'),
-        publicPath: '/svg-renderer/',
-        filename: 'bundle.js'
+        path: './',
+        publicPath: '/',
+        filename: '[name].js'
     },
     module: {
         loaders: [
@@ -20,6 +27,6 @@ module.exports = {
         ]
     },
     devServer: {
-        contentBase: './examples/'
+        contentBase: './'
     }
 };
