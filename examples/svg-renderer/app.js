@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-import {SvgRenderer} from '../..';
+import {SvgRenderer} from '../../src';
 
 const App = class App extends Component {
     constructor(props) {
