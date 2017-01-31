@@ -1549,6 +1549,10 @@ eslint-config-cheminfo@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/eslint-config-cheminfo/-/eslint-config-cheminfo-1.6.0.tgz#71384b6ad5ccdbceeebdb74df8333560df4d015d"
 
+eslint-config-neptun-react@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-neptun-react/-/eslint-config-neptun-react-1.0.1.tgz#48f93836509e21fb3a1addcc5f8593f72dc9cbbe"
+
 eslint-plugin-no-only-tests@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-no-only-tests/-/eslint-plugin-no-only-tests-1.1.0.tgz#24068cafdbccc08d2f9c2d962005793c5940fcd5"

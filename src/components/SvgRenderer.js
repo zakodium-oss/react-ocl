@@ -11,10 +11,9 @@ export default function SvgRenderer(props) {
     } else if (options.molfile) {
         mol = Molecule.fromMolfile(options.molfile);
     } else if (typeof options.oclid === 'string') {
-        const coordinates = options.coordinates || '';
-        mol = Molecule.fromIDCode(options.oclid, options.coordinates);
+        mol = Molecule.fromIDCode(options.oclid, options.coordinates || '');
     } else if (typeof options.oclid === 'object') {
-        mol = Molecule.fromIDCode(options.oclid.id, options.oclid.coordinates);
+        mol = Molecule.fromIDCode(options.oclid.id, options.oclid.coordinates || '');
     } else {
         throw new Error('Missing molecule');
     }

@@ -25,8 +25,11 @@
     "compile": "babel src --out-dir lib --ignore __tests__ --quiet",
     "compile-es6": "BABEL_ENV=es6 babel src --out-dir lib-es6 --ignore __tests__ --quiet",
     "start": "webpack-dev-server",
-    "test": "jest",
-    "prepublishOnly": "run-p compile compile-es6"
+    "test": "run-s testonly eslint",
+    "eslint": "eslint src",
+    "eslint-fix": "eslint --fix src",
+    "prepublishOnly": "run-p compile compile-es6",
+    "testonly": "jest"
   },
   "license": "MIT",
   "dependencies": {
@@ -44,6 +47,7 @@
     "babel-preset-react": "^6.16.0",
     "eslint": "^3.13.1",
     "eslint-config-cheminfo": "^1.6.0",
+    "eslint-config-neptun-react": "^1.0.1",
     "eslint-plugin-no-only-tests": "^1.1.0",
     "eslint-plugin-react": "^6.9.0",
     "jest-cli": "^18.1.0",
