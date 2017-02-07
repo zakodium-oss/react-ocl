@@ -1,5 +1,4 @@
 import React from 'react';
-import {Molecule} from 'openchemlib/minimal';
 
 import {
     applyDefaultRendererOptions,
@@ -8,7 +7,7 @@ import {
 
 export default function SvgRenderer(props) {
     const options = applyDefaultRendererOptions(props);
-    const mol = getMoleculeFromProps(options, Molecule);
+    const mol = getMoleculeFromProps(options, props.OCL.Molecule);
     if (!mol) {
         throw new Error('Missing molecule');
     }

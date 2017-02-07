@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-import {Molecule} from 'openchemlib/full';
+import * as OCL from 'openchemlib/full';
 import {StructureEditor} from '../../src';
 import {idAndCoordinatesToString} from '../../src/util';
 
@@ -9,7 +9,7 @@ import {idAndCoordinatesToString} from '../../src/util';
 //     console.log('cb', ...args);
 // }
 
-const App = class App extends Component {
+class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -18,22 +18,24 @@ const App = class App extends Component {
     }
 
     onChange(event) {
-        const mol = Molecule.fromSmiles(event.target.value);
+        const mol = OCL.Molecule.fromSmiles(event.target.value);
         this.setState({oclid: idAndCoordinatesToString(mol.getIDCodeAndCoordinates())});
     }
 
     handleStructureChange(newStructure) {
+        if (!newStructure) return;
         this.setState({oclid: newStructure.oclid + ' ' + newStructure.coordinates});
     }
 
     render() {
         const oclid = this.state.oclid;
-        const mol = Molecule.fromIDCode(oclid);
+        const mol = OCL.Molecule.fromIDCode(oclid);
         return (
             <div>
                 <input size="100" value={mol.toSmiles()} type="text" onChange={this.onChange.bind(this)} /><br />
                 <StructureEditor
-                    oclid={this.state.oclid}
+                    OCL={OCL}
+                    //oclid={this.state.oclid}
                     // coordinates="aaaa"
                     // width={1200}
                     // height={800}
@@ -45,7 +47,7 @@ const App = class App extends Component {
             </div>
         );
     }
-};
+}
 
 ReactDOM.render(
     <App />,

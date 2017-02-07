@@ -1,5 +1,4 @@
 import React, {Component, PropTypes} from 'react';
-import {Molecule, StructureEditor as OCLStructureEditor} from 'openchemlib/full';
 import uniqId from 'lodash.uniqueid';
 
 import {
@@ -17,7 +16,7 @@ class StructureEditor extends Component {
     }
 
     componentDidMount() {
-        this.editor = new OCLStructureEditor(this.id, this.props.svgMenu, 1);
+        this.editor = new this.props.OCL.StructureEditor(this.id, this.props.svgMenu, 1);
         this.editor.setChangeListenerCallback((idcode) => {
             if (!this.hasReceivedFirstChange) {
                 this.hasReceivedFirstChange = true;
@@ -42,6 +41,7 @@ class StructureEditor extends Component {
     }
 
     shouldComponentUpdate(nextProps) {
+        const {Molecule} = this.props.OCL;
         this.toUpdate = {
             fragment: false,
             mol: false
@@ -72,8 +72,12 @@ class StructureEditor extends Component {
     }
 
     setIDCode() {
-        const molecule = getMoleculeFromProps(this.props, Molecule);
-        this.editor.setIDCode(idAndCoordinatesToString(molecule.getIDCodeAndCoordinates()));
+        const molecule = getMoleculeFromProps(this.props, this.props.OCL.Molecule);
+        if (molecule) {
+            this.editor.setIDCode(idAndCoordinatesToString(molecule.getIDCodeAndCoordinates()));
+        } else {
+            this.editor.setIDCode('d@');
+        }
     }
 
     setFragment() {

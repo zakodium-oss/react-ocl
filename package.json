@@ -24,7 +24,7 @@
   "scripts": {
     "compile": "babel src --out-dir lib --ignore __tests__ --quiet",
     "compile-es6": "BABEL_ENV=es6 babel src --out-dir lib-es6 --ignore __tests__ --quiet",
-    "start": "webpack-dev-server --inline",
+    "start": "BABEL_ENV=es6 webpack-dev-server --inline",
     "test": "run-s testonly eslint",
     "eslint": "eslint src examples",
     "eslint-fix": "eslint --fix src",
@@ -33,10 +33,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "lodash.uniqueid": "^4.0.1",
-    "openchemlib": "^5.0.0"
+    "lodash.uniqueid": "^4.0.1"
   },
   "peerDependencies": {
+    "openchemlib": ">=5.0.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
@@ -53,6 +53,7 @@
     "eslint-plugin-react": "^6.9.0",
     "jest-cli": "^18.1.0",
     "npm-run-all": "^4.0.0",
+    "openchemlib": "^5.1.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-test-renderer": "^15.4.2",
