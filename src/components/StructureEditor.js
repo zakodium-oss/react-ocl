@@ -58,7 +58,7 @@ class StructureEditor extends Component {
         return shouldUpdate;
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(/*prevProps*/) {
         if (this.toUpdate.mol) {
             this.setIDCode();
         }
@@ -68,7 +68,7 @@ class StructureEditor extends Component {
     }
 
     render() {
-        return <div id={this.id} style={{width: this.props.width, height: this.props.height}} />
+        return <div id={this.id} style={{width: this.props.width, height: this.props.height}} />;
     }
 
     setIDCode() {

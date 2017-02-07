@@ -5,9 +5,9 @@ import {Molecule} from 'openchemlib/full';
 import {StructureEditor} from '../../src';
 import {idAndCoordinatesToString} from '../../src/util';
 
-function cb(...args) {
-    console.log('cb', ...args);
-}
+// function cb(...args) {
+//     console.log('cb', ...args);
+// }
 
 const App = class App extends Component {
     constructor(props) {

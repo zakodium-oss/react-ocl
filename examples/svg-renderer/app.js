@@ -19,7 +19,7 @@ const App = class App extends Component {
         return (
             <div>
                 <input size="100" value={this.state.smiles} type="text" onChange={this.onChange.bind(this)} /><br />
-                <SvgRenderer smiles={this.state.smiles} width={1200} height={800}/>
+                <SvgRenderer smiles={this.state.smiles} width={1200} height={800} />
             </div>
         );
     }
