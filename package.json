@@ -28,7 +28,7 @@
     "test": "run-s testonly eslint",
     "eslint": "eslint src examples",
     "eslint-fix": "eslint --fix src",
-    "prepublishOnly": "run-p compile compile-es6",
+    "prepare": "run-p compile compile-es6",
     "testonly": "jest"
   },
   "license": "MIT",
