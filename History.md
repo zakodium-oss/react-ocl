@@ -1,3 +1,18 @@
+<a name="0.1.0"></a>
+# [0.1.0](https://github.com/neptunjs/react-ocl/compare/v0.0.5...v0.1.0) (2017-02-08)
+
+
+### Bug Fixes
+
+* don't fallback to empty coordinates ([695936f](https://github.com/neptunjs/react-ocl/commit/695936f))
+
+
+### Features
+
+* require OCL in the props ([8c671da](https://github.com/neptunjs/react-ocl/commit/8c671da))
+
+
+
 <a name="0.0.5"></a>
 ## [0.0.5](https://github.com/neptunjs/react-ocl/compare/v0.0.4...v0.0.5) (2017-02-07)
 
