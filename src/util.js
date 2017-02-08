@@ -14,9 +14,9 @@ export function getMoleculeFromProps(props, Molecule) {
     } else if (props.molfile) {
         mol = Molecule.fromMolfile(props.molfile);
     } else if (typeof props.oclid === 'string') {
-        mol = Molecule.fromIDCode(props.oclid, props.coordinates || '');
+        mol = Molecule.fromIDCode(props.oclid, props.coordinates);
     } else if (typeof props.oclid === 'object') {
-        mol = Molecule.fromIDCode(props.oclid.id, props.oclid.coordinates || '');
+        mol = Molecule.fromIDCode(props.oclid.id, props.oclid.coordinates);
     }
     return mol;
 }
