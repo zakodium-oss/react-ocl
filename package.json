@@ -23,8 +23,8 @@
   "author": "Michaël Zasso <targos@protonmail.com>",
   "scripts": {
     "compile": "babel src --out-dir lib --ignore __tests__ --quiet",
-    "compile-es6": "BABEL_ENV=es6 babel src --out-dir lib-es6 --ignore __tests__ --quiet",
-    "start": "BABEL_ENV=es6 webpack-dev-server --inline",
+    "compile-es6": "cross-env BABEL_ENV=es6 babel src --out-dir lib-es6 --ignore __tests__ --quiet",
+    "start": "cross-env BABEL_ENV=es6 webpack-dev-server --inline",
     "test": "run-s testonly eslint",
     "eslint": "eslint src examples",
     "eslint-fix": "eslint --fix src",
@@ -33,31 +33,33 @@
   },
   "license": "MIT",
   "dependencies": {
-    "lodash.uniqueid": "^4.0.1"
+    "lodash.uniqueid": "^4.0.1",
+    "prop-types": "^15.6.0"
   },
   "peerDependencies": {
     "openchemlib": ">=5.0.0",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react": "^15.4.2||^16.0.0",
+    "react-dom": "^15.4.2||^16.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
     "babel-core": "^6.21.0",
-    "babel-loader": "^6.2.10",
+    "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.1.8",
     "babel-preset-react": "^6.16.0",
-    "eslint": "^3.13.1",
+    "cross-env": "^5.1.1",
+    "eslint": "^4.10.0",
     "eslint-config-cheminfo": "^1.6.0",
     "eslint-config-neptun-react": "^1.0.1",
-    "eslint-plugin-no-only-tests": "^1.1.0",
-    "eslint-plugin-react": "^6.9.0",
-    "jest-cli": "^18.1.0",
+    "eslint-plugin-no-only-tests": "^2.0.0",
+    "eslint-plugin-react": "^7.4.0",
+    "jest-cli": "^21.2.1",
     "npm-run-all": "^4.0.0",
     "openchemlib": "^5.1.1",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-test-renderer": "^15.4.2",
-    "webpack": "^2.2.0",
-    "webpack-dev-server": "^1.16.2"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-test-renderer": "^16.0.0",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.3"
   }
 }
