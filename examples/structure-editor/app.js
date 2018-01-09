@@ -35,7 +35,7 @@ class App extends Component {
                 <input size="100" value={mol.toSmiles()} type="text" onChange={this.onChange.bind(this)} /><br />
                 <StructureEditor
                     OCL={OCL}
-                    //oclid={this.state.oclid}
+                    oclid={this.state.oclid}
                     // coordinates="aaaa"
                     // width={1200}
                     // height={800}
