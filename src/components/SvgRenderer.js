@@ -14,5 +14,5 @@ export default function SvgRenderer(props) {
 
     const html = {__html: mol.toSVG(options.width, options.height)};
 
-    return <div dangerouslySetInnerHTML={html}></div>;
+    return <div dangerouslySetInnerHTML={html} />;
 }

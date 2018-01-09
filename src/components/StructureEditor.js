@@ -68,10 +68,6 @@ class StructureEditor extends Component {
         }
     }
 
-    render() {
-        return <div id={this.id} style={{width: this.props.width, height: this.props.height}} />;
-    }
-
     setIDCode() {
         const molecule = getMoleculeFromProps(this.props, this.props.OCL.Molecule);
         if (molecule) {
@@ -84,11 +80,15 @@ class StructureEditor extends Component {
     setFragment() {
         this.editor.setFragment(!!this.props.fragment);
     }
+
+    render() {
+        return <div id={this.id} style={{width: this.props.width, height: this.props.height}} />;
+    }
 }
 
 StructureEditor.displayName = 'OCLStructureEditor';
 
-StructureEditor.PropTypes = {
+StructureEditor.propTypes = {
     oclid: PropTypes.any.isRequired,
     onAtomHighlight: PropTypes.func,
     onBondHighlight: PropTypes.func,
