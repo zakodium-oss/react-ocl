@@ -1,3 +1,1 @@
 extends: neptune-react
-env:
-  jest: true
