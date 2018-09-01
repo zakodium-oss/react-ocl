@@ -18,7 +18,7 @@ class StructureEditor extends Component {
 
   componentDidMount() {
     this.editor = new this.props.OCL.StructureEditor(
-      this.id,
+      this.getId(),
       this.props.svgMenu,
       1
     );
@@ -87,10 +87,14 @@ class StructureEditor extends Component {
     this.editor.setFragment(!!this.props.fragment);
   }
 
+  getId() {
+    return this.props.id ? `ocl_editor_${this.props.id}` : this.id;
+  }
+
   render() {
     return (
       <div
-        id={this.id}
+        id={this.getId()}
         style={{ width: this.props.width, height: this.props.height }}
       />
     );
