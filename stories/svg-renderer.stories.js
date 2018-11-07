@@ -13,7 +13,7 @@ import { idcode, molfileV2000, molfileV3000 } from './data';
 const molfileText =
   'The same MolfileSvgRenderer can be used to render both V2000 and V3000 molfile formats.';
 
-storiesOf('SvgRenderer', module)
+storiesOf('SVG renderers', module)
   .add(
     'From SMILES',
     () => <SmilesSvgRenderer smiles={text('SMILES', 'COCCOc1ccccc1')} />,
