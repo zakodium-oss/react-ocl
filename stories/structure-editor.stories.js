@@ -1,9 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import OCL from 'openchemlib/full';
 
-import { StructureEditor } from '../src';
+import { StructureEditor } from '../full';
 
 storiesOf('StructureEditor', module).add('From SMILES', () => (
-  <StructureEditor OCL={OCL} oclid="gGQ`ABeKuT@@" />
+  <StructureEditor oclid="gGQ`ABeKuT@@" />
 ));

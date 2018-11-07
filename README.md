@@ -13,13 +13,21 @@ npm install --save openchemlib react-ocl
 ## Usage
 
 ```jsx
-import OCL from 'openchemlib';
-import { SvgRenderer } from 'react-mf';
+import { SvgRenderer } from 'react-ocl';
 
 function MyComponent() {
-  return <SvgRenderer OCL={OCL} smiles="COCCOOOCO" />;
+  return <SvgRenderer smiles="COCCOOOCO" />;
 }
 ```
+
+## Which version of the library should I use?
+
+This library is available in three versions, like openchemlib: `react-ocl/minimal`
+(also available as `react-ocl`), `react-ocl/core` and `react-ocl/full`.
+
+- If you only use the SvgRenderer component, you can choose any version, minimal
+  being the smallest one.
+- If you want to use the StructureEditor component, you must import `react-ocl/full`.
 
 ## Documentation
 

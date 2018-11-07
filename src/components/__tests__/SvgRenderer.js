@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import * as OCL from 'openchemlib/minimal';
+import OCL from 'openchemlib/minimal';
 
 import SvgRenderer from '../SvgRenderer';
 

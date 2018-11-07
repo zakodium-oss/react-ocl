@@ -4,7 +4,7 @@ import { applyDefaultRendererOptions, getMoleculeFromProps } from '../util';
 
 export default function SvgRenderer(props) {
   const options = applyDefaultRendererOptions(props);
-  const mol = getMoleculeFromProps(options, props.OCL.Molecule);
+  const mol = getMoleculeFromProps(options);
   if (!mol) {
     throw new Error('Missing molecule');
   }

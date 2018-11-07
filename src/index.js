@@ -1,4 +1,10 @@
-import SvgRenderer from './components/SvgRenderer';
-import StructureEditor from './components/StructureEditor';
+import React from 'react';
+import OCL from 'openchemlib/minimal';
 
-export { SvgRenderer, StructureEditor };
+import SvgRenderer from './components/SvgRenderer';
+
+function MinimalSvgRenderer(props) {
+  return <SvgRenderer OCL={OCL} {...props} />;
+}
+
+export { MinimalSvgRenderer as SvgRenderer };

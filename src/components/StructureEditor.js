@@ -17,11 +17,8 @@ class StructureEditor extends Component {
   }
 
   componentDidMount() {
-    this.editor = new this.props.OCL.StructureEditor(
-      this.getId(),
-      this.props.svgMenu,
-      1
-    );
+    const { StructureEditor } = this.props.OCL;
+    this.editor = new StructureEditor(this.getId(), this.props.svgMenu, 1);
     this.editor.setChangeListenerCallback((idcode) => {
       if (!this.hasReceivedFirstChange) {
         this.hasReceivedFirstChange = true;
@@ -46,7 +43,6 @@ class StructureEditor extends Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    const { Molecule } = this.props.OCL;
     this.toUpdate = {
       fragment: false,
       mol: false
@@ -55,8 +51,10 @@ class StructureEditor extends Component {
     if (nextProps.fragment !== this.props.fragment) {
       this.toUpdate.fragment = shouldUpdate = true;
     }
-    const newMolecule = getMoleculeFromProps(nextProps, Molecule);
-    const currentMolecule = Molecule.fromIDCode(this.editor.getIDCode());
+    const newMolecule = getMoleculeFromProps(nextProps);
+    const currentMolecule = this.props.OCL.Molecule.fromIDCode(
+      this.editor.getIDCode()
+    );
     if (newMolecule.getIDCode() !== currentMolecule.getIDCode()) {
       this.toUpdate.mol = shouldUpdate = true;
     }
@@ -73,7 +71,7 @@ class StructureEditor extends Component {
   }
 
   setIDCode() {
-    const molecule = getMoleculeFromProps(this.props, this.props.OCL.Molecule);
+    const molecule = getMoleculeFromProps(this.props);
     if (molecule) {
       this.editor.setIDCode(
         idAndCoordinatesToString(molecule.getIDCodeAndCoordinates())
