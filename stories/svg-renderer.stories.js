@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { text } from '@storybook/addon-knobs';
+import { text, object } from '@storybook/addon-knobs';
 
 import {
   SmilesSvgRenderer,
@@ -54,19 +54,26 @@ storiesOf('SvgRenderer', module)
     }
   )
   .add('From ID code', () => (
-    <IdcodeSvgRenderer idcode={idcode.idCode} width={300} height={200} />
+    <IdcodeSvgRenderer
+      idcode={text('ID code', idcode.idCode)}
+      width={300}
+      height={200}
+    />
   ))
   .add('From ID code and coordinates', () => (
     <IdcodeSvgRenderer
-      idcode={idcode.idCode}
-      coordinates={idcode.coordinates}
+      idcode={text('ID code', idcode.idCode)}
+      coordinates={text('ID coordinates', idcode.coordinates)}
       width={300}
       height={200}
     />
   ))
   .add('From ID code and coordinates as object', () => (
     <IdcodeSvgRenderer
-      idcode={{ id: idcode.idCode, coordinates: idcode.coordinates }}
+      idcode={object('ID code object', {
+        id: idcode.idCode,
+        coordinates: idcode.coordinates
+      })}
       width={300}
       height={200}
     />

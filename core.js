@@ -1,10 +1,20 @@
+/* eslint-disable react/no-multi-comp */
+
 import React from 'react';
 import OCL from 'openchemlib/core';
 
-import SvgRenderer from './src/components/SvgRenderer';
+import BaseSmilesSvgRenderer from './src/components/SmilesSvgRenderer';
+import BaseMolfileSvgRenderer from './src/components/MolfileSvgRenderer';
+import BaseIdcodeSvgRenderer from './src/components/IdcodeSvgRenderer';
 
-function CoreSvgRenderer(props) {
-  return <SvgRenderer OCL={OCL} {...props} />;
+export function SmilesSvgRenderer(props) {
+  return <BaseSmilesSvgRenderer OCL={OCL} {...props} />;
 }
 
-export { CoreSvgRenderer as SvgRenderer };
+export function MolfileSvgRenderer(props) {
+  return <BaseMolfileSvgRenderer OCL={OCL} {...props} />;
+}
+
+export function IdcodeSvgRenderer(props) {
+  return <BaseIdcodeSvgRenderer OCL={OCL} {...props} />;
+}

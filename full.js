@@ -1,16 +1,25 @@
+/* eslint-disable react/no-multi-comp */
+
 import React from 'react';
 import OCL from 'openchemlib/full';
 
-import SvgRenderer from './src/components/SvgRenderer';
-import StructureEditor from './src/components/StructureEditor';
+import BaseSmilesSvgRenderer from './src/components/SmilesSvgRenderer';
+import BaseMolfileSvgRenderer from './src/components/MolfileSvgRenderer';
+import BaseIdcodeSvgRenderer from './src/components/IdcodeSvgRenderer';
+import BaseStructureEditor from './src/components/StructureEditor';
 
-function FullSvgRenderer(props) {
-  return <SvgRenderer OCL={OCL} {...props} />;
+export function SmilesSvgRenderer(props) {
+  return <BaseSmilesSvgRenderer OCL={OCL} {...props} />;
 }
 
-function FullStructureEditor(props) {
-  return <StructureEditor OCL={OCL} {...props} />;
+export function MolfileSvgRenderer(props) {
+  return <BaseMolfileSvgRenderer OCL={OCL} {...props} />;
 }
 
-export { FullSvgRenderer as SvgRenderer };
-export { FullStructureEditor as StructureEditor };
+export function IdcodeSvgRenderer(props) {
+  return <BaseIdcodeSvgRenderer OCL={OCL} {...props} />;
+}
+
+export function StructureEditor(props) {
+  return <BaseStructureEditor OCL={OCL} {...props} />;
+}
