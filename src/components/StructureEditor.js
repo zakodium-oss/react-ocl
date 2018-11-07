@@ -20,6 +20,20 @@ class StructureEditor extends Component {
     const { StructureEditor } = this.props.OCL;
     this.editor = new StructureEditor(this.getId(), this.props.svgMenu, 1);
     this.editor.setChangeListenerCallback((idcode) => {
+      const molecule = getMoleculeFromProps(this.props);
+      let initialIdcode;
+      if (molecule) {
+        initialIdcode = idAndCoordinatesToString(
+          molecule.getIDCodeAndCoordinates()
+        );
+      } else {
+        initialIdcode = 'd@';
+      }
+
+      if (idcode.split(' ')[0] !== initialIdcode.split(' ')[0]) {
+        this.setIDCode();
+        return;
+      }
       if (!this.hasReceivedFirstChange) {
         this.hasReceivedFirstChange = true;
         return;
@@ -28,14 +42,18 @@ class StructureEditor extends Component {
         this.props.onChange(stringToIdAndCoordinates(idcode));
       }
     });
-    this.editor.setAtomHightlightCallback((...args) => {
-      if (this.props.onAtomHighlight) {
-        this.props.onAtomHighlight(...args);
+    this.editor.setAtomHightlightCallback((atomId, enter) => {
+      if (enter && this.props.onAtomEnter) {
+        this.props.onAtomEnter(atomId);
+      } else if (!enter && this.props.onAtomLeave) {
+        this.props.onAtomLeave(atomId);
       }
     });
-    this.editor.setBondHightlightCallback((...args) => {
-      if (this.props.onBondHighlight) {
-        this.props.onBondHighlight(...args);
+    this.editor.setBondHightlightCallback((bondId, enter) => {
+      if (enter && this.props.onBondEnter) {
+        this.props.onBondEnter(bondId);
+      } else if (!enter && this.props.onBondLeave) {
+        this.props.onBondLeave(bondId);
       }
     });
     this.setIDCode();

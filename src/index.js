@@ -1,10 +1,10 @@
 import React from 'react';
 import OCL from 'openchemlib/minimal';
 
-import SvgRenderer from './components/SvgRenderer';
+import SmilesSvgRenderer from './components/SmilesSvgRenderer';
 
-function MinimalSvgRenderer(props) {
-  return <SvgRenderer OCL={OCL} {...props} />;
+function MinimalSmilesSvgRenderer(props) {
+  return <SmilesSvgRenderer OCL={OCL} {...props} />;
 }
 
-export { MinimalSvgRenderer as SvgRenderer };
+export { MinimalSmilesSvgRenderer as SmilesSvgRenderer };
