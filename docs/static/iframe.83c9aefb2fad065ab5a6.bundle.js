@@ -1,6 +1,6 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[0],{
 
-/***/ 133:
+/***/ 134:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -29,7 +29,7 @@ function SmilesSvgRenderer(props){var OCL=props.OCL,smiles=props.smiles,otherPro
 // CONCATENATED MODULE: ./src/components/MolfileSvgRenderer.js
 function MolfileSvgRenderer(props){var OCL=props.OCL,molfile=props.molfile,otherProps=objectWithoutProperties_default()(props,["OCL","molfile"]),mol=OCL.Molecule.fromMolfile(molfile);return react_default.a.createElement(SvgRenderer,extends_default()({mol:mol},otherProps))}MolfileSvgRenderer.__docgenInfo={description:"",methods:[],displayName:"MolfileSvgRenderer"},"undefined"!=typeof STORYBOOK_REACT_CLASSES&&(STORYBOOK_REACT_CLASSES["src\\components\\MolfileSvgRenderer.js"]={name:"MolfileSvgRenderer",docgenInfo:MolfileSvgRenderer.__docgenInfo,path:"src\\components\\MolfileSvgRenderer.js"});
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/typeof.js
-var helpers_typeof = __webpack_require__(93);
+var helpers_typeof = __webpack_require__(94);
 var typeof_default = /*#__PURE__*/__webpack_require__.n(helpers_typeof);
 
 // CONCATENATED MODULE: ./src/components/IdcodeSvgRenderer.js
@@ -59,9 +59,9 @@ module.exports = __webpack_require__(566);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var _storybook_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(140);
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var _storybook_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(141);
 /* harmony import */ var _storybook_react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_storybook_react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(141);
+/* harmony import */ var _storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(73);
 /* harmony import */ var _storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _storybook_addon_info__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(563);
 /* harmony import */ var _storybook_addon_info__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_storybook_addon_info__WEBPACK_IMPORTED_MODULE_2__);
@@ -169,18 +169,18 @@ webpackContext.id = 613;
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _storybook_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(140);
+/* harmony import */ var _storybook_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(141);
 /* harmony import */ var _storybook_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_storybook_react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(141);
+/* harmony import */ var _storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(73);
 /* harmony import */ var _storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _minimal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(133);
-/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(96);
-var molfileText="The same MolfileSvgRenderer can be used to render both V2000 and V3000 molfile formats.";Object(_storybook_react__WEBPACK_IMPORTED_MODULE_1__["storiesOf"])("SvgRenderer",module).add("From SMILES",function(){return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_minimal__WEBPACK_IMPORTED_MODULE_3__[/* SmilesSvgRenderer */ "c"],{smiles:Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_2__["text"])("SMILES","COCCOc1ccccc1")})},{info:{text:"The SMILES SVG renderer will always invent the coordinates."}}).add("From molfile V2000",function(){return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_minimal__WEBPACK_IMPORTED_MODULE_3__[/* MolfileSvgRenderer */ "b"],{molfile:Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_2__["text"])("molfile",_data__WEBPACK_IMPORTED_MODULE_4__[/* molfileV2000 */ "b"]),width:300,height:200})},{info:{text:"The same MolfileSvgRenderer can be used to render both V2000 and V3000 molfile formats."}}).add("From molfile V3000",function(){return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_minimal__WEBPACK_IMPORTED_MODULE_3__[/* MolfileSvgRenderer */ "b"],{molfile:Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_2__["text"])("molfile",_data__WEBPACK_IMPORTED_MODULE_4__[/* molfileV3000 */ "c"]),width:300,height:200})},{info:{text:"The same MolfileSvgRenderer can be used to render both V2000 and V3000 molfile formats."}}).add("From ID code",function(){return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_minimal__WEBPACK_IMPORTED_MODULE_3__[/* IdcodeSvgRenderer */ "a"],{idcode:_data__WEBPACK_IMPORTED_MODULE_4__[/* idcode */ "a"].idCode,width:300,height:200})}).add("From ID code and coordinates",function(){return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_minimal__WEBPACK_IMPORTED_MODULE_3__[/* IdcodeSvgRenderer */ "a"],{idcode:_data__WEBPACK_IMPORTED_MODULE_4__[/* idcode */ "a"].idCode,coordinates:_data__WEBPACK_IMPORTED_MODULE_4__[/* idcode */ "a"].coordinates,width:300,height:200})}).add("From ID code and coordinates as object",function(){return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_minimal__WEBPACK_IMPORTED_MODULE_3__[/* IdcodeSvgRenderer */ "a"],{idcode:{id:_data__WEBPACK_IMPORTED_MODULE_4__[/* idcode */ "a"].idCode,coordinates:_data__WEBPACK_IMPORTED_MODULE_4__[/* idcode */ "a"].coordinates},width:300,height:200})});
+/* harmony import */ var _minimal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(134);
+/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(97);
+var molfileText="The same MolfileSvgRenderer can be used to render both V2000 and V3000 molfile formats.";Object(_storybook_react__WEBPACK_IMPORTED_MODULE_1__["storiesOf"])("SvgRenderer",module).add("From SMILES",function(){return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_minimal__WEBPACK_IMPORTED_MODULE_3__[/* SmilesSvgRenderer */ "c"],{smiles:Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_2__["text"])("SMILES","COCCOc1ccccc1")})},{info:{text:"The SMILES SVG renderer will always invent the coordinates."}}).add("From molfile V2000",function(){return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_minimal__WEBPACK_IMPORTED_MODULE_3__[/* MolfileSvgRenderer */ "b"],{molfile:Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_2__["text"])("molfile",_data__WEBPACK_IMPORTED_MODULE_4__[/* molfileV2000 */ "b"]),width:300,height:200})},{info:{text:"The same MolfileSvgRenderer can be used to render both V2000 and V3000 molfile formats."}}).add("From molfile V3000",function(){return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_minimal__WEBPACK_IMPORTED_MODULE_3__[/* MolfileSvgRenderer */ "b"],{molfile:Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_2__["text"])("molfile",_data__WEBPACK_IMPORTED_MODULE_4__[/* molfileV3000 */ "c"]),width:300,height:200})},{info:{text:"The same MolfileSvgRenderer can be used to render both V2000 and V3000 molfile formats."}}).add("From ID code",function(){return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_minimal__WEBPACK_IMPORTED_MODULE_3__[/* IdcodeSvgRenderer */ "a"],{idcode:Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_2__["text"])("ID code",_data__WEBPACK_IMPORTED_MODULE_4__[/* idcode */ "a"].idCode),width:300,height:200})}).add("From ID code and coordinates",function(){return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_minimal__WEBPACK_IMPORTED_MODULE_3__[/* IdcodeSvgRenderer */ "a"],{idcode:Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_2__["text"])("ID code",_data__WEBPACK_IMPORTED_MODULE_4__[/* idcode */ "a"].idCode),coordinates:Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_2__["text"])("ID coordinates",_data__WEBPACK_IMPORTED_MODULE_4__[/* idcode */ "a"].coordinates),width:300,height:200})}).add("From ID code and coordinates as object",function(){return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_minimal__WEBPACK_IMPORTED_MODULE_3__[/* IdcodeSvgRenderer */ "a"],{idcode:Object(_storybook_addon_knobs__WEBPACK_IMPORTED_MODULE_2__["object"])("ID code object",{id:_data__WEBPACK_IMPORTED_MODULE_4__[/* idcode */ "a"].idCode,coordinates:_data__WEBPACK_IMPORTED_MODULE_4__[/* idcode */ "a"].coordinates}),width:300,height:200})});
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(320)(module)))
 
 /***/ }),
 
-/***/ 96:
+/***/ 97:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
