@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 import SvgRenderer from './SvgRenderer';
 
-export default function SmilesSvgRenderer(props) {
-  let { OCL, idcode, coordinates, ...otherProps } = props;
-  if (typeof idcode === 'object') {
-    coordinates = idcode.coordinates;
-    idcode = idcode.id;
+export default class IdcodeSvgRenderer extends PureComponent {
+  render() {
+    let { OCL, idcode, coordinates, ...otherProps } = this.props;
+    const mol = OCL.Molecule.fromIDCode(idcode, coordinates);
+    return <SvgRenderer mol={mol} {...otherProps} />;
   }
-  const mol = OCL.Molecule.fromIDCode(idcode, coordinates);
-  return <SvgRenderer mol={mol} {...otherProps} />;
 }
+
+IdcodeSvgRenderer.propTypes = {
+  idcode: PropTypes.string.isRequired,
+  coordinates: PropTypes.string
+};
