@@ -6,7 +6,10 @@ import OCL from 'openchemlib/full';
 import BaseSmilesSvgRenderer from './src/components/SmilesSvgRenderer';
 import BaseMolfileSvgRenderer from './src/components/MolfileSvgRenderer';
 import BaseIdcodeSvgRenderer from './src/components/IdcodeSvgRenderer';
-import BaseStructureEditor from './src/components/StructureEditor';
+
+export {
+  default as IdcodeStructureEditor
+} from './src/components/IdcodeStructureEditor';
 
 export function SmilesSvgRenderer(props) {
   return <BaseSmilesSvgRenderer OCL={OCL} {...props} />;
@@ -18,8 +21,4 @@ export function MolfileSvgRenderer(props) {
 
 export function IdcodeSvgRenderer(props) {
   return <BaseIdcodeSvgRenderer OCL={OCL} {...props} />;
-}
-
-export function StructureEditor(props) {
-  return <BaseStructureEditor OCL={OCL} {...props} />;
 }
