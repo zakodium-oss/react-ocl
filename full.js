@@ -8,8 +8,8 @@ import BaseMolfileSvgRenderer from './src/components/MolfileSvgRenderer';
 import BaseIdcodeSvgRenderer from './src/components/IdcodeSvgRenderer';
 
 export {
-  default as IdcodeStructureEditor
-} from './src/components/IdcodeStructureEditor';
+  default as StructureEditor
+} from './src/components/StructureEditor';
 
 export function SmilesSvgRenderer(props) {
   return <BaseSmilesSvgRenderer OCL={OCL} {...props} />;

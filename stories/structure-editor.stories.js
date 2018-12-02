@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import OCL from 'openchemlib/full';
 
-import { IdcodeStructureEditor } from '../full';
+import { StructureEditor, MolfileSvgRenderer } from '../full';
 
 const initialMolfile = `
 Actelion Java MolfileCreator 1.0
@@ -22,13 +21,16 @@ Actelion Java MolfileCreator 1.0
 M  END
 `;
 
-const initialIdcode = OCL.Molecule.fromMolfile(
-  initialMolfile
-).getIDCodeAndCoordinates();
-
-function IdcodeDemo() {
-  const [idcode, setIdcode] = useState({ idcode: initialIdcode.idCode });
-  return <IdcodeStructureEditor {...idcode} onChange={setIdcode} />;
+function MolfileDemo() {
+  const [molfile, setMolfile] = useState(initialMolfile);
+  return (
+    <div>
+      <h2>Editor</h2>
+      <StructureEditor molfile={molfile} onChange={setMolfile} />
+      <h2>Current value</h2>
+      <MolfileSvgRenderer molfile={molfile} />
+    </div>
+  );
 }
 
-storiesOf('StructureEditor', module).add('From ID Code', () => <IdcodeDemo />);
+storiesOf('StructureEditor', module).add('From molfile', () => <MolfileDemo />);
