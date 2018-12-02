@@ -20,14 +20,14 @@ class StructureEditor extends Component {
       this.props.svgMenu,
       1
     ));
-    editor.setChangeListenerCallback(() => {
+    editor.setChangeListenerCallback((idCode) => {
       const molfile = editor.getMolFileV3();
       if (molfile === this.current.molfile) {
         return;
       }
       this.current.molfile = molfile;
       if (this.props.onChange) {
-        this.props.onChange(molfile);
+        this.props.onChange({ molfile, idCode });
       }
     });
     editor.setAtomHightlightCallback((atomId, enter) => {

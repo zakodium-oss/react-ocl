@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { storiesOf } from '@storybook/react';
+import { boolean } from '@storybook/addon-knobs';
 
-import { StructureEditor, MolfileSvgRenderer } from '../full';
+import { StructureEditor } from '../full';
 
 const initialMolfile = `
 Actelion Java MolfileCreator 1.0
@@ -23,12 +24,32 @@ M  END
 
 function MolfileDemo() {
   const [molfile, setMolfile] = useState(initialMolfile);
+  const [previous, setPrevious] = useState(null);
+  const cb = useCallback(
+    (newMolfile) => {
+      setMolfile(newMolfile.molfile);
+      setPrevious(molfile);
+    },
+    [setMolfile, setPrevious, molfile]
+  );
   return (
     <div>
       <h2>Editor</h2>
-      <StructureEditor molfile={molfile} onChange={setMolfile} />
-      <h2>Current value</h2>
-      <MolfileSvgRenderer molfile={molfile} />
+      <StructureEditor
+        molfile={molfile}
+        fragment={boolean('fragment', false)}
+        onChange={cb}
+      />
+      <div style={{ display: 'flex' }}>
+        <div style={{ flex: 1 }}>
+          <h2 style={{ textAlign: 'center' }}>Current</h2>
+          <pre>{molfile}</pre>
+        </div>
+        <div style={{ flex: 1 }}>
+          <h2 style={{ textAlign: 'center' }}>Previous</h2>
+          <pre>{previous}</pre>
+        </div>
+      </div>
     </div>
   );
 }
