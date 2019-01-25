@@ -36,7 +36,7 @@ function MolfileDemo() {
     <div>
       <h2>Editor</h2>
       <StructureEditor
-        molfile={molfile}
+        molfile={initialMolfile}
         fragment={boolean('fragment', false)}
         onChange={cb}
       />
@@ -54,4 +54,15 @@ function MolfileDemo() {
   );
 }
 
-storiesOf('StructureEditor', module).add('From molfile', () => <MolfileDemo />);
+storiesOf('StructureEditor', module).add(
+  'From molfile',
+  () => <MolfileDemo />,
+  {
+    info: {
+      text: 'StructureEditor is an uncontrolled component',
+      source: false,
+      propTables: [StructureEditor],
+      propTablesExclude: [MolfileDemo]
+    }
+  }
+);

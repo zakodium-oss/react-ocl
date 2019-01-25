@@ -3,14 +3,10 @@ import PropTypes from 'prop-types';
 import uniqId from 'lodash.uniqueid';
 import OCL from 'openchemlib/full';
 
-const { Molecule } = OCL;
-
 class StructureEditor extends Component {
   constructor(props) {
     super(props);
     this.id = uniqId('ocl_editor_');
-    this.current = {};
-    this.lastChanged = null;
     this.editor = null;
   }
 
@@ -22,10 +18,6 @@ class StructureEditor extends Component {
     ));
     editor.setChangeListenerCallback((idCode) => {
       const molfile = editor.getMolFileV3();
-      if (molfile === this.current.molfile) {
-        return;
-      }
-      this.current.molfile = molfile;
       if (this.props.onChange) {
         this.props.onChange({ molfile, idCode });
       }
@@ -44,25 +36,22 @@ class StructureEditor extends Component {
         this.props.onBondLeave(bondId);
       }
     });
-    this.setValue();
+    this.setValue({});
   }
 
-  componentDidUpdate() {
-    this.setValue();
+  componentDidUpdate(prevProps) {
+    this.setValue(prevProps);
   }
 
-  setValue() {
-    const isFragment = Boolean(this.props.fragment);
-    if (this.current.isFragment !== isFragment) {
+  setValue(prevProps) {
+    if (prevProps.fragment !== this.props.fragment) {
+      const isFragment = Boolean(this.props.fragment);
       this.editor.setFragment(isFragment);
     }
 
-    const molfile = this.props.molfile;
-    const mol = Molecule.fromMolfile(molfile);
-    const molfileV3 = mol.toMolfileV3();
-    if (this.current.molfile !== molfileV3) {
-      this.editor.setMolFile(molfileV3);
-      this.current.molfile = molfileV3;
+    if (prevProps.molfile !== this.props.molfile) {
+      const molfile = this.props.molfile;
+      this.editor.setMolFile(molfile);
     }
   }
 
@@ -83,13 +72,14 @@ class StructureEditor extends Component {
 StructureEditor.propTypes = {
   molfile: PropTypes.string.isRequired,
   fragment: PropTypes.bool,
+  svgMenu: PropTypes.bool,
+  width: PropTypes.number,
+  height: PropTypes.number,
+  onChange: PropTypes.func,
   onAtomEnter: PropTypes.func,
   onAtomLeave: PropTypes.func,
   onBondEnter: PropTypes.func,
-  onBondLeave: PropTypes.func,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  svgMenu: PropTypes.bool
+  onBondLeave: PropTypes.func
 };
 
 StructureEditor.defaultProps = {
