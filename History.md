@@ -1,3 +1,17 @@
+# [2.0.0](https://github.com/neptunejs/react-ocl/compare/v1.0.1...v2.0.0) (2019-01-25)
+
+
+### Bug Fixes
+
+* **editor:** allow to pass a custom id ([e9f6639](https://github.com/neptunejs/react-ocl/commit/e9f6639))
+
+
+### Features
+
+* export three versions of the library and make OCL prop obsolete ([0cd6a68](https://github.com/neptunejs/react-ocl/commit/0cd6a68))
+
+
+
 <a name="1.0.1"></a>
 ## [1.0.1](https://github.com/neptunejs/react-ocl/compare/v1.0.0...v1.0.1) (2018-09-01)
 
