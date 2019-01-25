@@ -1,14 +1,3 @@
 {
-  "presets": ["@babel/react"],
-  "env": {
-    "es6": {
-      "presets": [["@babel/env", { "modules": false }]]
-    },
-    "development": {
-      "presets": ["@babel/env"]
-    },
-    "test": {
-      "presets": ["@babel/env"]
-    }
-  }
+  "presets": ["@babel/react"]
 }

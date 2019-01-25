@@ -10,10 +10,11 @@
   ],
   "files": [
     "lib",
-    "lib-es6"
+    "core.js",
+    "full.js",
+    "minimal.js"
   ],
-  "main": "lib/index.js",
-  "module": "lib-es6/index.js",
+  "module": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/neptunejs/react-ocl.git"
@@ -23,11 +24,10 @@
   "author": "Michaël Zasso <targos@protonmail.com>",
   "scripts": {
     "build-docs": "build-storybook -o docs",
-    "compile": "babel src --out-dir lib --ignore src/**/__tests__ --quiet",
-    "compile-es6": "cross-env BABEL_ENV=es6 babel src --out-dir lib-es6 --ignore src/**/__tests__ --quiet",
+    "compile": "babel src --out-dir lib --ignore src/**/__tests__ --quiet --source-maps",
     "eslint": "eslint src stories",
     "eslint-fix": "eslint --fix src",
-    "prepare": "npm run compile && npm run compile-es6",
+    "prepare": "npm run compile",
     "storybook": "start-storybook -p 6006",
     "test": "npm run test-only && npm run eslint",
     "test-only": "jest"
@@ -45,7 +45,6 @@
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "@storybook/addon-actions": "^4.1.11",
     "@storybook/addon-info": "^4.1.11",
@@ -58,7 +57,6 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.5",
-    "cross-env": "^5.2.0",
     "eslint": "^5.12.1",
     "eslint-config-cheminfo": "^1.20.0",
     "eslint-config-neptune-react": "^2.6.0",

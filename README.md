@@ -13,7 +13,7 @@ npm install --save openchemlib react-ocl
 ## Usage
 
 ```jsx
-import { SvgRenderer } from 'react-ocl';
+import { SmilesSvgRenderer } from 'react-ocl';
 
 function MyComponent() {
   return <SvgRenderer smiles="COCCOOOCO" />;

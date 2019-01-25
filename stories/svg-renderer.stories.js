@@ -6,7 +6,7 @@ import {
   SmilesSvgRenderer,
   MolfileSvgRenderer,
   IdcodeSvgRenderer
-} from '../minimal';
+} from '../src/index';
 import BaseIdcodeSvgRenderer from '../src/components/IdcodeSvgRenderer';
 import BaseMolfileSvgRenderer from '../src/components/MolfileSvgRenderer';
 import BaseSmilesSvgRenderer from '../src/components/SmilesSvgRenderer';
