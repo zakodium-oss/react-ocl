@@ -10,9 +10,9 @@
   ],
   "files": [
     "lib",
-    "core.js",
-    "full.js",
-    "minimal.js"
+    "core.mjs",
+    "full.mjs",
+    "minimal.mjs"
   ],
   "module": "lib/index.js",
   "repository": {
