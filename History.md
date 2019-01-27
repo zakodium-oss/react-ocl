@@ -1,3 +1,12 @@
+## [2.0.1](https://github.com/neptunejs/react-ocl/compare/v2.0.0...v2.0.1) (2019-01-27)
+
+
+### Bug Fixes
+
+* use .mjs to tell entrypoints are modules ([a468b8b](https://github.com/neptunejs/react-ocl/commit/a468b8b))
+
+
+
 # [2.0.0](https://github.com/neptunejs/react-ocl/compare/v1.0.1...v2.0.0) (2019-01-25)
 
 
