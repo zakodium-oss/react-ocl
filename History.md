@@ -1,3 +1,17 @@
+# [3.0.0](https://github.com/neptunejs/react-ocl/compare/v2.0.1...v3.0.0) (2019-01-27)
+
+
+### Bug Fixes
+
+* update OCL to v6 ([5a0cdd5](https://github.com/neptunejs/react-ocl/commit/5a0cdd5))
+
+
+### BREAKING CHANGES
+
+* The openchemlib peer dependency is now 6.0.0.
+
+
+
 ## [2.0.1](https://github.com/neptunejs/react-ocl/compare/v2.0.0...v2.0.1) (2019-01-27)
 
 
