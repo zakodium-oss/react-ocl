@@ -66,7 +66,7 @@ class StructureEditor extends Component {
 }
 
 StructureEditor.propTypes = {
-  molfile: PropTypes.string.isRequired,
+  molfile: PropTypes.string,
   fragment: PropTypes.bool,
   svgMenu: PropTypes.bool,
   width: PropTypes.number,
@@ -79,10 +79,11 @@ StructureEditor.propTypes = {
 };
 
 StructureEditor.defaultProps = {
+  molfile: '',
   fragment: false,
+  svgMenu: true,
   width: 675,
-  height: 450,
-  svgMenu: true
+  height: 450
 };
 
 export default StructureEditor;
