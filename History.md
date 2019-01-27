@@ -1,3 +1,12 @@
+## [3.0.1](https://github.com/neptunejs/react-ocl/compare/v3.0.0...v3.0.1) (2019-01-27)
+
+
+### Bug Fixes
+
+* molfile prop doesn't have to be required ([538e51f](https://github.com/neptunejs/react-ocl/commit/538e51f))
+
+
+
 # [3.0.0](https://github.com/neptunejs/react-ocl/compare/v2.0.1...v3.0.0) (2019-01-27)
 
 
