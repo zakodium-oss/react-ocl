@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import uniqId from 'lodash.uniqueid';
 import OCL from 'openchemlib/full';
 
 class StructureEditor extends Component {
   constructor(props) {
     super(props);
-    this.id = uniqId('ocl_editor_');
+    this.editorRef = React.createRef();
     this.editor = null;
   }
 
   componentDidMount() {
-    const editor = (this.editor = new OCL.StructureEditor(
-      this.getId(),
+    const editor = new OCL.StructureEditor(
+      this.editorRef.current,
       this.props.svgMenu,
       1
-    ));
+    );
+    this.editor = editor;
     editor.setChangeListenerCallback((idCode) => {
       const molfile = editor.getMolFileV3();
       if (this.props.onChange) {
@@ -55,14 +55,10 @@ class StructureEditor extends Component {
     }
   }
 
-  getId() {
-    return this.props.id ? `ocl_editor_${this.props.id}` : this.id;
-  }
-
   render() {
     return (
       <div
-        id={this.getId()}
+        ref={this.editorRef}
         style={{ width: this.props.width, height: this.props.height }}
       />
     );
