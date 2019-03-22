@@ -1,3 +1,7 @@
+## [3.0.2](https://github.com/zakodium/react-ocl/compare/v3.0.1...v3.0.2) (2019-03-22)
+
+
+
 ## [3.0.1](https://github.com/zakodium/react-ocl/compare/v3.0.0...v3.0.1) (2019-01-27)
 
 ### Bug Fixes
