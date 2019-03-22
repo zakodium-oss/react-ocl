@@ -31,7 +31,7 @@ This library is available in three versions, like openchemlib: `react-ocl/minima
 
 ## Documentation
 
-See https://neptunejs.github.io/react-ocl/ for detailed usage examples.
+See https://zakodium.github.io/react-ocl/ for detailed usage examples.
 
 [npm-image]: https://img.shields.io/npm/v/react-ocl.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/react-ocl
