@@ -1,10 +1,10 @@
 'use strict';
 
-module.exports = (storybookConfig, mode) => {
+module.exports = ({config, mode}) => {
   if (mode === 'PRODUCTION') {
     // To avoid having minified names in source view
-    storybookConfig.optimization.minimize = false;
-    storybookConfig.devtool = false;
+    config.optimization.minimize = false;
+    config.devtool = false;
   }
-  return storybookConfig;
+  return config;
 };
