@@ -1,19 +1,51 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 
-export default function SvgRenderer(props) {
-  const html = {
-    __html: props.mol.toSVG(props.width, props.height, props.id, props)
-  };
+const idPrefix = 'react-ocl:';
+let currentId = 0;
 
-  // eslint-disable-next-line react/no-danger
-  return <div dangerouslySetInnerHTML={html} />;
+export default function SvgRenderer(props) {
+  const [internalId] = useState(() => idPrefix + currentId++);
+  const ref = useRef(null);
+  const id = props.id || internalId;
+  const svgString = props.mol.toSVG(props.width, props.height, id, props);
+
+  const { highlight, highlightOpacity, highlightColor } = props;
+
+  useEffect(() => {
+    const div = ref.current;
+    const svg = div.firstChild;
+    const start = `${id}:Atom:`;
+    const atoms = svg.querySelectorAll(`[id^="${start}"]`);
+    for (const atom of atoms) {
+      const atomNumber = atom.id.replace(start, '');
+      if (highlight && highlight.includes(atomNumber)) {
+        atom.setAttribute('fill-opacity', highlightOpacity);
+        atom.setAttribute('fill', highlightColor);
+      } else {
+        atom.setAttribute('fill-opacity', 0);
+      }
+    }
+  });
+
+  return (
+    <div
+      ref={ref}
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{
+        __html: svgString
+      }}
+    />
+  );
 }
 
 SvgRenderer.propTypes = {
   width: propTypes.number,
   height: propTypes.number,
   id: propTypes.string,
+  highlight: propTypes.arrayOf(propTypes.string),
+  highlightColor: propTypes.string,
+  highlightOpacity: propTypes.number,
   factorTextSize: propTypes.number,
   fontWeight: propTypes.string,
   strokeWidth: propTypes.oneOf([propTypes.string, propTypes.number]),
@@ -41,6 +73,8 @@ SvgRenderer.propTypes = {
 SvgRenderer.defaultProps = {
   width: 300,
   height: 150,
+  highlightColor: 'yellow',
+  highlightOpacity: 0.5,
   suppressChiralText: true,
   suppressESR: true,
   suppressCIPParity: true,
