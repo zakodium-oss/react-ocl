@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean } from '@storybook/addon-knobs';
 
-import { StructureEditor } from '../full';
+import StructureEditor from '../src/components/StructureEditor';
 
 const initialMolfile = `
 Actelion Java MolfileCreator 1.0
@@ -22,7 +22,7 @@ Actelion Java MolfileCreator 1.0
 M  END
 `;
 
-function MolfileDemo() {
+function MolfileDemo({ svgMenu, fragment }) {
   const [molfile, setMolfile] = useState(initialMolfile);
   const [previous, setPrevious] = useState(null);
   const cb = useCallback(
@@ -36,8 +36,9 @@ function MolfileDemo() {
     <div>
       <h2>Editor</h2>
       <StructureEditor
-        molfile={initialMolfile}
-        fragment={boolean('fragment', false)}
+        initialMolfile={molfile}
+        svgMenu={svgMenu}
+        fragment={fragment}
         onChange={cb}
       />
       <div style={{ display: 'flex' }}>
@@ -56,7 +57,12 @@ function MolfileDemo() {
 
 storiesOf('StructureEditor', module).add(
   'From molfile',
-  () => <MolfileDemo />,
+  () => (
+    <MolfileDemo
+      svgMenu={boolean('SVG menu', true)}
+      fragment={boolean('fragment', false)}
+    />
+  ),
   {
     info: {
       text: 'StructureEditor is an uncontrolled component',

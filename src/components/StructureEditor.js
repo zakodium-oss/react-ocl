@@ -1,68 +1,79 @@
-import React, { Component } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import OCL from 'openchemlib/full';
 
-class StructureEditor extends Component {
-  constructor(props) {
-    super(props);
-    this.editorRef = React.createRef();
-    this.editor = null;
-  }
+function StructureEditor(props) {
+  const {
+    width,
+    height,
+    initialMolfile,
+    fragment,
+    svgMenu,
+    onChange,
+    onAtomEnter,
+    onAtomLeave,
+    onBondEnter,
+    onBondLeave
+  } = props;
 
-  componentDidMount() {
-    const editor = new OCL.StructureEditor(
-      this.editorRef.current,
-      this.props.svgMenu,
-      1
-    );
-    this.editor = editor;
-    editor.setChangeListenerCallback((idCode) => {
-      const molfile = editor.getMolFileV3();
-      if (this.props.onChange) {
-        this.props.onChange({ molfile, idCode });
+  const domRef = useRef();
+  const editorRef = useRef({ editor: null, hadFirstChange: false });
+  const callbacksRef = useRef({});
+
+  useEffect(() => {
+    domRef.current.innerHTML = '';
+    const editor = new OCL.StructureEditor(domRef.current, svgMenu, 1);
+    editorRef.current = { editor, hadFirstChange: false };
+    editor.setMolFile(initialMolfile);
+    editor.setChangeListenerCallback((...args) => {
+      if (callbacksRef.current.onChange) {
+        callbacksRef.current.onChange(...args);
       }
     });
-    editor.setAtomHightlightCallback((atomId, enter) => {
-      if (enter && this.props.onAtomEnter) {
-        this.props.onAtomEnter(atomId);
-      } else if (!enter && this.props.onAtomLeave) {
-        this.props.onAtomLeave(atomId);
+    editor.setAtomHightlightCallback((...args) => {
+      if (callbacksRef.current.onAtomHighlight) {
+        callbacksRef.current.onAtomHighlight(...args);
       }
     });
-    editor.setBondHightlightCallback((bondId, enter) => {
-      if (enter && this.props.onBondEnter) {
-        this.props.onBondEnter(bondId);
-      } else if (!enter && this.props.onBondLeave) {
-        this.props.onBondLeave(bondId);
+    editor.setBondHightlightCallback((...args) => {
+      if (callbacksRef.current.onBondHighlight) {
+        callbacksRef.current.onBondHighlight(...args);
       }
     });
-    this.setValue({});
-  }
+  }, [width, height, svgMenu]);
 
-  componentDidUpdate(prevProps) {
-    this.setValue(prevProps);
-  }
+  useEffect(() => {
+    callbacksRef.current.onChange = (idCode) => {
+      const molfile = editorRef.current.editor.getMolFileV3();
+      if (!editorRef.current.hadFirstChange) {
+        editorRef.current.hadFirstChange = true;
+      } else {
+        if (onChange) {
+          onChange({ molfile, idCode });
+        }
+      }
+    };
+    callbacksRef.current.onAtomHighlight = (atomId, enter) => {
+      if (enter && onAtomEnter) {
+        onAtomEnter(atomId);
+      } else if (!enter && onAtomLeave) {
+        onAtomLeave(atomId);
+      }
+    };
+    callbacksRef.current.onBondHighlight = (bondId, enter) => {
+      if (enter && onBondEnter) {
+        onBondEnter(bondId);
+      } else if (!enter && onBondLeave) {
+        onBondLeave(bondId);
+      }
+    };
+  }, [onChange, onAtomEnter, onAtomLeave, onBondEnter, onBondLeave]);
 
-  setValue(prevProps) {
-    if (prevProps.fragment !== this.props.fragment) {
-      const isFragment = Boolean(this.props.fragment);
-      this.editor.setFragment(isFragment);
-    }
+  useEffect(() => {
+    editorRef.current.editor.setFragment(fragment);
+  }, [fragment]);
 
-    if (prevProps.molfile !== this.props.molfile) {
-      const molfile = this.props.molfile;
-      this.editor.setMolFile(molfile);
-    }
-  }
-
-  render() {
-    return (
-      <div
-        ref={this.editorRef}
-        style={{ width: this.props.width, height: this.props.height }}
-      />
-    );
-  }
+  return <div ref={domRef} style={{ width, height }} />;
 }
 
 StructureEditor.propTypes = {
