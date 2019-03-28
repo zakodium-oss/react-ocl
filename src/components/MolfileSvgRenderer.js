@@ -1,11 +1,11 @@
-import React, { memo } from 'react';
+import React, { memo, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import SvgRenderer from './SvgRenderer';
 
 function MolfileSvgRenderer(props) {
   const { OCL, molfile, ...otherProps } = props;
-  const mol = OCL.Molecule.fromMolfile(molfile);
+  const mol = useMemo(() => OCL.Molecule.fromMolfile(molfile), [OCL, molfile]);
   return <SvgRenderer mol={mol} {...otherProps} />;
 }
 

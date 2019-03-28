@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 
-const idPrefix = 'react-ocl:';
+const idPrefix = 'react-ocl-';
 let currentId = 0;
 
 export default function SvgRenderer(props) {
@@ -9,11 +9,21 @@ export default function SvgRenderer(props) {
     width,
     height,
     id: idFromProps,
-    highlight,
-    highlightOpacity,
-    highlightColor,
+
+    atomHighlight,
+    atomHighlightOpacity,
+    atomHighlightColor,
     onAtomEnter,
     onAtomLeave,
+    onAtomClick,
+
+    bondHighlight,
+    bondHighlightOpacity,
+    bondHighlightColor,
+    onBondEnter,
+    onBondLeave,
+    onBondClick,
+
     ...otherProps
   } = props;
 
@@ -21,49 +31,31 @@ export default function SvgRenderer(props) {
   const ref = useRef(null);
 
   const id = idFromProps || internalId;
-  const atomStart = `${id}:Atom:`;
-
   const svgString = props.mol.toSVG(width, height, id, otherProps);
 
-  useEffect(() => {
-    const div = ref.current;
-    const svg = div.firstChild;
-    const handleEnter = (event) => {
-      if (!onAtomEnter) return;
-      const { target } = event;
-      if (target.id.startsWith(atomStart)) {
-        onAtomEnter(target.id.replace(atomStart, ''));
-      }
-    };
-    const handleLeave = (event) => {
-      if (!onAtomLeave) return;
-      const { target } = event;
-      if (target.id.startsWith(atomStart)) {
-        onAtomLeave(target.id.replace(atomStart, ''));
-      }
-    };
-    svg.addEventListener('mouseover', handleEnter);
-    svg.addEventListener('mouseout', handleLeave);
-    return () => {
-      svg.removeEventListener('mouseover', handleEnter);
-      svg.removeEventListener('mouseout', handleLeave);
-    };
-  }, [onAtomEnter, onAtomLeave]);
+  const atomStart = `${id}:Atom:`;
+  const bondStart = `${id}:Bond:`;
 
-  useEffect(() => {
-    const div = ref.current;
-    const svg = div.firstChild;
-    const atoms = svg.querySelectorAll(`[id^="${atomStart}"]`);
-    for (const atom of atoms) {
-      const atomNumber = atom.id.replace(atomStart, '');
-      if (highlight && highlight.includes(atomNumber)) {
-        atom.setAttribute('fill-opacity', highlightOpacity);
-        atom.setAttribute('fill', highlightColor);
-      } else {
-        atom.setAttribute('fill-opacity', 0);
-      }
-    }
-  });
+  useEvents(ref, atomStart, onAtomEnter, onAtomLeave, onAtomClick);
+  useEvents(ref, bondStart, onBondEnter, onBondLeave, onBondClick);
+
+  useHighlight(
+    ref,
+    atomStart,
+    atomHighlight,
+    atomHighlightColor,
+    atomHighlightOpacity,
+    'fill'
+  );
+
+  useHighlight(
+    ref,
+    bondStart,
+    bondHighlight,
+    bondHighlightColor,
+    bondHighlightOpacity,
+    'stroke'
+  );
 
   return (
     <div
@@ -76,13 +68,76 @@ export default function SvgRenderer(props) {
   );
 }
 
+function useEvents(ref, start, onEnter, onLeave, onClick) {
+  useEffect(() => {
+    const div = ref.current;
+    const svg = div.firstChild;
+    const handleEnter = (event) => {
+      if (!onEnter) return;
+      const { target } = event;
+      if (target.className.baseVal === 'event' && target.id.startsWith(start)) {
+        onEnter(target.id.replace(start, ''));
+      }
+    };
+    const handleLeave = (event) => {
+      if (!onLeave) return;
+      const { target } = event;
+      if (target.className.baseVal === 'event' && target.id.startsWith(start)) {
+        onLeave(target.id.replace(start, ''));
+      }
+    };
+    const handleClick = (event) => {
+      if (!onClick) return;
+      const { target } = event;
+      if (target.className.baseVal === 'event' && target.id.startsWith(start)) {
+        onClick(target.id.replace(start, ''));
+      }
+    };
+    svg.addEventListener('mouseover', handleEnter);
+    svg.addEventListener('mouseout', handleLeave);
+    svg.removeEventListener('click', handleClick);
+    return () => {
+      svg.removeEventListener('mouseover', handleEnter);
+      svg.removeEventListener('mouseout', handleLeave);
+      svg.removeEventListener('click', handleClick);
+    };
+  }, [ref, start, onEnter, onLeave, onClick]);
+}
+
+function useHighlight(
+  ref,
+  start,
+  highlight,
+  highlightColor,
+  highlightOpacity,
+  attribute
+) {
+  useEffect(() => {
+    const div = ref.current;
+    const svg = div.firstChild;
+    const elements = svg.querySelectorAll(`[id^="${start}"]`);
+    for (const element of elements) {
+      const elementId = element.id.replace(start, '');
+      if (highlight && highlight.includes(elementId)) {
+        element.setAttribute(`${attribute}-opacity`, highlightOpacity);
+        element.setAttribute(attribute, highlightColor);
+      } else {
+        element.setAttribute(`${attribute}-opacity`, 0);
+      }
+    }
+  });
+}
+
 SvgRenderer.propTypes = {
   width: propTypes.number,
   height: propTypes.number,
   id: propTypes.string,
-  highlight: propTypes.arrayOf(propTypes.string),
-  highlightColor: propTypes.string,
-  highlightOpacity: propTypes.number,
+  atomHighlight: propTypes.arrayOf(propTypes.string),
+  atomHighlightColor: propTypes.string,
+  atomHighlightOpacity: propTypes.number,
+  bondHighlight: propTypes.arrayOf(propTypes.string),
+  bondHighlightColor: propTypes.string,
+  bondHighlightOpacity: propTypes.number,
   factorTextSize: propTypes.number,
   fontWeight: propTypes.string,
   strokeWidth: propTypes.oneOf([propTypes.string, propTypes.number]),
@@ -110,8 +165,10 @@ SvgRenderer.propTypes = {
 SvgRenderer.defaultProps = {
   width: 300,
   height: 150,
-  highlightColor: 'yellow',
-  highlightOpacity: 0.5,
+  atomHighlightColor: 'yellow',
+  atomHighlightOpacity: 0.5,
+  bondHighlightColor: 'yellow',
+  bondHighlightOpacity: 0.5,
   suppressChiralText: true,
   suppressESR: true,
   suppressCIPParity: true,

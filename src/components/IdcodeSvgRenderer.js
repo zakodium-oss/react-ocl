@@ -1,11 +1,15 @@
-import React, { memo } from 'react';
+import React, { memo, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import SvgRenderer from './SvgRenderer';
 
 function IdcodeSvgRenderer(props) {
   let { OCL, idcode, coordinates, ...otherProps } = props;
-  const mol = OCL.Molecule.fromIDCode(idcode, coordinates);
+  const mol = useMemo(() => OCL.Molecule.fromIDCode(idcode, coordinates), [
+    OCL,
+    idcode,
+    coordinates
+  ]);
   return <SvgRenderer mol={mol} {...otherProps} />;
 }
 

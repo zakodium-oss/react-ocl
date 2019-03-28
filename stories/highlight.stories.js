@@ -6,27 +6,36 @@ import { MolfileSvgRenderer } from '../src/index';
 
 import { molfileV2000 } from './data';
 
-storiesOf('Atom highlighting', module)
+storiesOf('Highlighting', module)
   .add('Fixed highlight', () => (
     <MolfileSvgRenderer
       molfile={molfileV2000}
-      highlight={array('Highlight ids', ['1', '5'])}
-      highlightColor={color('Highlight color', 'yellow')}
-      highlightOpacity={number('Highlight opacity', 0.5)}
+      atomHighlight={array('Atom highlight ids', ['1', '5'])}
+      atomHighlightColor={color('Atom highlight color', 'yellow')}
+      atomHighlightOpacity={number('Atom highlight opacity', 0.5)}
+      bondHighlight={array('Bond highlight ids', ['14-19'])}
+      bondHighlightColor={color('Bond highlight color', 'red')}
+      bondHighlightOpacity={number('Bond highlight opacity', 0.5)}
     />
   ))
-  .add('Highlight hovered atom', () => <HighlightHover />);
+  .add('Highlight hovered element', () => <HighlightHover />);
 
 function HighlightHover() {
-  const [current, setCurrent] = useState(null);
+  const [currentAtom, setCurrentAtom] = useState(null);
+  const [currentBond, setCurrentBond] = useState(null);
   return (
     <MolfileSvgRenderer
       molfile={molfileV2000}
-      highlight={current && [current]}
-      highlightColor={color('Highlight color', 'red')}
-      highlightOpacity={number('Highlight opacity', 0.5)}
-      onAtomEnter={setCurrent}
-      onAtomLeave={() => setCurrent(null)}
+      atomHighlight={currentAtom && [currentAtom]}
+      atomHighlightColor={color('Highlight color', 'red')}
+      atomHighlightOpacity={number('Highlight opacity', 0.5)}
+      onAtomEnter={setCurrentAtom}
+      onAtomLeave={() => setCurrentAtom(null)}
+      bondHighlight={currentBond && [currentBond]}
+      bondHighlightColor={color('Highlight color', 'blue')}
+      bondHighlightOpacity={number('Highlight opacity', 0.5)}
+      onBondEnter={setCurrentBond}
+      onBondLeave={() => setCurrentBond(null)}
     />
   );
 }
