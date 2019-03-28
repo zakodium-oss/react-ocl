@@ -5,20 +5,57 @@ const idPrefix = 'react-ocl:';
 let currentId = 0;
 
 export default function SvgRenderer(props) {
+  const {
+    width,
+    height,
+    id: idFromProps,
+    highlight,
+    highlightOpacity,
+    highlightColor,
+    onAtomEnter,
+    onAtomLeave,
+    ...otherProps
+  } = props;
+
   const [internalId] = useState(() => idPrefix + currentId++);
   const ref = useRef(null);
-  const id = props.id || internalId;
-  const svgString = props.mol.toSVG(props.width, props.height, id, props);
 
-  const { highlight, highlightOpacity, highlightColor } = props;
+  const id = idFromProps || internalId;
+  const atomStart = `${id}:Atom:`;
+
+  const svgString = props.mol.toSVG(width, height, id, otherProps);
 
   useEffect(() => {
     const div = ref.current;
     const svg = div.firstChild;
-    const start = `${id}:Atom:`;
-    const atoms = svg.querySelectorAll(`[id^="${start}"]`);
+    const handleEnter = (event) => {
+      if (!onAtomEnter) return;
+      const { target } = event;
+      if (target.id.startsWith(atomStart)) {
+        onAtomEnter(target.id.replace(atomStart, ''));
+      }
+    };
+    const handleLeave = (event) => {
+      if (!onAtomLeave) return;
+      const { target } = event;
+      if (target.id.startsWith(atomStart)) {
+        onAtomLeave(target.id.replace(atomStart, ''));
+      }
+    };
+    svg.addEventListener('mouseover', handleEnter);
+    svg.addEventListener('mouseout', handleLeave);
+    return () => {
+      svg.removeEventListener('mouseover', handleEnter);
+      svg.removeEventListener('mouseout', handleLeave);
+    };
+  }, [onAtomEnter, onAtomLeave]);
+
+  useEffect(() => {
+    const div = ref.current;
+    const svg = div.firstChild;
+    const atoms = svg.querySelectorAll(`[id^="${atomStart}"]`);
     for (const atom of atoms) {
-      const atomNumber = atom.id.replace(start, '');
+      const atomNumber = atom.id.replace(atomStart, '');
       if (highlight && highlight.includes(atomNumber)) {
         atom.setAttribute('fill-opacity', highlightOpacity);
         atom.setAttribute('fill', highlightColor);
