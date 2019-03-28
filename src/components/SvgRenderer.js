@@ -71,6 +71,7 @@ export default function SvgRenderer(props) {
 function useEvents(ref, start, onEnter, onLeave, onClick) {
   useEffect(() => {
     const div = ref.current;
+    if (!div) return;
     const svg = div.firstChild;
     const handleEnter = (event) => {
       if (!onEnter) return;
@@ -114,6 +115,7 @@ function useHighlight(
 ) {
   useEffect(() => {
     const div = ref.current;
+    if (!div) return;
     const svg = div.firstChild;
     const elements = svg.querySelectorAll(`[id^="${start}"]`);
     for (const element of elements) {

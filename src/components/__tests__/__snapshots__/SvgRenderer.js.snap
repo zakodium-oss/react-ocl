@@ -1,6 +1,112 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Molecule renders 1`] = `
+exports[`Molecule renders molfile with default id 1`] = `
+<div
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "<svg id=\\"mol1\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\" width=\\"1200px\\" height=\\"800px\\" viewBox=\\"0 0 1200 800\\">
+	<style> #mol1 {pointer-events:none; }  #mol1 .event  { pointer-events:all;}  </style>
+	<text x=\\"595\\" y=\\"446\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(48,80,248)\\">N</text>
+	<text x=\\"553\\" y=\\"382\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(255,13,13)\\">O</text>
+	<text x=\\"532\\" y=\\"417\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(255,13,13)\\">O</text>
+	<text x=\\"594\\" y=\\"383\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(255,13,13)\\">O</text>
+	<text x=\\"615\\" y=\\"348\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(255,13,13)\\">O</text>
+	<text x=\\"545\\" y=\\"447\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(0,0,0)\\">H</text>
+	<text x=\\"644\\" y=\\"447\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(0,0,0)\\">H</text>
+	<line x1=\\"560\\" y1=\\"403\\" x2=\\"560\\" y2=\\"385\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"556\\" y1=\\"403\\" x2=\\"556\\" y2=\\"385\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"622\\" y1=\\"369\\" x2=\\"622\\" y2=\\"351\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"619\\" y1=\\"369\\" x2=\\"619\\" y2=\\"351\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"662\\" y1=\\"368\\" x2=\\"641\\" y2=\\"379\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"661\\" y1=\\"372\\" x2=\\"645\\" y2=\\"381\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"641\\" y1=\\"403\\" x2=\\"662\\" y2=\\"415\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"645\\" y1=\\"401\\" x2=\\"661\\" y2=\\"411\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"682\\" y1=\\"403\\" x2=\\"682\\" y2=\\"379\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"679\\" y1=\\"401\\" x2=\\"679\\" y2=\\"382\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"600\\" y1=\\"403\\" x2=\\"579\\" y2=\\"413\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"621\\" y1=\\"413\\" x2=\\"600\\" y2=\\"403\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"579\\" y1=\\"413\\" x2=\\"573\\" y2=\\"437\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"573\\" y1=\\"437\\" x2=\\"588\\" y2=\\"455\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"588\\" y1=\\"455\\" x2=\\"612\\" y2=\\"455\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"612\\" y1=\\"455\\" x2=\\"627\\" y2=\\"437\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"627\\" y1=\\"437\\" x2=\\"621\\" y2=\\"413\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<polygon points=\\"573,437 583,440 584,438 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<polygon points=\\"584,438 583,440 593,443 594,439 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<polygon points=\\"627,437 616,438 616,440 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<polygon points=\\"616,440 616,438 605,439 606,443 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"600\\" y1=\\"435\\" x2=\\"600\\" y2=\\"419\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<polygon points=\\"600,403 601,395 599,395 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<polygon points=\\"599,395 601,395 602,386 598,386 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<polygon points=\\"579,413 569,406 568,409 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<polygon points=\\"568,409 569,406 559,399 557,404 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"558\\" y1=\\"402\\" x2=\\"544\\" y2=\\"410\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"531\\" y1=\\"410\\" x2=\\"517\\" y2=\\"402\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"606\\" y1=\\"376\\" x2=\\"620\\" y2=\\"368\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"620\\" y1=\\"368\\" x2=\\"641\\" y2=\\"379\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"641\\" y1=\\"379\\" x2=\\"641\\" y2=\\"403\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"662\\" y1=\\"415\\" x2=\\"682\\" y2=\\"403\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line x1=\\"682\\" y1=\\"379\\" x2=\\"662\\" y2=\\"368\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<polygon points=\\"573,437 565,438 565,440 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<polygon points=\\"565,440 565,438 556,439 557,443 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<polygon points=\\"627,437 635,440 635,438 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<polygon points=\\"635,438 635,440 643,443 644,439 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
+	<line id=\\"mol1:Bond:8-7\\" class=\\"event\\" x1=\\"558\\" y1=\\"402\\" x2=\\"558\\" y2=\\"378\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:13-12\\" class=\\"event\\" x1=\\"620\\" y1=\\"368\\" x2=\\"620\\" y2=\\"344\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:18-14\\" class=\\"event\\" x1=\\"662\\" y1=\\"368\\" x2=\\"641\\" y2=\\"379\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:19-15\\" class=\\"event\\" x1=\\"641\\" y1=\\"403\\" x2=\\"662\\" y2=\\"415\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:16-17\\" class=\\"event\\" x1=\\"682\\" y1=\\"403\\" x2=\\"682\\" y2=\\"379\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:5-6\\" class=\\"event\\" x1=\\"600\\" y1=\\"403\\" x2=\\"579\\" y2=\\"413\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:2-5\\" class=\\"event\\" x1=\\"621\\" y1=\\"413\\" x2=\\"600\\" y2=\\"403\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:6-20\\" class=\\"event\\" x1=\\"579\\" y1=\\"413\\" x2=\\"573\\" y2=\\"437\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:20-0\\" class=\\"event\\" x1=\\"573\\" y1=\\"437\\" x2=\\"588\\" y2=\\"455\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:0-1\\" class=\\"event\\" x1=\\"588\\" y1=\\"455\\" x2=\\"612\\" y2=\\"455\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:1-21\\" class=\\"event\\" x1=\\"612\\" y1=\\"455\\" x2=\\"627\\" y2=\\"437\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:21-2\\" class=\\"event\\" x1=\\"627\\" y1=\\"437\\" x2=\\"621\\" y2=\\"413\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:20-3\\" class=\\"event\\" x1=\\"573\\" y1=\\"437\\" x2=\\"600\\" y2=\\"442\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:21-3\\" class=\\"event\\" x1=\\"627\\" y1=\\"437\\" x2=\\"600\\" y2=\\"442\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:3-4\\" class=\\"event\\" x1=\\"600\\" y1=\\"442\\" x2=\\"600\\" y2=\\"419\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:5-11\\" class=\\"event\\" x1=\\"600\\" y1=\\"403\\" x2=\\"600\\" y2=\\"379\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:6-8\\" class=\\"event\\" x1=\\"579\\" y1=\\"413\\" x2=\\"558\\" y2=\\"402\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:8-9\\" class=\\"event\\" x1=\\"558\\" y1=\\"402\\" x2=\\"537\\" y2=\\"413\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:9-10\\" class=\\"event\\" x1=\\"537\\" y1=\\"413\\" x2=\\"517\\" y2=\\"402\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:11-13\\" class=\\"event\\" x1=\\"600\\" y1=\\"379\\" x2=\\"620\\" y2=\\"368\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:13-14\\" class=\\"event\\" x1=\\"620\\" y1=\\"368\\" x2=\\"641\\" y2=\\"379\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:14-19\\" class=\\"event\\" x1=\\"641\\" y1=\\"379\\" x2=\\"641\\" y2=\\"403\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:15-16\\" class=\\"event\\" x1=\\"662\\" y1=\\"415\\" x2=\\"682\\" y2=\\"403\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:17-18\\" class=\\"event\\" x1=\\"682\\" y1=\\"379\\" x2=\\"662\\" y2=\\"368\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:20-22\\" class=\\"event\\" x1=\\"573\\" y1=\\"437\\" x2=\\"550\\" y2=\\"443\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<line id=\\"mol1:Bond:21-23\\" class=\\"event\\" x1=\\"627\\" y1=\\"437\\" x2=\\"649\\" y2=\\"443\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:0\\" class=\\"event\\" cx=\\"588\\" cy=\\"455\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:1\\" class=\\"event\\" cx=\\"612\\" cy=\\"455\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:2\\" class=\\"event\\" cx=\\"621\\" cy=\\"413\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:3\\" class=\\"event\\" cx=\\"600\\" cy=\\"442\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:4\\" class=\\"event\\" cx=\\"600\\" cy=\\"419\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:5\\" class=\\"event\\" cx=\\"600\\" cy=\\"403\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:6\\" class=\\"event\\" cx=\\"579\\" cy=\\"413\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:7\\" class=\\"event\\" cx=\\"558\\" cy=\\"378\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:8\\" class=\\"event\\" cx=\\"558\\" cy=\\"402\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:9\\" class=\\"event\\" cx=\\"537\\" cy=\\"413\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:10\\" class=\\"event\\" cx=\\"517\\" cy=\\"402\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:11\\" class=\\"event\\" cx=\\"600\\" cy=\\"379\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:12\\" class=\\"event\\" cx=\\"620\\" cy=\\"344\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:13\\" class=\\"event\\" cx=\\"620\\" cy=\\"368\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:14\\" class=\\"event\\" cx=\\"641\\" cy=\\"379\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:15\\" class=\\"event\\" cx=\\"662\\" cy=\\"415\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:16\\" class=\\"event\\" cx=\\"682\\" cy=\\"403\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:17\\" class=\\"event\\" cx=\\"682\\" cy=\\"379\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:18\\" class=\\"event\\" cx=\\"662\\" cy=\\"368\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:19\\" class=\\"event\\" cx=\\"641\\" cy=\\"403\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:20\\" class=\\"event\\" cx=\\"573\\" cy=\\"437\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:21\\" class=\\"event\\" cx=\\"627\\" cy=\\"437\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:22\\" class=\\"event\\" cx=\\"550\\" cy=\\"443\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+	<circle id=\\"mol1:Atom:23\\" class=\\"event\\" cx=\\"649\\" cy=\\"443\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+</svg>",
+    }
+  }
+/>
+`;
+
+exports[`Molecule renders smiles with custom id 1`] = `
 <div
   dangerouslySetInnerHTML={
     Object {
