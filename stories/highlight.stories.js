@@ -27,13 +27,13 @@ function HighlightHover() {
     <MolfileSvgRenderer
       molfile={molfileV2000}
       atomHighlight={currentAtom && [currentAtom]}
-      atomHighlightColor={color('Highlight color', 'red')}
-      atomHighlightOpacity={number('Highlight opacity', 0.5)}
+      atomHighlightColor={color('Atom highlight color', 'red')}
+      atomHighlightOpacity={number('Atom highlight opacity', 0.5)}
       onAtomEnter={setCurrentAtom}
       onAtomLeave={() => setCurrentAtom(null)}
       bondHighlight={currentBond && [currentBond]}
-      bondHighlightColor={color('Highlight color', 'blue')}
-      bondHighlightOpacity={number('Highlight opacity', 0.5)}
+      bondHighlightColor={color('Bond highlight color', 'blue')}
+      bondHighlightOpacity={number('Bond highlight opacity', 0.5)}
       onBondEnter={setCurrentBond}
       onBondLeave={() => setCurrentBond(null)}
     />
