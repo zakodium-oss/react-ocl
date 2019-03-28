@@ -1,3 +1,14 @@
+# [3.1.0](https://github.com/zakodium/react-ocl/compare/v3.0.2...v3.1.0) (2019-03-28)
+
+
+### Features
+
+* add support for bond highlighting ([a48732e](https://github.com/zakodium/react-ocl/commit/a48732e))
+* **highlight:** add onAtomEnter and onAtomLeave ([e31d70d](https://github.com/zakodium/react-ocl/commit/e31d70d))
+* add support for controlled highlight ([77a0c57](https://github.com/zakodium/react-ocl/commit/77a0c57))
+
+
+
 ## [3.0.2](https://github.com/zakodium/react-ocl/compare/v3.0.1...v3.0.2) (2019-03-22)
 
 
