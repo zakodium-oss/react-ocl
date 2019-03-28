@@ -1,3 +1,12 @@
+## [3.1.1](https://github.com/zakodium/react-ocl/compare/v3.1.0...v3.1.1) (2019-03-28)
+
+
+### Bug Fixes
+
+* better structure editor with hooks ([c1278e4](https://github.com/zakodium/react-ocl/commit/c1278e4))
+
+
+
 # [3.1.0](https://github.com/zakodium/react-ocl/compare/v3.0.2...v3.1.0) (2019-03-28)
 
 
