@@ -43,13 +43,14 @@ function StructureEditor(props) {
   }, [width, height, svgMenu]);
 
   useEffect(() => {
-    callbacksRef.current.onChange = (idCode) => {
-      const molfile = editorRef.current.editor.getMolFileV3();
+    callbacksRef.current.onChange = () => {
       if (!editorRef.current.hadFirstChange) {
         editorRef.current.hadFirstChange = true;
       } else {
         if (onChange) {
-          onChange({ molfile, idCode });
+          const molfile = editorRef.current.editor.getMolFileV3();
+          const molecule = editorRef.current.editor.getMolecule();
+          onChange(molfile, molecule);
         }
       }
     };

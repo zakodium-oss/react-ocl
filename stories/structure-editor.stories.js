@@ -27,7 +27,7 @@ function MolfileDemo({ svgMenu, fragment }) {
   const [previous, setPrevious] = useState(null);
   const cb = useCallback(
     (newMolfile) => {
-      setMolfile(newMolfile.molfile);
+      setMolfile(newMolfile);
       setPrevious(molfile);
     },
     [setMolfile, setPrevious, molfile]
