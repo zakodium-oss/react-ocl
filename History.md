@@ -1,3 +1,12 @@
+## [4.0.2](https://github.com/zakodium/react-ocl/compare/v4.0.1...v4.0.2) (2019-05-05)
+
+
+### Bug Fixes
+
+* **types:** correct type of IdcodeSvgRenderer props ([218b3b8](https://github.com/zakodium/react-ocl/commit/218b3b8))
+
+
+
 ## [4.0.1](https://github.com/zakodium/react-ocl/compare/v4.0.0...v4.0.1) (2019-05-05)
 
 
