@@ -1,13 +1,15 @@
 # react-ocl
 
 [![NPM version][npm-image]][npm-url]
+[![build status][travis-image]][travis-url]
+[![npm download][download-image]][download-url]
 
 React components integrating OpenChemLib.
 
 ## Installation
 
 ```console
-npm install --save openchemlib react-ocl
+npm install openchemlib react-ocl
 ```
 
 ## Usage
@@ -35,3 +37,7 @@ See https://zakodium.github.io/react-ocl/ for detailed usage examples.
 
 [npm-image]: https://img.shields.io/npm/v/react-ocl.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/react-ocl
+[travis-image]: https://img.shields.io/travis/zakodium/react-ocl/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/zakodium/react-ocl
+[download-image]: https://img.shields.io/npm/dm/react-ocl.svg?style=flat-square
+[download-url]: https://npmjs.org/package/react-ocl
