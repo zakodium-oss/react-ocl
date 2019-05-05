@@ -37,7 +37,7 @@
     "prop-types": "^15.7.2"
   },
   "peerDependencies": {
-    "openchemlib": ">=6.0.1",
+    "openchemlib": ">=7.0.0",
     "react": ">=16.8.6",
     "react-dom": ">=16.8.6"
   },
@@ -63,7 +63,7 @@
     "eslint-plugin-jest": "^22.5.1",
     "eslint-plugin-react": "^7.13.0",
     "jest": "^24.8.0",
-    "openchemlib": "^6.0.1",
+    "openchemlib": "^7.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-test-renderer": "^16.8.6"

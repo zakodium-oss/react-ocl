@@ -77,21 +77,21 @@ function useEvents(ref, start, onEnter, onLeave, onClick) {
       if (!onEnter) return;
       const { target } = event;
       if (target.className.baseVal === 'event' && target.id.startsWith(start)) {
-        onEnter(target.id.replace(start, ''));
+        onEnter(Number(target.id.replace(start, '')));
       }
     };
     const handleLeave = (event) => {
       if (!onLeave) return;
       const { target } = event;
       if (target.className.baseVal === 'event' && target.id.startsWith(start)) {
-        onLeave(target.id.replace(start, ''));
+        onLeave(Number(target.id.replace(start, '')));
       }
     };
     const handleClick = (event) => {
       if (!onClick) return;
       const { target } = event;
       if (target.className.baseVal === 'event' && target.id.startsWith(start)) {
-        onClick(target.id.replace(start, ''));
+        onClick(Number(target.id.replace(start, '')));
       }
     };
     svg.addEventListener('mouseover', handleEnter);
@@ -119,7 +119,7 @@ function useHighlight(
     const svg = div.firstChild;
     const elements = svg.querySelectorAll(`[id^="${start}"]`);
     for (const element of elements) {
-      const elementId = element.id.replace(start, '');
+      const elementId = Number(element.id.replace(start, ''));
       if (highlight && highlight.includes(elementId)) {
         element.setAttribute(`${attribute}-opacity`, highlightOpacity);
         element.setAttribute(attribute, highlightColor);
@@ -134,10 +134,10 @@ SvgRenderer.propTypes = {
   width: propTypes.number,
   height: propTypes.number,
   id: propTypes.string,
-  atomHighlight: propTypes.arrayOf(propTypes.string),
+  atomHighlight: propTypes.arrayOf(propTypes.number),
   atomHighlightColor: propTypes.string,
   atomHighlightOpacity: propTypes.number,
-  bondHighlight: propTypes.arrayOf(propTypes.string),
+  bondHighlight: propTypes.arrayOf(propTypes.number),
   bondHighlightColor: propTypes.string,
   bondHighlightOpacity: propTypes.number,
   factorTextSize: propTypes.number,
