@@ -1,3 +1,23 @@
+# [4.0.0](https://github.com/zakodium/react-ocl/compare/v3.1.1...v4.0.0) (2019-05-05)
+
+
+### chore
+
+* update OCL to 7.0.0 ([d990ebe](https://github.com/zakodium/react-ocl/commit/d990ebe))
+
+
+### Code Refactoring
+
+* **StructureEditor:** change arguments passed to onChange ([42e2a76](https://github.com/zakodium/react-ocl/commit/42e2a76))
+
+
+### BREAKING CHANGES
+
+* **StructureEditor:** Arguments passed to the `onChange` callback of `StructureEditor` were change. It will now receive two arguments: a molfile V3 and a Molecule instance.
+* Highlight ids are now numbers instead of strings.
+
+
+
 ## [3.1.1](https://github.com/zakodium/react-ocl/compare/v3.1.0...v3.1.1) (2019-03-28)
 
 
