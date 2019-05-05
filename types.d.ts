@@ -1,4 +1,4 @@
-import { IMoleculeToSVGOptions, Molecule } from 'openchemlib';
+import { IMoleculeToSVGOptions, Molecule } from 'openchemlib/minimal';
 
 // Minimal and core APIs
 
@@ -39,7 +39,9 @@ export interface IIdcodeSvgRendererSvgRendererProps
   idcode: string;
   coordinates?: string;
 }
-export function IdcodeSvgRenderer(props: IMolfileSvgRendererProps): JSX.Element;
+export function IdcodeSvgRenderer(
+  props: IIdcodeSvgRendererSvgRendererProps
+): JSX.Element;
 
 // Full API
 
