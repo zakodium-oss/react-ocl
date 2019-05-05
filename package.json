@@ -10,11 +10,15 @@
   ],
   "files": [
     "lib",
+    "core.d.ts",
     "core.mjs",
+    "full.d.ts",
     "full.mjs",
-    "minimal.mjs"
+    "minimal.d.ts",
+    "minimal.mjs",
+    "types.d.ts"
   ],
-  "module": "lib/index.js",
+  "module": "minimal.mjs",
   "repository": {
     "type": "git",
     "url": "https://github.com/zakodium/react-ocl.git"
