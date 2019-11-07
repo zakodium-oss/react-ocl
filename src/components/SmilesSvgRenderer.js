@@ -10,7 +10,7 @@ function SmilesSvgRenderer(props) {
 }
 
 SmilesSvgRenderer.propTypes = {
-  smiles: PropTypes.string.isRequired
+  smiles: PropTypes.string.isRequired,
 };
 
 export default memo(SmilesSvgRenderer);

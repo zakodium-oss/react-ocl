@@ -5,7 +5,7 @@ import { text, number, boolean } from '@storybook/addon-knobs';
 import {
   SmilesSvgRenderer,
   MolfileSvgRenderer,
-  IdcodeSvgRenderer
+  IdcodeSvgRenderer,
 } from '../src/index';
 import BaseIdcodeSvgRenderer from '../src/components/IdcodeSvgRenderer';
 import BaseMolfileSvgRenderer from '../src/components/MolfileSvgRenderer';
@@ -43,7 +43,7 @@ const knobs = {
     boolean('showSymmetryDiastereotopic', false),
   showSymmetryEnantiotopic: () => boolean('showSymmetryEnantiotopic', false),
   noImplicitAtomLabelColors: () => boolean('noImplicitAtomLabelColors', false),
-  noStereoProblem: () => boolean('noStereoProblem', true)
+  noStereoProblem: () => boolean('noStereoProblem', true),
 };
 
 function getKnobs() {
@@ -68,9 +68,9 @@ storiesOf('SVG renderers', module)
         text: 'The SMILES SVG renderer will always invent the coordinates.',
         source: false,
         propTables: [BaseSmilesSvgRenderer, SvgRenderer],
-        propTablesExclude: [SmilesSvgRenderer]
-      }
-    }
+        propTablesExclude: [SmilesSvgRenderer],
+      },
+    },
   )
   .add(
     'MolfileSvgRenderer (V2000)',
@@ -85,9 +85,9 @@ storiesOf('SVG renderers', module)
         text: molfileText,
         source: false,
         propTables: [BaseMolfileSvgRenderer, SvgRenderer],
-        propTablesExclude: [MolfileSvgRenderer]
-      }
-    }
+        propTablesExclude: [MolfileSvgRenderer],
+      },
+    },
   )
   .add(
     'MolfileSvgRenderer (V3000)',
@@ -102,9 +102,9 @@ storiesOf('SVG renderers', module)
         text: molfileText,
         source: false,
         propTables: [BaseMolfileSvgRenderer, SvgRenderer],
-        propTablesExclude: [MolfileSvgRenderer]
-      }
-    }
+        propTablesExclude: [MolfileSvgRenderer],
+      },
+    },
   )
   .add(
     'IdcodeSvgRenderer',
@@ -118,9 +118,9 @@ storiesOf('SVG renderers', module)
       info: {
         source: false,
         propTables: [BaseIdcodeSvgRenderer, SvgRenderer],
-        propTablesExclude: [IdcodeSvgRenderer]
-      }
-    }
+        propTablesExclude: [IdcodeSvgRenderer],
+      },
+    },
   )
   .add(
     'IdcodeSvgRenderer (with coordinates)',
@@ -135,7 +135,7 @@ storiesOf('SVG renderers', module)
       info: {
         source: false,
         propTables: [BaseIdcodeSvgRenderer, SvgRenderer],
-        propTablesExclude: [IdcodeSvgRenderer]
-      }
-    }
+        propTablesExclude: [IdcodeSvgRenderer],
+      },
+    },
   );

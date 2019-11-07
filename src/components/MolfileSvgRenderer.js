@@ -10,7 +10,7 @@ function MolfileSvgRenderer(props) {
 }
 
 MolfileSvgRenderer.propTypes = {
-  molfile: PropTypes.string.isRequired
+  molfile: PropTypes.string.isRequired,
 };
 
 export default memo(MolfileSvgRenderer);

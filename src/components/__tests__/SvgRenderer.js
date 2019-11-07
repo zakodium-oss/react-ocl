@@ -13,7 +13,7 @@ test('Molecule renders smiles with custom id', () => {
       smiles="CCOC"
       width={1200}
       height={800}
-    />
+    />,
   );
   let tree = component.toJSON();
 
@@ -85,7 +85,7 @@ test('Molecule renders molfile with default id', () => {
       molfile={molfileV2000}
       width={1200}
       height={800}
-    />
+    />,
   );
   let tree = component.toJSON();
 

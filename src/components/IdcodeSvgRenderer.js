@@ -8,14 +8,14 @@ function IdcodeSvgRenderer(props) {
   const mol = useMemo(() => OCL.Molecule.fromIDCode(idcode, coordinates), [
     OCL,
     idcode,
-    coordinates
+    coordinates,
   ]);
   return <SvgRenderer mol={mol} {...otherProps} />;
 }
 
 IdcodeSvgRenderer.propTypes = {
   idcode: PropTypes.string.isRequired,
-  coordinates: PropTypes.string
+  coordinates: PropTypes.string,
 };
 
 export default memo(IdcodeSvgRenderer);

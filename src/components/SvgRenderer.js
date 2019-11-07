@@ -45,7 +45,7 @@ export default function SvgRenderer(props) {
     atomHighlight,
     atomHighlightColor,
     atomHighlightOpacity,
-    'fill'
+    'fill',
   );
 
   useHighlight(
@@ -54,7 +54,7 @@ export default function SvgRenderer(props) {
     bondHighlight,
     bondHighlightColor,
     bondHighlightOpacity,
-    'stroke'
+    'stroke',
   );
 
   return (
@@ -62,7 +62,7 @@ export default function SvgRenderer(props) {
       ref={ref}
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{
-        __html: svgString
+        __html: svgString,
       }}
     />
   );
@@ -111,7 +111,7 @@ function useHighlight(
   highlight,
   highlightColor,
   highlightOpacity,
-  attribute
+  attribute,
 ) {
   useEffect(() => {
     const div = ref.current;
@@ -161,7 +161,7 @@ SvgRenderer.propTypes = {
   showSymmetryDiastereotopic: propTypes.bool,
   showSymmetryEnantiotopic: propTypes.bool,
   noImplicitAtomLabelColors: propTypes.bool,
-  noStereoProblem: propTypes.bool
+  noStereoProblem: propTypes.bool,
 };
 
 SvgRenderer.defaultProps = {
@@ -190,5 +190,5 @@ SvgRenderer.defaultProps = {
   showSymmetrySimple: false,
   showSymmetryDiastereotopic: false,
   showSymmetryEnantiotopic: false,
-  noImplicitAtomLabelColors: false
+  noImplicitAtomLabelColors: false,
 };

@@ -13,7 +13,7 @@ function StructureEditor(props) {
     onAtomEnter,
     onAtomLeave,
     onBondEnter,
-    onBondLeave
+    onBondLeave,
   } = props;
 
   const domRef = useRef();
@@ -78,7 +78,7 @@ function StructureEditor(props) {
 }
 
 StructureEditor.propTypes = {
-  molfile: PropTypes.string,
+  initialMolfile: PropTypes.string,
   fragment: PropTypes.bool,
   svgMenu: PropTypes.bool,
   width: PropTypes.number,
@@ -87,15 +87,15 @@ StructureEditor.propTypes = {
   onAtomEnter: PropTypes.func,
   onAtomLeave: PropTypes.func,
   onBondEnter: PropTypes.func,
-  onBondLeave: PropTypes.func
+  onBondLeave: PropTypes.func,
 };
 
 StructureEditor.defaultProps = {
-  molfile: '',
+  initialMolfile: '',
   fragment: false,
   svgMenu: true,
   width: 675,
-  height: 450
+  height: 450,
 };
 
 export default StructureEditor;

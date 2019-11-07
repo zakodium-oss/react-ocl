@@ -5,101 +5,101 @@ exports[`Molecule renders molfile with default id 1`] = `
   dangerouslySetInnerHTML={
     Object {
       "__html": "<svg id=\\"mol1\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\" width=\\"1200px\\" height=\\"800px\\" viewBox=\\"0 0 1200 800\\">
-	<style> #mol1 {pointer-events:none; }  #mol1 .event  { pointer-events:all;}  </style>
-	<text x=\\"595\\" y=\\"446\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(48,80,248)\\">N</text>
-	<text x=\\"553\\" y=\\"382\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(255,13,13)\\">O</text>
-	<text x=\\"532\\" y=\\"417\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(255,13,13)\\">O</text>
-	<text x=\\"594\\" y=\\"383\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(255,13,13)\\">O</text>
-	<text x=\\"615\\" y=\\"348\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(255,13,13)\\">O</text>
-	<text x=\\"545\\" y=\\"447\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(0,0,0)\\">H</text>
-	<text x=\\"644\\" y=\\"447\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(0,0,0)\\">H</text>
-	<line x1=\\"560\\" y1=\\"403\\" x2=\\"560\\" y2=\\"385\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"556\\" y1=\\"403\\" x2=\\"556\\" y2=\\"385\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"622\\" y1=\\"369\\" x2=\\"622\\" y2=\\"351\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"619\\" y1=\\"369\\" x2=\\"619\\" y2=\\"351\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"662\\" y1=\\"368\\" x2=\\"641\\" y2=\\"379\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"661\\" y1=\\"372\\" x2=\\"645\\" y2=\\"381\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"641\\" y1=\\"403\\" x2=\\"662\\" y2=\\"415\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"645\\" y1=\\"401\\" x2=\\"661\\" y2=\\"411\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"682\\" y1=\\"403\\" x2=\\"682\\" y2=\\"379\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"679\\" y1=\\"401\\" x2=\\"679\\" y2=\\"382\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"600\\" y1=\\"403\\" x2=\\"579\\" y2=\\"413\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"621\\" y1=\\"413\\" x2=\\"600\\" y2=\\"403\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"579\\" y1=\\"413\\" x2=\\"573\\" y2=\\"437\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"573\\" y1=\\"437\\" x2=\\"588\\" y2=\\"455\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"588\\" y1=\\"455\\" x2=\\"612\\" y2=\\"455\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"612\\" y1=\\"455\\" x2=\\"627\\" y2=\\"437\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"627\\" y1=\\"437\\" x2=\\"621\\" y2=\\"413\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<polygon points=\\"573,437 583,440 584,438 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<polygon points=\\"584,438 583,440 593,443 594,439 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<polygon points=\\"627,437 616,438 616,440 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<polygon points=\\"616,440 616,438 605,439 606,443 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"600\\" y1=\\"435\\" x2=\\"600\\" y2=\\"419\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<polygon points=\\"600,403 601,395 599,395 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<polygon points=\\"599,395 601,395 602,386 598,386 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<polygon points=\\"579,413 569,406 568,409 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<polygon points=\\"568,409 569,406 559,399 557,404 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"558\\" y1=\\"402\\" x2=\\"544\\" y2=\\"410\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"531\\" y1=\\"410\\" x2=\\"517\\" y2=\\"402\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"606\\" y1=\\"376\\" x2=\\"620\\" y2=\\"368\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"620\\" y1=\\"368\\" x2=\\"641\\" y2=\\"379\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"641\\" y1=\\"379\\" x2=\\"641\\" y2=\\"403\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"662\\" y1=\\"415\\" x2=\\"682\\" y2=\\"403\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"682\\" y1=\\"379\\" x2=\\"662\\" y2=\\"368\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<polygon points=\\"573,437 565,438 565,440 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<polygon points=\\"565,440 565,438 556,439 557,443 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<polygon points=\\"627,437 635,440 635,438 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<polygon points=\\"635,438 635,440 643,443 644,439 \\" style=\\"fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line id=\\"mol1:Bond:12\\" class=\\"event\\" x1=\\"558\\" y1=\\"402\\" x2=\\"558\\" y2=\\"378\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:16\\" class=\\"event\\" x1=\\"620\\" y1=\\"368\\" x2=\\"620\\" y2=\\"344\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:18\\" class=\\"event\\" x1=\\"662\\" y1=\\"368\\" x2=\\"641\\" y2=\\"379\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:21\\" class=\\"event\\" x1=\\"641\\" y1=\\"403\\" x2=\\"662\\" y2=\\"415\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:22\\" class=\\"event\\" x1=\\"682\\" y1=\\"403\\" x2=\\"682\\" y2=\\"379\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:0\\" class=\\"event\\" x1=\\"600\\" y1=\\"403\\" x2=\\"579\\" y2=\\"413\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:1\\" class=\\"event\\" x1=\\"621\\" y1=\\"413\\" x2=\\"600\\" y2=\\"403\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:2\\" class=\\"event\\" x1=\\"579\\" y1=\\"413\\" x2=\\"573\\" y2=\\"437\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:3\\" class=\\"event\\" x1=\\"573\\" y1=\\"437\\" x2=\\"588\\" y2=\\"455\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:4\\" class=\\"event\\" x1=\\"588\\" y1=\\"455\\" x2=\\"612\\" y2=\\"455\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:5\\" class=\\"event\\" x1=\\"612\\" y1=\\"455\\" x2=\\"627\\" y2=\\"437\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:6\\" class=\\"event\\" x1=\\"627\\" y1=\\"437\\" x2=\\"621\\" y2=\\"413\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:7\\" class=\\"event\\" x1=\\"573\\" y1=\\"437\\" x2=\\"600\\" y2=\\"442\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:8\\" class=\\"event\\" x1=\\"627\\" y1=\\"437\\" x2=\\"600\\" y2=\\"442\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:9\\" class=\\"event\\" x1=\\"600\\" y1=\\"442\\" x2=\\"600\\" y2=\\"419\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:10\\" class=\\"event\\" x1=\\"600\\" y1=\\"403\\" x2=\\"600\\" y2=\\"379\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:11\\" class=\\"event\\" x1=\\"579\\" y1=\\"413\\" x2=\\"558\\" y2=\\"402\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:13\\" class=\\"event\\" x1=\\"558\\" y1=\\"402\\" x2=\\"537\\" y2=\\"413\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:14\\" class=\\"event\\" x1=\\"537\\" y1=\\"413\\" x2=\\"517\\" y2=\\"402\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:15\\" class=\\"event\\" x1=\\"600\\" y1=\\"379\\" x2=\\"620\\" y2=\\"368\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:17\\" class=\\"event\\" x1=\\"620\\" y1=\\"368\\" x2=\\"641\\" y2=\\"379\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:19\\" class=\\"event\\" x1=\\"641\\" y1=\\"379\\" x2=\\"641\\" y2=\\"403\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:20\\" class=\\"event\\" x1=\\"662\\" y1=\\"415\\" x2=\\"682\\" y2=\\"403\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:23\\" class=\\"event\\" x1=\\"682\\" y1=\\"379\\" x2=\\"662\\" y2=\\"368\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:24\\" class=\\"event\\" x1=\\"573\\" y1=\\"437\\" x2=\\"550\\" y2=\\"443\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:25\\" class=\\"event\\" x1=\\"627\\" y1=\\"437\\" x2=\\"649\\" y2=\\"443\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:0\\" class=\\"event\\" cx=\\"588\\" cy=\\"455\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:1\\" class=\\"event\\" cx=\\"612\\" cy=\\"455\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:2\\" class=\\"event\\" cx=\\"621\\" cy=\\"413\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:3\\" class=\\"event\\" cx=\\"600\\" cy=\\"442\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:4\\" class=\\"event\\" cx=\\"600\\" cy=\\"419\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:5\\" class=\\"event\\" cx=\\"600\\" cy=\\"403\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:6\\" class=\\"event\\" cx=\\"579\\" cy=\\"413\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:7\\" class=\\"event\\" cx=\\"558\\" cy=\\"378\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:8\\" class=\\"event\\" cx=\\"558\\" cy=\\"402\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:9\\" class=\\"event\\" cx=\\"537\\" cy=\\"413\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:10\\" class=\\"event\\" cx=\\"517\\" cy=\\"402\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:11\\" class=\\"event\\" cx=\\"600\\" cy=\\"379\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:12\\" class=\\"event\\" cx=\\"620\\" cy=\\"344\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:13\\" class=\\"event\\" cx=\\"620\\" cy=\\"368\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:14\\" class=\\"event\\" cx=\\"641\\" cy=\\"379\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:15\\" class=\\"event\\" cx=\\"662\\" cy=\\"415\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:16\\" class=\\"event\\" cx=\\"682\\" cy=\\"403\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:17\\" class=\\"event\\" cx=\\"682\\" cy=\\"379\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:18\\" class=\\"event\\" cx=\\"662\\" cy=\\"368\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:19\\" class=\\"event\\" cx=\\"641\\" cy=\\"403\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:20\\" class=\\"event\\" cx=\\"573\\" cy=\\"437\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:21\\" class=\\"event\\" cx=\\"627\\" cy=\\"437\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:22\\" class=\\"event\\" cx=\\"550\\" cy=\\"443\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:23\\" class=\\"event\\" cx=\\"649\\" cy=\\"443\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+  <style> #mol1 { pointer-events:none; } #mol1 .event  { pointer-events:all; } line { stroke-linecap:round; } polygon { stroke-linejoin:round; } </style>
+  <text x=\\"595.18\\" y=\\"447.48\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(48,80,248)\\">N</text>
+  <text x=\\"553.04\\" y=\\"383.04\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(255,13,13)\\">O</text>
+  <text x=\\"532.49\\" y=\\"418.63\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(255,13,13)\\">O</text>
+  <text x=\\"594.97\\" y=\\"384.61\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(255,13,13)\\">O</text>
+  <text x=\\"615.52\\" y=\\"349.02\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(255,13,13)\\">O</text>
+  <text x=\\"545.78\\" y=\\"447.9\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(0,0,0)\\">H</text>
+  <text x=\\"644.94\\" y=\\"447.9\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(0,0,0)\\">H</text>
+  <line x1=\\"560.29\\" y1=\\"403.14\\" x2=\\"560.29\\" y2=\\"385.37\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"556.69\\" y1=\\"403.14\\" x2=\\"556.69\\" y2=\\"385.37\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"622.76\\" y1=\\"369.12\\" x2=\\"622.76\\" y2=\\"351.35\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"619.16\\" y1=\\"369.12\\" x2=\\"619.16\\" y2=\\"351.35\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"662.06\\" y1=\\"368.08\\" x2=\\"641.51\\" y2=\\"379.94\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"661.65\\" y1=\\"372.48\\" x2=\\"645.53\\" y2=\\"381.78\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"641.51\\" y1=\\"403.67\\" x2=\\"662.06\\" y2=\\"415.53\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"645.53\\" y1=\\"401.83\\" x2=\\"661.65\\" y2=\\"411.14\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"682.61\\" y1=\\"403.67\\" x2=\\"682.61\\" y2=\\"379.94\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"679.01\\" y1=\\"401.11\\" x2=\\"679.01\\" y2=\\"382.5\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"600.42\\" y1=\\"403.67\\" x2=\\"579.04\\" y2=\\"413.97\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"621.79\\" y1=\\"413.97\\" x2=\\"600.42\\" y2=\\"403.67\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"579.04\\" y1=\\"413.97\\" x2=\\"573.76\\" y2=\\"437.1\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"573.76\\" y1=\\"437.1\\" x2=\\"588.55\\" y2=\\"455.65\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"588.55\\" y1=\\"455.65\\" x2=\\"612.28\\" y2=\\"455.65\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"612.28\\" y1=\\"455.65\\" x2=\\"627.07\\" y2=\\"437.1\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"627.07\\" y1=\\"437.1\\" x2=\\"621.79\\" y2=\\"413.97\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <polygon points=\\"573.76,437.1 583.72,440.44 584.21,438.17 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <polygon points=\\"584.21,438.17 583.72,440.44 593.69,443.78 594.67,439.24 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <polygon points=\\"627.07,437.1 616.44,438.16 616.93,440.47 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <polygon points=\\"616.93,440.47 616.44,438.16 605.8,439.22 606.78,443.83 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <line x1=\\"600.24\\" y1=\\"435.81\\" x2=\\"600.24\\" y2=\\"419.09\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <polygon points=\\"600.42,403.67 601.35,395.31 599.49,395.31 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <polygon points=\\"599.49,395.31 601.35,395.31 602.28,386.94 598.56,386.94 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <polygon points=\\"579.04,413.97 569.42,406.89 568.1,409.18 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <polygon points=\\"568.1,409.18 569.42,406.89 559.81,399.82 557.17,404.39 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <line x1=\\"558.49\\" y1=\\"402.1\\" x2=\\"544.38\\" y2=\\"410.25\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"531.49\\" y1=\\"410.25\\" x2=\\"517.39\\" y2=\\"402.1\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"606.86\\" y1=\\"376.22\\" x2=\\"620.96\\" y2=\\"368.08\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"620.96\\" y1=\\"368.08\\" x2=\\"641.51\\" y2=\\"379.94\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"641.51\\" y1=\\"379.94\\" x2=\\"641.51\\" y2=\\"403.67\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"662.06\\" y1=\\"415.53\\" x2=\\"682.61\\" y2=\\"403.67\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"682.61\\" y1=\\"379.94\\" x2=\\"662.06\\" y2=\\"368.08\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <polygon points=\\"573.76,437.1 565.07,438.42 565.58,440.29 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <polygon points=\\"565.58,440.29 565.07,438.42 556.39,439.74 557.39,443.49 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <polygon points=\\"627.07,437.1 635.26,440.29 635.76,438.42 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <polygon points=\\"635.76,438.42 635.26,440.29 643.44,443.49 644.44,439.74 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <line id=\\"mol1:Bond:12\\" class=\\"event\\" x1=\\"558.49\\" y1=\\"402.1\\" x2=\\"558.49\\" y2=\\"378.37\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:16\\" class=\\"event\\" x1=\\"620.96\\" y1=\\"368.08\\" x2=\\"620.96\\" y2=\\"344.35\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:18\\" class=\\"event\\" x1=\\"662.06\\" y1=\\"368.08\\" x2=\\"641.51\\" y2=\\"379.94\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:21\\" class=\\"event\\" x1=\\"641.51\\" y1=\\"403.67\\" x2=\\"662.06\\" y2=\\"415.53\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:22\\" class=\\"event\\" x1=\\"682.61\\" y1=\\"403.67\\" x2=\\"682.61\\" y2=\\"379.94\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:0\\" class=\\"event\\" x1=\\"600.42\\" y1=\\"403.67\\" x2=\\"579.04\\" y2=\\"413.97\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:1\\" class=\\"event\\" x1=\\"621.79\\" y1=\\"413.97\\" x2=\\"600.42\\" y2=\\"403.67\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:2\\" class=\\"event\\" x1=\\"579.04\\" y1=\\"413.97\\" x2=\\"573.76\\" y2=\\"437.1\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:3\\" class=\\"event\\" x1=\\"573.76\\" y1=\\"437.1\\" x2=\\"588.55\\" y2=\\"455.65\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:4\\" class=\\"event\\" x1=\\"588.55\\" y1=\\"455.65\\" x2=\\"612.28\\" y2=\\"455.65\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:5\\" class=\\"event\\" x1=\\"612.28\\" y1=\\"455.65\\" x2=\\"627.07\\" y2=\\"437.1\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:6\\" class=\\"event\\" x1=\\"627.07\\" y1=\\"437.1\\" x2=\\"621.79\\" y2=\\"413.97\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:7\\" class=\\"event\\" x1=\\"573.76\\" y1=\\"437.1\\" x2=\\"600.24\\" y2=\\"442.81\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:8\\" class=\\"event\\" x1=\\"627.07\\" y1=\\"437.1\\" x2=\\"600.24\\" y2=\\"442.81\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:9\\" class=\\"event\\" x1=\\"600.24\\" y1=\\"442.81\\" x2=\\"600.24\\" y2=\\"419.09\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:10\\" class=\\"event\\" x1=\\"600.42\\" y1=\\"403.67\\" x2=\\"600.42\\" y2=\\"379.94\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:11\\" class=\\"event\\" x1=\\"579.04\\" y1=\\"413.97\\" x2=\\"558.49\\" y2=\\"402.1\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:13\\" class=\\"event\\" x1=\\"558.49\\" y1=\\"402.1\\" x2=\\"537.94\\" y2=\\"413.97\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:14\\" class=\\"event\\" x1=\\"537.94\\" y1=\\"413.97\\" x2=\\"517.39\\" y2=\\"402.1\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:15\\" class=\\"event\\" x1=\\"600.42\\" y1=\\"379.94\\" x2=\\"620.96\\" y2=\\"368.08\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:17\\" class=\\"event\\" x1=\\"620.96\\" y1=\\"368.08\\" x2=\\"641.51\\" y2=\\"379.94\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:19\\" class=\\"event\\" x1=\\"641.51\\" y1=\\"379.94\\" x2=\\"641.51\\" y2=\\"403.67\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:20\\" class=\\"event\\" x1=\\"662.06\\" y1=\\"415.53\\" x2=\\"682.61\\" y2=\\"403.67\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:23\\" class=\\"event\\" x1=\\"682.61\\" y1=\\"379.94\\" x2=\\"662.06\\" y2=\\"368.08\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:24\\" class=\\"event\\" x1=\\"573.76\\" y1=\\"437.1\\" x2=\\"550.84\\" y2=\\"443.24\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:25\\" class=\\"event\\" x1=\\"627.07\\" y1=\\"437.1\\" x2=\\"649.99\\" y2=\\"443.24\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:0\\" class=\\"event\\" cx=\\"588.55\\" cy=\\"455.65\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:1\\" class=\\"event\\" cx=\\"612.28\\" cy=\\"455.65\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:2\\" class=\\"event\\" cx=\\"621.79\\" cy=\\"413.97\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:3\\" class=\\"event\\" cx=\\"600.24\\" cy=\\"442.81\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:4\\" class=\\"event\\" cx=\\"600.24\\" cy=\\"419.09\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:5\\" class=\\"event\\" cx=\\"600.42\\" cy=\\"403.67\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:6\\" class=\\"event\\" cx=\\"579.04\\" cy=\\"413.97\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:7\\" class=\\"event\\" cx=\\"558.49\\" cy=\\"378.37\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:8\\" class=\\"event\\" cx=\\"558.49\\" cy=\\"402.1\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:9\\" class=\\"event\\" cx=\\"537.94\\" cy=\\"413.97\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:10\\" class=\\"event\\" cx=\\"517.39\\" cy=\\"402.1\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:11\\" class=\\"event\\" cx=\\"600.42\\" cy=\\"379.94\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:12\\" class=\\"event\\" cx=\\"620.96\\" cy=\\"344.35\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:13\\" class=\\"event\\" cx=\\"620.96\\" cy=\\"368.08\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:14\\" class=\\"event\\" cx=\\"641.51\\" cy=\\"379.94\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:15\\" class=\\"event\\" cx=\\"662.06\\" cy=\\"415.53\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:16\\" class=\\"event\\" cx=\\"682.61\\" cy=\\"403.67\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:17\\" class=\\"event\\" cx=\\"682.61\\" cy=\\"379.94\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:18\\" class=\\"event\\" cx=\\"662.06\\" cy=\\"368.08\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:19\\" class=\\"event\\" cx=\\"641.51\\" cy=\\"403.67\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:20\\" class=\\"event\\" cx=\\"573.76\\" cy=\\"437.1\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:21\\" class=\\"event\\" cx=\\"627.07\\" cy=\\"437.1\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:22\\" class=\\"event\\" cx=\\"550.84\\" cy=\\"443.24\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:23\\" class=\\"event\\" cx=\\"649.99\\" cy=\\"443.24\\" r=\\"8\\" opacity=\\"0\\" />
 </svg>",
     }
   }
@@ -111,18 +111,18 @@ exports[`Molecule renders smiles with custom id 1`] = `
   dangerouslySetInnerHTML={
     Object {
       "__html": "<svg id=\\"mol1\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\" width=\\"1200px\\" height=\\"800px\\" viewBox=\\"0 0 1200 800\\">
-	<style> #mol1 {pointer-events:none; }  #mol1 .event  { pointer-events:all;}  </style>
-	<text x=\\"584\\" y=\\"398\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(255,13,13)\\">O</text>
-	<line x1=\\"631\\" y1=\\"394\\" x2=\\"610\\" y2=\\"406\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"610\\" y1=\\"406\\" x2=\\"596\\" y2=\\"397\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line x1=\\"583\\" y1=\\"397\\" x2=\\"568\\" y2=\\"406\\" style=\\"stroke:rgb(0,0,0);stroke-width:1\\"/>
-	<line id=\\"mol1:Bond:0\\" class=\\"event\\" x1=\\"631\\" y1=\\"394\\" x2=\\"610\\" y2=\\"406\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:1\\" class=\\"event\\" x1=\\"610\\" y1=\\"406\\" x2=\\"589\\" y2=\\"394\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<line id=\\"mol1:Bond:2\\" class=\\"event\\" x1=\\"589\\" y1=\\"394\\" x2=\\"568\\" y2=\\"406\\" stroke-width=\\"8\\" stroke-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:0\\" class=\\"event\\" cx=\\"631\\" cy=\\"394\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:1\\" class=\\"event\\" cx=\\"610\\" cy=\\"406\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:2\\" class=\\"event\\" cx=\\"589\\" cy=\\"394\\" r=\\"8\\" fill-opacity=\\"0\\"/>
-	<circle id=\\"mol1:Atom:3\\" class=\\"event\\" cx=\\"568\\" cy=\\"406\\" r=\\"8\\" fill-opacity=\\"0\\"/>
+  <style> #mol1 { pointer-events:none; } #mol1 .event  { pointer-events:all; } line { stroke-linecap:round; } polygon { stroke-linejoin:round; } </style>
+  <text x=\\"584.16\\" y=\\"398.67\\" font-family=\\" Helvetica\\" font-size=\\"14\\" fill=\\"rgb(255,13,13)\\">O</text>
+  <line x1=\\"631.18\\" y1=\\"394\\" x2=\\"610.39\\" y2=\\"406\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"610.39\\" y1=\\"406\\" x2=\\"596.05\\" y2=\\"397.72\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line x1=\\"583.16\\" y1=\\"397.72\\" x2=\\"568.82\\" y2=\\"406\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
+  <line id=\\"mol1:Bond:0\\" class=\\"event\\" x1=\\"631.18\\" y1=\\"394\\" x2=\\"610.39\\" y2=\\"406\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:1\\" class=\\"event\\" x1=\\"610.39\\" y1=\\"406\\" x2=\\"589.61\\" y2=\\"394\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <line id=\\"mol1:Bond:2\\" class=\\"event\\" x1=\\"589.61\\" y1=\\"394\\" x2=\\"568.82\\" y2=\\"406\\" stroke-width=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:0\\" class=\\"event\\" cx=\\"631.18\\" cy=\\"394\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:1\\" class=\\"event\\" cx=\\"610.39\\" cy=\\"406\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:2\\" class=\\"event\\" cx=\\"589.61\\" cy=\\"394\\" r=\\"8\\" opacity=\\"0\\" />
+  <circle id=\\"mol1:Atom:3\\" class=\\"event\\" cx=\\"568.82\\" cy=\\"406\\" r=\\"8\\" opacity=\\"0\\" />
 </svg>",
     }
   }

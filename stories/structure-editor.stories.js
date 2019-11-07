@@ -30,7 +30,7 @@ function MolfileDemo({ svgMenu, fragment }) {
       setMolfile(newMolfile);
       setPrevious(molfile);
     },
-    [setMolfile, setPrevious, molfile]
+    [setMolfile, setPrevious, molfile],
   );
   return (
     <div>
@@ -68,7 +68,7 @@ storiesOf('StructureEditor', module).add(
       text: 'StructureEditor is an uncontrolled component',
       source: false,
       propTables: [StructureEditor],
-      propTablesExclude: [MolfileDemo]
-    }
-  }
+      propTablesExclude: [MolfileDemo],
+    },
+  },
 );
