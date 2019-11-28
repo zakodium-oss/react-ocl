@@ -121,10 +121,10 @@ function useHighlight(
     for (const element of elements) {
       const elementId = Number(element.id.replace(start, ''));
       if (highlight && highlight.includes(elementId)) {
-        element.setAttribute(`${attribute}-opacity`, highlightOpacity);
+        element.setAttribute('opacity', highlightOpacity);
         element.setAttribute(attribute, highlightColor);
       } else {
-        element.setAttribute(`${attribute}-opacity`, 0);
+        element.setAttribute('opacity', 0);
       }
     }
   });
