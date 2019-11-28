@@ -1,3 +1,12 @@
+## [4.0.3](https://github.com/zakodium/react-ocl/compare/v4.0.2...v4.0.3) (2019-11-28)
+
+
+### Bug Fixes
+
+* correct atom and bond highlighting ([caf1278](https://github.com/zakodium/react-ocl/commit/caf127866ed6e0c9e91a5e09cf001484393ebe41))
+
+
+
 ## [4.0.2](https://github.com/zakodium/react-ocl/compare/v4.0.1...v4.0.2) (2019-05-05)
 
 
