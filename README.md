@@ -6,6 +6,8 @@
 
 React components integrating OpenChemLib.
 
+These react component allows to display and edit molfile and smiles.
+
 ## Installation
 
 ```console
