@@ -1,3 +1,12 @@
+## [4.0.4](https://github.com/zakodium/react-ocl/compare/v4.0.3...v4.0.4) (2020-05-07)
+
+
+### Bug Fixes
+
+*  click event  listener ([88fde99](https://github.com/zakodium/react-ocl/commit/88fde997136cf2cae6f83dba9e955f82f6240e69))
+
+
+
 ## [4.0.3](https://github.com/zakodium/react-ocl/compare/v4.0.2...v4.0.3) (2019-11-28)
 
 
