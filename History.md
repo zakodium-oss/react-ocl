@@ -1,3 +1,12 @@
+# [4.1.0](https://github.com/zakodium/react-ocl/compare/v4.0.4...v4.1.0) (2020-05-07)
+
+
+### Features
+
+* **SVG:** catch syntax errors and add support for custom error component ([4c13201](https://github.com/zakodium/react-ocl/commit/4c1320109378ec7406552f91b0b9393c8836b705))
+
+
+
 ## [4.0.4](https://github.com/zakodium/react-ocl/compare/v4.0.3...v4.0.4) (2020-05-07)
 
 
