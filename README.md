@@ -1,7 +1,7 @@
 # react-ocl
 
 [![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
+[![build status][ci-image]][ci-url]
 [![npm download][download-image]][download-url]
 
 React components integrating OpenChemLib.
@@ -37,9 +37,9 @@ This library is available in three versions, like openchemlib: `react-ocl/minima
 
 See https://zakodium.github.io/react-ocl/ for detailed usage examples.
 
-[npm-image]: https://img.shields.io/npm/v/react-ocl.svg?style=flat-square
-[npm-url]: https://www.npmjs.com/package/react-ocl
-[travis-image]: https://img.shields.io/travis/zakodium/react-ocl/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/zakodium/react-ocl
-[download-image]: https://img.shields.io/npm/dm/react-ocl.svg?style=flat-square
+[npm-image]: https://img.shields.io/npm/v/react-ocl.svg
+[npm-url]: https://npmjs.org/package/react-ocl
+[ci-image]: https://github.com/zakodium/react-ocl/workflows/Node.js%20CI/badge.svg?branch=master
+[ci-url]: https://github.com/zakodium/react-ocl/actions?query=workflow%3A%22Node.js+CI%22
+[download-image]: https://img.shields.io/npm/dm/react-ocl.svg
 [download-url]: https://npmjs.org/package/react-ocl
