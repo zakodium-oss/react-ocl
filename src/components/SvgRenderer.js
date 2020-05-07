@@ -96,7 +96,7 @@ function useEvents(ref, start, onEnter, onLeave, onClick) {
     };
     svg.addEventListener('mouseover', handleEnter);
     svg.addEventListener('mouseout', handleLeave);
-    svg.removeEventListener('click', handleClick);
+    svg.addEventListener('click', handleClick);
     return () => {
       svg.removeEventListener('mouseover', handleEnter);
       svg.removeEventListener('mouseout', handleLeave);
