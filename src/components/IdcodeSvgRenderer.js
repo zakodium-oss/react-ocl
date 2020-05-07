@@ -1,21 +1,45 @@
 import PropTypes from 'prop-types';
-import React, { memo, useMemo } from 'react';
+import React, { memo } from 'react';
 
+import { useHandleMemoError } from '../hooks/useHandleMemoError';
+
+import { ErrorRenderer, DefaultErrorRenderer } from './ErrorRenderer';
 import SvgRenderer from './SvgRenderer';
 
 function IdcodeSvgRenderer(props) {
   let { OCL, idcode, coordinates, ...otherProps } = props;
-  const mol = useMemo(() => OCL.Molecule.fromIDCode(idcode, coordinates), [
-    OCL,
-    idcode,
-    coordinates,
-  ]);
+  const [error, mol] = useHandleMemoError(
+    () => OCL.Molecule.fromIDCode(idcode, coordinates),
+    [OCL, idcode, coordinates],
+  );
+  if (error) {
+    return (
+      <ErrorRenderer
+        width={props.width}
+        height={props.height}
+        ErrorComponent={props.ErrorComponent}
+        value={idcode}
+        error={error}
+      />
+    );
+  }
   return <SvgRenderer mol={mol} {...otherProps} />;
 }
 
 IdcodeSvgRenderer.propTypes = {
   idcode: PropTypes.string.isRequired,
   coordinates: PropTypes.string,
+  ErrorComponent: PropTypes.elementType,
+};
+
+IdcodeSvgRenderer.defaultProps = {
+  ErrorComponent: DefaultIdcodeErrorComponent,
 };
 
 export default memo(IdcodeSvgRenderer);
+
+function DefaultIdcodeErrorComponent(props) {
+  return (
+    <DefaultErrorRenderer height={props.height} message="Invalid ID code" />
+  );
+}

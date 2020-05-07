@@ -15,9 +15,7 @@ test('Molecule renders smiles with custom id', () => {
       height={800}
     />,
   );
-  let tree = component.toJSON();
-
-  expect(tree).toMatchSnapshot();
+  expect(component.toJSON()).toMatchSnapshot();
 });
 
 const molfileV2000 = `
@@ -87,7 +85,29 @@ test('Molecule renders molfile with default id', () => {
       height={800}
     />,
   );
-  let tree = component.toJSON();
+  expect(component.toJSON()).toMatchSnapshot();
+});
 
-  expect(tree).toMatchSnapshot();
+test('Syntax error in SMILES - default renderer', () => {
+  const component = renderer.create(
+    <SmilesSvgRenderer id="mol1" smiles="BAD" OCL={OCL} />,
+  );
+  expect(component.toJSON()).toMatchSnapshot();
+});
+
+test('Syntax error in SMILES - custom renderer', () => {
+  const component = renderer.create(
+    <SmilesSvgRenderer
+      id="mol1"
+      smiles="BAD"
+      ErrorComponent={(props) => (
+        <div>
+          <span>{props.value}</span>
+          <span>{props.error.message}</span>
+        </div>
+      )}
+      OCL={OCL}
+    />,
+  );
+  expect(component.toJSON()).toMatchSnapshot();
 });

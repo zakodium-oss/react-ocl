@@ -1,11 +1,19 @@
 import { IMoleculeToSVGOptions, Molecule } from 'openchemlib/minimal';
+import { ComponentType } from 'react';
 
 // Minimal and core APIs
+
+export interface IErrorComponentProps {
+  value: string;
+  error: Error;
+}
 
 export interface IBaseSvgRendererProps extends IMoleculeToSVGOptions {
   width?: number;
   height?: number;
   id?: string;
+
+  ErrorComponent?: ComponentType<IErrorComponentProps>;
 
   atomHighlight?: number[];
   atomHighlightOpacity?: number;
@@ -31,7 +39,7 @@ export interface IMolfileSvgRendererProps extends IBaseSvgRendererProps {
   molfile: string;
 }
 export function MolfileSvgRenderer(
-  props: IMolfileSvgRendererProps
+  props: IMolfileSvgRendererProps,
 ): JSX.Element;
 
 export interface IIdcodeSvgRendererSvgRendererProps
@@ -40,7 +48,7 @@ export interface IIdcodeSvgRendererSvgRendererProps
   coordinates?: string;
 }
 export function IdcodeSvgRenderer(
-  props: IIdcodeSvgRendererSvgRendererProps
+  props: IIdcodeSvgRendererSvgRendererProps,
 ): JSX.Element;
 
 // Full API

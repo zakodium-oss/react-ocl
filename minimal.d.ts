@@ -5,5 +5,5 @@ export {
   ISmilesSvgRendererProps,
   IdcodeSvgRenderer,
   MolfileSvgRenderer,
-  SmilesSvgRenderer
+  SmilesSvgRenderer,
 } from './types';

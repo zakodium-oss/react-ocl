@@ -72,6 +72,17 @@ storiesOf('SVG renderers', module)
       },
     },
   )
+  .add('SmilesSvgRenderer with custom error rendering', () => (
+    <SmilesSvgRenderer
+      smiles="COVVVCC"
+      ErrorComponent={(props) => (
+        <div style={{ color: 'red' }}>
+          <div>{props.value}</div>
+          <div>{props.error.message}</div>
+        </div>
+      )}
+    />
+  ))
   .add(
     'MolfileSvgRenderer (V2000)',
     () => (
