@@ -1,6 +1,6 @@
-import React, { useCallback, useState } from 'react';
-import { storiesOf } from '@storybook/react';
 import { boolean } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
+import React, { useCallback, useState } from 'react';
 
 import StructureEditor from '../src/components/StructureEditor';
 

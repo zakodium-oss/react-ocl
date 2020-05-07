@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import OCL from 'openchemlib/full';
+import PropTypes from 'prop-types';
+import React, { useRef, useEffect } from 'react';
 
 function StructureEditor(props) {
   const {

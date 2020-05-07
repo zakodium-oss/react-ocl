@@ -1,5 +1,5 @@
-import React, { useRef, useEffect, useState } from 'react';
 import propTypes from 'prop-types';
+import React, { useRef, useEffect, useState } from 'react';
 
 const idPrefix = 'react-ocl-';
 let currentId = 0;

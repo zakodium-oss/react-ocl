@@ -1,16 +1,16 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { text, number, boolean } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
+import React from 'react';
 
+import BaseIdcodeSvgRenderer from '../src/components/IdcodeSvgRenderer';
+import BaseMolfileSvgRenderer from '../src/components/MolfileSvgRenderer';
+import BaseSmilesSvgRenderer from '../src/components/SmilesSvgRenderer';
+import SvgRenderer from '../src/components/SvgRenderer';
 import {
   SmilesSvgRenderer,
   MolfileSvgRenderer,
   IdcodeSvgRenderer,
 } from '../src/index';
-import BaseIdcodeSvgRenderer from '../src/components/IdcodeSvgRenderer';
-import BaseMolfileSvgRenderer from '../src/components/MolfileSvgRenderer';
-import BaseSmilesSvgRenderer from '../src/components/SmilesSvgRenderer';
-import SvgRenderer from '../src/components/SvgRenderer';
 
 import { idcode, molfileV2000, molfileV3000 } from './data';
 

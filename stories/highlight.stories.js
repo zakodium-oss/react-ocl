@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
 import { array, color, number } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
+import React, { useState } from 'react';
 
 import { MolfileSvgRenderer } from '../src/index';
 
