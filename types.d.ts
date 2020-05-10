@@ -18,16 +18,16 @@ export interface IBaseSvgRendererProps extends IMoleculeToSVGOptions {
   atomHighlight?: number[];
   atomHighlightOpacity?: number;
   atomHighlightColor?: string;
-  onAtomEnter?: (atomId: number) => void;
-  onAtomLeave?: (atomId: number) => void;
-  onAtomClick?: (atomId: number) => void;
+  onAtomEnter?: (atomId: number, event: React.MouseEvent<SVGElement>) => void;
+  onAtomLeave?: (atomId: number, event: React.MouseEvent<SVGElement>) => void;
+  onAtomClick?: (atomId: number, event: React.MouseEvent<SVGElement>) => void;
 
   bondHighlight?: number[];
   bondHighlightOpacity?: number;
   bondHighlightColor?: string;
-  onBondEnter?: (bondId: number) => void;
-  onBondLeave?: (bondId: number) => void;
-  onBondClick?: (bondId: number) => void;
+  onBondEnter?: (bondId: number, event: React.MouseEvent<SVGElement>) => void;
+  onBondLeave?: (bondId: number, event: React.MouseEvent<SVGElement>) => void;
+  onBondClick?: (bondId: number, event: React.MouseEvent<SVGElement>) => void;
 }
 
 export interface ISmilesSvgRendererProps extends IBaseSvgRendererProps {
