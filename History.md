@@ -1,3 +1,12 @@
+# [4.2.0](https://github.com/zakodium/react-ocl/compare/v4.1.0...v4.2.0) (2020-05-10)
+
+
+### Features
+
+* prevent atom selection and send event object ([#5](https://github.com/zakodium/react-ocl/issues/5)) ([07498f4](https://github.com/zakodium/react-ocl/commit/07498f48ff99d1c0c0c8b837cf4296c4d60ffc67))
+
+
+
 # [4.1.0](https://github.com/zakodium/react-ocl/compare/v4.0.4...v4.1.0) (2020-05-07)
 
 
