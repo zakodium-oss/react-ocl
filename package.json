@@ -37,6 +37,13 @@
     "test": "npm run test-only && npm run eslint",
     "test-only": "cross-env NODE_ENV=test jest"
   },
+  "prettier": {
+    "arrowParens": "always",
+    "tabWidth": 2,
+    "singleQuote": true,
+    "semi": true,
+    "trailingComma": "all"
+  },
   "license": "MIT",
   "dependencies": {
     "prop-types": "^15.7.2"
