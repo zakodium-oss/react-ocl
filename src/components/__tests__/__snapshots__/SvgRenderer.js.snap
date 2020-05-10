@@ -103,6 +103,11 @@ exports[`Molecule renders molfile with default id 1`] = `
 </svg>",
     }
   }
+  style={
+    Object {
+      "userSelect": "none",
+    }
+  }
 />
 `;
 
@@ -124,6 +129,11 @@ exports[`Molecule renders smiles with custom id 1`] = `
   <circle id=\\"mol1:Atom:2\\" class=\\"event\\" cx=\\"589.61\\" cy=\\"394\\" r=\\"8\\" opacity=\\"0\\" />
   <circle id=\\"mol1:Atom:3\\" class=\\"event\\" cx=\\"568.82\\" cy=\\"406\\" r=\\"8\\" opacity=\\"0\\" />
 </svg>",
+    }
+  }
+  style={
+    Object {
+      "userSelect": "none",
     }
   }
 />
