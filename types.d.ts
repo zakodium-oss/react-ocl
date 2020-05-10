@@ -1,5 +1,5 @@
 import { IMoleculeToSVGOptions, Molecule } from 'openchemlib/minimal';
-import { ComponentType } from 'react';
+import { ComponentType, MouseEvent } from 'react';
 
 // Minimal and core APIs
 
@@ -18,16 +18,16 @@ export interface IBaseSvgRendererProps extends IMoleculeToSVGOptions {
   atomHighlight?: number[];
   atomHighlightOpacity?: number;
   atomHighlightColor?: string;
-  onAtomEnter?: (atomId: number) => void;
-  onAtomLeave?: (atomId: number) => void;
-  onAtomClick?: (atomId: number) => void;
+  onAtomEnter?: (atomId: number, event: MouseEvent<SVGElement>) => void;
+  onAtomLeave?: (atomId: number, event: MouseEvent<SVGElement>) => void;
+  onAtomClick?: (atomId: number, event: MouseEvent<SVGElement>) => void;
 
   bondHighlight?: number[];
   bondHighlightOpacity?: number;
   bondHighlightColor?: string;
-  onBondEnter?: (bondId: number) => void;
-  onBondLeave?: (bondId: number) => void;
-  onBondClick?: (bondId: number) => void;
+  onBondEnter?: (bondId: number, event: MouseEvent<SVGElement>) => void;
+  onBondLeave?: (bondId: number, event: MouseEvent<SVGElement>) => void;
+  onBondClick?: (bondId: number, event: MouseEvent<SVGElement>) => void;
 }
 
 export interface ISmilesSvgRendererProps extends IBaseSvgRendererProps {
