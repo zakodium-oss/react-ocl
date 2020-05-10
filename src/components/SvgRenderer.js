@@ -78,21 +78,21 @@ function useEvents(ref, start, onEnter, onLeave, onClick) {
       if (!onEnter) return;
       const { target } = event;
       if (target.className.baseVal === 'event' && target.id.startsWith(start)) {
-        onEnter(Number(target.id.replace(start, '')));
+        onEnter(Number(target.id.replace(start, '')), event);
       }
     };
     const handleLeave = (event) => {
       if (!onLeave) return;
       const { target } = event;
       if (target.className.baseVal === 'event' && target.id.startsWith(start)) {
-        onLeave(Number(target.id.replace(start, '')));
+        onLeave(Number(target.id.replace(start, '')), event);
       }
     };
     const handleClick = (event) => {
       if (!onClick) return;
       const { target } = event;
       if (target.className.baseVal === 'event' && target.id.startsWith(start)) {
-        onClick(Number(target.id.replace(start, '')));
+        onClick(Number(target.id.replace(start, '')), event);
       }
     };
     svg.addEventListener('mouseover', handleEnter);
