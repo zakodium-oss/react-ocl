@@ -59,6 +59,7 @@ export default function SvgRenderer(props) {
 
   return (
     <div
+      style={{ userSelect: 'none' }}
       ref={ref}
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{
