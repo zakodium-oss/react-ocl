@@ -1,3 +1,12 @@
+## [4.2.1](https://github.com/zakodium/react-ocl/compare/v4.2.0...v4.2.1) (2020-06-10)
+
+
+### Bug Fixes
+
+* add missing main package field ([36bdf80](https://github.com/zakodium/react-ocl/commit/36bdf80be14fc562420ba957de733d807d9f36d8))
+
+
+
 # [4.2.0](https://github.com/zakodium/react-ocl/compare/v4.1.0...v4.2.0) (2020-05-10)
 
 
