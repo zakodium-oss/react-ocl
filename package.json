@@ -18,6 +18,7 @@
     "minimal.mjs",
     "types.d.ts"
   ],
+  "main": "minimal.mjs",
   "module": "minimal.mjs",
   "types": "minimal.d.ts",
   "repository": {
