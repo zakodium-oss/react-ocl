@@ -42,13 +42,13 @@ export function MolfileSvgRenderer(
   props: IMolfileSvgRendererProps,
 ): JSX.Element;
 
-export interface IIdcodeSvgRendererSvgRendererProps
+export interface IIdcodeSvgRendererProps
   extends IBaseSvgRendererProps {
   idcode: string;
   coordinates?: string;
 }
 export function IdcodeSvgRenderer(
-  props: IIdcodeSvgRendererSvgRendererProps,
+  props: IIdcodeSvgRendererProps,
 ): JSX.Element;
 
 // Full API

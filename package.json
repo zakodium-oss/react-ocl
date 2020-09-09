@@ -10,6 +10,8 @@
   ],
   "files": [
     "lib",
+    "base.d.ts",
+    "base.mjs",
     "core.d.ts",
     "core.mjs",
     "full.d.ts",

@@ -32,6 +32,8 @@ This library is available in three versions, like openchemlib: `react-ocl/minima
 - If you only use the SvgRenderer component, you can choose any version, minimal
   being the smallest one.
 - If you want to use the StructureEditor component, you must import `react-ocl/full`.
+- If you are writing a library and want to allow your consumer to provide the OCL
+  version for rendering, you must import `react-ocl/base`.
 
 ## Documentation
 

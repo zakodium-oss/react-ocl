@@ -1,6 +1,6 @@
 export {
   IBaseSvgRendererProps,
-  IIdcodeSvgRendererSvgRendererProps,
+  IIdcodeSvgRendererProps,
   IMolfileSvgRendererProps,
   ISmilesSvgRendererProps,
   IdcodeSvgRenderer,
