@@ -1,3 +1,12 @@
+# [4.3.0](https://github.com/zakodium/react-ocl/compare/v4.2.1...v4.3.0) (2020-09-09)
+
+
+### Features
+
+* expose base components for rendering with custom OCL ([66e6ee4](https://github.com/zakodium/react-ocl/commit/66e6ee4a9333bf50b118c8b41a74972419e2c31b))
+
+
+
 ## [4.2.1](https://github.com/zakodium/react-ocl/compare/v4.2.0...v4.2.1) (2020-06-10)
 
 
