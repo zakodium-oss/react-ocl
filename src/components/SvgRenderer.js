@@ -33,9 +33,10 @@ export default function SvgRenderer(props) {
 
   const id = idFromProps || internalId;
 
+  const serializedOptions = JSON.stringify(otherProps);
   const svgString = useMemo(() => {
-    return mol.toSVG(width, height, id, otherProps);
-  }, [mol, width, height, id]);
+    return mol.toSVG(width, height, id, JSON.parse(serializedOptions));
+  }, [mol, width, height, id, serializedOptions]);
 
   const atomStart = `${id}:Atom:`;
   const bondStart = `${id}:Bond:`;
