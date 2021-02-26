@@ -32,6 +32,7 @@
   "author": "Michaël Zasso <targos@protonmail.com>",
   "scripts": {
     "build-docs": "build-storybook -o docs",
+    "build-storybook": "build-storybook --no-dll -s ./public",
     "compile": "babel src --out-dir lib --ignore src/**/__tests__ --quiet --source-maps",
     "eslint": "eslint src stories",
     "eslint-fix": "npm run eslint -- --fix",
