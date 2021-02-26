@@ -1,3 +1,10 @@
+### [4.3.1](https://github.com/zakodium/react-ocl/compare/v4.3.0...v4.3.1) (2021-02-26)
+
+
+### Bug Fixes
+
+* prevent SVG recalculation if not needed ([#6](https://github.com/zakodium/react-ocl/issues/6)) ([004d729](https://github.com/zakodium/react-ocl/commit/004d729501b2193b13df507cca99c0212d20ed29))
+
 # [4.3.0](https://github.com/zakodium/react-ocl/compare/v4.2.1...v4.3.0) (2020-09-09)
 
 
