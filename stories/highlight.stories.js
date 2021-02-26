@@ -1,4 +1,4 @@
-import { array, color, number } from '@storybook/addon-knobs';
+import { array, color, number, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React, { useState } from 'react';
 
@@ -9,11 +9,11 @@ import { molfileV2000 } from './data';
 storiesOf('Highlighting', module)
   .add('Fixed highlight', () => (
     <MolfileSvgRenderer
-      molfile={molfileV2000}
-      atomHighlight={array('Atom highlight ids', [1, 5])}
+      molfile={text('Molfile', molfileV2000)}
+      atomHighlight={array('Atom highlight ids', [1, 5]).map(Number)}
       atomHighlightColor={color('Atom highlight color', 'yellow')}
       atomHighlightOpacity={number('Atom highlight opacity', 0.5)}
-      bondHighlight={array('Bond highlight ids', [6])}
+      bondHighlight={array('Bond highlight ids', [6]).map(Number)}
       bondHighlightColor={color('Bond highlight color', 'red')}
       bondHighlightOpacity={number('Bond highlight opacity', 0.5)}
     />
