@@ -76,4 +76,4 @@ typings/
 .fusebox/
 
 lib
-lib-es6
+lib-cjs

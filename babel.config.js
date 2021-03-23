@@ -1,9 +1,9 @@
 const config = {
   presets: ['@babel/react'],
-  plugins: []
+  plugins: [],
 };
 
-if (process.env.NODE_ENV === 'test') {
+if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'cjs') {
   config.plugins.push('@babel/transform-modules-commonjs');
 }
 

@@ -1,9 +1,9 @@
-import React from 'react';
 import OCL from 'openchemlib/core';
+import React from 'react';
 
-import BaseSmilesSvgRenderer from './lib/components/SmilesSvgRenderer';
-import BaseMolfileSvgRenderer from './lib/components/MolfileSvgRenderer';
 import BaseIdcodeSvgRenderer from './lib/components/IdcodeSvgRenderer';
+import BaseMolfileSvgRenderer from './lib/components/MolfileSvgRenderer';
+import BaseSmilesSvgRenderer from './lib/components/SmilesSvgRenderer';
 
 export function SmilesSvgRenderer(props) {
   return React.createElement(BaseSmilesSvgRenderer, { OCL, ...props });
