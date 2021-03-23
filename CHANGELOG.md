@@ -1,5 +1,12 @@
 # Changelog
 
+### [4.3.3](https://www.github.com/zakodium/react-ocl/compare/v4.3.2...v4.3.3) (2021-03-23)
+
+
+### Bug Fixes
+
+* use JS extension ([9771140](https://www.github.com/zakodium/react-ocl/commit/977114035d99c956ce3d2f3da0bd7bc6cb057485))
+
 ### [4.3.2](https://www.github.com/zakodium/react-ocl/compare/v4.3.1...v4.3.2) (2021-03-23)
 
 
