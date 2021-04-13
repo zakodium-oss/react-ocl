@@ -1,8 +1,22 @@
-import { boolean } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/react';
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import StructureEditor from '../src/components/StructureEditor';
+
+export default {
+  title: 'StructureEditor',
+  component: StructureEditor,
+  args: {
+    svgMenu: true,
+    fragment: false,
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: 'StructureEditor is an uncontrolled component.',
+      },
+    },
+  },
+};
 
 const initialMolfile = `
 Actelion Java MolfileCreator 1.0
@@ -55,20 +69,6 @@ function MolfileDemo({ svgMenu, fragment }) {
   );
 }
 
-storiesOf('StructureEditor', module).add(
-  'From molfile',
-  () => (
-    <MolfileDemo
-      svgMenu={boolean('SVG menu', true)}
-      fragment={boolean('fragment', false)}
-    />
-  ),
-  {
-    info: {
-      text: 'StructureEditor is an uncontrolled component',
-      source: false,
-      propTables: [StructureEditor],
-      propTablesExclude: [MolfileDemo],
-    },
-  },
-);
+export function FromMolfile(args) {
+  return <MolfileDemo {...args} />;
+}
