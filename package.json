@@ -36,7 +36,7 @@
   "bugs": "https://github.com/zakodium/react-ocl/issues",
   "author": "Michaël Zasso <targos@protonmail.com>",
   "scripts": {
-    "build-storybook": "build-storybook --no-dll -s ./public",
+    "build-storybook": "build-storybook",
     "compile": "babel src --out-dir lib --ignore src/**/__tests__ --quiet --source-maps",
     "compile-cjs": "cross-env NODE_ENV=cjs babel src --out-dir lib-cjs --ignore src/**/__tests__ --quiet --source-maps",
     "dev": "start-storybook -p 6006",
