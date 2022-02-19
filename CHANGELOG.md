@@ -1,5 +1,12 @@
 # Changelog
 
+### [4.3.4](https://www.github.com/zakodium/react-ocl/compare/v4.3.3...v4.3.4) (2022-02-19)
+
+
+### Bug Fixes
+
+* do not try to setFragment if editor is not instanciated ([a686836](https://www.github.com/zakodium/react-ocl/commit/a6868363443eb7b95ca5f72aca4cc1013ff71197))
+
 ### [4.3.3](https://www.github.com/zakodium/react-ocl/compare/v4.3.2...v4.3.3) (2021-03-23)
 
 
