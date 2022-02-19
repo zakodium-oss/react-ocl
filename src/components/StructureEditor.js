@@ -25,6 +25,7 @@ function StructureEditor(props) {
     const editor = new OCL.StructureEditor(domRef.current, svgMenu, 1);
     editorRef.current = { editor, hadFirstChange: false };
     editor.setMolFile(initialMolfile);
+    editor.setFragment(fragment);
     editor.setChangeListenerCallback((...args) => {
       if (callbacksRef.current.onChange) {
         callbacksRef.current.onChange(...args);
@@ -71,7 +72,9 @@ function StructureEditor(props) {
   }, [onChange, onAtomEnter, onAtomLeave, onBondEnter, onBondLeave]);
 
   useEffect(() => {
-    editorRef.current.editor.setFragment(fragment);
+    if (editorRef.current.editor) {
+      editorRef.current.editor.setFragment(fragment);
+    }
   }, [fragment]);
 
   return <div ref={domRef} style={{ width, height }} />;
