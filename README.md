@@ -1,4 +1,5 @@
 # react-ocl
+
 React components integrating OpenChemLib.
 
 These react component allows to display and edit molfile and smiles.
@@ -52,7 +53,7 @@ See https://zakodium.github.io/react-ocl/ for detailed usage examples.
 
 [npm-image]: https://img.shields.io/npm/v/react-ocl.svg
 [npm-url]: https://npmjs.org/package/react-ocl
-[ci-image]: https://github.com/zakodium/react-ocl/workflows/Node.js%20CI/badge.svg?branch=master
+[ci-image]: https://github.com/zakodium/react-ocl/workflows/Node.js%20CI/badge.svg?branch=main
 [ci-url]: https://github.com/zakodium/react-ocl/actions?query=workflow%3A%22Node.js+CI%22
 [download-image]: https://img.shields.io/npm/dm/react-ocl.svg
 [download-url]: https://npmjs.org/package/react-ocl
