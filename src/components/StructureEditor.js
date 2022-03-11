@@ -22,7 +22,24 @@ function StructureEditor(props) {
 
   useEffect(() => {
     domRef.current.innerHTML = '';
-    const editor = new OCL.StructureEditor(domRef.current, svgMenu, 1);
+
+    // GWT doesn't play well with the shadow DOM. This hack allows to load an
+    // OCL editor inside a shadow root.
+    const root = domRef.current.getRootNode();
+    let originalGetElementById;
+    if (root instanceof ShadowRoot) {
+      originalGetElementById = document.getElementById;
+      document.getElementById = root.getElementById.bind(root);
+    }
+    let editor;
+    try {
+      editor = new OCL.StructureEditor(domRef.current, svgMenu, 1);
+    } finally {
+      if (root instanceof ShadowRoot) {
+        document.getElementById = originalGetElementById;
+      }
+    }
+
     editorRef.current = { editor, hadFirstChange: false };
     editor.setMolFile(initialMolfile);
     editor.setFragment(fragment);
