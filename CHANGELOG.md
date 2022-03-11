@@ -1,5 +1,12 @@
 # Changelog
 
+### [4.3.5](https://www.github.com/zakodium/react-ocl/compare/v4.3.4...v4.3.5) (2022-03-11)
+
+
+### Bug Fixes
+
+* make StructureEditor work inside a shadow root ([2a12c53](https://www.github.com/zakodium/react-ocl/commit/2a12c53b966289870154065fb5cac1b4ae2dc10b))
+
 ### [4.3.4](https://www.github.com/zakodium/react-ocl/compare/v4.3.3...v4.3.4) (2022-02-19)
 
 
