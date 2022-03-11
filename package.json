@@ -66,7 +66,7 @@
     "react-dom": ">=16"
   },
   "devDependencies": {
-    "@babel/cli": "^7.17.3",
+    "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.5",
     "@babel/plugin-transform-modules-commonjs": "^7.16.8",
     "@babel/preset-react": "^7.16.7",
@@ -77,8 +77,8 @@
     "babel-jest": "^27.5.1",
     "babel-loader": "^8.2.3",
     "cross-env": "^7.0.3",
-    "eslint": "^8.9.0",
-    "eslint-config-cheminfo-react": "^8.1.1",
+    "eslint": "^8.10.0",
+    "eslint-config-cheminfo-react": "^8.2.0",
     "jest": "^27.5.1",
     "openchemlib": "^7.4.3",
     "prettier": "^2.5.1",
