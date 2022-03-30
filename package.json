@@ -30,10 +30,10 @@
   "types": "minimal.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zakodium/react-ocl.git"
+    "url": "https://github.com/zakodium-oss/react-ocl.git"
   },
-  "homepage": "https://github.com/zakodium/react-ocl#readme",
-  "bugs": "https://github.com/zakodium/react-ocl/issues",
+  "homepage": "https://github.com/zakodium-oss/react-ocl#readme",
+  "bugs": "https://github.com/zakodium-oss/react-ocl/issues",
   "author": "Michaël Zasso <targos@protonmail.com>",
   "scripts": {
     "build-storybook": "build-storybook",

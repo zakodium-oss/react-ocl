@@ -49,11 +49,11 @@ This library is available in three versions, like openchemlib: `react-ocl/minima
 
 ## Documentation
 
-See https://zakodium.github.io/react-ocl/ for detailed usage examples.
+See https://zakodium-oss.github.io/react-ocl/ for detailed usage examples.
 
 [npm-image]: https://img.shields.io/npm/v/react-ocl.svg
 [npm-url]: https://npmjs.org/package/react-ocl
-[ci-image]: https://github.com/zakodium/react-ocl/workflows/Node.js%20CI/badge.svg?branch=main
-[ci-url]: https://github.com/zakodium/react-ocl/actions?query=workflow%3A%22Node.js+CI%22
+[ci-image]: https://github.com/zakodium-oss/react-ocl/workflows/Node.js%20CI/badge.svg?branch=main
+[ci-url]: https://github.com/zakodium-oss/react-ocl/actions?query=workflow%3A%22Node.js+CI%22
 [download-image]: https://img.shields.io/npm/dm/react-ocl.svg
 [download-url]: https://npmjs.org/package/react-ocl
