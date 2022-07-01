@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.4.0](https://www.github.com/zakodium-oss/react-ocl/compare/v4.3.5...v4.4.0) (2022-07-01)
+
+
+### Features
+
+* add initialIDCode props and give idCode in onChange callback ([2dba9b4](https://www.github.com/zakodium-oss/react-ocl/commit/2dba9b4374a089ee1872584d2bf38189582f9b0a))
+
 ### [4.3.5](https://www.github.com/zakodium/react-ocl/compare/v4.3.4...v4.3.5) (2022-03-11)
 
 
