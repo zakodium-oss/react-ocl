@@ -27,17 +27,16 @@ export function Smiles(args) {
 }
 Smiles.storyName = 'SMILES';
 
-export function CustomError() {
+function ErrorComponent(props) {
   return (
-    <SmilesSvgRenderer
-      smiles="COVVVCC"
-      ErrorComponent={(props) => (
-        <div style={{ color: 'red' }}>
-          <div>{props.value}</div>
-          <div>{props.error.message}</div>
-        </div>
-      )}
-    />
+    <div style={{ color: 'red' }}>
+      <div>{props.value}</div>
+      <div>{props.error.message}</div>
+    </div>
   );
+}
+
+export function CustomError() {
+  return <SmilesSvgRenderer smiles="COVVVCC" ErrorComponent={ErrorComponent} />;
 }
 CustomError.storyName = 'With custom error rendering';

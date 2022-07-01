@@ -58,19 +58,18 @@ function StructureEditor(props) {
         callbacksRef.current.onBondHighlight(...args);
       }
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width, height, svgMenu]);
 
   useEffect(() => {
     callbacksRef.current.onChange = () => {
       if (!editorRef.current.hadFirstChange) {
         editorRef.current.hadFirstChange = true;
-      } else {
-        if (onChange) {
+      } else if (onChange) {
           const molfile = editorRef.current.editor.getMolFileV3();
           const molecule = editorRef.current.editor.getMolecule();
           onChange(molfile, molecule);
         }
-      }
     };
     callbacksRef.current.onAtomHighlight = (atomId, enter) => {
       if (enter && onAtomEnter) {
