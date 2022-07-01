@@ -18,6 +18,8 @@ export default {
   },
 };
 
+const initialIDCode = 'gFp@DiTvjh@ !B?g~w@k_}m?vw@`';
+
 const initialMolfile = `
 Actelion Java MolfileCreator 1.0
 
@@ -36,7 +38,7 @@ Actelion Java MolfileCreator 1.0
 M  END
 `;
 
-function MolfileDemo({ svgMenu, fragment }) {
+export function FromMolfile({ svgMenu, fragment }) {
   const [molfile, setMolfile] = useState(initialMolfile);
   const [previous, setPrevious] = useState(null);
   const cb = useCallback(
@@ -69,6 +71,35 @@ function MolfileDemo({ svgMenu, fragment }) {
   );
 }
 
-export function FromMolfile(args) {
-  return <MolfileDemo {...args} />;
+export function FromIDCode({ svgMenu, fragment }) {
+  const [idCode, setIDCode] = useState(initialIDCode);
+  const [previous, setPrevious] = useState(null);
+  const cb = useCallback(
+    (netMolfile, molecule, newIDCode) => {
+      setIDCode(newIDCode);
+      setPrevious(idCode);
+    },
+    [setIDCode, setPrevious, idCode],
+  );
+  return (
+    <div>
+      <h2>Editor</h2>
+      <StructureEditor
+        initialIDCode={idCode}
+        svgMenu={svgMenu}
+        fragment={fragment}
+        onChange={cb}
+      />
+      <div style={{ display: 'flex' }}>
+        <div style={{ flex: 1 }}>
+          <h2 style={{ textAlign: 'center' }}>Current</h2>
+          <pre>{idCode}</pre>
+        </div>
+        <div style={{ flex: 1 }}>
+          <h2 style={{ textAlign: 'center' }}>Previous</h2>
+          <pre>{previous}</pre>
+        </div>
+      </div>
+    </div>
+  );
 }

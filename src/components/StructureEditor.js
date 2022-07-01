@@ -7,6 +7,7 @@ function StructureEditor(props) {
     width,
     height,
     initialMolfile,
+    initialIDCode,
     fragment,
     svgMenu,
     onChange,
@@ -41,7 +42,11 @@ function StructureEditor(props) {
     }
 
     editorRef.current = { editor, hadFirstChange: false };
-    editor.setMolFile(initialMolfile);
+    if (initialMolfile && initialIDCode) {
+      throw new Error('Cannot specify both initialMolfile and initialIDCode');
+    }
+    if (initialMolfile) editor.setMolFile(initialMolfile);
+    if (initialIDCode) editor.setIDCode(initialIDCode);
     editor.setFragment(fragment);
     editor.setChangeListenerCallback((...args) => {
       if (callbacksRef.current.onChange) {
@@ -58,7 +63,7 @@ function StructureEditor(props) {
         callbacksRef.current.onBondHighlight(...args);
       }
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width, height, svgMenu]);
 
   useEffect(() => {
@@ -66,10 +71,11 @@ function StructureEditor(props) {
       if (!editorRef.current.hadFirstChange) {
         editorRef.current.hadFirstChange = true;
       } else if (onChange) {
-          const molfile = editorRef.current.editor.getMolFileV3();
-          const molecule = editorRef.current.editor.getMolecule();
-          onChange(molfile, molecule);
-        }
+        const molfile = editorRef.current.editor.getMolFileV3();
+        const molecule = editorRef.current.editor.getMolecule();
+        const idCode = editorRef.current.editor.getIDCode();
+        onChange(molfile, molecule, idCode);
+      }
     };
     callbacksRef.current.onAtomHighlight = (atomId, enter) => {
       if (enter && onAtomEnter) {
@@ -111,6 +117,7 @@ StructureEditor.propTypes = {
 
 StructureEditor.defaultProps = {
   initialMolfile: '',
+  initialIDCode: '',
   fragment: false,
   svgMenu: true,
   width: 675,

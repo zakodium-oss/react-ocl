@@ -42,14 +42,11 @@ export function MolfileSvgRenderer(
   props: IMolfileSvgRendererProps,
 ): JSX.Element;
 
-export interface IIdcodeSvgRendererProps
-  extends IBaseSvgRendererProps {
+export interface IIdcodeSvgRendererProps extends IBaseSvgRendererProps {
   idcode: string;
   coordinates?: string;
 }
-export function IdcodeSvgRenderer(
-  props: IIdcodeSvgRendererProps,
-): JSX.Element;
+export function IdcodeSvgRenderer(props: IIdcodeSvgRendererProps): JSX.Element;
 
 // Full API
 
@@ -57,9 +54,10 @@ export interface IStructureEditorProps {
   width?: number;
   height?: number;
   initialMolfile?: string;
+  initialIDCode?: string;
   fragment?: boolean;
   svgMenu?: boolean;
-  onChange?: (molfile: string, molecule: Molecule) => void;
+  onChange?: (molfile: string, molecule: Molecule, idCode: string) => void;
   onAtomEnter?: (atomId: number) => void;
   onAtomLeave?: (atomId: number) => void;
   onBondEnter?: (bondId: number) => void;
