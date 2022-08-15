@@ -1,8 +1,5 @@
 import propTypes from 'prop-types';
-import React, { useRef, useEffect, useState, useMemo } from 'react';
-
-const idPrefix = 'react-ocl-';
-let currentId = 0;
+import React, { useRef, useEffect, useMemo, useId } from 'react';
 
 export default function SvgRenderer(props) {
   const {
@@ -28,7 +25,7 @@ export default function SvgRenderer(props) {
     ...otherProps
   } = props;
 
-  const [internalId] = useState(() => idPrefix + currentId++);
+  const internalId = `react-ocl-${useId()}`;
   const ref = useRef(null);
 
   const id = idFromProps || internalId;

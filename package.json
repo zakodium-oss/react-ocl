@@ -57,15 +57,15 @@
   },
   "license": "MIT",
   "volta": {
-    "node": "16.14.0"
+    "node": "16.16.0"
   },
   "dependencies": {
     "prop-types": "^15.8.1"
   },
   "peerDependencies": {
     "openchemlib": ">=8",
-    "react": ">=16",
-    "react-dom": ">=16"
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.10",
