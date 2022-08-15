@@ -1,5 +1,23 @@
 # Changelog
 
+## [5.0.0](https://github.com/zakodium-oss/react-ocl/compare/v4.4.0...v5.0.0) (2022-08-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove propTypes and defaultProps
+* update OpenChemLib to v8.0.0
+
+### Features
+
+* update OpenChemLib to v8.0.0 ([cc0ea01](https://github.com/zakodium-oss/react-ocl/commit/cc0ea01082f16793e8d4bb87269e062a9b579b76))
+* update React to v18 ([749ca7f](https://github.com/zakodium-oss/react-ocl/commit/749ca7f38d2f34e6c767f410927c9b2e171a442c))
+
+
+### Code Refactoring
+
+* remove propTypes and defaultProps ([7b15f4d](https://github.com/zakodium-oss/react-ocl/commit/7b15f4d7d899e6c9b9b03751f74aa02b560c699f))
+
 ## [4.4.0](https://www.github.com/zakodium-oss/react-ocl/compare/v4.3.5...v4.4.0) (2022-07-01)
 
 
