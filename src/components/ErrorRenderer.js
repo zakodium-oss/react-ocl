@@ -1,7 +1,7 @@
 import React from 'react';
 
 export function ErrorRenderer(props) {
-  const { width, height, value, error, ErrorComponent } = props;
+  const { width = 300, height = 150, value, error, ErrorComponent } = props;
   return (
     <div style={{ width, height }}>
       <ErrorComponent
@@ -13,11 +13,6 @@ export function ErrorRenderer(props) {
     </div>
   );
 }
-
-ErrorRenderer.defaultProps = {
-  width: 300,
-  height: 150,
-};
 
 export function DefaultErrorRenderer(props) {
   return (

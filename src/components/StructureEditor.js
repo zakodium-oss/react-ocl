@@ -1,15 +1,14 @@
 import OCL from 'openchemlib/full';
-import PropTypes from 'prop-types';
 import React, { useRef, useEffect } from 'react';
 
 function StructureEditor(props) {
   const {
-    width,
-    height,
-    initialMolfile,
-    initialIDCode,
-    fragment,
-    svgMenu,
+    width = 675,
+    height = 450,
+    initialMolfile = '',
+    initialIDCode = '',
+    fragment = false,
+    svgMenu = true,
     onChange,
     onAtomEnter,
     onAtomLeave,
@@ -101,27 +100,5 @@ function StructureEditor(props) {
 
   return <div ref={domRef} style={{ width, height }} />;
 }
-
-StructureEditor.propTypes = {
-  initialMolfile: PropTypes.string,
-  fragment: PropTypes.bool,
-  svgMenu: PropTypes.bool,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  onChange: PropTypes.func,
-  onAtomEnter: PropTypes.func,
-  onAtomLeave: PropTypes.func,
-  onBondEnter: PropTypes.func,
-  onBondLeave: PropTypes.func,
-};
-
-StructureEditor.defaultProps = {
-  initialMolfile: '',
-  initialIDCode: '',
-  fragment: false,
-  svgMenu: true,
-  width: 675,
-  height: 450,
-};
 
 export default StructureEditor;

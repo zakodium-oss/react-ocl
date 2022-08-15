@@ -1,36 +1,50 @@
-import propTypes from 'prop-types';
 import React, { useRef, useEffect, useMemo, useId } from 'react';
 
 export default function SvgRenderer(props) {
   const {
-    width,
-    height,
+    width = 300,
+    height = 150,
     id: idFromProps,
 
     atomHighlight,
-    atomHighlightOpacity,
-    atomHighlightColor,
+    atomHighlightOpacity = 0.5,
+    atomHighlightColor = 'yellow',
     onAtomEnter,
     onAtomLeave,
     onAtomClick,
 
     bondHighlight,
-    bondHighlightOpacity,
-    bondHighlightColor,
+    bondHighlightOpacity = 0.5,
+    bondHighlightColor = 'yellow',
     onBondEnter,
     onBondLeave,
     onBondClick,
 
     mol,
+
+    factorTextSize = 1,
+    suppressChiralText = true,
+    suppressESR = true,
+    suppressCIPParity = true,
+    noStereoProblem = true,
+
     ...otherProps
   } = props;
 
-  const internalId = `react-ocl-${useId()}`;
+  const internalId = `react-ocl:${useId()}`;
   const ref = useRef(null);
 
   const id = idFromProps || internalId;
 
-  const serializedOptions = JSON.stringify(otherProps);
+  const toSVGOptions = {
+    factorTextSize,
+    suppressChiralText,
+    suppressESR,
+    suppressCIPParity,
+    noStereoProblem,
+    ...otherProps,
+  };
+  const serializedOptions = JSON.stringify(toSVGOptions);
   const svgString = useMemo(() => {
     return mol.toSVG(width, height, id, JSON.parse(serializedOptions));
   }, [mol, width, height, id, serializedOptions]);
@@ -132,66 +146,3 @@ function useHighlight(
     }
   });
 }
-
-SvgRenderer.propTypes = {
-  width: propTypes.number,
-  height: propTypes.number,
-  id: propTypes.string,
-  atomHighlight: propTypes.arrayOf(propTypes.number),
-  atomHighlightColor: propTypes.string,
-  atomHighlightOpacity: propTypes.number,
-  bondHighlight: propTypes.arrayOf(propTypes.number),
-  bondHighlightColor: propTypes.string,
-  bondHighlightOpacity: propTypes.number,
-  factorTextSize: propTypes.number,
-  fontWeight: propTypes.string,
-  strokeWidth: propTypes.oneOf([propTypes.string, propTypes.number]),
-  inflateToMaxAVBL: propTypes.bool,
-  inflateToHighResAVBL: propTypes.bool,
-  chiralTextBelowMolecule: propTypes.bool,
-  chiralTextAboveMolecule: propTypes.bool,
-  chiralTextOnFrameTop: propTypes.bool,
-  chiralTextOnFrameBottom: propTypes.bool,
-  noTabus: propTypes.bool,
-  showAtomNumber: propTypes.bool,
-  showBondNumber: propTypes.bool,
-  highlightQueryFeatures: propTypes.bool,
-  showMapping: propTypes.bool,
-  suppressChiralText: propTypes.bool,
-  suppressCIPParity: propTypes.bool,
-  suppressESR: propTypes.bool,
-  showSymmetrySimple: propTypes.bool,
-  showSymmetryDiastereotopic: propTypes.bool,
-  showSymmetryEnantiotopic: propTypes.bool,
-  noImplicitAtomLabelColors: propTypes.bool,
-  noStereoProblem: propTypes.bool,
-};
-
-SvgRenderer.defaultProps = {
-  width: 300,
-  height: 150,
-  atomHighlightColor: 'yellow',
-  atomHighlightOpacity: 0.5,
-  bondHighlightColor: 'yellow',
-  bondHighlightOpacity: 0.5,
-  suppressChiralText: true,
-  suppressESR: true,
-  suppressCIPParity: true,
-  noStereoProblem: true,
-  factorTextSize: 1,
-  inflateToMaxAVBL: false,
-  inflateToHighResAVBL: false,
-  chiralTextBelowMolecule: false,
-  chiralTextAboveMolecule: false,
-  chiralTextOnFrameTop: false,
-  chiralTextOnFrameBottom: false,
-  noTabus: false,
-  showAtomNumber: false,
-  showBondNumber: false,
-  highlightQueryFeatures: false,
-  showMapping: false,
-  showSymmetrySimple: false,
-  showSymmetryDiastereotopic: false,
-  showSymmetryEnantiotopic: false,
-  noImplicitAtomLabelColors: false,
-};

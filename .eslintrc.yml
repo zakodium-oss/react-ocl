@@ -1,5 +1,4 @@
 extends: cheminfo-react
 rules:
-  react/no-unused-prop-types: off
   react/jsx-no-bind: off
   consistent-return: off
