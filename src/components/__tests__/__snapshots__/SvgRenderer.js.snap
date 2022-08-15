@@ -30,15 +30,15 @@ exports[`Molecule renders molfile with default id 1`] = `
   <line x1=\\"588.55\\" y1=\\"455.65\\" x2=\\"612.28\\" y2=\\"455.65\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
   <line x1=\\"612.28\\" y1=\\"455.65\\" x2=\\"627.07\\" y2=\\"437.1\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
   <line x1=\\"627.07\\" y1=\\"437.1\\" x2=\\"621.79\\" y2=\\"413.97\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
-  <polygon points=\\"573.76,437.1 583.72,440.44 584.21,438.17 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
-  <polygon points=\\"584.21,438.17 583.72,440.44 593.69,443.78 594.67,439.24 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
-  <polygon points=\\"627.07,437.1 616.44,438.16 616.93,440.47 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
-  <polygon points=\\"616.93,440.47 616.44,438.16 605.8,439.22 606.78,443.83 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <polygon points=\\"574,437 584,440 584,438 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <polygon points=\\"584,438 584,440 594,444 595,439 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <polygon points=\\"627,437 616,438 617,440 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <polygon points=\\"617,440 616,438 606,439 607,444 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
   <line x1=\\"600.24\\" y1=\\"435.81\\" x2=\\"600.24\\" y2=\\"419.09\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
-  <polygon points=\\"600.42,403.67 601.35,395.31 599.49,395.31 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
-  <polygon points=\\"599.49,395.31 601.35,395.31 602.28,386.94 598.56,386.94 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
-  <polygon points=\\"579.04,413.97 569.42,406.89 568.1,409.18 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
-  <polygon points=\\"568.1,409.18 569.42,406.89 559.81,399.82 557.17,404.39 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <polygon points=\\"600,404 601,395 599,395 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <polygon points=\\"599,395 601,395 602,387 599,387 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <polygon points=\\"579,414 569,407 568,409 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <polygon points=\\"568,409 569,407 560,400 557,404 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
   <line x1=\\"558.49\\" y1=\\"402.1\\" x2=\\"544.38\\" y2=\\"410.25\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
   <line x1=\\"531.49\\" y1=\\"410.25\\" x2=\\"517.39\\" y2=\\"402.1\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
   <line x1=\\"606.86\\" y1=\\"376.22\\" x2=\\"620.96\\" y2=\\"368.08\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
@@ -46,10 +46,10 @@ exports[`Molecule renders molfile with default id 1`] = `
   <line x1=\\"641.51\\" y1=\\"379.94\\" x2=\\"641.51\\" y2=\\"403.67\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
   <line x1=\\"662.06\\" y1=\\"415.53\\" x2=\\"682.61\\" y2=\\"403.67\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
   <line x1=\\"682.61\\" y1=\\"379.94\\" x2=\\"662.06\\" y2=\\"368.08\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1.44\\" />
-  <polygon points=\\"573.76,437.1 565.07,438.42 565.58,440.29 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
-  <polygon points=\\"565.58,440.29 565.07,438.42 556.39,439.74 557.39,443.49 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
-  <polygon points=\\"627.07,437.1 635.26,440.29 635.76,438.42 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
-  <polygon points=\\"635.76,438.42 635.26,440.29 643.44,443.49 644.44,439.74 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <polygon points=\\"574,437 565,438 566,440 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <polygon points=\\"566,440 565,438 556,440 557,443 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <polygon points=\\"627,437 635,440 636,438 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
+  <polygon points=\\"636,438 635,440 643,443 644,440 \\" fill=\\"rgb(0,0,0)\\" stroke=\\"rgb(0,0,0)\\" stroke-width=\\"1\\" />
   <line id=\\"mol1:Bond:12\\" class=\\"event\\" x1=\\"558.49\\" y1=\\"402.1\\" x2=\\"558.49\\" y2=\\"378.37\\" stroke-width=\\"8\\" opacity=\\"0\\" />
   <line id=\\"mol1:Bond:16\\" class=\\"event\\" x1=\\"620.96\\" y1=\\"368.08\\" x2=\\"620.96\\" y2=\\"344.35\\" stroke-width=\\"8\\" opacity=\\"0\\" />
   <line id=\\"mol1:Bond:18\\" class=\\"event\\" x1=\\"662.06\\" y1=\\"368.08\\" x2=\\"641.51\\" y2=\\"379.94\\" stroke-width=\\"8\\" opacity=\\"0\\" />
