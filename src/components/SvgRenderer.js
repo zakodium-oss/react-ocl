@@ -31,7 +31,8 @@ export default function SvgRenderer(props) {
     ...otherProps
   } = props;
 
-  const internalId = `react-ocl:${useId()}`;
+  const reactId = useId().replace(/:/g, '-');
+  const internalId = `react-ocl${reactId}`;
   const ref = useRef(null);
 
   const id = idFromProps || internalId;
