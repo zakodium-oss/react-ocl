@@ -2,3 +2,5 @@ extends: cheminfo-react
 rules:
   react/jsx-no-bind: off
   consistent-return: off
+env:
+  jest: true
