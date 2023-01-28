@@ -32,7 +32,7 @@ npm install openchemlib react-ocl
 import { SmilesSvgRenderer } from 'react-ocl';
 
 function MyComponent() {
-  return <SvgRenderer smiles="COCCOOOCO" />;
+  return <SmilesSvgRenderer smiles="COCCOOOCO" />;
 }
 ```
 
