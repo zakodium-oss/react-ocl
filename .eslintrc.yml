@@ -1,4 +1,6 @@
-extends: cheminfo-react
+extends:
+  - cheminfo-react
+  - plugin:storybook/recommended
 rules:
   react/jsx-no-bind: off
   consistent-return: off
