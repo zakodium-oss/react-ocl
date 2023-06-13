@@ -1,5 +1,17 @@
 # Changelog
 
+## [5.0.1](https://github.com/zakodium-oss/react-ocl/compare/v5.0.0...v5.0.1) (2023-06-13)
+
+
+### Bug Fixes
+
+* do not prevent triggering onChange when props are changed ([#23](https://github.com/zakodium-oss/react-ocl/issues/23)) ([738e2fe](https://github.com/zakodium-oss/react-ocl/commit/738e2fe6aa09345430c1381657fa747e86c724bc))
+
+
+### Documentation
+
+* correct example in the readme ([d3746f2](https://github.com/zakodium-oss/react-ocl/commit/d3746f24eac62d22f081fc9608920e9702531598))
+
 ## [5.0.0](https://github.com/zakodium-oss/react-ocl/compare/v4.4.0...v5.0.0) (2022-08-15)
 
 
