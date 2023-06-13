@@ -40,7 +40,7 @@ function StructureEditor(props) {
       }
     }
 
-    editorRef.current = { editor, hadFirstChange: false };
+    editorRef.current.editor = editor;
     if (initialMolfile && initialIDCode) {
       throw new Error('Cannot specify both initialMolfile and initialIDCode');
     }
