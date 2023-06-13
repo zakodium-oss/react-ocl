@@ -8,6 +8,8 @@ export default {
   args: {
     svgMenu: true,
     fragment: false,
+    width: 675,
+    height: 450,
   },
   parameters: {
     docs: {
@@ -38,7 +40,7 @@ Actelion Java MolfileCreator 1.0
 M  END
 `;
 
-export function FromMolfile({ svgMenu, fragment }) {
+export function FromMolfile({ svgMenu, fragment, width, height }) {
   const [molfile, setMolfile] = useState(initialMolfile);
   const [previous, setPrevious] = useState(null);
   const cb = useCallback(
@@ -53,7 +55,7 @@ export function FromMolfile({ svgMenu, fragment }) {
       <h2>Editor</h2>
       <StructureEditor
         initialMolfile={molfile}
-        svgMenu={svgMenu}
+        {...{ svgMenu, width, height }}
         fragment={fragment}
         onChange={cb}
       />
@@ -71,7 +73,7 @@ export function FromMolfile({ svgMenu, fragment }) {
   );
 }
 
-export function FromIDCode({ svgMenu, fragment }) {
+export function FromIDCode({ svgMenu, fragment, width, height }) {
   const [idCode, setIDCode] = useState(initialIDCode);
   const [previous, setPrevious] = useState(null);
   const cb = useCallback(
@@ -86,7 +88,7 @@ export function FromIDCode({ svgMenu, fragment }) {
       <h2>Editor</h2>
       <StructureEditor
         initialIDCode={idCode}
-        svgMenu={svgMenu}
+        {...{ svgMenu, width, height }}
         fragment={fragment}
         onChange={cb}
       />
