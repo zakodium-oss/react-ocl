@@ -23,6 +23,8 @@ export const commonArgs = {
   chiralTextOnFrameTop: false,
   chiralTextOnFrameBottom: false,
   noTabus: false,
+  autoCrop: true,
+  autoCropMargin: 20,
   showAtomNumber: false,
   showBondNumber: false,
   highlightQueryFeatures: false,
@@ -35,4 +37,7 @@ export const commonArgs = {
   showSymmetryEnantiotopic: false,
   noImplicitAtomLabelColors: false,
   noStereoProblem: true,
+  label: 'Label',
+  labelFontFamily: 'Arial, Helvetica, sans-serif',
+  labelFontSize: 14,
 };

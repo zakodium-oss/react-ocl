@@ -47,7 +47,7 @@ export default function SvgRenderer(props) {
   };
   const serializedOptions = JSON.stringify(toSVGOptions);
   const svgString = useMemo(() => {
-    return mol.toSVG(width, height, id, JSON.parse(serializedOptions));
+    return getSVG(mol, width, height, id, serializedOptions);
   }, [mol, width, height, id, serializedOptions]);
 
   const atomStart = `${id}:Atom:`;
@@ -74,13 +74,23 @@ export default function SvgRenderer(props) {
     'stroke',
   );
 
+  const svgContent = svgString.substring(
+    svgString.indexOf('>') + 1,
+    svgString.lastIndexOf('<'),
+  );
+  const svgHeader = svgString.substring(5, svgString.indexOf('>'));
+  const headerProps = Object.fromEntries(
+    [...svgHeader.matchAll(/([^=]+)="([^"]*)" ?/g)].map((s) => s.slice(1, 3)),
+  );
+
   return (
-    <div
+    <svg
       style={{ userSelect: 'none' }}
       ref={ref}
+      {...headerProps}
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{
-        __html: svgString,
+        __html: svgContent,
       }}
     />
   );
@@ -88,9 +98,8 @@ export default function SvgRenderer(props) {
 
 function useEvents(ref, start, onEnter, onLeave, onClick) {
   useEffect(() => {
-    const div = ref.current;
-    if (!div) return;
-    const svg = div.firstChild;
+    const svg = ref.current;
+    if (!svg) return;
     const handleEnter = (event) => {
       if (!onEnter) return;
       const { target } = event;
@@ -132,9 +141,8 @@ function useHighlight(
   attribute,
 ) {
   useEffect(() => {
-    const div = ref.current;
-    if (!div) return;
-    const svg = div.firstChild;
+    const svg = ref.current;
+    if (!svg) return;
     const elements = svg.querySelectorAll(`[id^="${start}"]`);
     for (const element of elements) {
       const elementId = Number(element.id.replace(start, ''));
@@ -146,4 +154,33 @@ function useHighlight(
       }
     }
   });
+}
+
+function getSVG(mol, width, height, id, serializedOptions) {
+  const options = JSON.parse(serializedOptions);
+
+  const {
+    labelFontFamily = 'Arial, Helvetica, sans-serif',
+    labelFontSize = '14',
+    label,
+    ...svgOptions
+  } = options;
+
+  let svg = mol.toSVG(width, height, id, svgOptions);
+
+  if (label) {
+    const [minX, minY, realWidth, realHeight] = svg
+      .match(/viewBox="([^"]*)"/)[1]
+      .split(' ')
+      .map(Number);
+    svg = svg.replace(
+      /<\/svg>/,
+      `<text font-family="${labelFontFamily}" text-anchor="middle" x="${
+        realWidth / 2 + minX
+      } " y="${
+        realHeight + minY
+      } " font-size="${labelFontSize} ">${label}</text></svg>`,
+    );
+  }
+  return svg;
 }
