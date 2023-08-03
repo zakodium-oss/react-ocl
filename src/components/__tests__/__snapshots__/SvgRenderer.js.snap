@@ -5,14 +5,14 @@ exports[`Molecule renders molfile with default id 1`] = `
   dangerouslySetInnerHTML={
     {
       "__html": "
-  <style> #mol1 { pointer-events:none; } #mol1 .event  { pointer-events:all; } line { stroke-linecap:round; } polygon { stroke-linejoin:round; } </style>
-  <text x="595.18" y="447.48" font-family=" Helvetica" font-size="14" fill="rgb(48,80,248)">N</text>
-  <text x="553.04" y="383.04" font-family=" Helvetica" font-size="14" fill="rgb(255,13,13)">O</text>
-  <text x="532.49" y="418.63" font-family=" Helvetica" font-size="14" fill="rgb(255,13,13)">O</text>
-  <text x="594.97" y="384.61" font-family=" Helvetica" font-size="14" fill="rgb(255,13,13)">O</text>
-  <text x="615.52" y="349.02" font-family=" Helvetica" font-size="14" fill="rgb(255,13,13)">O</text>
-  <text x="545.78" y="447.9" font-family=" Helvetica" font-size="14" fill="rgb(0,0,0)">H</text>
-  <text x="644.94" y="447.9" font-family=" Helvetica" font-size="14" fill="rgb(0,0,0)">H</text>
+  <style> text {font-family: sans-serif;} #mol1 { pointer-events:none; } #mol1 .event  { pointer-events:all; } line { stroke-linecap:round; } polygon { stroke-linejoin:round; } </style>
+  <text x="595.18" y="447.48" stroke="none" font-size="14" fill="rgb(48,80,248)">N</text>
+  <text x="553.04" y="383.04" stroke="none" font-size="14" fill="rgb(255,13,13)">O</text>
+  <text x="532.49" y="418.63" stroke="none" font-size="14" fill="rgb(255,13,13)">O</text>
+  <text x="594.97" y="384.61" stroke="none" font-size="14" fill="rgb(255,13,13)">O</text>
+  <text x="615.52" y="349.02" stroke="none" font-size="14" fill="rgb(255,13,13)">O</text>
+  <text x="545.78" y="447.9" stroke="none" font-size="14" fill="rgb(0,0,0)">H</text>
+  <text x="644.94" y="447.9" stroke="none" font-size="14" fill="rgb(0,0,0)">H</text>
   <line x1="560.29" y1="403.14" x2="560.29" y2="385.37" stroke="rgb(0,0,0)" stroke-width="1.44" />
   <line x1="556.69" y1="403.14" x2="556.69" y2="385.37" stroke="rgb(0,0,0)" stroke-width="1.44" />
   <line x1="622.76" y1="369.12" x2="622.76" y2="351.35" stroke="rgb(0,0,0)" stroke-width="1.44" />
@@ -30,15 +30,15 @@ exports[`Molecule renders molfile with default id 1`] = `
   <line x1="588.55" y1="455.65" x2="612.28" y2="455.65" stroke="rgb(0,0,0)" stroke-width="1.44" />
   <line x1="612.28" y1="455.65" x2="627.07" y2="437.1" stroke="rgb(0,0,0)" stroke-width="1.44" />
   <line x1="627.07" y1="437.1" x2="621.79" y2="413.97" stroke="rgb(0,0,0)" stroke-width="1.44" />
-  <polygon points="574,437 584,440 584,438 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1" />
-  <polygon points="584,438 584,440 594,444 595,439 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1" />
-  <polygon points="627,437 616,438 617,440 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1" />
-  <polygon points="617,440 616,438 606,439 607,444 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1" />
+  <polygon points="574,437 584,440 584,438 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1.44" />
+  <polygon points="584,438 584,440 594,444 595,439 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1.44" />
+  <polygon points="627,437 616,438 617,440 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1.44" />
+  <polygon points="617,440 616,438 606,439 607,444 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1.44" />
   <line x1="600.24" y1="435.81" x2="600.24" y2="419.09" stroke="rgb(0,0,0)" stroke-width="1.44" />
-  <polygon points="600,404 601,395 599,395 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1" />
-  <polygon points="599,395 601,395 602,387 599,387 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1" />
-  <polygon points="579,414 569,407 568,409 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1" />
-  <polygon points="568,409 569,407 560,400 557,404 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1" />
+  <polygon points="600,404 601,395 599,395 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1.44" />
+  <polygon points="599,395 601,395 602,387 599,387 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1.44" />
+  <polygon points="579,414 569,407 568,409 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1.44" />
+  <polygon points="568,409 569,407 560,400 557,404 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1.44" />
   <line x1="558.49" y1="402.1" x2="544.38" y2="410.25" stroke="rgb(0,0,0)" stroke-width="1.44" />
   <line x1="531.49" y1="410.25" x2="517.39" y2="402.1" stroke="rgb(0,0,0)" stroke-width="1.44" />
   <line x1="606.86" y1="376.22" x2="620.96" y2="368.08" stroke="rgb(0,0,0)" stroke-width="1.44" />
@@ -46,10 +46,10 @@ exports[`Molecule renders molfile with default id 1`] = `
   <line x1="641.51" y1="379.94" x2="641.51" y2="403.67" stroke="rgb(0,0,0)" stroke-width="1.44" />
   <line x1="662.06" y1="415.53" x2="682.61" y2="403.67" stroke="rgb(0,0,0)" stroke-width="1.44" />
   <line x1="682.61" y1="379.94" x2="662.06" y2="368.08" stroke="rgb(0,0,0)" stroke-width="1.44" />
-  <polygon points="574,437 565,438 566,440 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1" />
-  <polygon points="566,440 565,438 556,440 557,443 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1" />
-  <polygon points="627,437 635,440 636,438 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1" />
-  <polygon points="636,438 635,440 643,443 644,440 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1" />
+  <polygon points="574,437 565,438 566,440 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1.44" />
+  <polygon points="566,440 565,438 556,440 557,443 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1.44" />
+  <polygon points="627,437 635,440 636,438 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1.44" />
+  <polygon points="636,438 635,440 643,443 644,440 " fill="rgb(0,0,0)" stroke="rgb(0,0,0)" stroke-width="1.44" />
   <line id="mol1:Bond:12" class="event" x1="558.49" y1="402.1" x2="558.49" y2="378.37" stroke-width="8" opacity="0" />
   <line id="mol1:Bond:16" class="event" x1="620.96" y1="368.08" x2="620.96" y2="344.35" stroke-width="8" opacity="0" />
   <line id="mol1:Bond:18" class="event" x1="662.06" y1="368.08" x2="641.51" y2="379.94" stroke-width="8" opacity="0" />
@@ -122,8 +122,8 @@ exports[`Molecule renders smiles with custom id 1`] = `
   dangerouslySetInnerHTML={
     {
       "__html": "
-  <style> #mol1 { pointer-events:none; } #mol1 .event  { pointer-events:all; } line { stroke-linecap:round; } polygon { stroke-linejoin:round; } </style>
-  <text x="584.16" y="398.67" font-family=" Helvetica" font-size="14" fill="rgb(255,13,13)">O</text>
+  <style> text {font-family: sans-serif;} #mol1 { pointer-events:none; } #mol1 .event  { pointer-events:all; } line { stroke-linecap:round; } polygon { stroke-linejoin:round; } </style>
+  <text x="584.16" y="398.67" stroke="none" font-size="14" fill="rgb(255,13,13)">O</text>
   <line x1="631.18" y1="394" x2="610.39" y2="406" stroke="rgb(0,0,0)" stroke-width="1.44" />
   <line x1="610.39" y1="406" x2="596.05" y2="397.72" stroke="rgb(0,0,0)" stroke-width="1.44" />
   <line x1="583.16" y1="397.72" x2="568.82" y2="406" stroke="rgb(0,0,0)" stroke-width="1.44" />
