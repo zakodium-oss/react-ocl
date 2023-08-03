@@ -1,5 +1,19 @@
 # Changelog
 
+## [6.0.0](https://github.com/zakodium-oss/react-ocl/compare/v5.0.1...v6.0.0) (2023-08-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove the <div> level when redering a molecule
+
+### Features
+
+* allow the renderer to have a label object property ([e27edd9](https://github.com/zakodium-oss/react-ocl/commit/e27edd91d6469a6c11918ae33a3578de1eec302f))
+* allow the renderer to have a label object property ([#24](https://github.com/zakodium-oss/react-ocl/issues/24)) ([e27edd9](https://github.com/zakodium-oss/react-ocl/commit/e27edd91d6469a6c11918ae33a3578de1eec302f))
+* remove the &lt;div&gt; level when redering a molecule ([e27edd9](https://github.com/zakodium-oss/react-ocl/commit/e27edd91d6469a6c11918ae33a3578de1eec302f))
+* Use a SVG as default error renderer ([e27edd9](https://github.com/zakodium-oss/react-ocl/commit/e27edd91d6469a6c11918ae33a3578de1eec302f))
+
 ## [5.0.1](https://github.com/zakodium-oss/react-ocl/compare/v5.0.0...v5.0.1) (2023-06-13)
 
 
