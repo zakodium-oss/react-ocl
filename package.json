@@ -42,7 +42,7 @@
     "dev": "storybook dev -p 6006",
     "eslint": "eslint src stories",
     "eslint-fix": "npm run eslint -- --fix",
-    "prepare": "npm run compile && npm run compile-cjs",
+    "prepack": "npm run compile && npm run compile-cjs",
     "prettier": "prettier --check src",
     "prettier-write": "prettier --write src",
     "test": "npm run test-only && npm run eslint && npm run prettier",
@@ -56,36 +56,33 @@
     "trailingComma": "all"
   },
   "license": "MIT",
-  "volta": {
-    "node": "16.19.0"
-  },
   "peerDependencies": {
     "openchemlib": ">=8",
     "react": ">=18",
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "@babel/cli": "^7.20.7",
-    "@babel/core": "^7.20.12",
-    "@babel/plugin-transform-modules-commonjs": "^7.20.11",
-    "@babel/preset-react": "^7.18.6",
-    "@storybook/addon-essentials": "^7.0.0-beta.36",
-    "@storybook/addon-links": "^7.0.0-beta.36",
-    "@storybook/addon-storysource": "^7.0.0-beta.36",
-    "@storybook/react": "^7.0.0-beta.36",
-    "@storybook/react-webpack5": "^7.0.0-beta.36",
-    "babel-jest": "^29.4.1",
-    "babel-loader": "^9.1.2",
+    "@babel/cli": "^7.22.9",
+    "@babel/core": "^7.22.9",
+    "@babel/plugin-transform-modules-commonjs": "^7.22.5",
+    "@babel/preset-react": "^7.22.5",
+    "@storybook/addon-essentials": "^7.2.0",
+    "@storybook/addon-links": "^7.2.0",
+    "@storybook/addon-storysource": "^7.2.0",
+    "@storybook/react": "^7.2.0",
+    "@storybook/react-webpack5": "^7.2.0",
+    "babel-jest": "^29.6.2",
+    "babel-loader": "^9.1.3",
     "cross-env": "^7.0.3",
-    "eslint": "^8.32.0",
-    "eslint-config-cheminfo-react": "^9.0.2",
-    "eslint-plugin-storybook": "^0.6.10",
-    "jest": "^29.4.1",
-    "openchemlib": "^8.2.0",
-    "prettier": "^2.8.3",
+    "eslint": "^8.46.0",
+    "eslint-config-cheminfo-react": "^10.0.0",
+    "eslint-plugin-storybook": "^0.6.13",
+    "jest": "^29.6.2",
+    "openchemlib": "^8.3.0",
+    "prettier": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-test-renderer": "^18.2.0",
-    "storybook": "^7.0.0-beta.36"
+    "storybook": "^7.2.0"
   }
 }

@@ -40,3 +40,8 @@ export function CustomError() {
   return <SmilesSvgRenderer smiles="COVVVCC" ErrorComponent={ErrorComponent} />;
 }
 CustomError.storyName = 'With custom error rendering';
+
+export function DefaultError() {
+  return <SmilesSvgRenderer smiles="COVVVCC" />;
+}
+DefaultError.storyName = 'With default error rendering';

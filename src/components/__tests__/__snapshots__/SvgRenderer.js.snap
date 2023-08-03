@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Molecule renders molfile with default id 1`] = `
-<div
+<svg
   dangerouslySetInnerHTML={
     {
-      "__html": "<svg id="mol1" xmlns="http://www.w3.org/2000/svg" version="1.1" width="1200px" height="800px" viewBox="0 0 1200 800">
+      "__html": "
   <style> text {font-family: sans-serif;} #mol1 { pointer-events:none; } #mol1 .event  { pointer-events:all; } line { stroke-linecap:round; } polygon { stroke-linejoin:round; } </style>
   <text x="595.18" y="447.48" stroke="none" font-size="14" fill="rgb(48,80,248)">N</text>
   <text x="553.04" y="383.04" stroke="none" font-size="14" fill="rgb(255,13,13)">O</text>
@@ -100,22 +100,28 @@ exports[`Molecule renders molfile with default id 1`] = `
   <circle id="mol1:Atom:21" class="event" cx="627.07" cy="437.1" r="8" opacity="0" />
   <circle id="mol1:Atom:22" class="event" cx="550.84" cy="443.24" r="8" opacity="0" />
   <circle id="mol1:Atom:23" class="event" cx="649.99" cy="443.24" r="8" opacity="0" />
-</svg>",
+",
     }
   }
+  height="800px"
+  id="mol1"
   style={
     {
       "userSelect": "none",
     }
   }
+  version="1.1"
+  viewBox="0 0 1200 800"
+  width="1200px"
+  xmlns="http://www.w3.org/2000/svg"
 />
 `;
 
 exports[`Molecule renders smiles with custom id 1`] = `
-<div
+<svg
   dangerouslySetInnerHTML={
     {
-      "__html": "<svg id="mol1" xmlns="http://www.w3.org/2000/svg" version="1.1" width="1200px" height="800px" viewBox="0 0 1200 800">
+      "__html": "
   <style> text {font-family: sans-serif;} #mol1 { pointer-events:none; } #mol1 .event  { pointer-events:all; } line { stroke-linecap:round; } polygon { stroke-linejoin:round; } </style>
   <text x="584.16" y="398.67" stroke="none" font-size="14" fill="rgb(255,13,13)">O</text>
   <line x1="631.18" y1="394" x2="610.39" y2="406" stroke="rgb(0,0,0)" stroke-width="1.44" />
@@ -128,14 +134,20 @@ exports[`Molecule renders smiles with custom id 1`] = `
   <circle id="mol1:Atom:1" class="event" cx="610.39" cy="406" r="8" opacity="0" />
   <circle id="mol1:Atom:2" class="event" cx="589.61" cy="394" r="8" opacity="0" />
   <circle id="mol1:Atom:3" class="event" cx="568.82" cy="406" r="8" opacity="0" />
-</svg>",
+",
     }
   }
+  height="800px"
+  id="mol1"
   style={
     {
       "userSelect": "none",
     }
   }
+  version="1.1"
+  viewBox="0 0 1200 800"
+  width="1200px"
+  xmlns="http://www.w3.org/2000/svg"
 />
 `;
 
@@ -168,16 +180,25 @@ exports[`Syntax error in SMILES - default renderer 1`] = `
     }
   }
 >
-  <div
-    style={
-      {
-        "lineHeight": "150px",
-        "textAlign": "center",
-        "verticalAlign": "middle",
-      }
-    }
+  <svg
+    height={150}
+    version="1.1"
+    viewBox="0 0 300 150"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    Invalid SMILES
-  </div>
+    <text
+      fill="rgb(255,0,0)"
+      fontSize="15"
+      x="0"
+      y="2"
+    >
+      <tspan
+        dy={10}
+        x="0"
+      >
+        Invalid SMILES
+      </tspan>
+    </text>
+  </svg>
 </div>
 `;

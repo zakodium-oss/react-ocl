@@ -28,6 +28,13 @@ export interface IBaseSvgRendererProps extends IMoleculeToSVGOptions {
   onBondEnter?: (bondId: number, event: MouseEvent<SVGElement>) => void;
   onBondLeave?: (bondId: number, event: MouseEvent<SVGElement>) => void;
   onBondClick?: (bondId: number, event: MouseEvent<SVGElement>) => void;
+
+  autoCrop?: boolean;
+  autoCropMargin?: number;
+
+  labelFontFamily?: string;
+  labelFontSize?: string;
+  label?: string;
 }
 
 export interface ISmilesSvgRendererProps extends IBaseSvgRendererProps {
