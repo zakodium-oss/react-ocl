@@ -34,6 +34,7 @@ export interface IBaseSvgRendererProps extends IMoleculeToSVGOptions {
 
   labelFontFamily?: string;
   labelFontSize?: number;
+  labelColor?: string;
   label?: string;
 }
 

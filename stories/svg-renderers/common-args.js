@@ -40,4 +40,5 @@ export const commonArgs = {
   label: 'Label p1',
   labelFontFamily: 'Arial, Helvetica, sans-serif',
   labelFontSize: 14,
+  labelColor: "rgb(127,127,127)",
 };
