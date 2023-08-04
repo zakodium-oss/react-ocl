@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.0.2](https://github.com/zakodium-oss/react-ocl/compare/v6.0.1...v6.0.2) (2023-08-04)
+
+
+### Bug Fixes
+
+* enforce labelFontSize as a number ([93f35ff](https://github.com/zakodium-oss/react-ocl/commit/93f35ffe64bb6c8c783d55f08d8a77686867709e))
+
 ## [6.0.1](https://github.com/zakodium-oss/react-ocl/compare/v6.0.0...v6.0.1) (2023-08-04)
 
 
