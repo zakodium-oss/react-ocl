@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.0](https://github.com/zakodium-oss/react-ocl/compare/v6.0.2...v6.1.0) (2023-08-04)
+
+
+### Features
+
+* add labelColor ([7857cdd](https://github.com/zakodium-oss/react-ocl/commit/7857cdd74df840947d57001fb1ed7216a4678051))
+
 ## [6.0.2](https://github.com/zakodium-oss/react-ocl/compare/v6.0.1...v6.0.2) (2023-08-04)
 
 
