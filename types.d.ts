@@ -33,7 +33,7 @@ export interface IBaseSvgRendererProps extends IMoleculeToSVGOptions {
   autoCropMargin?: number;
 
   labelFontFamily?: string;
-  labelFontSize?: string;
+  labelFontSize?: number;
   label?: string;
 }
 
