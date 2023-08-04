@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.0.1](https://github.com/zakodium-oss/react-ocl/compare/v6.0.0...v6.0.1) (2023-08-04)
+
+
+### Bug Fixes
+
+* label was cut ([b50fa1c](https://github.com/zakodium-oss/react-ocl/commit/b50fa1cb503bf89d1a481ef16ad1584b8e77efcb))
+
 ## [6.0.0](https://github.com/zakodium-oss/react-ocl/compare/v5.0.1...v6.0.0) (2023-08-03)
 
 
