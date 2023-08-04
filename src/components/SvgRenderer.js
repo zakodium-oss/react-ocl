@@ -162,7 +162,7 @@ function getSVG(mol, width, height, id, serializedOptions) {
   const {
     labelFontFamily = 'Arial, Helvetica, sans-serif',
     labelFontSize = 14,
-    labelColor = "rgb(0,0,0)",
+    labelColor = 'rgb(0,0,0)',
     label,
     ...svgOptions
   } = options;
@@ -176,8 +176,10 @@ function getSVG(mol, width, height, id, serializedOptions) {
       .map(Number);
     svg = svg.replace(
       /<\/svg>/,
-      `<text fill="${labelColor}" font-family="${labelFontFamily}" text-anchor="middle" x="${realWidth / 2 + minX
-      } " y="${realHeight + minY - labelFontSize / 3 // could be improved
+      `<text fill="${labelColor}" font-family="${labelFontFamily}" text-anchor="middle" x="${
+        realWidth / 2 + minX
+      } " y="${
+        realHeight + minY - labelFontSize / 3 // could be improved
       } " font-size="${labelFontSize} ">${label}</text></svg>`,
     );
   }
