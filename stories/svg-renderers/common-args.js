@@ -37,7 +37,7 @@ export const commonArgs = {
   showSymmetryEnantiotopic: false,
   noImplicitAtomLabelColors: false,
   noStereoProblem: true,
-  label: 'Label',
+  label: 'Label p1',
   labelFontFamily: 'Arial, Helvetica, sans-serif',
   labelFontSize: 14,
 };
