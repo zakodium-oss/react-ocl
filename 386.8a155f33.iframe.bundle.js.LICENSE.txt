@@ -1,0 +1,17 @@
+/**
+ * @license React
+ * react-jsx-runtime.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * openchemlib - Manipulate molecules
+ * @version v8.8.0
+ * @date 2024-01-31T14:23:42.401Z
+ * @link https://github.com/cheminfo/openchemlib-js
+ * @license BSD-3-Clause
+*/
