@@ -10,8 +10,8 @@
 
 /**
  * openchemlib - Manipulate molecules
- * @version v8.8.0
- * @date 2024-01-31T14:23:42.401Z
+ * @version v8.8.1
+ * @date 2024-02-01T07:39:54.407Z
  * @link https://github.com/cheminfo/openchemlib-js
  * @license BSD-3-Clause
 */
