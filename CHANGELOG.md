@@ -1,5 +1,21 @@
 # Changelog
 
+## [7.0.0](https://github.com/zakodium-oss/react-ocl/compare/v6.1.0...v7.0.0) (2024-10-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate to TypeScript
+
+### Bug Fixes
+
+* improve native Node.js ESM support ([95a6284](https://github.com/zakodium-oss/react-ocl/commit/95a62842135f3bafb9e919f33df133a34f50614c))
+
+
+### Code Refactoring
+
+* migrate to TypeScript ([18d0105](https://github.com/zakodium-oss/react-ocl/commit/18d01058aad619bdb9508c6425f33e762a883b68))
+
 ## [6.1.0](https://github.com/zakodium-oss/react-ocl/compare/v6.0.2...v6.1.0) (2023-08-04)
 
 
