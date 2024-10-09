@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import { MolfileSvgRenderer } from '../src/index';
+import { MolfileSvgRenderer } from '../src/index.js';
 
-import { molfileV2000 } from './data';
+import { molfileV2000 } from './data.js';
 
 export default {
   title: 'Highlighting',
@@ -33,7 +33,7 @@ export default {
   },
 };
 
-export function Fixed(args) {
+export function Fixed(args: any) {
   return <MolfileSvgRenderer {...args} />;
 }
 Fixed.storyName = 'Fixed highlight';
@@ -52,7 +52,7 @@ Fixed.argTypes = {
   },
 };
 
-export function Hover(args) {
+export function Hover(args: any) {
   const [currentAtom, setCurrentAtom] = useState(null);
   const [currentBond, setCurrentBond] = useState(null);
   return (

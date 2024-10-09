@@ -1,7 +1,7 @@
-import { IdcodeSvgRenderer } from '../../src/index';
-import { idcode } from '../data';
+import { IdcodeSvgRenderer } from '../../src/index.js';
+import { idcode } from '../data.js';
 
-import { commonArgs, commonArgTypes } from './common-args';
+import { commonArgs, commonArgTypes } from './common-args.js';
 
 export default {
   title: 'SVG renderers/IdcodeSvgRenderer',
@@ -14,7 +14,7 @@ export default {
   },
 };
 
-export function Idcode(args) {
+export function Idcode(args: any) {
   return <IdcodeSvgRenderer {...args} />;
 }
 Idcode.storyName = 'ID code';
@@ -22,7 +22,7 @@ Idcode.args = {
   idcode: idcode.idCode,
 };
 
-export function WithCoordinates(args) {
+export function WithCoordinates(args: any) {
   return <IdcodeSvgRenderer {...args} />;
 }
 WithCoordinates.storyName = 'ID code (with coordinates)';

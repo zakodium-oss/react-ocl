@@ -1,9 +1,9 @@
 export {
-  IBaseSvgRendererProps,
-  IIdcodeSvgRendererProps,
-  IMolfileSvgRendererProps,
-  ISmilesSvgRendererProps,
+  type BaseSvgRendererProps,
+  type IdcodeSvgRendererProps,
   IdcodeSvgRenderer,
+  type MolfileSvgRendererProps,
   MolfileSvgRenderer,
+  type SmilesSvgRendererProps,
   SmilesSvgRenderer,
-} from './types';
+} from './lib/index.d.ts';

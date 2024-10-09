@@ -1,8 +1,10 @@
 import OCL from 'openchemlib/minimal';
 import renderer from 'react-test-renderer';
+import { expect, test } from 'vitest';
 
 import MolfileSvgRenderer from '../MolfileSvgRenderer.js';
 import SmilesSvgRenderer from '../SmilesSvgRenderer.js';
+import type { ErrorComponentProps } from '../types.js';
 
 test('Molecule renders smiles with custom id', () => {
   const component = renderer.create(
@@ -99,7 +101,7 @@ test('Syntax error in SMILES - custom renderer', () => {
     <SmilesSvgRenderer
       id="mol1"
       smiles="BAD"
-      ErrorComponent={(props) => (
+      ErrorComponent={(props: ErrorComponentProps) => (
         <div>
           <span>{props.value}</span>
           <span>{props.error.message}</span>

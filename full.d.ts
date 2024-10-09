@@ -1,2 +1,5 @@
 export * from './core';
-export { IStructureEditorProps, StructureEditor } from './types';
+export {
+  type StructureEditorProps,
+  default as StructureEditor,
+} from './src/components/StructureEditor';
