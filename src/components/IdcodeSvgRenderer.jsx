@@ -1,9 +1,9 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 
-import { useHandleMemoError } from '../hooks/useHandleMemoError';
+import { useHandleMemoError } from '../hooks/useHandleMemoError.js';
 
-import { ErrorRenderer, DefaultErrorRenderer } from './ErrorRenderer';
-import SvgRenderer from './SvgRenderer';
+import { DefaultErrorRenderer, ErrorRenderer } from './ErrorRenderer.js';
+import SvgRenderer from './SvgRenderer.js';
 
 function IdcodeSvgRenderer(props) {
   let {

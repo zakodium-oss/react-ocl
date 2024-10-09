@@ -1,5 +1,5 @@
 import OCL from 'openchemlib/full';
-import React, { useRef, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 function StructureEditor(props) {
   const {

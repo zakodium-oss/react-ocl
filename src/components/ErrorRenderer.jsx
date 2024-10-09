@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function ErrorRenderer(props) {
   const { width = 300, height = 150, value, error, ErrorComponent } = props;
   return (

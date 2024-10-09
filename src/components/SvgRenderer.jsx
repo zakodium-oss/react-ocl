@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useMemo, useId } from 'react';
+import { useEffect, useId, useMemo, useRef } from 'react';
 
 export default function SvgRenderer(props) {
   const {
