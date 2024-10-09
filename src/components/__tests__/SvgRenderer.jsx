@@ -1,9 +1,8 @@
 import OCL from 'openchemlib/minimal';
-import React from 'react';
 import renderer from 'react-test-renderer';
 
-import MolfileSvgRenderer from '../MolfileSvgRenderer';
-import SmilesSvgRenderer from '../SmilesSvgRenderer';
+import MolfileSvgRenderer from '../MolfileSvgRenderer.js';
+import SmilesSvgRenderer from '../SmilesSvgRenderer.js';
 
 test('Molecule renders smiles with custom id', () => {
   const component = renderer.create(

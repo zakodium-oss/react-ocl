@@ -1,5 +1,12 @@
 const config = {
-  presets: ['@babel/react'],
+  presets: [
+    [
+      '@babel/preset-react',
+      {
+        runtime: 'automatic',
+      },
+    ],
+  ],
   plugins: [],
 };
 

@@ -13,21 +13,43 @@
     "lib-cjs",
     "base.d.ts",
     "base.mjs",
-    "base.js",
+    "base.cjs",
     "core.d.ts",
     "core.mjs",
-    "core.js",
+    "core.cjs",
     "full.d.ts",
     "full.mjs",
-    "full.js",
+    "full.cjs",
     "minimal.d.ts",
     "minimal.mjs",
-    "minimal.js",
+    "minimal.cjs",
     "types.d.ts"
   ],
-  "main": "minimal.js",
+  "main": "minimal.cjs",
   "module": "minimal.mjs",
   "types": "minimal.d.ts",
+  "exports": {
+    ".": {
+      "types": "./minimal.d.ts",
+      "require": "./minimal.cjs",
+      "default": "./minimal.mjs"
+    },
+    "./minimal": {
+      "types": "./minimal.d.ts",
+      "require": "./minimal.cjs",
+      "default": "./minimal.mjs"
+    },
+    "./core": {
+      "types": "./core.d.ts",
+      "require": "./core.cjs",
+      "default": "./core.mjs"
+    },
+    "./full": {
+      "types": "./full.d.ts",
+      "require": "./full.cjs",
+      "default": "./full.mjs"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/zakodium-oss/react-ocl.git"
@@ -38,6 +60,7 @@
   "scripts": {
     "build-storybook": "storybook build",
     "compile": "babel src --out-dir lib --ignore src/**/__tests__ --quiet --source-maps",
+    "postcompile": "echo '{\"type\":\"module\"}' > lib/package.json",
     "compile-cjs": "cross-env NODE_ENV=cjs babel src --out-dir lib-cjs --ignore src/**/__tests__ --quiet --source-maps",
     "dev": "storybook dev -p 6006",
     "eslint": "eslint src stories",
