@@ -1,6 +1,20 @@
-import { useEffect, useId, useMemo, useRef } from 'react';
+import type OCL from 'openchemlib/minimal';
+import {
+  type MouseEvent as ReactMouseEvent,
+  type RefObject,
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+} from 'react';
 
-export default function SvgRenderer(props) {
+import type { BaseSvgRendererProps } from './types.js';
+
+interface SvgRendererProps extends BaseSvgRendererProps {
+  mol: OCL.Molecule;
+}
+
+export default function SvgRenderer(props: SvgRendererProps) {
   const {
     width = 300,
     height = 150,
@@ -33,7 +47,7 @@ export default function SvgRenderer(props) {
 
   const reactId = useId().replace(/:/g, '-');
   const internalId = `react-ocl${reactId}`;
-  const ref = useRef(null);
+  const ref = useRef<SVGSVGElement>(null);
 
   const id = idFromProps || internalId;
 
@@ -96,29 +110,47 @@ export default function SvgRenderer(props) {
   );
 }
 
-function useEvents(ref, start, onEnter, onLeave, onClick) {
+function useEvents(
+  ref: RefObject<SVGSVGElement>,
+  start: string,
+  onEnter: BaseSvgRendererProps['onAtomEnter'],
+  onLeave: BaseSvgRendererProps['onAtomLeave'],
+  onClick: BaseSvgRendererProps['onAtomClick'],
+) {
   useEffect(() => {
     const svg = ref.current;
     if (!svg) return;
-    const handleEnter = (event) => {
+    const handleEnter = (event: MouseEvent) => {
       if (!onEnter) return;
-      const { target } = event;
+      const target = event.target as SVGElement;
       if (target.className.baseVal === 'event' && target.id.startsWith(start)) {
-        onEnter(Number(target.id.replace(start, '')), event);
+        // TODO: This is wrong and should be fixed.
+        onEnter(
+          Number(target.id.replace(start, '')),
+          event as unknown as ReactMouseEvent<SVGElement>,
+        );
       }
     };
-    const handleLeave = (event) => {
+    const handleLeave = (event: MouseEvent) => {
       if (!onLeave) return;
-      const { target } = event;
+      const target = event.target as SVGElement;
       if (target.className.baseVal === 'event' && target.id.startsWith(start)) {
-        onLeave(Number(target.id.replace(start, '')), event);
+        // TODO: This is wrong and should be fixed.
+        onLeave(
+          Number(target.id.replace(start, '')),
+          event as unknown as ReactMouseEvent<SVGElement>,
+        );
       }
     };
-    const handleClick = (event) => {
+    const handleClick = (event: MouseEvent) => {
       if (!onClick) return;
-      const { target } = event;
+      const target = event.target as SVGElement;
       if (target.className.baseVal === 'event' && target.id.startsWith(start)) {
-        onClick(Number(target.id.replace(start, '')), event);
+        // TODO: This is wrong and should be fixed.
+        onClick(
+          Number(target.id.replace(start, '')),
+          event as unknown as ReactMouseEvent<SVGElement>,
+        );
       }
     };
     svg.addEventListener('mouseover', handleEnter);
@@ -133,30 +165,36 @@ function useEvents(ref, start, onEnter, onLeave, onClick) {
 }
 
 function useHighlight(
-  ref,
-  start,
-  highlight,
-  highlightColor,
-  highlightOpacity,
-  attribute,
+  ref: RefObject<SVGSVGElement>,
+  start: string,
+  highlight: number[] | undefined,
+  highlightColor: string,
+  highlightOpacity: number,
+  attribute: string,
 ) {
   useEffect(() => {
     const svg = ref.current;
     if (!svg) return;
     const elements = svg.querySelectorAll(`[id^="${start}"]`);
-    for (const element of elements) {
+    elements.forEach((element) => {
       const elementId = Number(element.id.replace(start, ''));
-      if (highlight && highlight.includes(elementId)) {
-        element.setAttribute('opacity', highlightOpacity);
+      if (highlight?.includes(elementId)) {
+        element.setAttribute('opacity', String(highlightOpacity));
         element.setAttribute(attribute, highlightColor);
       } else {
-        element.setAttribute('opacity', 0);
+        element.setAttribute('opacity', '0');
       }
-    }
+    });
   });
 }
 
-function getSVG(mol, width, height, id, serializedOptions) {
+function getSVG(
+  mol: OCL.Molecule,
+  width: number,
+  height: number,
+  id: string,
+  serializedOptions: string,
+) {
   const options = JSON.parse(serializedOptions);
 
   const {
@@ -170,6 +208,7 @@ function getSVG(mol, width, height, id, serializedOptions) {
   let svg = mol.toSVG(width, height, id, svgOptions);
 
   if (label) {
+    // @ts-expect-error We know it will match.
     const [minX, minY, realWidth, realHeight] = svg
       .match(/viewBox="([^"]*)"/)[1]
       .split(' ')

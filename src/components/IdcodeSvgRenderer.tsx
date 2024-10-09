@@ -1,11 +1,22 @@
-import { memo } from 'react';
+import type OCL from 'openchemlib/minimal';
+import { memo, type ReactElement } from 'react';
 
 import { useHandleMemoError } from '../hooks/useHandleMemoError.js';
 
 import { DefaultErrorRenderer, ErrorRenderer } from './ErrorRenderer.js';
 import SvgRenderer from './SvgRenderer.js';
+import type { BaseSvgRendererProps } from './types.js';
 
-function IdcodeSvgRenderer(props) {
+export interface IdcodeSvgRendererProps extends BaseSvgRendererProps {
+  idcode: string;
+  coordinates?: string;
+}
+
+export interface BaseIdcodeSvgRendererProps extends IdcodeSvgRendererProps {
+  OCL: typeof OCL;
+}
+
+function IdcodeSvgRenderer(props: BaseIdcodeSvgRendererProps): ReactElement {
   let {
     OCL,
     idcode,
@@ -33,8 +44,12 @@ function IdcodeSvgRenderer(props) {
 
 export default memo(IdcodeSvgRenderer);
 
-function DefaultIdcodeErrorComponent(props) {
+function DefaultIdcodeErrorComponent(props: { width: number; height: number }) {
   return (
-    <DefaultErrorRenderer height={props.height} message="Invalid ID code" />
+    <DefaultErrorRenderer
+      width={props.width}
+      height={props.height}
+      message="Invalid ID code"
+    />
   );
 }

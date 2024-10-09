@@ -1,4 +1,16 @@
-export function ErrorRenderer(props) {
+import type { ComponentType } from 'react';
+
+import type { ErrorComponentProps } from './types.js';
+
+interface ErrorRendererProps {
+  width?: number;
+  height?: number;
+  value: string;
+  error: Error;
+  ErrorComponent: ComponentType<ErrorComponentProps>;
+}
+
+export function ErrorRenderer(props: ErrorRendererProps) {
   const { width = 300, height = 150, value, error, ErrorComponent } = props;
   return (
     <div style={{ width, height }}>
@@ -12,7 +24,11 @@ export function ErrorRenderer(props) {
   );
 }
 
-export function DefaultErrorRenderer(props) {
+export function DefaultErrorRenderer(props: {
+  width: number;
+  height: number;
+  message: string;
+}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

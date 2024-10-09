@@ -1,11 +1,23 @@
-import { memo } from 'react';
+import type OCL from 'openchemlib/minimal';
+import { memo, type ReactElement } from 'react';
 
 import { useHandleMemoError } from '../hooks/useHandleMemoError.js';
 
 import { DefaultErrorRenderer, ErrorRenderer } from './ErrorRenderer.js';
 import SvgRenderer from './SvgRenderer.js';
+import type { BaseSvgRendererProps } from './types.js';
 
-function SmilesSvgRenderer(props) {
+export interface SmilesSvgRendererProps extends BaseSvgRendererProps {
+  smiles: string;
+}
+
+export interface BaseSmilesSvgRendererProps extends SmilesSvgRendererProps {
+  OCL: typeof OCL;
+}
+
+function BaseSmilesSvgRenderer(
+  props: BaseSmilesSvgRendererProps,
+): ReactElement {
   const {
     OCL,
     smiles,
@@ -30,10 +42,14 @@ function SmilesSvgRenderer(props) {
   return <SvgRenderer mol={mol} {...otherProps} />;
 }
 
-export default memo(SmilesSvgRenderer);
+export default memo(BaseSmilesSvgRenderer);
 
-function DefaultSmilesErrorComponent(props) {
+function DefaultSmilesErrorComponent(props: { width: number; height: number }) {
   return (
-    <DefaultErrorRenderer height={props.height} message="Invalid SMILES" />
+    <DefaultErrorRenderer
+      width={props.width}
+      height={props.height}
+      message="Invalid SMILES"
+    />
   );
 }

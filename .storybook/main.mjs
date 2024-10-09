@@ -1,5 +1,5 @@
 export default {
-  stories: ['../stories/**/*.stories.jsx'],
+  stories: ['../stories/**/*.stories.tsx'],
 
   addons: [
     '@storybook/addon-storysource',

@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 
-import StructureEditor from '../src/components/StructureEditor';
+import StructureEditor from '../src/components/StructureEditor.js';
 
 export default {
   title: 'StructureEditor',
@@ -40,11 +40,21 @@ Actelion Java MolfileCreator 1.0
 M  END
 `;
 
-export function FromMolfile({ svgMenu, fragment, width, height }) {
+export function FromMolfile({
+  svgMenu,
+  fragment,
+  width,
+  height,
+}: {
+  svgMenu: boolean;
+  fragment: boolean;
+  width: number;
+  height: number;
+}) {
   const [molfile, setMolfile] = useState(initialMolfile);
-  const [previous, setPrevious] = useState(null);
+  const [previous, setPrevious] = useState<string | null>(null);
   const cb = useCallback(
-    (newMolfile) => {
+    (newMolfile: string) => {
       setMolfile(newMolfile);
       setPrevious(molfile);
     },
@@ -73,11 +83,21 @@ export function FromMolfile({ svgMenu, fragment, width, height }) {
   );
 }
 
-export function FromIDCode({ svgMenu, fragment, width, height }) {
+export function FromIDCode({
+  svgMenu,
+  fragment,
+  width,
+  height,
+}: {
+  svgMenu: boolean;
+  fragment: boolean;
+  width: number;
+  height: number;
+}) {
   const [idCode, setIDCode] = useState(initialIDCode);
-  const [previous, setPrevious] = useState(null);
+  const [previous, setPrevious] = useState<string | null>(null);
   const cb = useCallback(
-    (netMolfile, molecule, newIDCode) => {
+    (netMolfile: unknown, molecule: unknown, newIDCode: string) => {
       setIDCode(newIDCode);
       setPrevious(idCode);
     },

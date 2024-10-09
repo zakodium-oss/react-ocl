@@ -1,6 +1,6 @@
-import { SmilesSvgRenderer } from '../../src/index';
+import { SmilesSvgRenderer } from '../../src/index.js';
 
-import { commonArgs, commonArgTypes } from './common-args';
+import { commonArgs, commonArgTypes } from './common-args.js';
 
 export default {
   title: 'SVG renderers/SmilesSvgRenderer',
@@ -22,12 +22,12 @@ export default {
   },
 };
 
-export function Smiles(args) {
+export function Smiles(args: any) {
   return <SmilesSvgRenderer {...args} />;
 }
 Smiles.storyName = 'SMILES';
 
-function ErrorComponent(props) {
+function ErrorComponent(props: any) {
   return (
     <div style={{ color: 'red' }}>
       <div>{props.value}</div>

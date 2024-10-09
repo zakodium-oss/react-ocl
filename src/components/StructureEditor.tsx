@@ -1,7 +1,29 @@
 import OCL from 'openchemlib/full';
-import { useEffect, useRef } from 'react';
+import { type ReactElement, useEffect, useRef } from 'react';
 
-function StructureEditor(props) {
+export interface StructureEditorProps {
+  width?: number;
+  height?: number;
+  initialMolfile?: string;
+  initialIDCode?: string;
+  fragment?: boolean;
+  svgMenu?: boolean;
+  onChange?: (molfile: string, molecule: OCL.Molecule, idCode: string) => void;
+  onAtomEnter?: (atomId: number) => void;
+  onAtomLeave?: (atomId: number) => void;
+  onBondEnter?: (bondId: number) => void;
+  onBondLeave?: (bondId: number) => void;
+}
+
+interface CallbacksRef {
+  onChange?: OCL.ChangeListenerCallback;
+  onAtomHighlight?: OCL.AtomHighlightCallback;
+  onBondHighlight?: OCL.BondHighlightCallback;
+}
+
+export default function StructureEditor(
+  props: StructureEditorProps,
+): ReactElement {
   const {
     width = 675,
     height = 450,
@@ -16,18 +38,24 @@ function StructureEditor(props) {
     onBondLeave,
   } = props;
 
-  const domRef = useRef();
-  const editorRef = useRef({ editor: null, hadFirstChange: false });
-  const callbacksRef = useRef({});
+  const domRef = useRef<HTMLDivElement>(null);
+  const editorRef = useRef<{
+    editor: OCL.StructureEditor | null;
+    hadFirstChange: boolean;
+  }>({ editor: null, hadFirstChange: false });
+  const callbacksRef = useRef<CallbacksRef>({});
 
   useEffect(() => {
+    if (!domRef.current) return;
+
     domRef.current.innerHTML = '';
 
     // GWT doesn't play well with the shadow DOM. This hack allows to load an
     // OCL editor inside a shadow root.
     const root = domRef.current.getRootNode();
-    let originalGetElementById;
+    let originalGetElementById: typeof document.getElementById | undefined;
     if (root instanceof ShadowRoot) {
+      // eslint-disable-next-line @typescript-eslint/unbound-method
       originalGetElementById = document.getElementById;
       document.getElementById = root.getElementById.bind(root);
     }
@@ -35,7 +63,7 @@ function StructureEditor(props) {
     try {
       editor = new OCL.StructureEditor(domRef.current, svgMenu, 1);
     } finally {
-      if (root instanceof ShadowRoot) {
+      if (originalGetElementById) {
         document.getElementById = originalGetElementById;
       }
     }
@@ -69,7 +97,7 @@ function StructureEditor(props) {
     callbacksRef.current.onChange = () => {
       if (!editorRef.current.hadFirstChange) {
         editorRef.current.hadFirstChange = true;
-      } else if (onChange) {
+      } else if (onChange && editorRef.current.editor) {
         const molfile = editorRef.current.editor.getMolFileV3();
         const molecule = editorRef.current.editor.getMolecule();
         const idCode = editorRef.current.editor.getIDCode();
@@ -100,5 +128,3 @@ function StructureEditor(props) {
 
   return <div ref={domRef} style={{ width, height }} />;
 }
-
-export default StructureEditor;

@@ -1,7 +1,7 @@
-import { MolfileSvgRenderer } from '../../src/index';
-import { molfileV2000, molfileV3000 } from '../data';
+import { MolfileSvgRenderer } from '../../src/index.js';
+import { molfileV2000, molfileV3000 } from '../data.js';
 
-import { commonArgs, commonArgTypes } from './common-args';
+import { commonArgs, commonArgTypes } from './common-args.js';
 
 export default {
   title: 'SVG renderers/MolfileSvgRenderer',
@@ -22,7 +22,7 @@ export default {
   },
 };
 
-export function V2000(args) {
+export function V2000(args: any) {
   return <MolfileSvgRenderer {...args} />;
 }
 V2000.storyName = 'Molfile (V2000)';
@@ -30,7 +30,7 @@ V2000.args = {
   molfile: molfileV2000,
 };
 
-export function V3000(args) {
+export function V3000(args: any) {
   return <MolfileSvgRenderer {...args} />;
 }
 V3000.storyName = 'Molfile (V3000)';
