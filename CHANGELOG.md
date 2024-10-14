@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.0.1](https://github.com/zakodium-oss/react-ocl/compare/v7.0.0...v7.0.1) (2024-10-14)
+
+
+### Bug Fixes
+
+* **typings:** export types correctly ([#36](https://github.com/zakodium-oss/react-ocl/issues/36)) ([e21c64e](https://github.com/zakodium-oss/react-ocl/commit/e21c64eaf3553b39b3cdc0b2c5927bf6bbba2c1a))
+
 ## [7.0.0](https://github.com/zakodium-oss/react-ocl/compare/v6.1.0...v7.0.0) (2024-10-09)
 
 
