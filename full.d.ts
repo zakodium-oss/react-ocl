@@ -1,5 +1,5 @@
-export * from './core';
+export * from './core.js';
 export {
   type StructureEditorProps,
   default as StructureEditor,
-} from './src/components/StructureEditor';
+} from './lib/components/StructureEditor.js';

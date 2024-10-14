@@ -6,4 +6,4 @@ export {
   MolfileSvgRenderer,
   type SmilesSvgRendererProps,
   SmilesSvgRenderer,
-} from './lib/index.d.ts';
+} from './lib/index.js';
