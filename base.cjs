@@ -8,7 +8,7 @@ const BaseSmilesSvgRenderer =
   require('./lib-cjs/components/SmilesSvgRenderer.js').default;
 
 module.exports = {
-  SmilesSvgRenderer: BaseSmilesSvgRenderer,
-  MolfileSvgRenderer: BaseMolfileSvgRenderer,
-  IdcodeSvgRenderer: BaseIdcodeSvgRenderer,
+  BaseSmilesSvgRenderer,
+  BaseMolfileSvgRenderer,
+  BaseIdcodeSvgRenderer,
 };
