@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.0.2](https://github.com/zakodium-oss/react-ocl/compare/v7.0.1...v7.0.2) (2024-10-15)
+
+
+### Bug Fixes
+
+* base exports ([#38](https://github.com/zakodium-oss/react-ocl/issues/38)) ([19b24f6](https://github.com/zakodium-oss/react-ocl/commit/19b24f6aa66d1c6b5eec384928ba50268c7b510b))
+
 ## [7.0.1](https://github.com/zakodium-oss/react-ocl/compare/v7.0.0...v7.0.1) (2024-10-14)
 
 
