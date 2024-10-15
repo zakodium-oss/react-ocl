@@ -1,20 +1,21 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "jsx": "react-jsx",
-    "lib": ["dom", "esnext"],
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "resolveJsonModule": true,
-    "verbatimModuleSyntax": true,
+    "lib": ["DOM", "ES2022"],
+    "types": [],
+    "target": "ES2022",
     "outDir": "lib",
-    "removeComments": false,
-    "sourceMap": true,
-    "declarationMap": true,
+    "jsx": "react-jsx",
+    "module": "NodeNext",
     "strict": true,
-    "target": "es2022",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": false,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true
   },
-  "include": ["src/**/*", "stories/**/*", "*.d.ts"],
-  "exclude": ["node_modules"]
+  "include": ["*.d.ts", "src", "stories"]
 }

@@ -23,11 +23,9 @@
     "full.cjs",
     "minimal.d.ts",
     "minimal.mjs",
-    "minimal.cjs"
+    "minimal.cjs",
+    "src"
   ],
-  "main": "minimal.cjs",
-  "module": "minimal.mjs",
-  "types": "minimal.d.ts",
   "exports": {
     ".": {
       "types": "./minimal.d.ts",
