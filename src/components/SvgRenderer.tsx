@@ -45,7 +45,7 @@ export default function SvgRenderer(props: SvgRendererProps) {
     ...otherProps
   } = props;
 
-  const reactId = useId().replace(/:/g, '-');
+  const reactId = useId().replaceAll(':', '-');
   const internalId = `react-ocl${reactId}`;
   const ref = useRef<SVGSVGElement>(null);
 
@@ -88,11 +88,11 @@ export default function SvgRenderer(props: SvgRendererProps) {
     'stroke',
   );
 
-  const svgContent = svgString.substring(
+  const svgContent = svgString.slice(
     svgString.indexOf('>') + 1,
     svgString.lastIndexOf('<'),
   );
-  const svgHeader = svgString.substring(5, svgString.indexOf('>'));
+  const svgHeader = svgString.slice(5, svgString.indexOf('>'));
   const headerProps = Object.fromEntries(
     [...svgHeader.matchAll(/([^=]+)="([^"]*)" ?/g)].map((s) => s.slice(1, 3)),
   );
@@ -176,7 +176,7 @@ function useHighlight(
     const svg = ref.current;
     if (!svg) return;
     const elements = svg.querySelectorAll(`[id^="${start}"]`);
-    elements.forEach((element) => {
+    for (const element of elements) {
       const elementId = Number(element.id.replace(start, ''));
       if (highlight?.includes(elementId)) {
         element.setAttribute('opacity', String(highlightOpacity));
@@ -184,7 +184,7 @@ function useHighlight(
       } else {
         element.setAttribute('opacity', '0');
       }
-    });
+    }
   });
 }
 

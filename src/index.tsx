@@ -10,13 +10,10 @@ import BaseSmilesSvgRenderer, {
   type SmilesSvgRendererProps,
 } from './components/SmilesSvgRenderer.js';
 
-export type {
-  IdcodeSvgRendererProps,
-  MolfileSvgRendererProps,
-  SmilesSvgRendererProps,
-};
-
 export type { BaseSvgRendererProps } from './components/types.js';
+export type { IdcodeSvgRendererProps } from './components/IdcodeSvgRenderer.js';
+export type { MolfileSvgRendererProps } from './components/MolfileSvgRenderer.js';
+export type { SmilesSvgRendererProps } from './components/SmilesSvgRenderer.js';
 
 export function SmilesSvgRenderer(props: SmilesSvgRendererProps) {
   return <BaseSmilesSvgRenderer OCL={OCL} {...props} />;
