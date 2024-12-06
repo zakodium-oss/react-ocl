@@ -1,5 +1,6 @@
 import type OCL from 'openchemlib/minimal';
-import { memo, type ReactElement } from 'react';
+import type { ReactElement } from 'react';
+import { memo } from 'react';
 
 import { useHandleMemoError } from '../hooks/useHandleMemoError.js';
 

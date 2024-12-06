@@ -1,5 +1,6 @@
 import OCL from 'openchemlib/full';
-import { type ReactElement, useEffect, useRef } from 'react';
+import type { ReactElement } from 'react';
+import { useEffect, useRef } from 'react';
 
 export interface StructureEditorProps {
   width?: number;

@@ -1,20 +1,11 @@
 import OCL from 'openchemlib/minimal';
 
-import BaseIdcodeSvgRenderer, {
-  type IdcodeSvgRendererProps,
-} from './components/IdcodeSvgRenderer.js';
-import BaseMolfileSvgRenderer, {
-  type MolfileSvgRendererProps,
-} from './components/MolfileSvgRenderer.js';
-import BaseSmilesSvgRenderer, {
-  type SmilesSvgRendererProps,
-} from './components/SmilesSvgRenderer.js';
-
-export type {
-  IdcodeSvgRendererProps,
-  MolfileSvgRendererProps,
-  SmilesSvgRendererProps,
-};
+import type { IdcodeSvgRendererProps } from './components/IdcodeSvgRenderer.js';
+import BaseIdcodeSvgRenderer from './components/IdcodeSvgRenderer.js';
+import type { MolfileSvgRendererProps } from './components/MolfileSvgRenderer.js';
+import BaseMolfileSvgRenderer from './components/MolfileSvgRenderer.js';
+import type { SmilesSvgRendererProps } from './components/SmilesSvgRenderer.js';
+import BaseSmilesSvgRenderer from './components/SmilesSvgRenderer.js';
 
 export type { BaseSvgRendererProps } from './components/types.js';
 
@@ -29,3 +20,7 @@ export function MolfileSvgRenderer(props: MolfileSvgRendererProps) {
 export function IdcodeSvgRenderer(props: IdcodeSvgRendererProps) {
   return <BaseIdcodeSvgRenderer OCL={OCL} {...props} />;
 }
+
+export { type IdcodeSvgRendererProps } from './components/IdcodeSvgRenderer.js';
+export { type MolfileSvgRendererProps } from './components/MolfileSvgRenderer.js';
+export { type SmilesSvgRendererProps } from './components/SmilesSvgRenderer.js';
