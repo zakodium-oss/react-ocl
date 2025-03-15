@@ -41,7 +41,7 @@ export function TheCanvasEditor()
     return (
         <div>
             <h2>Editor</h2>
-            <CanvasEditor initialIDCode={idCode} onChange={cb} mode={"reaction"}/>
+            <CanvasEditor initialIDCode={idCode} onChange={cb} mode={"molecule"}/>
             <div style={{display: 'flex'}}>
                 <div style={{flex: 1}}>
                     <h2 style={{textAlign: 'center'}}>Current</h2>

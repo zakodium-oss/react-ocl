@@ -100,7 +100,7 @@
     "eslint-config-cheminfo-react": "^15.0.0",
     "eslint-config-cheminfo-typescript": "^17.0.0",
     "eslint-plugin-storybook": "^0.11.1",
-    "openchemlib": "^8.17.0",
+    "openchemlib": "^8.19.0",
     "prettier": "^3.4.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
