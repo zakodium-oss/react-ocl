@@ -1,4 +1,8 @@
-import OCL, { Molecule, Reaction, ReactionEncoder } from 'openchemlib/full.pretty';
+import OCL, {
+  Molecule,
+  Reaction,
+  ReactionEncoder,
+} from 'openchemlib/full.pretty';
 import type { ReactElement } from 'react';
 import { useEffect, useRef } from 'react';
 
