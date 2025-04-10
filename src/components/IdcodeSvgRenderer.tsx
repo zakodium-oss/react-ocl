@@ -18,7 +18,7 @@ export interface BaseIdcodeSvgRendererProps extends IdcodeSvgRendererProps {
 }
 
 function IdcodeSvgRenderer(props: BaseIdcodeSvgRendererProps): ReactElement {
-  let {
+  const {
     OCL,
     idcode,
     coordinates,
