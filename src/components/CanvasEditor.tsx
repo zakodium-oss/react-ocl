@@ -1,8 +1,4 @@
-import OCL, {
-  Molecule,
-  Reaction,
-  ReactionEncoder,
-} from 'openchemlib/full.pretty';
+import OCL from 'openchemlib/full';
 import type { ReactElement } from 'react';
 import { useEffect, useRef } from 'react';
 
@@ -16,7 +12,7 @@ export interface CanvasEditorProps {
   onChange?: (
     molFile: string | null,
     molecule: OCL.Molecule | null,
-    idCode: string | null,
+    idCode: string,
   ) => void;
 }
 
@@ -24,19 +20,19 @@ interface CallbacksRef {
   onChange?: OCL.OnChangeListenerCallback;
 }
 
-const decodeReaction = (idCode: string): Reaction => {
-  let ret = Reaction.create();
+function decodeReaction(idCode: string): OCL.Reaction {
+  let ret = OCL.Reaction.create();
   if (idCode?.trim().length > 0) {
     const frags: string[] = idCode.split(' ');
     if (frags.length > 0) {
-      const rxn = ReactionEncoder.decode(idCode);
+      const rxn = OCL.ReactionEncoder.decode(idCode);
       if (rxn != null) {
         ret = rxn;
       }
     }
   }
   return ret;
-};
+}
 
 export default function CanvasEditor(props: CanvasEditorProps): ReactElement {
   const {
@@ -48,7 +44,6 @@ export default function CanvasEditor(props: CanvasEditorProps): ReactElement {
     mode = 'molecule',
     onChange,
   } = props;
-  //const reactionMode: boolean = mode === 'reaction';
 
   const domRef = useRef<HTMLDivElement>(null);
   const editorRef = useRef<{
@@ -64,24 +59,7 @@ export default function CanvasEditor(props: CanvasEditorProps): ReactElement {
 
     domRef.current.innerHTML = '';
 
-    // GWT doesn't play well with the shadow DOM. This hack allows to load an
-    // OCL editor inside a shadow root.
-    const root = domRef.current.getRootNode();
-    let originalGetElementById: typeof document.getElementById | undefined;
-    if (root instanceof ShadowRoot) {
-      // eslint-disable-next-line @typescript-eslint/unbound-method
-      originalGetElementById = document.getElementById;
-      document.getElementById = root.getElementById.bind(root);
-    }
-    let editor;
-    try {
-      editor = new OCL.CanvasEditor(domRef.current, { initialMode: mode });
-    } finally {
-      if (originalGetElementById) {
-        document.getElementById = originalGetElementById;
-      }
-    }
-
+    const editor = new OCL.CanvasEditor(domRef.current, { initialMode: mode });
     editorRef.current.editor = editor;
 
     if (initialMolfile && initialIDCode) {
@@ -89,21 +67,25 @@ export default function CanvasEditor(props: CanvasEditorProps): ReactElement {
     }
     if (initialMolfile) {
       if (mode === 'reaction') {
-        editor.setReaction(Reaction.fromRxn(initialMolfile));
+        editor.setReaction(OCL.Reaction.fromRxn(initialMolfile));
       } else {
-        editor.setMolecule(Molecule.fromMolfile(initialMolfile));
+        editor.setMolecule(OCL.Molecule.fromMolfile(initialMolfile));
       }
     }
     if (initialIDCode) {
       if (mode === 'reaction') {
         editor.setReaction(decodeReaction(initialMolfile));
       } else {
-        editor.setMolecule(Molecule.fromIDCode(initialIDCode));
+        editor.setMolecule(OCL.Molecule.fromIDCode(initialIDCode));
       }
     }
     editor.getMolecule().setFragment(fragment);
     editor.setOnChangeListener((event) => {
-      if (callbacksRef.current.onChange) {
+      if (
+        event.isUserEvent &&
+        event.type === 'molecule' &&
+        callbacksRef.current.onChange
+      ) {
         callbacksRef.current.onChange(event);
       }
     });
@@ -118,13 +100,13 @@ export default function CanvasEditor(props: CanvasEditorProps): ReactElement {
         const editor = editorRef.current.editor;
         if (onChange && editor) {
           if (mode === 'molecule') {
-            const molfile = editor.getMolecule().toMolfile();
+            const molfile = editor.getMolecule().toMolfileV3();
             const molecule = editor.getMolecule();
             const idCode = editor.getMolecule().getIDCode();
             onChange(molfile, molecule, idCode);
           } else {
             const reaction = editor.getReaction();
-            const idCode = ReactionEncoder.encode(reaction, {});
+            const idCode = OCL.ReactionEncoder.encode(reaction, {}) ?? '';
             onChange(null, null, idCode);
           }
         }
@@ -132,22 +114,5 @@ export default function CanvasEditor(props: CanvasEditorProps): ReactElement {
     };
   }, [onChange, mode]);
 
-  useEffect(() => {
-    if (editorRef.current.editor) {
-      if (mode === 'reaction') {
-        editorRef.current.editor.setReaction(decodeReaction(initialIDCode));
-      } else {
-        editorRef.current.editor.setMolecule(
-          Molecule.fromIDCode(initialIDCode),
-        );
-      }
-    }
-  }, [initialIDCode, mode]);
-
-  return (
-    <>
-      <div>Structure Editor</div>
-      <div ref={domRef} style={{ width, height }} />;
-    </>
-  );
+  return <div ref={domRef} style={{ width, height }} />;
 }
