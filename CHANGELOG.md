@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.1.0](https://github.com/zakodium-oss/react-ocl/compare/v7.0.2...v7.1.0) (2025-04-10)
+
+
+### Features
+
+* add CanvasEditor ([#43](https://github.com/zakodium-oss/react-ocl/issues/43)) ([3c5d15e](https://github.com/zakodium-oss/react-ocl/commit/3c5d15ec180717bb194134e70d6674aebadd6dea))
+
 ## [7.0.2](https://github.com/zakodium-oss/react-ocl/compare/v7.0.1...v7.0.2) (2024-10-15)
 
 
