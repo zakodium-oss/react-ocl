@@ -15,14 +15,13 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'StructureEditor is an uncontrolled component.',
+        component: 'CanvasEditor is an uncontrolled component.',
       },
     },
   },
 };
 
-const initialIDCode =
-  'gJX@@eKU@@ gFp@DiTt@@@!gGQHDHaImfh@##!B_vp@[G|S@AL !BmpJH@ox@?`BH?@ !Bb@K~@Hc}b@JH?P';
+const initialIDCode = 'gFp@DiTvjh@ !B?g~w@k_}m?vw@`';
 
 export function FromIDCode() {
   const [idCode, setIDCode] = useState(initialIDCode);

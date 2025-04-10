@@ -102,8 +102,10 @@ export default function CanvasEditor(props: CanvasEditorProps): ReactElement {
           if (mode === 'molecule') {
             const molfile = editor.getMolecule().toMolfileV3();
             const molecule = editor.getMolecule();
-            const idCode = editor.getMolecule().getIDCode();
-            onChange(molfile, molecule, idCode);
+            const { idCode, coordinates } = editor
+              .getMolecule()
+              .getIDCodeAndCoordinates();
+            onChange(molfile, molecule, `${idCode} ${coordinates}`);
           } else {
             const reaction = editor.getReaction();
             const idCode = OCL.ReactionEncoder.encode(reaction, {}) ?? '';
