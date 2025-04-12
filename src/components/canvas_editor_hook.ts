@@ -313,9 +313,13 @@ function useUpdateFragment(
 
     const currentMode = editor.getMode();
     if (currentMode === 'molecule') {
-      editor.getMolecule().setFragment(fragment);
+      const molecule = editor.getMolecule();
+      molecule.setFragment(fragment);
+      editor.setMolecule(molecule);
     } else {
-      editor.getReaction().setFragment(fragment);
+      const reaction = editor.getReaction();
+      reaction.setFragment(fragment);
+      editor.setReaction(reaction);
     }
   }, [editorRef, fragment]);
 }

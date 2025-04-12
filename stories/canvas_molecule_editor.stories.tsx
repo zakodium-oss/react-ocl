@@ -25,6 +25,12 @@ export const ReadOnly: Story = {
   },
 };
 
+export const Fragment: Story = {
+  args: {
+    fragment: true,
+  },
+};
+
 export const Reactive: Story = {
   render(args) {
     const [data, setData] = useState({
@@ -61,15 +67,21 @@ export const Reactive: Story = {
           <tbody>
             <tr>
               <td valign="top">Idcode</td>
-              <code>{data.idcode}</code>
+              <td>
+                <code>{data.idcode}</code>
+              </td>
             </tr>
             <tr>
               <td valign="top">Molfile V2000</td>
-              <code style={{ whiteSpace: 'pre' }}>{data.molfile}</code>
+              <td>
+                <code style={{ whiteSpace: 'pre' }}>{data.molfile}</code>
+              </td>
             </tr>
             <tr>
               <td valign="top">Molfile V3000</td>
-              <code style={{ whiteSpace: 'pre' }}>{data.molfileV3}</code>
+              <td>
+                <code style={{ whiteSpace: 'pre' }}>{data.molfileV3}</code>
+              </td>
             </tr>
             <tr>
               <td valign="top">SMILES</td>

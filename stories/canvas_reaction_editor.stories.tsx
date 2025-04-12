@@ -25,6 +25,12 @@ export const ReadOnly: Story = {
   },
 };
 
+export const Fragment: Story = {
+  args: {
+    fragment: true,
+  },
+};
+
 export const Reactive: Story = {
   render(args) {
     const [data, setData] = useState({
