@@ -52,6 +52,7 @@ export type CanvasEditorInputFormat = 'idcode' | 'molfile' | 'smiles';
 export interface UseCanvasEditorBaseOptions {
   /**
    * Mode used to initialise the editor.
+   *
    * Changing this will force the editor to be reinitialised and lose its
    * internal state.
    */
@@ -59,6 +60,7 @@ export interface UseCanvasEditorBaseOptions {
 
   /**
    * A read-only editor can be used to render structures or reactions.
+   *
    * Changing this will force the editor to be reinitialised and lose its
    * internal state.
    * @default false
@@ -75,6 +77,7 @@ export interface UseCanvasEditorBaseOptions {
 
   /**
    * Input value to initialise the structure.
+   *
    * Changing this value will have the effect of replacing the structure being edited,
    * but this should not be done continuously in reaction to the `onChange` event
    * like you would with a controlled component.
@@ -102,6 +105,9 @@ export interface UseCanvasEditorMoleculeOptions
   /**
    * Callback which is called whenever the molecule is changed by a user action
    * in the editor.
+   *
+   * The event methods available in the callback should be called synchronously,
+   * otherwise they might reflect a future state of the editor.
    */
   onChange?: OnChangeMoleculeCallback;
 }
@@ -115,8 +121,11 @@ export interface UseCanvasEditorReactionOptions
   initialMode: 'reaction';
 
   /**
-   * Callback which is called whenever the molecule is changed by a user action
+   * Callback which is called whenever the reaction is changed by a user action
    * in the editor.
+   *
+   * The event methods available in the callback should be called synchronously,
+   * otherwise they might reflect a future state of the editor.
    */
   onChange?: OnChangeReactionCallback;
 }
