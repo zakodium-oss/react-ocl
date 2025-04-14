@@ -3,7 +3,6 @@
 const OCL = require('openchemlib/full');
 const React = require('react');
 
-const CanvasEditor = require('./lib-cjs/components/CanvasEditor.js').default;
 const BaseIdcodeSvgRenderer =
   require('./lib-cjs/components/IdcodeSvgRenderer.js').default;
 const BaseMolfileSvgRenderer =
@@ -12,6 +11,13 @@ const BaseSmilesSvgRenderer =
   require('./lib-cjs/components/SmilesSvgRenderer.js').default;
 const StructureEditor =
   require('./lib-cjs/components/StructureEditor.js').default;
+const {
+  CanvasMoleculeEditor,
+  CanvasReactionEditor,
+} = require('./lib-cjs/components/canvas_editor.js');
+const {
+  useCanvasEditor,
+} = require('./lib-cjs/components/canvas_editor_hook.js');
 
 function SmilesSvgRenderer(props) {
   return React.createElement(BaseSmilesSvgRenderer, { OCL, ...props });
@@ -30,5 +36,7 @@ module.exports = {
   MolfileSvgRenderer,
   IdcodeSvgRenderer,
   StructureEditor,
-  CanvasEditor,
+  CanvasMoleculeEditor,
+  CanvasReactionEditor,
+  useCanvasEditor,
 };
