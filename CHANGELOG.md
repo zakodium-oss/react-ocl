@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.1.1](https://github.com/zakodium-oss/react-ocl/compare/v7.1.0...v7.1.1) (2025-04-15)
+
+
+### Bug Fixes
+
+* types of React DOM ref ([#46](https://github.com/zakodium-oss/react-ocl/issues/46)) ([eff6536](https://github.com/zakodium-oss/react-ocl/commit/eff6536acc88f1c623f11c2f64510439605a96ab))
+
 ## [7.1.0](https://github.com/zakodium-oss/react-ocl/compare/v7.0.2...v7.1.0) (2025-04-14)
 
 
