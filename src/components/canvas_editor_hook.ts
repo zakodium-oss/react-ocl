@@ -6,7 +6,7 @@ import {
   ReactionEncoder,
   SmilesParser,
 } from 'openchemlib/full';
-import type { RefObject } from 'react';
+import type { MutableRefObject, RefObject } from 'react';
 import { useEffect, useLayoutEffect, useRef } from 'react';
 
 export interface CanvasEditorOnChangeMolecule {
@@ -163,7 +163,7 @@ export function useCanvasEditor(
 
 function useInitialiseEditor(
   elementRef: RefObject<HTMLDivElement | null>,
-  editorRef: RefObject<CanvasEditor | null>,
+  editorRef: MutableRefObject<CanvasEditor | null>,
   readOnly: boolean,
   initialMode: CanvasEditorMode,
 ): void {
