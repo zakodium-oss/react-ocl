@@ -17,5 +17,5 @@
     "declaration": true,
     "declarationMap": true
   },
-  "include": ["*.d.ts", "src", "stories"]
+  "include": ["src", "stories"]
 }

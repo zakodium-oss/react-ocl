@@ -1,31 +1,28 @@
-import type OCL from 'openchemlib/minimal';
+import { Molecule } from 'openchemlib';
 import type { ReactElement } from 'react';
 import { memo } from 'react';
 
-import { useHandleMemoError } from '../hooks/useHandleMemoError.js';
+import { useHandleMemoError } from '../hooks/use_handle_memo_error.js';
 
-import { DefaultErrorRenderer, ErrorRenderer } from './ErrorRenderer.js';
-import SvgRenderer from './SvgRenderer.js';
+import { DefaultErrorRenderer, ErrorRenderer } from './error_renderer.js';
+import SvgRenderer from './svg_renderer.js';
 import type { BaseSvgRendererProps } from './types.js';
 
 export interface MolfileSvgRendererProps extends BaseSvgRendererProps {
   molfile: string;
 }
 
-export interface BaseMolfileSvgRendererProps extends MolfileSvgRendererProps {
-  OCL: typeof OCL;
-}
-
-function MolfileSvgRenderer(props: BaseMolfileSvgRendererProps): ReactElement {
+export const MolfileSvgRenderer = memo(function MolfileSvgRenderer(
+  props: MolfileSvgRendererProps,
+): ReactElement {
   const {
-    OCL,
     molfile,
     ErrorComponent = DefaultMolfileErrorComponent,
     ...otherProps
   } = props;
   const [error, mol] = useHandleMemoError(
-    () => OCL.Molecule.fromMolfile(molfile),
-    [OCL, molfile],
+    () => Molecule.fromMolfile(molfile),
+    [molfile],
   );
   if (error) {
     return (
@@ -39,9 +36,7 @@ function MolfileSvgRenderer(props: BaseMolfileSvgRendererProps): ReactElement {
     );
   }
   return <SvgRenderer mol={mol} {...otherProps} />;
-}
-
-export default memo(MolfileSvgRenderer);
+});
 
 function DefaultMolfileErrorComponent(props: {
   width: number;

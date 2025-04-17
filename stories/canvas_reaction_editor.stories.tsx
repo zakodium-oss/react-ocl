@@ -67,15 +67,21 @@ export const Reactive: Story = {
           <tbody>
             <tr>
               <td valign="top">Idcode</td>
-              <code>{data.idcode}</code>
+              <td>
+                <code>{data.idcode}</code>
+              </td>
             </tr>
             <tr>
               <td valign="top">RXN V2000</td>
-              <code style={{ whiteSpace: 'pre' }}>{data.rxn}</code>
+              <td>
+                <code style={{ whiteSpace: 'pre' }}>{data.rxn}</code>
+              </td>
             </tr>
             <tr>
               <td valign="top">RXN V3000</td>
-              <code style={{ whiteSpace: 'pre' }}>{data.rxnV3}</code>
+              <td>
+                <code style={{ whiteSpace: 'pre' }}>{data.rxnV3}</code>
+              </td>
             </tr>
             <tr>
               <td valign="top">SMILES</td>

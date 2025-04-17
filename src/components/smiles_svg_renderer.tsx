@@ -1,33 +1,28 @@
-import type OCL from 'openchemlib/minimal';
+import { Molecule } from 'openchemlib';
 import type { ReactElement } from 'react';
 import { memo } from 'react';
 
-import { useHandleMemoError } from '../hooks/useHandleMemoError.js';
+import { useHandleMemoError } from '../hooks/use_handle_memo_error.js';
 
-import { DefaultErrorRenderer, ErrorRenderer } from './ErrorRenderer.js';
-import SvgRenderer from './SvgRenderer.js';
+import { DefaultErrorRenderer, ErrorRenderer } from './error_renderer.js';
+import SvgRenderer from './svg_renderer.js';
 import type { BaseSvgRendererProps } from './types.js';
 
 export interface SmilesSvgRendererProps extends BaseSvgRendererProps {
   smiles: string;
 }
 
-export interface BaseSmilesSvgRendererProps extends SmilesSvgRendererProps {
-  OCL: typeof OCL;
-}
-
-function BaseSmilesSvgRenderer(
-  props: BaseSmilesSvgRendererProps,
+export const SmilesSvgRenderer = memo(function SmilesSvgRenderer(
+  props: SmilesSvgRendererProps,
 ): ReactElement {
   const {
-    OCL,
     smiles,
     ErrorComponent = DefaultSmilesErrorComponent,
     ...otherProps
   } = props;
   const [error, mol] = useHandleMemoError(
-    () => OCL.Molecule.fromSmiles(smiles),
-    [OCL, smiles],
+    () => Molecule.fromSmiles(smiles),
+    [smiles],
   );
   if (error) {
     return (
@@ -41,9 +36,7 @@ function BaseSmilesSvgRenderer(
     );
   }
   return <SvgRenderer mol={mol} {...otherProps} />;
-}
-
-export default memo(BaseSmilesSvgRenderer);
+});
 
 function DefaultSmilesErrorComponent(props: { width: number; height: number }) {
   return (

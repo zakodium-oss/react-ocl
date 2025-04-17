@@ -1,11 +1,11 @@
-import type OCL from 'openchemlib/minimal';
+import { Molecule } from 'openchemlib';
 import type { ReactElement } from 'react';
 import { memo } from 'react';
 
-import { useHandleMemoError } from '../hooks/useHandleMemoError.js';
+import { useHandleMemoError } from '../hooks/use_handle_memo_error.js';
 
-import { DefaultErrorRenderer, ErrorRenderer } from './ErrorRenderer.js';
-import SvgRenderer from './SvgRenderer.js';
+import { DefaultErrorRenderer, ErrorRenderer } from './error_renderer.js';
+import SvgRenderer from './svg_renderer.js';
 import type { BaseSvgRendererProps } from './types.js';
 
 export interface IdcodeSvgRendererProps extends BaseSvgRendererProps {
@@ -13,21 +13,18 @@ export interface IdcodeSvgRendererProps extends BaseSvgRendererProps {
   coordinates?: string;
 }
 
-export interface BaseIdcodeSvgRendererProps extends IdcodeSvgRendererProps {
-  OCL: typeof OCL;
-}
-
-function IdcodeSvgRenderer(props: BaseIdcodeSvgRendererProps): ReactElement {
+export const IdcodeSvgRenderer = memo(function IdcodeSvgRenderer(
+  props: IdcodeSvgRendererProps,
+): ReactElement {
   const {
-    OCL,
     idcode,
     coordinates,
     ErrorComponent = DefaultIdcodeErrorComponent,
     ...otherProps
   } = props;
   const [error, mol] = useHandleMemoError(
-    () => OCL.Molecule.fromIDCode(idcode, coordinates),
-    [OCL, idcode, coordinates],
+    () => Molecule.fromIDCode(idcode, coordinates),
+    [idcode, coordinates],
   );
   if (error) {
     return (
@@ -41,9 +38,7 @@ function IdcodeSvgRenderer(props: BaseIdcodeSvgRendererProps): ReactElement {
     );
   }
   return <SvgRenderer mol={mol} {...otherProps} />;
-}
-
-export default memo(IdcodeSvgRenderer);
+});
 
 function DefaultIdcodeErrorComponent(props: { width: number; height: number }) {
   return (

@@ -1,11 +1,11 @@
-import type { CanvasEditorMode } from 'openchemlib/full';
+import type { CanvasEditorMode } from 'openchemlib';
 import {
   CanvasEditor,
   Molecule,
   Reaction,
   ReactionEncoder,
   SmilesParser,
-} from 'openchemlib/full';
+} from 'openchemlib';
 import type { MutableRefObject, RefObject } from 'react';
 import { useEffect, useLayoutEffect, useRef } from 'react';
 

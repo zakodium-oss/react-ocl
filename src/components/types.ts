@@ -1,4 +1,4 @@
-import type { IMoleculeToSVGOptions } from 'openchemlib/minimal';
+import type { MoleculeToSVGOptions } from 'openchemlib';
 import type { ComponentType, MouseEvent } from 'react';
 
 export interface ErrorComponentProps {
@@ -8,7 +8,7 @@ export interface ErrorComponentProps {
   error: Error;
 }
 
-export interface BaseSvgRendererProps extends IMoleculeToSVGOptions {
+export interface BaseSvgRendererProps extends MoleculeToSVGOptions {
   width?: number;
   height?: number;
   id?: string;

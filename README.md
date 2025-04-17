@@ -36,17 +36,6 @@ function MyComponent() {
 }
 ```
 
-## Which version of the library should I use?
-
-This library is available in three versions, like openchemlib: `react-ocl/minimal`
-(also available as `react-ocl`), `react-ocl/core` and `react-ocl/full`.
-
-- If you only use the SvgRenderer component, you can choose any version, minimal
-  being the smallest one.
-- If you want to use the StructureEditor component, you must import `react-ocl/full`.
-- If you are writing a library and want to allow your consumer to provide the OCL
-  version for rendering, you must import `react-ocl/base`.
-
 ## Documentation
 
 See https://react-ocl.pages.dev for detailed usage examples.

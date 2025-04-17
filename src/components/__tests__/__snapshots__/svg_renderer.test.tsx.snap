@@ -165,7 +165,7 @@ exports[`Syntax error in SMILES - custom renderer 1`] = `
       BAD
     </span>
     <span>
-      Class$S13: SmilesParser: unknown element label found. Position:1
+      Class$S18: SmilesParser: unknown element label found. Position:1
     </span>
   </div>
 </div>
@@ -184,6 +184,7 @@ exports[`Syntax error in SMILES - default renderer 1`] = `
     height={150}
     version="1.1"
     viewBox="0 0 300 150"
+    width={300}
     xmlns="http://www.w3.org/2000/svg"
   >
     <text
