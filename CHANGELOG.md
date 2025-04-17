@@ -1,5 +1,16 @@
 # Changelog
 
+## [8.0.0](https://github.com/zakodium-oss/react-ocl/compare/v7.1.1...v8.0.0) (2025-04-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* The `openchemlib` library has been updated. `react-ocl` is now ESM-only and exposes only one build. See https://github.com/cheminfo/openchemlib-js/releases/tag/v9.0.0
+
+### Features
+
+* update `openchemlib` ([#48](https://github.com/zakodium-oss/react-ocl/issues/48)) ([a51cd5e](https://github.com/zakodium-oss/react-ocl/commit/a51cd5e126b2ce3e80f0832a8ca0ef831cb701c3))
+
 ## [7.1.1](https://github.com/zakodium-oss/react-ocl/compare/v7.1.0...v7.1.1) (2025-04-15)
 
 
