@@ -11,48 +11,9 @@
   "type": "module",
   "files": [
     "lib",
-    "lib-cjs",
-    "base.d.ts",
-    "base.mjs",
-    "base.cjs",
-    "core.d.ts",
-    "core.mjs",
-    "core.cjs",
-    "full.d.ts",
-    "full.mjs",
-    "full.cjs",
-    "minimal.d.ts",
-    "minimal.mjs",
-    "minimal.cjs",
     "src"
   ],
-  "exports": {
-    ".": {
-      "types": "./minimal.d.ts",
-      "require": "./minimal.cjs",
-      "default": "./minimal.mjs"
-    },
-    "./base": {
-      "types": "./base.d.ts",
-      "require": "./base.cjs",
-      "default": "./base.mjs"
-    },
-    "./minimal": {
-      "types": "./minimal.d.ts",
-      "require": "./minimal.cjs",
-      "default": "./minimal.mjs"
-    },
-    "./core": {
-      "types": "./core.d.ts",
-      "require": "./core.cjs",
-      "default": "./core.mjs"
-    },
-    "./full": {
-      "types": "./full.d.ts",
-      "require": "./full.cjs",
-      "default": "./full.mjs"
-    }
-  },
+  "exports": "./lib/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/zakodium-oss/react-ocl.git"
@@ -63,13 +24,11 @@
   "scripts": {
     "build-storybook": "storybook build",
     "check-types": "tsc --noEmit",
-    "compile": "tsc -p tsconfig.esm.json",
-    "compile-cjs": "tsc -p tsconfig.cjs.json",
-    "postcompile-cjs": "echo '{\"type\":\"commonjs\"}' > lib-cjs/package.json",
+    "compile": "tsc -p tsconfig.build.json",
     "dev": "storybook dev -p 6006",
     "eslint": "eslint .",
     "eslint-fix": "npm run eslint -- --fix",
-    "prepack": "npm run compile && npm run compile-cjs",
+    "prepack": "npm run compile",
     "prettier": "prettier --check .",
     "prettier-write": "prettier --write .",
     "test": "npm run test-only && npm run check-types && npm run eslint && npm run prettier",
@@ -96,19 +55,22 @@
     "@storybook/react-vite": "^8.6.12",
     "@types/react": "^18.3.20",
     "@types/react-test-renderer": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-react": "^4.4.0",
     "eslint": "^9.24.0",
     "eslint-config-cheminfo-react": "^16.0.0",
     "eslint-config-cheminfo-typescript": "^18.0.0",
     "eslint-plugin-storybook": "^0.12.0",
-    "openchemlib": "^8.21.0",
+    "openchemlib": "^9.0.0",
     "prettier": "^3.5.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-test-renderer": "^18.3.1",
     "storybook": "^8.6.12",
     "typescript": "^5.8.3",
-    "vite": "^6.2.6",
+    "vite": "^6.3.1",
     "vitest": "^3.1.1"
+  },
+  "volta": {
+    "node": "22.14.0"
   }
 }

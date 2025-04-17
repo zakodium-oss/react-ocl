@@ -1,20 +1,12 @@
-import OCL from 'openchemlib/minimal';
 import renderer from 'react-test-renderer';
 import { expect, test } from 'vitest';
 
-import MolfileSvgRenderer from '../MolfileSvgRenderer.js';
-import SmilesSvgRenderer from '../SmilesSvgRenderer.js';
-import type { ErrorComponentProps } from '../types.js';
+import { MolfileSvgRenderer } from '../molfile_svg_renderer.js';
+import { SmilesSvgRenderer } from '../smiles_svg_renderer.js';
 
 test('Molecule renders smiles with custom id', () => {
   const component = renderer.create(
-    <SmilesSvgRenderer
-      id="mol1"
-      OCL={OCL}
-      smiles="CCOC"
-      width={1200}
-      height={800}
-    />,
+    <SmilesSvgRenderer id="mol1" smiles="CCOC" width={1200} height={800} />,
   );
   expect(component.toJSON()).toMatchSnapshot();
 });
@@ -80,7 +72,6 @@ test('Molecule renders molfile with default id', () => {
   const component = renderer.create(
     <MolfileSvgRenderer
       id="mol1"
-      OCL={OCL}
       molfile={molfileV2000}
       width={1200}
       height={800}
@@ -91,7 +82,7 @@ test('Molecule renders molfile with default id', () => {
 
 test('Syntax error in SMILES - default renderer', () => {
   const component = renderer.create(
-    <SmilesSvgRenderer id="mol1" smiles="BAD" OCL={OCL} />,
+    <SmilesSvgRenderer id="mol1" smiles="BAD" />,
   );
   expect(component.toJSON()).toMatchSnapshot();
 });
@@ -101,13 +92,12 @@ test('Syntax error in SMILES - custom renderer', () => {
     <SmilesSvgRenderer
       id="mol1"
       smiles="BAD"
-      ErrorComponent={(props: ErrorComponentProps) => (
+      ErrorComponent={(props) => (
         <div>
           <span>{props.value}</span>
           <span>{props.error.message}</span>
         </div>
       )}
-      OCL={OCL}
     />,
   );
   expect(component.toJSON()).toMatchSnapshot();

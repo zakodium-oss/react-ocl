@@ -1,11 +1,11 @@
-import type OCL from 'openchemlib/minimal';
+import type { Molecule } from 'openchemlib';
 import type { MouseEvent as ReactMouseEvent, RefObject } from 'react';
 import { useEffect, useId, useMemo, useRef } from 'react';
 
 import type { BaseSvgRendererProps } from './types.js';
 
 interface SvgRendererProps extends BaseSvgRendererProps {
-  mol: OCL.Molecule;
+  mol: Molecule;
 }
 
 export default function SvgRenderer(props: SvgRendererProps) {
@@ -183,7 +183,7 @@ function useHighlight(
 }
 
 function getSVG(
-  mol: OCL.Molecule,
+  mol: Molecule,
   width: number,
   height: number,
   id: string,

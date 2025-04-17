@@ -1,4 +1,4 @@
-import OCL from 'openchemlib/minimal';
+import { Molecule } from 'openchemlib';
 
 export const molfileV2000 = `
   Marvin  07260611242D          
@@ -57,7 +57,7 @@ export const molfileV2000 = `
 M  END
 `;
 
-const mol = OCL.Molecule.fromMolfile(molfileV2000);
+const mol = Molecule.fromMolfile(molfileV2000);
 
 export const idcode = mol.getIDCodeAndCoordinates();
 
