@@ -21,6 +21,7 @@
   "scripts": {
     "build-storybook": "storybook build",
     "check-types": "tsc --noEmit",
+    "clean": "rimraf lib",
     "dev": "storybook dev -p 6006",
     "eslint": "eslint .",
     "eslint-fix": "eslint . --fix",
@@ -29,7 +30,8 @@
     "prettier-write": "prettier --write .",
     "test": "npm run test-only && npm run check-types && npm run eslint && npm run prettier",
     "test-only": "vitest run",
-    "tsc": "tsc -p tsconfig.build.json"
+    "tsc": "npm run clean && npm run tsc-build",
+    "tsc-build": "tsc -p tsconfig.build.json"
   },
   "peerDependencies": {
     "openchemlib": ">=8",
@@ -55,6 +57,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-test-renderer": "^18.3.1",
+    "rimraf": "^6.0.1",
     "storybook": "^8.6.12",
     "typescript": "^5.9.2",
     "vite": "^6.3.1",
