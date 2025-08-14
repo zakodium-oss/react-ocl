@@ -10,7 +10,8 @@ export function useHandleMemoError<T>(
     } catch (error) {
       return [true, error as Error];
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // TODO: avoid this hack.
+    // eslint-disable-next-line react-hooks/react-compiler,react-hooks/exhaustive-deps
   }, deps);
   return hasError ? [result, null] : [null, result];
 }

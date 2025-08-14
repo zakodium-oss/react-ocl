@@ -8,6 +8,7 @@ test('Molecule renders smiles with custom id', () => {
   const component = renderer.create(
     <SmilesSvgRenderer id="mol1" smiles="CCOC" width={1200} height={800} />,
   );
+
   expect(component.toJSON()).toMatchSnapshot();
 });
 
@@ -77,6 +78,7 @@ test('Molecule renders molfile with default id', () => {
       height={800}
     />,
   );
+
   expect(component.toJSON()).toMatchSnapshot();
 });
 
@@ -84,6 +86,7 @@ test('Syntax error in SMILES - default renderer', () => {
   const component = renderer.create(
     <SmilesSvgRenderer id="mol1" smiles="BAD" />,
   );
+
   expect(component.toJSON()).toMatchSnapshot();
 });
 
@@ -100,5 +103,6 @@ test('Syntax error in SMILES - custom renderer', () => {
       )}
     />,
   );
+
   expect(component.toJSON()).toMatchSnapshot();
 });
