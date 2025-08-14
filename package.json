@@ -1,6 +1,7 @@
 {
   "name": "react-ocl",
   "version": "8.0.0",
+  "license": "MIT",
   "description": "React components integrating OpenChemLib",
   "keywords": [
     "react",
@@ -8,40 +9,28 @@
     "ocl",
     "openchemlib"
   ],
+  "author": "Michaël Zasso",
   "type": "module",
   "files": [
     "lib",
     "src"
   ],
-  "exports": "./lib/index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/zakodium-oss/react-ocl.git"
+  "exports": {
+    ".": "./lib/index.js"
   },
-  "homepage": "https://github.com/zakodium-oss/react-ocl#readme",
-  "bugs": "https://github.com/zakodium-oss/react-ocl/issues",
-  "author": "Michaël Zasso <targos@protonmail.com>",
   "scripts": {
     "build-storybook": "storybook build",
     "check-types": "tsc --noEmit",
-    "compile": "tsc -p tsconfig.build.json",
     "dev": "storybook dev -p 6006",
     "eslint": "eslint .",
-    "eslint-fix": "npm run eslint -- --fix",
-    "prepack": "npm run compile",
+    "eslint-fix": "eslint . --fix",
+    "prepack": "npm run tsc",
     "prettier": "prettier --check .",
     "prettier-write": "prettier --write .",
     "test": "npm run test-only && npm run check-types && npm run eslint && npm run prettier",
-    "test-only": "vitest run"
+    "test-only": "vitest run",
+    "tsc": "tsc -p tsconfig.build.json"
   },
-  "prettier": {
-    "arrowParens": "always",
-    "tabWidth": 2,
-    "singleQuote": true,
-    "semi": true,
-    "trailingComma": "all"
-  },
-  "license": "MIT",
   "peerDependencies": {
     "openchemlib": ">=8",
     "react": ">=18",
@@ -56,20 +45,27 @@
     "@types/react": "^18.3.20",
     "@types/react-test-renderer": "^18.3.0",
     "@vitejs/plugin-react": "^4.4.0",
-    "eslint": "^9.24.0",
-    "eslint-config-cheminfo-react": "^16.0.0",
-    "eslint-config-cheminfo-typescript": "^18.0.0",
+    "@zakodium/tsconfig": "^1.0.2",
+    "eslint": "^9.33.0",
+    "eslint-config-cheminfo-react": "^17.0.1",
+    "eslint-config-cheminfo-typescript": "^19.0.0",
     "eslint-plugin-storybook": "^0.12.0",
-    "openchemlib": "^9.0.0",
-    "prettier": "^3.5.3",
+    "openchemlib": "^9.7.0",
+    "prettier": "^3.6.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-test-renderer": "^18.3.1",
     "storybook": "^8.6.12",
-    "typescript": "^5.8.3",
+    "typescript": "^5.9.2",
     "vite": "^6.3.1",
-    "vitest": "^3.1.1"
+    "vitest": "^3.2.4"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zakodium-oss/react-ocl.git"
+  },
+  "bugs": "https://github.com/zakodium-oss/react-ocl/issues",
+  "homepage": "https://github.com/zakodium-oss/react-ocl#readme",
   "volta": {
     "node": "22.14.0"
   }

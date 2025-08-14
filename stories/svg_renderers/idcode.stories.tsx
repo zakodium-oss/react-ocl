@@ -1,7 +1,7 @@
 import { IdcodeSvgRenderer } from '../../src/index.js';
 import { idcode } from '../data.js';
 
-import { commonArgs, commonArgTypes } from './common-args.js';
+import { commonArgTypes, commonArgs } from './common-args.js';
 
 export default {
   title: 'SVG renderers/IdcodeSvgRenderer',

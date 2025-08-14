@@ -165,7 +165,7 @@ exports[`Syntax error in SMILES - custom renderer 1`] = `
       BAD
     </span>
     <span>
-      Class$S18: SmilesParser: unknown element label found. Position:1
+      Class$S19: SmilesParser: unknown element label found. Position:1
     </span>
   </div>
 </div>

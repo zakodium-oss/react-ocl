@@ -1,21 +1,8 @@
 {
+  "extends": "@zakodium/tsconfig/jsx",
   "compilerOptions": {
-    "lib": ["DOM", "DOM.Iterable", "ES2022"],
-    "types": [],
-    "target": "ES2022",
-    "outDir": "lib",
-    "jsx": "react-jsx",
-    "module": "NodeNext",
-    "strict": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "forceConsistentCasingInFileNames": true,
-    "allowJs": false,
-    "isolatedModules": true,
-    "verbatimModuleSyntax": true,
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true
+    "noUncheckedIndexedAccess": false,
+    "outDir": "lib"
   },
-  "include": ["src", "stories"]
+  "include": ["src", "stories", "vite*.ts"]
 }
