@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.0.1](https://github.com/zakodium-oss/react-ocl/compare/v8.0.0...v8.0.1) (2025-08-14)
+
+
+### Bug Fixes
+
+* exports ([#51](https://github.com/zakodium-oss/react-ocl/issues/51)) ([c7e3dfd](https://github.com/zakodium-oss/react-ocl/commit/c7e3dfde5112a09c59e59918a0b3a2e3070bf2dc))
+
 ## [8.0.0](https://github.com/zakodium-oss/react-ocl/compare/v7.1.1...v8.0.0) (2025-04-17)
 
 
