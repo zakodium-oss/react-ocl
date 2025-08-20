@@ -1,0 +1,486 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Molecule renders SMILES with custom id 1`] = `
+<div>
+  <svg
+    height="100px"
+    id="mol1"
+    style="user-select: none;"
+    version="1.1"
+    viewBox="55 47 190 100"
+    width="190px"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    
+  
+    <style>
+       text {font-family: sans-serif;} #mol1 { pointer-events:none; } #mol1 .event  { pointer-events:all; } line { stroke-linecap:round; } polygon { stroke-linejoin:round; } 
+    </style>
+    
+  
+    <text
+      fill="rgb(255,13,13)"
+      font-size="14"
+      stroke="none"
+      x="196.52"
+      y="92.67"
+    >
+      O
+    </text>
+    
+  
+    <text
+      fill="rgb(255,13,13)"
+      font-size="14"
+      stroke="none"
+      x="134.16"
+      y="80.67"
+    >
+      O
+    </text>
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="118.82"
+      x2="98.04"
+      y1="88"
+      y2="76"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="114.81"
+      x2="98.46"
+      y1="89.84"
+      y2="80.4"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="77.25"
+      x2="77.25"
+      y1="88"
+      y2="112"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="80.85"
+      x2="80.85"
+      y1="90.56"
+      y2="109.44"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="98.04"
+      x2="118.82"
+      y1="124"
+      y2="112"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="98.46"
+      x2="114.81"
+      y1="119.6"
+      y2="110.16"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="222.75"
+      x2="208.41"
+      y1="76"
+      y2="84.28"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="195.52"
+      x2="181.18"
+      y1="84.28"
+      y2="76"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="181.18"
+      x2="160.39"
+      y1="76"
+      y2="88"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="160.39"
+      x2="146.05"
+      y1="88"
+      y2="79.72"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="133.16"
+      x2="118.82"
+      y1="79.72"
+      y2="88"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="98.04"
+      x2="77.25"
+      y1="76"
+      y2="88"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="77.25"
+      x2="98.04"
+      y1="112"
+      y2="124"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="118.82"
+      x2="118.82"
+      y1="88"
+      y2="112"
+    />
+    
+  
+    <line
+      class="event"
+      id="mol1:Bond:5"
+      opacity="0"
+      stroke-width="8"
+      x1="118.82"
+      x2="98.04"
+      y1="88"
+      y2="76"
+    />
+    
+  
+    <line
+      class="event"
+      id="mol1:Bond:7"
+      opacity="0"
+      stroke-width="8"
+      x1="77.25"
+      x2="77.25"
+      y1="88"
+      y2="112"
+    />
+    
+  
+    <line
+      class="event"
+      id="mol1:Bond:9"
+      opacity="0"
+      stroke-width="8"
+      x1="98.04"
+      x2="118.82"
+      y1="124"
+      y2="112"
+    />
+    
+  
+    <line
+      class="event"
+      id="mol1:Bond:0"
+      opacity="0"
+      stroke-width="8"
+      x1="222.75"
+      x2="201.96"
+      y1="76"
+      y2="88"
+    />
+    
+  
+    <line
+      class="event"
+      id="mol1:Bond:1"
+      opacity="0"
+      stroke-width="8"
+      x1="201.96"
+      x2="181.18"
+      y1="88"
+      y2="76"
+    />
+    
+  
+    <line
+      class="event"
+      id="mol1:Bond:2"
+      opacity="0"
+      stroke-width="8"
+      x1="181.18"
+      x2="160.39"
+      y1="76"
+      y2="88"
+    />
+    
+  
+    <line
+      class="event"
+      id="mol1:Bond:3"
+      opacity="0"
+      stroke-width="8"
+      x1="160.39"
+      x2="139.61"
+      y1="88"
+      y2="76"
+    />
+    
+  
+    <line
+      class="event"
+      id="mol1:Bond:4"
+      opacity="0"
+      stroke-width="8"
+      x1="139.61"
+      x2="118.82"
+      y1="76"
+      y2="88"
+    />
+    
+  
+    <line
+      class="event"
+      id="mol1:Bond:6"
+      opacity="0"
+      stroke-width="8"
+      x1="98.04"
+      x2="77.25"
+      y1="76"
+      y2="88"
+    />
+    
+  
+    <line
+      class="event"
+      id="mol1:Bond:8"
+      opacity="0"
+      stroke-width="8"
+      x1="77.25"
+      x2="98.04"
+      y1="112"
+      y2="124"
+    />
+    
+  
+    <line
+      class="event"
+      id="mol1:Bond:10"
+      opacity="0"
+      stroke-width="8"
+      x1="118.82"
+      x2="118.82"
+      y1="88"
+      y2="112"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="222.75"
+      cy="76"
+      id="mol1:Atom:0"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="201.96"
+      cy="88"
+      id="mol1:Atom:1"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="181.18"
+      cy="76"
+      id="mol1:Atom:2"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="160.39"
+      cy="88"
+      id="mol1:Atom:3"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="139.61"
+      cy="76"
+      id="mol1:Atom:4"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="118.82"
+      cy="88"
+      id="mol1:Atom:5"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="98.04"
+      cy="76"
+      id="mol1:Atom:6"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="77.25"
+      cy="88"
+      id="mol1:Atom:7"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="77.25"
+      cy="112"
+      id="mol1:Atom:8"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="98.04"
+      cy="124"
+      id="mol1:Atom:9"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="118.82"
+      cy="112"
+      id="mol1:Atom:10"
+      opacity="0"
+      r="8"
+    />
+    
+
+    <text
+      fill="rgb(127,127,127)"
+      font-family="Arial, Helvetica, sans-serif"
+      font-size="14 "
+      text-anchor="middle"
+      x="150 "
+      y="142.33333333333334 "
+    >
+      Label p1
+    </text>
+  </svg>
+</div>
+`;
+
+exports[`Syntax error in SMILES - custom renderer 1`] = `
+<div>
+  <div
+    style="width: 300px; height: 200px;"
+  >
+    <div
+      style="color: red;"
+    >
+      <div>
+        COVVVCC
+      </div>
+      <div>
+        Class$S19: SmilesParser: unknown element label found. Position:2
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Syntax error in SMILES - default renderer 1`] = `
+<div>
+  <div
+    style="width: 300px; height: 200px;"
+  >
+    <svg
+      height="200"
+      version="1.1"
+      viewBox="0 0 300 150"
+      width="300"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <text
+        fill="rgb(255,0,0)"
+        font-size="15"
+        x="0"
+        y="2"
+      >
+        <tspan
+          dy="10"
+          x="0"
+        >
+          Invalid SMILES
+        </tspan>
+      </text>
+    </svg>
+  </div>
+</div>
+`;

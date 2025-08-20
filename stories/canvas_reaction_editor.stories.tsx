@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useCallback, useState } from 'react';
 
-import { CanvasReactionEditor } from '../src/components/canvas_editor.js';
-import type { CanvasEditorOnChangeReaction } from '../src/components/canvas_editor_hook.js';
+import type { CanvasEditorOnChangeReaction } from '../src/index.ts';
+import { CanvasReactionEditor } from '../src/index.ts';
 
 export default {
   title: 'CanvasReactionEditor',

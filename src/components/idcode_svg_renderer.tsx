@@ -5,7 +5,7 @@ import { memo } from 'react';
 import { useHandleMemoError } from '../hooks/use_handle_memo_error.js';
 
 import { DefaultErrorRenderer, ErrorRenderer } from './error_renderer.js';
-import SvgRenderer from './svg_renderer.js';
+import { SvgRenderer } from './svg_renderer.js';
 import type { BaseSvgRendererProps } from './types.js';
 
 export interface IdcodeSvgRendererProps extends BaseSvgRendererProps {
@@ -37,7 +37,7 @@ export const IdcodeSvgRenderer = memo(function IdcodeSvgRenderer(
       />
     );
   }
-  return <SvgRenderer mol={mol} {...otherProps} />;
+  return <SvgRenderer molecule={mol} {...otherProps} />;
 });
 
 function DefaultIdcodeErrorComponent(props: { width: number; height: number }) {
