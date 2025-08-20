@@ -1,0 +1,1008 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Molecule renders molfile with default id 1`] = `
+<div>
+  <svg
+    height="163px"
+    id="react-ocl«r0»"
+    style="user-select: none;"
+    version="1.1"
+    viewBox="45 15 210 163"
+    width="210px"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    
+  
+    <style>
+       text {font-family: sans-serif;} #react-ocl«r0» { pointer-events:none; } #react-ocl«r0» .event  { pointer-events:all; } line { stroke-linecap:round; } polygon { stroke-linejoin:round; } 
+    </style>
+    
+  
+    <text
+      fill="rgb(48,80,248)"
+      font-size="14"
+      stroke="none"
+      x="145.18"
+      y="147.48"
+    >
+      N
+    </text>
+    
+  
+    <text
+      fill="rgb(255,13,13)"
+      font-size="14"
+      stroke="none"
+      x="103.04"
+      y="83.04"
+    >
+      O
+    </text>
+    
+  
+    <text
+      fill="rgb(255,13,13)"
+      font-size="14"
+      stroke="none"
+      x="82.49"
+      y="118.63"
+    >
+      O
+    </text>
+    
+  
+    <text
+      fill="rgb(255,13,13)"
+      font-size="14"
+      stroke="none"
+      x="144.97"
+      y="84.61"
+    >
+      O
+    </text>
+    
+  
+    <text
+      fill="rgb(255,13,13)"
+      font-size="14"
+      stroke="none"
+      x="165.52"
+      y="49.02"
+    >
+      O
+    </text>
+    
+  
+    <text
+      fill="rgb(0,0,0)"
+      font-size="14"
+      stroke="none"
+      x="95.78"
+      y="147.9"
+    >
+      H
+    </text>
+    
+  
+    <text
+      fill="rgb(0,0,0)"
+      font-size="14"
+      stroke="none"
+      x="194.94"
+      y="147.9"
+    >
+      H
+    </text>
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="110.29"
+      x2="110.29"
+      y1="103.14"
+      y2="85.37"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="106.69"
+      x2="106.69"
+      y1="103.14"
+      y2="85.37"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="172.76"
+      x2="172.76"
+      y1="69.12"
+      y2="51.35"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="169.16"
+      x2="169.16"
+      y1="69.12"
+      y2="51.35"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="212.06"
+      x2="191.51"
+      y1="68.08"
+      y2="79.94"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="211.65"
+      x2="195.53"
+      y1="72.48"
+      y2="81.78"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="191.51"
+      x2="212.06"
+      y1="103.67"
+      y2="115.53"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="195.53"
+      x2="211.65"
+      y1="101.83"
+      y2="111.14"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="232.61"
+      x2="232.61"
+      y1="103.67"
+      y2="79.94"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="229.01"
+      x2="229.01"
+      y1="101.11"
+      y2="82.5"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="150.42"
+      x2="129.04"
+      y1="103.67"
+      y2="113.97"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="171.79"
+      x2="150.42"
+      y1="113.97"
+      y2="103.67"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="129.04"
+      x2="123.76"
+      y1="113.97"
+      y2="137.1"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="123.76"
+      x2="138.55"
+      y1="137.1"
+      y2="155.65"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="138.55"
+      x2="162.28"
+      y1="155.65"
+      y2="155.65"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="162.28"
+      x2="177.07"
+      y1="155.65"
+      y2="137.1"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="177.07"
+      x2="171.79"
+      y1="137.1"
+      y2="113.97"
+    />
+    
+  
+    <polygon
+      fill="rgb(0,0,0)"
+      points="124,137 134,140 134,138 "
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+    />
+    
+  
+    <polygon
+      fill="rgb(0,0,0)"
+      points="134,138 134,140 144,144 145,139 "
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+    />
+    
+  
+    <polygon
+      fill="rgb(0,0,0)"
+      points="177,137 166,138 167,140 "
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+    />
+    
+  
+    <polygon
+      fill="rgb(0,0,0)"
+      points="167,140 166,138 156,139 157,144 "
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="150.24"
+      x2="150.24"
+      y1="135.81"
+      y2="119.09"
+    />
+    
+  
+    <polygon
+      fill="rgb(0,0,0)"
+      points="150,104 151,95 149,95 "
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+    />
+    
+  
+    <polygon
+      fill="rgb(0,0,0)"
+      points="149,95 151,95 152,87 149,87 "
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+    />
+    
+  
+    <polygon
+      fill="rgb(0,0,0)"
+      points="129,114 119,107 118,109 "
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+    />
+    
+  
+    <polygon
+      fill="rgb(0,0,0)"
+      points="118,109 119,107 110,100 107,104 "
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="108.49"
+      x2="94.38"
+      y1="102.1"
+      y2="110.25"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="81.49"
+      x2="67.39"
+      y1="110.25"
+      y2="102.1"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="156.86"
+      x2="170.96"
+      y1="76.22"
+      y2="68.08"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="170.96"
+      x2="191.51"
+      y1="68.08"
+      y2="79.94"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="191.51"
+      x2="191.51"
+      y1="79.94"
+      y2="103.67"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="212.06"
+      x2="232.61"
+      y1="115.53"
+      y2="103.67"
+    />
+    
+  
+    <line
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+      x1="232.61"
+      x2="212.06"
+      y1="79.94"
+      y2="68.08"
+    />
+    
+  
+    <polygon
+      fill="rgb(0,0,0)"
+      points="124,137 115,138 116,140 "
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+    />
+    
+  
+    <polygon
+      fill="rgb(0,0,0)"
+      points="116,140 115,138 106,140 107,143 "
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+    />
+    
+  
+    <polygon
+      fill="rgb(0,0,0)"
+      points="177,137 185,140 186,138 "
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+    />
+    
+  
+    <polygon
+      fill="rgb(0,0,0)"
+      points="186,138 185,140 193,143 194,140 "
+      stroke="rgb(0,0,0)"
+      stroke-width="1.44"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:12"
+      opacity="0"
+      stroke-width="8"
+      x1="108.49"
+      x2="108.49"
+      y1="102.1"
+      y2="78.37"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:16"
+      opacity="0"
+      stroke-width="8"
+      x1="170.96"
+      x2="170.96"
+      y1="68.08"
+      y2="44.35"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:18"
+      opacity="0"
+      stroke-width="8"
+      x1="212.06"
+      x2="191.51"
+      y1="68.08"
+      y2="79.94"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:21"
+      opacity="0"
+      stroke-width="8"
+      x1="191.51"
+      x2="212.06"
+      y1="103.67"
+      y2="115.53"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:22"
+      opacity="0"
+      stroke-width="8"
+      x1="232.61"
+      x2="232.61"
+      y1="103.67"
+      y2="79.94"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:0"
+      opacity="0"
+      stroke-width="8"
+      x1="150.42"
+      x2="129.04"
+      y1="103.67"
+      y2="113.97"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:1"
+      opacity="0"
+      stroke-width="8"
+      x1="171.79"
+      x2="150.42"
+      y1="113.97"
+      y2="103.67"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:2"
+      opacity="0"
+      stroke-width="8"
+      x1="129.04"
+      x2="123.76"
+      y1="113.97"
+      y2="137.1"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:3"
+      opacity="0"
+      stroke-width="8"
+      x1="123.76"
+      x2="138.55"
+      y1="137.1"
+      y2="155.65"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:4"
+      opacity="0"
+      stroke-width="8"
+      x1="138.55"
+      x2="162.28"
+      y1="155.65"
+      y2="155.65"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:5"
+      opacity="0"
+      stroke-width="8"
+      x1="162.28"
+      x2="177.07"
+      y1="155.65"
+      y2="137.1"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:6"
+      opacity="0"
+      stroke-width="8"
+      x1="177.07"
+      x2="171.79"
+      y1="137.1"
+      y2="113.97"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:7"
+      opacity="0"
+      stroke-width="8"
+      x1="123.76"
+      x2="150.24"
+      y1="137.1"
+      y2="142.81"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:8"
+      opacity="0"
+      stroke-width="8"
+      x1="177.07"
+      x2="150.24"
+      y1="137.1"
+      y2="142.81"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:9"
+      opacity="0"
+      stroke-width="8"
+      x1="150.24"
+      x2="150.24"
+      y1="142.81"
+      y2="119.09"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:10"
+      opacity="0"
+      stroke-width="8"
+      x1="150.42"
+      x2="150.42"
+      y1="103.67"
+      y2="79.94"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:11"
+      opacity="0"
+      stroke-width="8"
+      x1="129.04"
+      x2="108.49"
+      y1="113.97"
+      y2="102.1"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:13"
+      opacity="0"
+      stroke-width="8"
+      x1="108.49"
+      x2="87.94"
+      y1="102.1"
+      y2="113.97"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:14"
+      opacity="0"
+      stroke-width="8"
+      x1="87.94"
+      x2="67.39"
+      y1="113.97"
+      y2="102.1"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:15"
+      opacity="0"
+      stroke-width="8"
+      x1="150.42"
+      x2="170.96"
+      y1="79.94"
+      y2="68.08"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:17"
+      opacity="0"
+      stroke-width="8"
+      x1="170.96"
+      x2="191.51"
+      y1="68.08"
+      y2="79.94"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:19"
+      opacity="0"
+      stroke-width="8"
+      x1="191.51"
+      x2="191.51"
+      y1="79.94"
+      y2="103.67"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:20"
+      opacity="0"
+      stroke-width="8"
+      x1="212.06"
+      x2="232.61"
+      y1="115.53"
+      y2="103.67"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:23"
+      opacity="0"
+      stroke-width="8"
+      x1="232.61"
+      x2="212.06"
+      y1="79.94"
+      y2="68.08"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:24"
+      opacity="0"
+      stroke-width="8"
+      x1="123.76"
+      x2="100.84"
+      y1="137.1"
+      y2="143.24"
+    />
+    
+  
+    <line
+      class="event"
+      id="react-ocl«r0»:Bond:25"
+      opacity="0"
+      stroke-width="8"
+      x1="177.07"
+      x2="199.99"
+      y1="137.1"
+      y2="143.24"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="138.55"
+      cy="155.65"
+      id="react-ocl«r0»:Atom:0"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="162.28"
+      cy="155.65"
+      id="react-ocl«r0»:Atom:1"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="171.79"
+      cy="113.97"
+      id="react-ocl«r0»:Atom:2"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="150.24"
+      cy="142.81"
+      id="react-ocl«r0»:Atom:3"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="150.24"
+      cy="119.09"
+      id="react-ocl«r0»:Atom:4"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="150.42"
+      cy="103.67"
+      id="react-ocl«r0»:Atom:5"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="129.04"
+      cy="113.97"
+      id="react-ocl«r0»:Atom:6"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="108.49"
+      cy="78.37"
+      id="react-ocl«r0»:Atom:7"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="108.49"
+      cy="102.1"
+      id="react-ocl«r0»:Atom:8"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="87.94"
+      cy="113.97"
+      id="react-ocl«r0»:Atom:9"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="67.39"
+      cy="102.1"
+      id="react-ocl«r0»:Atom:10"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="150.42"
+      cy="79.94"
+      id="react-ocl«r0»:Atom:11"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="170.96"
+      cy="44.35"
+      id="react-ocl«r0»:Atom:12"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="170.96"
+      cy="68.08"
+      id="react-ocl«r0»:Atom:13"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="191.51"
+      cy="79.94"
+      id="react-ocl«r0»:Atom:14"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="212.06"
+      cy="115.53"
+      id="react-ocl«r0»:Atom:15"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="232.61"
+      cy="103.67"
+      id="react-ocl«r0»:Atom:16"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="232.61"
+      cy="79.94"
+      id="react-ocl«r0»:Atom:17"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="212.06"
+      cy="68.08"
+      id="react-ocl«r0»:Atom:18"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="191.51"
+      cy="103.67"
+      id="react-ocl«r0»:Atom:19"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="123.76"
+      cy="137.1"
+      id="react-ocl«r0»:Atom:20"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="177.07"
+      cy="137.1"
+      id="react-ocl«r0»:Atom:21"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="100.84"
+      cy="143.24"
+      id="react-ocl«r0»:Atom:22"
+      opacity="0"
+      r="8"
+    />
+    
+  
+    <circle
+      class="event"
+      cx="199.99"
+      cy="143.24"
+      id="react-ocl«r0»:Atom:23"
+      opacity="0"
+      r="8"
+    />
+    
+
+    <text
+      fill="rgb(127,127,127)"
+      font-family="Arial, Helvetica, sans-serif"
+      font-size="14 "
+      text-anchor="middle"
+      x="150 "
+      y="173.33333333333334 "
+    >
+      Label p1
+    </text>
+  </svg>
+</div>
+`;

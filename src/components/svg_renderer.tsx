@@ -4,11 +4,11 @@ import { useEffect, useId, useMemo, useRef } from 'react';
 
 import type { BaseSvgRendererProps } from './types.js';
 
-interface SvgRendererProps extends BaseSvgRendererProps {
-  mol: Molecule;
+export interface SvgRendererProps extends BaseSvgRendererProps {
+  molecule: Molecule;
 }
 
-export default function SvgRenderer(props: SvgRendererProps) {
+export function SvgRenderer(props: SvgRendererProps) {
   const {
     width = 300,
     height = 150,
@@ -28,7 +28,7 @@ export default function SvgRenderer(props: SvgRendererProps) {
     onBondLeave,
     onBondClick,
 
-    mol,
+    molecule,
 
     factorTextSize = 1,
     suppressChiralText = true,
@@ -39,6 +39,7 @@ export default function SvgRenderer(props: SvgRendererProps) {
     ...otherProps
   } = props;
 
+  // TODO: remove the replacement when React 18 is no longer supported.
   const reactId = useId().replaceAll(':', '-');
   const internalId = `react-ocl${reactId}`;
   const ref = useRef<SVGSVGElement>(null);
@@ -55,8 +56,8 @@ export default function SvgRenderer(props: SvgRendererProps) {
   };
   const serializedOptions = JSON.stringify(toSVGOptions);
   const svgString = useMemo(() => {
-    return getSVG(mol, width, height, id, serializedOptions);
-  }, [mol, width, height, id, serializedOptions]);
+    return getSVG(molecule, width, height, id, serializedOptions);
+  }, [molecule, width, height, id, serializedOptions]);
 
   const atomStart = `${id}:Atom:`;
   const bondStart = `${id}:Bond:`;
@@ -117,7 +118,7 @@ function useEvents(
     const handleEnter = (event: MouseEvent) => {
       if (!onEnter) return;
       const target = event.target as SVGElement;
-      if (target.className.baseVal === 'event' && target.id.startsWith(start)) {
+      if (target.classList.contains('event') && target.id.startsWith(start)) {
         // TODO: This is wrong and should be fixed.
         onEnter(
           Number(target.id.replace(start, '')),
@@ -128,7 +129,7 @@ function useEvents(
     const handleLeave = (event: MouseEvent) => {
       if (!onLeave) return;
       const target = event.target as SVGElement;
-      if (target.className.baseVal === 'event' && target.id.startsWith(start)) {
+      if (target.classList.contains('event') && target.id.startsWith(start)) {
         // TODO: This is wrong and should be fixed.
         onLeave(
           Number(target.id.replace(start, '')),
@@ -139,7 +140,7 @@ function useEvents(
     const handleClick = (event: MouseEvent) => {
       if (!onClick) return;
       const target = event.target as SVGElement;
-      if (target.className.baseVal === 'event' && target.id.startsWith(start)) {
+      if (target.classList.contains('event') && target.id.startsWith(start)) {
         // TODO: This is wrong and should be fixed.
         onClick(
           Number(target.id.replace(start, '')),

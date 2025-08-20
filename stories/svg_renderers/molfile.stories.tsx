@@ -1,7 +1,9 @@
-import { MolfileSvgRenderer } from '../../src/index.js';
-import { molfileV2000, molfileV3000 } from '../data.js';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { commonArgTypes, commonArgs } from './common-args.js';
+import { MolfileSvgRenderer } from '../../src/index.ts';
+import { molfileV2000, molfileV3000 } from '../data.ts';
+
+import { commonArgTypes, commonArgs } from './common-args.ts';
 
 export default {
   title: 'SVG renderers/MolfileSvgRenderer',
@@ -12,28 +14,20 @@ export default {
   argTypes: {
     ...commonArgTypes,
   },
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'The same MolfileSvgRenderer can be used to render both V2000 and V3000 molfile formats.',
-      },
-    },
+} satisfies Meta<typeof MolfileSvgRenderer>;
+
+type Story = StoryObj<typeof MolfileSvgRenderer>;
+
+export const V2000: Story = {
+  name: 'Molfile (V2000)',
+  args: {
+    molfile: molfileV2000,
   },
 };
 
-export function V2000(args: any) {
-  return <MolfileSvgRenderer {...args} />;
-}
-V2000.storyName = 'Molfile (V2000)';
-V2000.args = {
-  molfile: molfileV2000,
-};
-
-export function V3000(args: any) {
-  return <MolfileSvgRenderer {...args} />;
-}
-V3000.storyName = 'Molfile (V3000)';
-V3000.args = {
-  molfile: molfileV3000,
+export const V3000: Story = {
+  name: 'Molfile (V3000)',
+  args: {
+    molfile: molfileV3000,
+  },
 };

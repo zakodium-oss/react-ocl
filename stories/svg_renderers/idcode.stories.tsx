@@ -1,7 +1,9 @@
-import { IdcodeSvgRenderer } from '../../src/index.js';
-import { idcode } from '../data.js';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { commonArgTypes, commonArgs } from './common-args.js';
+import { IdcodeSvgRenderer } from '../../src/index.ts';
+import { idcode } from '../data.ts';
+
+import { commonArgTypes, commonArgs } from './common-args.ts';
 
 export default {
   title: 'SVG renderers/IdcodeSvgRenderer',
@@ -12,21 +14,21 @@ export default {
   argTypes: {
     ...commonArgTypes,
   },
+} satisfies Meta<typeof IdcodeSvgRenderer>;
+
+type Story = StoryObj<typeof IdcodeSvgRenderer>;
+
+export const Idcode: Story = {
+  name: 'ID code',
+  args: {
+    idcode: idcode.idCode,
+  },
 };
 
-export function Idcode(args: any) {
-  return <IdcodeSvgRenderer {...args} />;
-}
-Idcode.storyName = 'ID code';
-Idcode.args = {
-  idcode: idcode.idCode,
-};
-
-export function WithCoordinates(args: any) {
-  return <IdcodeSvgRenderer {...args} />;
-}
-WithCoordinates.storyName = 'ID code (with coordinates)';
-WithCoordinates.args = {
-  idcode: idcode.idCode,
-  coordinates: idcode.coordinates,
+export const WithCoordinates: Story = {
+  name: 'ID code (with coordinates)',
+  args: {
+    idcode: idcode.idCode,
+    coordinates: idcode.coordinates,
+  },
 };

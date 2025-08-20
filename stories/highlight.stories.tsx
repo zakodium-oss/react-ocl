@@ -1,19 +1,23 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
-import { MolfileSvgRenderer } from '../src/index.js';
+import { SvgRenderer } from '../src/index.ts';
 
-import { molfileV2000 } from './data.js';
+import { molecule } from './data.ts';
 
 export default {
   title: 'Highlighting',
+  component: SvgRenderer,
+  // We cannot pass a Molecule as arg because it is not serializable.
+  render: (args) => <SvgRenderer {...args} molecule={molecule} />,
   args: {
-    molfile: molfileV2000,
     atomHighlightColor: 'yellow',
     atomHighlightOpacity: 0.5,
     bondHighlightColor: 'red',
     bondHighlightOpacity: 0.5,
   },
   argTypes: {
+    molecule: { control: false },
     atomHighlightColor: {
       name: 'Atom highlight color',
       control: 'color',
@@ -31,41 +35,44 @@ export default {
       control: 'number',
     },
   },
+} satisfies Meta<typeof SvgRenderer>;
+
+type Story = StoryObj<typeof SvgRenderer>;
+
+export const Fixed: Story = {
+  name: 'Fixed highlight',
+  args: {
+    atomHighlight: [1, 5],
+    bondHighlight: [6],
+  },
+  argTypes: {
+    atomHighlight: {
+      name: 'Atom highlight ids',
+      control: 'object',
+    },
+    bondHighlight: {
+      name: 'Bond highlight ids',
+      control: 'object',
+    },
+  },
 };
 
-export function Fixed(args: any) {
-  return <MolfileSvgRenderer {...args} />;
-}
-Fixed.storyName = 'Fixed highlight';
-Fixed.args = {
-  atomHighlight: [1, 5],
-  bondHighlight: [6],
-};
-Fixed.argTypes = {
-  atomHighlight: {
-    name: 'Atom highlight ids',
-    control: 'object',
+export const Hover: Story = {
+  name: 'Highlight hovered element',
+  render(args) {
+    const [currentAtom, setCurrentAtom] = useState<number>();
+    const [currentBond, setCurrentBond] = useState<number>();
+    return (
+      <SvgRenderer
+        {...args}
+        molecule={molecule}
+        atomHighlight={currentAtom ? [currentAtom] : undefined}
+        onAtomEnter={setCurrentAtom}
+        onAtomLeave={() => setCurrentAtom(undefined)}
+        bondHighlight={currentBond ? [currentBond] : undefined}
+        onBondEnter={setCurrentBond}
+        onBondLeave={() => setCurrentBond(undefined)}
+      />
+    );
   },
-  bondHighlight: {
-    name: 'Bond highlight ids',
-    control: 'object',
-  },
 };
-
-export function Hover(args: any) {
-  const [currentAtom, setCurrentAtom] = useState(null);
-  const [currentBond, setCurrentBond] = useState(null);
-  return (
-    <MolfileSvgRenderer
-      {...args}
-      atomHighlight={currentAtom ? [currentAtom] : null}
-      onAtomEnter={setCurrentAtom}
-      onAtomLeave={() => setCurrentAtom(null)}
-      bondHighlight={currentBond ? [currentBond] : null}
-      onBondEnter={setCurrentBond}
-      onBondLeave={() => setCurrentBond(null)}
-    />
-  );
-}
-Hover.storyName = 'Highlight hovered element';
-Hover.args = {};
