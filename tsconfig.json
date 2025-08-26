@@ -1,8 +1,9 @@
 {
   "extends": "@zakodium/tsconfig/jsx",
   "compilerOptions": {
+    "types": ["node"],
     "noUncheckedIndexedAccess": false,
     "outDir": "lib"
   },
-  "include": ["src", "stories", "vite*.ts"]
+  "include": ["src", "stories", "vite*.ts", ".storybook/vitest.setup.ts"]
 }

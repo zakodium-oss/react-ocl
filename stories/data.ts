@@ -57,8 +57,8 @@ export const molfileV2000 = `
 M  END
 `;
 
-const mol = Molecule.fromMolfile(molfileV2000);
+export const molecule = Molecule.fromMolfile(molfileV2000);
 
-export const idcode = mol.getIDCodeAndCoordinates();
+export const idcode = molecule.getIDCodeAndCoordinates();
 
-export const molfileV3000 = mol.toMolfileV3();
+export const molfileV3000 = molecule.toMolfileV3();

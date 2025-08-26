@@ -4,7 +4,7 @@ import ts from 'eslint-config-cheminfo-typescript';
 import storybook from 'eslint-plugin-storybook';
 
 export default defineConfig(
-  globalIgnores(['lib']),
+  globalIgnores(['coverage', 'lib']),
   ts,
   react,
   storybook.configs['flat/recommended'],

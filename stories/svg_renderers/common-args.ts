@@ -1,3 +1,7 @@
+import type { ArgTypes } from '@storybook/react-vite';
+
+import type { BaseSvgRendererProps } from '../../src/index.ts';
+
 export const commonArgTypes = {
   id: {
     control: 'text',
@@ -11,7 +15,7 @@ export const commonArgTypes = {
   strokeWidth: {
     control: 'text',
   },
-};
+} satisfies ArgTypes<BaseSvgRendererProps>;
 
 export const commonArgs = {
   width: 300,
@@ -33,12 +37,10 @@ export const commonArgs = {
   suppressCIPParity: true,
   suppressESR: true,
   showSymmetrySimple: false,
-  showSymmetryDiastereotopic: false,
-  showSymmetryEnantiotopic: false,
   noImplicitAtomLabelColors: false,
   noStereoProblem: true,
   label: 'Label p1',
   labelFontFamily: 'Arial, Helvetica, sans-serif',
   labelFontSize: 14,
   labelColor: 'rgb(127,127,127)',
-};
+} satisfies BaseSvgRendererProps;

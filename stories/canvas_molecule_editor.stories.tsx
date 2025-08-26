@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useCallback, useState } from 'react';
 
-import { CanvasMoleculeEditor } from '../src/components/canvas_editor.js';
-import type { CanvasEditorOnChangeMolecule } from '../src/components/canvas_editor_hook.js';
+import type { CanvasEditorOnChangeMolecule } from '../src/index.ts';
+import { CanvasMoleculeEditor } from '../src/index.ts';
 
 export default {
   title: 'CanvasMoleculeEditor',

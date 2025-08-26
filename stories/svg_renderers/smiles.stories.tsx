@@ -1,6 +1,9 @@
-import { SmilesSvgRenderer } from '../../src/index.js';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { commonArgTypes, commonArgs } from './common-args.js';
+import type { ErrorComponentProps } from '../../src/index.ts';
+import { SmilesSvgRenderer } from '../../src/index.ts';
+
+import { commonArgTypes, commonArgs } from './common-args.ts';
 
 export default {
   title: 'SVG renderers/SmilesSvgRenderer',
@@ -20,14 +23,15 @@ export default {
       },
     },
   },
+} satisfies Meta<typeof SmilesSvgRenderer>;
+
+type Story = StoryObj<typeof SmilesSvgRenderer>;
+
+export const Smiles: Story = {
+  name: 'SMILES',
 };
 
-export function Smiles(args: any) {
-  return <SmilesSvgRenderer {...args} />;
-}
-Smiles.storyName = 'SMILES';
-
-function ErrorComponent(props: any) {
+function ErrorComponent(props: ErrorComponentProps) {
   return (
     <div style={{ color: 'red' }}>
       <div>{props.value}</div>
@@ -36,12 +40,17 @@ function ErrorComponent(props: any) {
   );
 }
 
-export function CustomError() {
-  return <SmilesSvgRenderer smiles="COVVVCC" ErrorComponent={ErrorComponent} />;
-}
-CustomError.storyName = 'With custom error rendering';
+export const CustomError: Story = {
+  name: 'With custom error rendering',
+  args: {
+    smiles: 'COVVVCC',
+    ErrorComponent,
+  },
+};
 
-export function DefaultError() {
-  return <SmilesSvgRenderer smiles="COVVVCC" />;
-}
-DefaultError.storyName = 'With default error rendering';
+export const DefaultError: Story = {
+  name: 'With default error rendering',
+  args: {
+    smiles: 'COVVVCC',
+  },
+};
