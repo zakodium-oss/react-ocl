@@ -6,7 +6,7 @@ import { SvgEditor } from '../src/index.js';
 import { molecule as defaultBaseMolecule } from './data.js';
 
 const defaultMolecule = defaultBaseMolecule.getCompactCopy();
-defaultMolecule.setAtomCustomLabel(0, 'Custom');
+defaultMolecule.setAtomCustomLabel(0, "]5'");
 
 export default {
   title: 'SvgEditor',

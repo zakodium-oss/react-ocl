@@ -76,14 +76,26 @@ export function SvgEditor(props: SvgEditorProps) {
   const defaultAtomLabel = useMemo(() => {
     if (state.mode !== 'atom-label-edit') return '';
 
-    return molecule.getAtomCustomLabel(state.atomId);
+    let label = molecule.getAtomCustomLabel(state.atomId) ?? '';
+
+    const atPosition = label.indexOf('@');
+    if (atPosition !== -1) {
+      label = label.slice(0, atPosition);
+    }
+
+    const bracketPosition = label.indexOf(']');
+    if (bracketPosition !== -1) {
+      label = label.slice(bracketPosition + 1);
+    }
+
+    return label;
   }, [state, molecule]);
 
   function onAtomLabelSubmit(newLabel: string) {
     if (state.mode !== 'atom-label-edit') return;
 
     const newMolecule = molecule.getCompactCopy();
-    newMolecule.setAtomCustomLabel(state.atomId, newLabel);
+    newMolecule.setAtomCustomLabel(state.atomId, `]${newLabel}`);
 
     onChange(newMolecule);
     dispatch({ type: 'stopEdit' });
@@ -123,7 +135,8 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
     event.stopPropagation();
     const formData = new FormData(event.currentTarget);
     const value = formData.get('label') as string;
-    onSubmit(value);
+    const sanitizedValue = value.replaceAll(']', '').replaceAll('@', '');
+    onSubmit(sanitizedValue);
   }
 
   return (
