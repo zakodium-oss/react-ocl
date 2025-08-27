@@ -1,11 +1,12 @@
 import type { Molecule } from 'openchemlib';
 import type { FormEvent, KeyboardEvent, MouseEvent } from 'react';
-import { useEffect, useMemo, useReducer, useRef } from 'react';
+import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
 
 import type { SvgRendererProps } from './svg_renderer.js';
 import { SvgRenderer } from './svg_renderer.js';
 
-export interface SvgEditorProps extends SvgRendererProps {
+export interface SvgEditorProps
+  extends Omit<SvgRendererProps, 'atomHighlight'> {
   onChange: (newMolecule: Molecule) => void;
 }
 
@@ -59,12 +60,32 @@ function stateReducer(state: State, action: Action): State {
 export function SvgEditor(props: SvgEditorProps) {
   const { molecule, onChange, ...svgProps } = props;
   const [state, dispatch] = useReducer(stateReducer, initialState);
+  const [atomHighlight, setAtomHighlight] = useState<number>(-1);
+  const atomsHighlight = useMemo(() => {
+    if (atomHighlight === -1) return undefined;
+
+    return [atomHighlight];
+  }, [atomHighlight]);
 
   function onAtomClick(atomId: number, event: MouseEvent<SVGElement>) {
     props.onAtomClick?.(atomId, event);
     if (event.defaultPrevented) return;
 
     dispatch({ type: 'startEdit', atomId, event });
+  }
+
+  function onAtomEnter(atomId: number, event: MouseEvent<SVGElement>) {
+    props.onAtomEnter?.(atomId, event);
+    if (event.defaultPrevented) return;
+
+    setAtomHighlight(atomId);
+  }
+
+  function onAtomLeave(atomId: number, event: MouseEvent<SVGElement>) {
+    props.onAtomLeave?.(atomId, event);
+    if (event.defaultPrevented) return;
+
+    setAtomHighlight(-1);
   }
 
   const defaultAtomLabel = useMemo(() => {
@@ -94,6 +115,9 @@ export function SvgEditor(props: SvgEditorProps) {
       <SvgRenderer
         {...svgProps}
         molecule={molecule}
+        atomHighlight={atomsHighlight}
+        onAtomEnter={onAtomEnter}
+        onAtomLeave={onAtomLeave}
         onAtomClick={onAtomClick}
       />
       {state.mode === 'atom-label-edit' && (
