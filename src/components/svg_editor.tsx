@@ -164,11 +164,16 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
         type="text"
         name="label"
         defaultValue={defaultValue}
-        style={{ minWidth: 0, flexShrink: 1 }}
+        style={{ minWidth: 0, flexShrink: 1, maxWidth: '5em' }}
         autoFocus
+        ref={autoSelectText}
       />
       <input type="submit" value="✔️" aria-label="Submit" />
       <input type="reset" value="❌" aria-label="Cancel" />
     </form>
   );
+}
+
+function autoSelectText(node: HTMLInputElement | null) {
+  node?.select();
 }
