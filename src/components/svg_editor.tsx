@@ -121,6 +121,9 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
   const { defaultValue, formCoords, onSubmit, onCancel } = props;
 
   function onFormSubmit(event: FormEvent<HTMLFormElement>) {
+    // ignore onblur bubbles from inputs
+    if (event.target !== event.currentTarget) return;
+
     event.preventDefault();
     event.stopPropagation();
     const formData = new FormData(event.currentTarget);
@@ -135,8 +138,15 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
     onCancel();
   }
 
+  function onReset(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    event.stopPropagation();
+    onCancel();
+  }
+
   return (
     <form
+      onReset={onReset}
       onSubmit={onFormSubmit}
       onBlur={onFormSubmit}
       onKeyDown={onKeyDown}
@@ -159,7 +169,8 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
         style={{ minWidth: 0, flexShrink: 1 }}
         autoFocus
       />
-      <input type="submit" value="OK" />
+      <input type="submit" value="✔️" aria-label="Submit" />
+      <input type="reset" value="❌" aria-label="Cancel" />
     </form>
   );
 }
