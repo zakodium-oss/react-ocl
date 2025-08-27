@@ -1,5 +1,5 @@
 import type { Molecule } from 'openchemlib';
-import type { FormEvent, MouseEvent } from 'react';
+import type { FormEvent, KeyboardEvent, MouseEvent } from 'react';
 import { useCallback, useMemo, useReducer, useRef } from 'react';
 
 import type { SvgRendererProps } from './svg_renderer.js';
@@ -76,24 +76,14 @@ export function SvgEditor(props: SvgEditorProps) {
   const defaultAtomLabel = useMemo(() => {
     if (state.mode !== 'atom-label-edit') return '';
 
-    let label = molecule.getAtomCustomLabel(state.atomId) ?? '';
-
-    const atPosition = label.indexOf('@');
-    if (atPosition !== -1) {
-      label = label.slice(0, atPosition);
-    }
-
-    const bracketPosition = label.indexOf(']');
-    if (bracketPosition !== -1) {
-      label = label.slice(bracketPosition + 1);
-    }
-
-    return label;
+    const label = molecule.getAtomCustomLabel(state.atomId) ?? '';
+    return label.replaceAll(']', '');
   }, [state, molecule]);
 
   function onAtomLabelSubmit(newLabel: string) {
     if (state.mode !== 'atom-label-edit') return;
 
+    newLabel = newLabel.replaceAll(']', '');
     const newMolecule = molecule.getCompactCopy();
     newMolecule.setAtomCustomLabel(state.atomId, `]${newLabel}`);
 
@@ -135,19 +125,21 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
     event.stopPropagation();
     const formData = new FormData(event.currentTarget);
     const value = formData.get('label') as string;
-    const sanitizedValue = value.replaceAll(']', '').replaceAll('@', '');
-    onSubmit(sanitizedValue);
+    onSubmit(value);
+  }
+
+  function onKeyDown(event: KeyboardEvent<HTMLFormElement>) {
+    if (event.key !== 'Escape') return;
+    event.preventDefault();
+    event.stopPropagation();
+    onCancel();
   }
 
   return (
     <form
       onSubmit={onFormSubmit}
-      onKeyDown={(event) => {
-        if (event.key !== 'Escape') return;
-        event.preventDefault();
-        event.stopPropagation();
-        onCancel();
-      }}
+      onBlur={onFormSubmit}
+      onKeyDown={onKeyDown}
       style={{
         position: 'absolute',
         top: formCoords.y,
