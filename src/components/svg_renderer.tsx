@@ -40,10 +40,7 @@ export function SvgRenderer(props: SvgRendererProps) {
   } = props;
 
   // TODO: remove the replacement when React 18 is no longer supported.
-  const reactId = useId()
-    .replaceAll(':', '-')
-    .replaceAll('«', '-')
-    .replaceAll('»', '-');
+  const reactId = useId().replaceAll(':', '-');
   const internalId = `react-ocl${reactId}`;
   const ref = useRef<SVGSVGElement>(null);
 
