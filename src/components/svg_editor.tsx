@@ -42,8 +42,9 @@ function stateReducer(state: State, action: Action): State {
       const svg = target.closest('svg') as SVGElement;
       const rect = svg.getBoundingClientRect();
       const formCoords = {
-        x: clientX - rect.x,
-        y: clientY - rect.y,
+        // offset by 5px to avoid cursor onMouseLeave not triggered
+        x: clientX - rect.x + 5,
+        y: clientY - rect.y + 5,
       };
       return { mode: 'atom-label-edit', atomId: action.atomId, formCoords };
     }
