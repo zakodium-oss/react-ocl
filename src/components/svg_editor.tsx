@@ -1,5 +1,9 @@
 import type { Molecule } from 'openchemlib';
-import type { FormEvent, KeyboardEvent, MouseEvent } from 'react';
+import type {
+  FormEvent,
+  KeyboardEvent as ReactKeyboardEvent,
+  MouseEvent,
+} from 'react';
 import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
 
 import type { SvgRendererProps } from './svg_renderer.js';
@@ -66,6 +70,29 @@ export function SvgEditor(props: SvgEditorProps) {
 
     return [atomHighlight];
   }, [atomHighlight]);
+
+  const atomRef = useRef(atomHighlight);
+  const onChangeRef = useRef(onChange);
+  useEffect(() => {
+    atomRef.current = atomHighlight;
+    onChangeRef.current = onChange;
+  });
+  useEffect(() => {
+    if (state.mode !== 'view') return;
+
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key !== 'Backspace') return;
+      if (atomRef.current === -1) return;
+
+      const atomId = atomRef.current;
+      const newMolecule = molecule.getCompactCopy();
+      newMolecule.setAtomCustomLabel(atomId, null as never);
+      onChangeRef.current(newMolecule);
+    }
+
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [state, molecule]);
 
   function onAtomClick(atomId: number, event: MouseEvent<SVGElement>) {
     props.onAtomClick?.(atomId, event);
@@ -151,7 +178,7 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
     onSubmit(value);
   }
 
-  function onKeyDown(event: KeyboardEvent<HTMLFormElement>) {
+  function onKeyDown(event: ReactKeyboardEvent<HTMLFormElement>) {
     if (event.key !== 'Escape') return;
     event.preventDefault();
     event.stopPropagation();
