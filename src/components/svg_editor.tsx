@@ -1,6 +1,6 @@
 import type { Molecule } from 'openchemlib';
 import type { FormEvent, KeyboardEvent, MouseEvent } from 'react';
-import { useCallback, useMemo, useReducer, useRef } from 'react';
+import { useEffect, useMemo, useReducer, useRef } from 'react';
 
 import type { SvgRendererProps } from './svg_renderer.js';
 import { SvgRenderer } from './svg_renderer.js';
@@ -98,6 +98,7 @@ export function SvgEditor(props: SvgEditorProps) {
       />
       {state.mode === 'atom-label-edit' && (
         <AtomLabelEditForm
+          key={defaultAtomLabel}
           defaultValue={defaultAtomLabel}
           formCoords={state.formCoords}
           onSubmit={onAtomLabelSubmit}
@@ -119,9 +120,6 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
   const { defaultValue, formCoords, onSubmit, onCancel } = props;
 
   function onFormSubmit(event: FormEvent<HTMLFormElement>) {
-    // ignore onblur bubbles from inputs
-    if (event.target !== event.currentTarget) return;
-
     event.preventDefault();
     event.stopPropagation();
     const formData = new FormData(event.currentTarget);
@@ -136,17 +134,47 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
     onCancel();
   }
 
-  function onReset(event: FormEvent<HTMLFormElement>) {
+  function onCancelClick(event: MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
     event.stopPropagation();
     onCancel();
   }
 
+  const formRef = useRef<HTMLFormElement>(null);
+  const onCancelRef = useRef(onCancel);
+  useEffect(() => {
+    onCancelRef.current = onCancel;
+  });
+
+  useEffect(() => {
+    function onClickOutside(event: PointerEvent) {
+      const form = formRef.current;
+      if (!form) return;
+
+      if (form === event.currentTarget) return;
+      if (form.contains(event.target as HTMLElement)) return;
+
+      onCancelRef.current();
+    }
+
+    // It seems mounting the form is fast enough to catch the click event that
+    // triggered the edit mode.
+    // To avoid this we delay the binding of the event
+    // handler to the next event loop iteration.
+    const timeoutId = setTimeout(
+      () => document.addEventListener('click', onClickOutside),
+      0,
+    );
+    return () => {
+      clearTimeout(timeoutId);
+      document.removeEventListener('click', onClickOutside);
+    };
+  }, []);
+
   return (
     <form
-      onReset={onReset}
+      ref={formRef}
       onSubmit={onFormSubmit}
-      onBlur={onFormSubmit}
       onKeyDown={onKeyDown}
       style={{
         position: 'absolute',
@@ -164,12 +192,14 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
         type="text"
         name="label"
         defaultValue={defaultValue}
-        style={{ minWidth: 0, flexShrink: 1, maxWidth: '5em' }}
+        size={5}
         autoFocus
         ref={autoSelectText}
       />
       <input type="submit" value="✔️" aria-label="Submit" />
-      <input type="reset" value="❌" aria-label="Cancel" />
+      <button type="button" aria-label="Cancel" onClick={onCancelClick}>
+        ❌
+      </button>
     </form>
   );
 }
