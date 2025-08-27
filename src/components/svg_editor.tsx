@@ -58,20 +58,14 @@ function stateReducer(state: State, action: Action): State {
  */
 export function SvgEditor(props: SvgEditorProps) {
   const { molecule, onChange, ...svgProps } = props;
-  const propsRef = useRef(props);
-  propsRef.current = props;
-
   const [state, dispatch] = useReducer(stateReducer, initialState);
 
-  const onAtomClick = useCallback(
-    (atomId: number, event: MouseEvent<SVGElement>) => {
-      propsRef.current.onAtomClick?.(atomId, event);
-      if (event.defaultPrevented) return;
+  function onAtomClick(atomId: number, event: MouseEvent<SVGElement>) {
+    props.onAtomClick?.(atomId, event);
+    if (event.defaultPrevented) return;
 
-      dispatch({ type: 'startEdit', atomId, event });
-    },
-    [],
-  );
+    dispatch({ type: 'startEdit', atomId, event });
+  }
 
   const defaultAtomLabel = useMemo(() => {
     if (state.mode !== 'atom-label-edit') return '';
@@ -85,7 +79,11 @@ export function SvgEditor(props: SvgEditorProps) {
 
     newLabel = newLabel.replaceAll(']', '');
     const newMolecule = molecule.getCompactCopy();
-    newMolecule.setAtomCustomLabel(state.atomId, `]${newLabel}`);
+    newMolecule.setAtomCustomLabel(
+      state.atomId,
+      // types are wrong, custom label can be null
+      newLabel ? `]${newLabel}` : (null as never),
+    );
 
     onChange(newMolecule);
     dispatch({ type: 'stopEdit' });
