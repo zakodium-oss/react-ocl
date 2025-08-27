@@ -3,7 +3,10 @@ import { useState } from 'react';
 
 import { SvgEditor } from '../src/index.js';
 
-import { molecule as defaultMolecule } from './data.js';
+import { molecule as defaultBaseMolecule } from './data.js';
+
+const defaultMolecule = defaultBaseMolecule.getCompactCopy();
+defaultMolecule.setAtomCustomLabel(0, 'Custom');
 
 export default {
   title: 'SvgEditor',
