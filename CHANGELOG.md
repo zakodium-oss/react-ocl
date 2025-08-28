@@ -1,5 +1,13 @@
 # Changelog
 
+## [8.1.0](https://github.com/zakodium-oss/react-ocl/compare/v8.0.1...v8.1.0) (2025-08-28)
+
+
+### Features
+
+* add svg editor ([#56](https://github.com/zakodium-oss/react-ocl/issues/56)) ([929b621](https://github.com/zakodium-oss/react-ocl/commit/929b6215e419053d0af84e4120af64039e239714))
+* expose generic SvgRenderer ([#54](https://github.com/zakodium-oss/react-ocl/issues/54)) ([fee8464](https://github.com/zakodium-oss/react-ocl/commit/fee8464e97c15809fea9cc2b2cdc533a3e0f9612))
+
 ## [8.0.1](https://github.com/zakodium-oss/react-ocl/compare/v8.0.0...v8.0.1) (2025-08-14)
 
 
