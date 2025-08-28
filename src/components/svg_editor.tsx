@@ -82,7 +82,7 @@ export function SvgEditor(props: SvgEditorProps) {
     if (state.mode !== 'view') return;
 
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key !== 'Backspace') return;
+      if (event.key !== 'Backspace' && event.key !== 'Delete') return;
       if (atomRef.current === -1) return;
 
       const atomId = atomRef.current;
