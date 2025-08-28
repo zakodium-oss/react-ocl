@@ -1,6 +1,6 @@
 import type { ComponentType } from 'react';
 
-import type { ErrorComponentProps } from './types.js';
+import type { ErrorComponentProps } from '../types.js';
 
 interface ErrorRendererProps {
   width?: number;

@@ -2,7 +2,7 @@ import type { Molecule } from 'openchemlib';
 import type { MouseEvent as ReactMouseEvent, RefObject } from 'react';
 import { useEffect, useId, useMemo, useRef } from 'react';
 
-import type { BaseSvgRendererProps } from './types.js';
+import type { BaseSvgRendererProps } from '../types.js';
 
 export interface SvgRendererProps extends BaseSvgRendererProps {
   molecule: Molecule;

@@ -2,27 +2,29 @@ import { Molecule } from 'openchemlib';
 import type { ReactElement } from 'react';
 import { memo } from 'react';
 
-import { useHandleMemoError } from '../hooks/use_handle_memo_error.js';
+import { useHandleMemoError } from '../../hooks/use_handle_memo_error.js';
+import type { BaseSvgRendererProps } from '../types.js';
 
 import { DefaultErrorRenderer, ErrorRenderer } from './error_renderer.js';
 import { SvgRenderer } from './svg_renderer.js';
-import type { BaseSvgRendererProps } from './types.js';
 
-export interface SmilesSvgRendererProps extends BaseSvgRendererProps {
-  smiles: string;
+export interface IdcodeSvgRendererProps extends BaseSvgRendererProps {
+  idcode: string;
+  coordinates?: string;
 }
 
-export const SmilesSvgRenderer = memo(function SmilesSvgRenderer(
-  props: SmilesSvgRendererProps,
+export const IdcodeSvgRenderer = memo(function IdcodeSvgRenderer(
+  props: IdcodeSvgRendererProps,
 ): ReactElement {
   const {
-    smiles,
-    ErrorComponent = DefaultSmilesErrorComponent,
+    idcode,
+    coordinates,
+    ErrorComponent = DefaultIdcodeErrorComponent,
     ...otherProps
   } = props;
   const [error, mol] = useHandleMemoError(
-    () => Molecule.fromSmiles(smiles),
-    [smiles],
+    () => Molecule.fromIDCode(idcode, coordinates),
+    [idcode, coordinates],
   );
   if (error) {
     return (
@@ -30,7 +32,7 @@ export const SmilesSvgRenderer = memo(function SmilesSvgRenderer(
         width={props.width}
         height={props.height}
         ErrorComponent={ErrorComponent}
-        value={smiles}
+        value={idcode}
         error={error}
       />
     );
@@ -38,12 +40,12 @@ export const SmilesSvgRenderer = memo(function SmilesSvgRenderer(
   return <SvgRenderer molecule={mol} {...otherProps} />;
 });
 
-function DefaultSmilesErrorComponent(props: { width: number; height: number }) {
+function DefaultIdcodeErrorComponent(props: { width: number; height: number }) {
   return (
     <DefaultErrorRenderer
       width={props.width}
       height={props.height}
-      message="Invalid SMILES"
+      message="Invalid ID code"
     />
   );
 }
