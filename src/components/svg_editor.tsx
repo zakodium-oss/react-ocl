@@ -9,9 +9,20 @@ import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import type { SvgRendererProps } from './svg_renderer.js';
 import { SvgRenderer } from './svg_renderer.js';
 
-export interface SvgEditorProps
-  extends Omit<SvgRendererProps, 'atomHighlight'> {
+export interface SvgEditorProps extends SvgRendererProps {
+  /**
+   * The molecule is cloned through getCompactCopy before any modification.
+   * @param newMolecule
+   */
   onChange: (newMolecule: Molecule) => void;
+  /**
+   * Strategy to determine which atoms to highlight when hovering and clicking on atoms.
+   * - `editor-state`: only the atom currently hovered in the editor is highlighted
+   * - `editor-props`: only the atoms passed in the `atomHighlight` prop are highlighted
+   * - `concat`: the union of the atoms passed in the `atomHighlight` prop
+   * @default editor-state
+   */
+  atomHighlightStrategy?: 'editor-state' | 'editor-props' | 'concat';
 }
 
 type State =
@@ -63,14 +74,37 @@ function stateReducer(state: State, action: Action): State {
  * @returns JSX.Element
  */
 export function SvgEditor(props: SvgEditorProps) {
-  const { molecule, onChange, ...svgProps } = props;
+  const {
+    molecule,
+    onChange,
+    atomHighlightStrategy = 'editor-state',
+    atomHighlight: atomHighlightProp,
+    ...svgProps
+  } = props;
   const [state, dispatch] = useReducer(stateReducer, initialState);
   const [atomHighlight, setAtomHighlight] = useState<number>(-1);
   const atomsHighlight = useMemo(() => {
-    if (atomHighlight === -1) return undefined;
+    switch (atomHighlightStrategy) {
+      case 'editor-props':
+        return atomHighlightProp;
+      case 'concat': {
+        if (!atomHighlightProp) {
+          if (atomHighlight === -1) return undefined;
+          return [atomHighlight];
+        }
+        const dedupe = new Set(atomHighlightProp);
+        dedupe.add(atomHighlight);
+        return Array.from(dedupe);
+      }
+      case 'editor-state':
+        if (atomHighlight === -1) return undefined;
+        return [atomHighlight];
+      default:
+        break;
+    }
 
     return [atomHighlight];
-  }, [atomHighlight]);
+  }, [atomHighlight, atomHighlightProp, atomHighlightStrategy]);
 
   const atomRef = useRef(atomHighlight);
   const onChangeRef = useRef(onChange);
