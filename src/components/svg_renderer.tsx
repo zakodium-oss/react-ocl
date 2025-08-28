@@ -112,10 +112,17 @@ function useEvents(
   onLeave: BaseSvgRendererProps['onAtomLeave'],
   onClick: BaseSvgRendererProps['onAtomClick'],
 ) {
+  const handlersRef = useRef({ onEnter, onLeave, onClick });
+  useEffect(() => {
+    handlersRef.current = { onEnter, onLeave, onClick };
+  });
+
   useEffect(() => {
     const svg = ref.current;
     if (!svg) return;
+
     const handleEnter = (event: MouseEvent) => {
+      const { onEnter } = handlersRef.current;
       if (!onEnter) return;
       const target = event.target as SVGElement;
       if (target.classList.contains('event') && target.id.startsWith(start)) {
@@ -127,6 +134,7 @@ function useEvents(
       }
     };
     const handleLeave = (event: MouseEvent) => {
+      const { onLeave } = handlersRef.current;
       if (!onLeave) return;
       const target = event.target as SVGElement;
       if (target.classList.contains('event') && target.id.startsWith(start)) {
@@ -138,6 +146,7 @@ function useEvents(
       }
     };
     const handleClick = (event: MouseEvent) => {
+      const { onClick } = handlersRef.current;
       if (!onClick) return;
       const target = event.target as SVGElement;
       if (target.classList.contains('event') && target.id.startsWith(start)) {
@@ -156,7 +165,7 @@ function useEvents(
       svg.removeEventListener('mouseout', handleLeave);
       svg.removeEventListener('click', handleClick);
     };
-  }, [ref, start, onEnter, onLeave, onClick]);
+  }, [ref, start]);
 }
 
 function useHighlight(

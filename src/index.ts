@@ -1,4 +1,5 @@
 export * from './components/svg_renderer.js';
+export * from './components/svg_editor.js';
 export * from './components/idcode_svg_renderer.js';
 export * from './components/molfile_svg_renderer.js';
 export * from './components/smiles_svg_renderer.js';
