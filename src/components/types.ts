@@ -37,3 +37,28 @@ export interface BaseSvgRendererProps extends MoleculeToSVGOptions {
   labelColor?: string;
   label?: string;
 }
+
+export interface BaseEditorProps<Value> {
+  /**
+   * @param newValue - Editor must clone the value before modifying it and call fire this event.
+   */
+  onChange: (newValue: Value) => void;
+
+  /**
+   * Strategy to determine which atoms to highlight when hovering and clicking on atoms.
+   * - `prefer-editor-state`: the atoms currently hovered in the editor are highlighted,
+   *   if none the atoms passed in the `atomHighlight` prop are highlighted
+   * - `prefer-editor-props`: the atoms passed in the `atomHighlight` prop,
+   *   if none the atom currently hovered in the editor is highlighted
+   * - `editor-state`: only the atom currently hovered in the editor is highlighted
+   * - `editor-props`: only the atoms passed in the `atomHighlight` prop are highlighted
+   * - `merge`: the union of the atoms passed in the `atomHighlight` prop
+   * @default prefer-editor-state
+   */
+  atomHighlightStrategy?:
+    | 'prefer-editor-state'
+    | 'prefer-editor-props'
+    | 'editor-state'
+    | 'editor-props'
+    | 'merge';
+}

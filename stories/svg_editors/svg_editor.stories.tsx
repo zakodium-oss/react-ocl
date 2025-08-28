@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
-import { SvgEditor } from '../src/index.js';
-
-import { molecule as defaultBaseMolecule } from './data.js';
+import { SvgEditor } from '../../src/index.js';
+import { molecule as defaultBaseMolecule } from '../data.js';
 
 const defaultMolecule = defaultBaseMolecule.getCompactCopy();
 defaultMolecule.setAtomCustomLabel(0, "]5'");
