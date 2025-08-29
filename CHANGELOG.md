@@ -1,5 +1,13 @@
 # Changelog
 
+## [8.2.0](https://github.com/zakodium-oss/react-ocl/compare/v8.1.0...v8.2.0) (2025-08-29)
+
+
+### Features
+
+* **MolfileSvgEditor:** add `MolfileSvgEditor` ([0d714d9](https://github.com/zakodium-oss/react-ocl/commit/0d714d9732d38120d02b8e505f6ef0bb46319ab9))
+* **SvgEditor:** support `atomHighlight` props with `atomHighlightStrategy` ([c9e79e6](https://github.com/zakodium-oss/react-ocl/commit/c9e79e6cbcae53bde042372cd28f4e7b6d94fb36))
+
 ## [8.1.0](https://github.com/zakodium-oss/react-ocl/compare/v8.0.1...v8.1.0) (2025-08-28)
 
 
