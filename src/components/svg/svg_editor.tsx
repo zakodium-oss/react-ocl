@@ -107,6 +107,7 @@ export function SvgEditor(props: SvgEditorProps) {
 
   const atomRef = useRef(atomHighlight);
   const onChangeRef = useRef(onChange);
+
   useEffect(() => {
     atomRef.current = atomHighlight;
     onChangeRef.current = onChange;
@@ -114,7 +115,7 @@ export function SvgEditor(props: SvgEditorProps) {
   useEffect(() => {
     if (state.mode !== 'view') return;
 
-    function onKeyDown(event: KeyboardEvent) {
+    function onClean(event: KeyboardEvent) {
       if (event.key !== 'Backspace' && event.key !== 'Delete') return;
       if (atomRef.current === -1) return;
 
@@ -125,8 +126,110 @@ export function SvgEditor(props: SvgEditorProps) {
       onChangeRef.current(newMolecule);
     }
 
-    document.addEventListener('keydown', onKeyDown);
-    return () => document.removeEventListener('keydown', onKeyDown);
+    function onQuickNumbering(event: KeyboardEvent) {
+      if (event.code !== 'Quote') return;
+      if (atomRef.current === -1) return;
+
+      const atomId = atomRef.current;
+      const newMolecule = molecule.getCompactCopy();
+
+      const labels: string[] = [];
+      for (let atomId = 0; atomId < newMolecule.getAllAtoms(); atomId++) {
+        let label = newMolecule.getAtomCustomLabel(atomId) || '';
+        label = label.replaceAll(']', '');
+        if (!label) continue;
+
+        labels.push(label);
+      }
+      labels.sort((a, b) => {
+        // 1st priority: digit only
+        const aDigitOnly = /\^d+$/.test(a);
+        const bDigitOnly = /\^d+$/.test(b);
+        if (aDigitOnly && !bDigitOnly) return -1;
+        if (bDigitOnly && !aDigitOnly) return 1;
+
+        // 2nd priority: start with a digit
+        const aStartDigit = /\^\d/.test(a);
+        const bStartDigit = /\^\d/.test(a);
+        if (aStartDigit && !bStartDigit) return -1;
+        if (bStartDigit && !aStartDigit) return 1;
+
+        // 3rd priority: have a digit
+        const aDigit = /\d/.test(a);
+        const bDigit = /\d/.test(b);
+        if (aDigit && !bDigit) return -1;
+        if (bDigit && !aDigit) return 1;
+
+        // 4th priority: no letter
+        const aLetter = /[a-zA-Z]/.test(a);
+        const bLetter = /[a-zA-Z]/.test(b);
+        if (!aLetter && bLetter) return -1;
+        if (!bLetter && aLetter) return 1;
+
+        // 5th priority: shorter label
+        if (a.length < b.length) return -1;
+        if (a.length > b.length) return 1;
+
+        // fallback to lexical order
+        const lc = a.localeCompare(b);
+        return lc / Math.abs(lc); // normalize to -1, 0, 1
+      });
+
+      const lastLabel = labels.at(-1);
+      const labelMode = !lastLabel
+        ? 'start'
+        : /\d/.test(lastLabel)
+          ? 'increment_number'
+          : /^[a-zA-Z]$/.test(lastLabel)
+            ? 'increment_letter'
+            : 'start';
+
+      let quickLabel: string | null = null;
+      switch (labelMode) {
+        case 'start': {
+          quickLabel = '1';
+          break;
+        }
+        case 'increment_number': {
+          if (!lastLabel) throw new Error('lastLabel falsy, logic error');
+          quickLabel = lastLabel.replace(/\d+/, (match) =>
+            String(Number.parseInt(match, 10) + 1),
+          );
+          break;
+        }
+        case 'increment_letter': {
+          if (!lastLabel) throw new Error('lastLabel falsy, logic error');
+          let codePoint = lastLabel.codePointAt(0);
+          if (!codePoint) throw new Error('codePoint falsy, logic error');
+          /* eslint-disable @typescript-eslint/no-non-null-assertion */
+          const Z = 'Z'.codePointAt(0)!;
+          const a = 'a'.codePointAt(0)!;
+          const z = 'z'.codePointAt(0)!;
+          /* eslint-enable @typescript-eslint/no-non-null-assertion */
+          if (codePoint === Z) codePoint = a - 1; // switch to the lowercase
+          if (codePoint === z) break; // we are at the last letter, do nothing
+
+          quickLabel = String.fromCodePoint(codePoint + 1);
+          break;
+        }
+        default:
+          break;
+      }
+
+      if (!quickLabel) return;
+      quickLabel = `]${quickLabel}`;
+
+      newMolecule.setAtomCustomLabel(atomId, quickLabel);
+      onChangeRef.current(newMolecule);
+    }
+
+    document.addEventListener('keydown', onClean);
+    document.addEventListener('keydown', onQuickNumbering);
+
+    return () => {
+      document.removeEventListener('keydown', onClean);
+      document.removeEventListener('keydown', onQuickNumbering);
+    };
   }, [state, molecule]);
 
   function onAtomClick(atomId: number, event: MouseEvent<SVGElement>) {
