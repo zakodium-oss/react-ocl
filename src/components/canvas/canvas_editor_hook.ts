@@ -173,7 +173,6 @@ function useInitialiseEditor(
     }
 
     // This is a ref.
-    // eslint-disable-next-line react-hooks/react-compiler
     elementRef.current.innerHTML = '';
 
     const editor = new CanvasEditor(elementRef.current, {

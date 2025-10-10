@@ -121,7 +121,7 @@ export function SvgEditor(props: SvgEditorProps) {
 
       const atomId = atomRef.current;
       const newMolecule = molecule.getCompactCopy();
-      // @ts-expect-error types are wrong, custom label can be null
+
       newMolecule.setAtomCustomLabel(atomId, null);
       onChangeRef.current(newMolecule);
     }
