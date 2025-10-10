@@ -128,7 +128,12 @@ export function SvgEditor(props: SvgEditorProps) {
     }
 
     function onQuickNumbering(event: KeyboardEvent) {
-      if (event.code !== 'Quote') return;
+      const isKeyQuote =
+        // Normalized to handle different quote characters on different keyboards.
+        event.key.normalize() === "'" ||
+        // Fallback for dead key quote but is related to the physical position of a quote for a QWERTY US keyboard.
+        event.code === 'Quote';
+      if (!isKeyQuote) return;
       if (atomRef.current === -1) return;
       event.preventDefault();
 
