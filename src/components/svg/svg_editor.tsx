@@ -118,6 +118,7 @@ export function SvgEditor(props: SvgEditorProps) {
     function onClean(event: KeyboardEvent) {
       if (event.key !== 'Backspace' && event.key !== 'Delete') return;
       if (atomRef.current === -1) return;
+      event.preventDefault();
 
       const atomId = atomRef.current;
       const newMolecule = molecule.getCompactCopy();
@@ -129,6 +130,7 @@ export function SvgEditor(props: SvgEditorProps) {
     function onQuickNumbering(event: KeyboardEvent) {
       if (event.code !== 'Quote') return;
       if (atomRef.current === -1) return;
+      event.preventDefault();
 
       const atomId = atomRef.current;
       const newMolecule = molecule.getCompactCopy();
