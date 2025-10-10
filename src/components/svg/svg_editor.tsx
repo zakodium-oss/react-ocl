@@ -131,9 +131,16 @@ export function SvgEditor(props: SvgEditorProps) {
       const isKeyQuote =
         // Normalized to handle different quote characters on different keyboards.
         event.key.normalize() === "'" ||
-        // Fallback for dead key quote but is related to the physical position of a quote for a QWERTY US keyboard.
+        // Fallback on keyCode 222 and 52 which is known to be a quote. Even if it is a dead key
+        event.keyCode === 222 ||
+        event.keyCode === 52 ||
+        // Fallback for exotic keyboard without quote accessible directly through one keydown,
+        // but is related to the physical position of a quote for a QWERTY US keyboard.
         event.code === 'Quote';
-      if (!isKeyQuote) return;
+      // Prefer code Space over key `' '`, as it may have unexpected behavior on asiatic keyboards.
+      const isSpaceKey = event.code === 'Space';
+      const isSupportedKey = isKeyQuote || isSpaceKey;
+      if (!isSupportedKey) return;
       if (atomRef.current === -1) return;
       event.preventDefault();
 
