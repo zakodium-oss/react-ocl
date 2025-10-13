@@ -172,7 +172,6 @@ function useInitialiseEditor(
       return;
     }
 
-    // This is a ref.
     elementRef.current.innerHTML = '';
 
     const editor = new CanvasEditor(elementRef.current, {
