@@ -1,122 +1,244 @@
 import type { Molecule } from 'openchemlib';
 
-/**
- * Get cleaned custom labels from a molecule sorted by priority.
- * Remove special `]` characters from the label.
- * @param molecule - The molecule to get labels from.
- * @returns An array of labels sorted by priority.
- */
-export function getSortedCustomLabels(molecule: Molecule) {
-  const labels: string[] = [];
-  for (let atomId = 0; atomId < molecule.getAllAtoms(); atomId++) {
-    let label = molecule.getAtomCustomLabel(atomId) || '';
-    label = label.replaceAll(']', '');
-    if (!label) continue;
-    if (/[a-zA-Z]/.test(label) && !/\d/.test(label) && label.length > 1) {
-      // ignore patterns known to not be incrementable
-      continue;
-    }
+export type ParsedCustomLabel =
+  | { category: 'numberOnly'; value: number }
+  | { category: 'numberPrime'; prime: number; value: number }
+  | { category: 'numberLowerLetter'; letter: string; value: number }
+  | { category: 'lowerLetterNumber'; letter: string; value: number }
+  | { category: 'oneLowerLetter'; letter: string };
 
-    labels.push(label);
+function parseLabel(label: string): ParsedCustomLabel | void {
+  if (/^\d+$/.test(label)) {
+    return { category: 'numberOnly', value: Number.parseInt(label, 10) };
   }
-  labels.sort(sortLabelByPriority);
 
-  return labels;
+  const numberPrimeMatch = label.match(/^(?<numberStr>\d+)(?<prime>'+)$/);
+  if (numberPrimeMatch) {
+    const { numberStr, prime } = numberPrimeMatch.groups ?? {};
+
+    const nPrime = prime.length;
+    const number = Number.parseInt(numberStr, 10);
+
+    return { category: 'numberPrime', prime: nPrime, value: number };
+  }
+
+  const numberLowerLetterMatch = label.match(
+    /^(?<numberStr>\d+)(?<letter>[a-z])$/,
+  );
+  if (numberLowerLetterMatch) {
+    const { numberStr, letter } = numberLowerLetterMatch.groups ?? {};
+    const number = Number.parseInt(numberStr, 10);
+
+    return { category: 'numberLowerLetter', letter, value: number };
+  }
+
+  const lowerLetterNumberMatch = label.match(
+    /^(?<letter>[a-z])(?<numberStr>\d+)$/,
+  );
+  if (lowerLetterNumberMatch) {
+    const { numberStr, letter } = lowerLetterNumberMatch.groups ?? {};
+    const number = Number.parseInt(numberStr, 10);
+
+    return { category: 'lowerLetterNumber', letter, value: number };
+  }
+
+  if (/^[a-z]$/.test(label)) {
+    return { category: 'oneLowerLetter', letter: label };
+  }
 }
 
 /**
- * Sort labels by priority.
- * @param a - The first label to compare.
- * @param b - The second label to compare.
- * @returns -1 if a is less than b, 0 if they are equal, and 1 if a is greater than b.
+ * split the labels into different categories
+ * @param labels - The labels to split.
+ * @returns An object containing the split labels by categories.
  */
-export function sortLabelByPriority(a: string, b: string) {
-  // 1st priority: digit only
-  const aDigitOnly = /\^d+$/.test(a);
-  const bDigitOnly = /\^d+$/.test(b);
-  if (aDigitOnly && !bDigitOnly) return -1;
-  if (bDigitOnly && !aDigitOnly) return 1;
+export function splitCustomLabels(labels: Iterable<string>) {
+  const numberOnly = new Set<number>();
+  const numberPrime = new Map<number, Set<number>>();
+  const numberLowerLetter = new Map<string, Set<number>>();
+  const lowerLetterNumber = new Map<string, Set<number>>();
+  const oneLowerLetter = new Set<string>();
 
-  // 2nd priority: start with a digit
-  const aStartDigit = /\^\d/.test(a);
-  const bStartDigit = /\^\d/.test(a);
-  if (aStartDigit && !bStartDigit) return -1;
-  if (bStartDigit && !aStartDigit) return 1;
+  // split the labels into different categories
+  for (const label of labels) {
+    const parsedLabel = parseLabel(label);
+    if (!parsedLabel) continue;
 
-  // 3rd priority: have a digit
-  const aDigit = /\d/.test(a);
-  const bDigit = /\d/.test(b);
-  if (aDigit && !bDigit) return -1;
-  if (bDigit && !aDigit) return 1;
+    switch (parsedLabel.category) {
+      case 'numberOnly':
+        numberOnly.add(parsedLabel.value);
+        break;
+      case 'numberPrime': {
+        const { prime, value } = parsedLabel;
+        if (numberPrime.has(prime)) numberPrime.get(prime)?.add(value);
+        else numberPrime.set(prime, new Set([value]));
+        break;
+      }
+      case 'numberLowerLetter': {
+        const { letter, value } = parsedLabel;
 
-  // 4th priority: no letter
-  const aLetter = /[a-zA-Z]/.test(a);
-  const bLetter = /[a-zA-Z]/.test(b);
-  if (!aLetter && bLetter) return -1;
-  if (!bLetter && aLetter) return 1;
+        if (numberLowerLetter.has(letter)) {
+          numberLowerLetter.get(letter)?.add(value);
+        } else {
+          numberLowerLetter.set(letter, new Set([value]));
+        }
+        break;
+      }
+      case 'lowerLetterNumber': {
+        const { letter, value } = parsedLabel;
 
-  // 5th priority: shorter label
-  if (a.length < b.length) return -1;
-  if (a.length > b.length) return 1;
+        if (lowerLetterNumber.has(letter)) {
+          lowerLetterNumber.get(letter)?.add(value);
+        } else {
+          lowerLetterNumber.set(letter, new Set([value]));
+        }
+        break;
+      }
 
-  // fallback to lexical order
-  const lc = a.localeCompare(b);
-  return lc / Math.abs(lc); // normalize to -1, 0, 1
-}
-
-export type IncrementLabelMode =
-  | 'start'
-  | 'increment_number'
-  | 'increment_letter';
-/**
- * parse the label to determine the mode to increment the number
- * @param label - The label to parse.
- * @returns The mode to increment the number.
- */
-export function getLabelMode(label: string | undefined): IncrementLabelMode {
-  if (!label) return 'start';
-  if (/\d/.test(label)) return 'increment_number';
-  if (/^[a-zA-Z]$/.test(label)) return 'increment_letter';
-
-  return 'start';
-}
-
-/**
- * increment the label based on the mode
- * @param label - The label to increment.
- * @param mode - The mode to increment the label.
- * @returns The incremented label.
- */
-export function incrementLabel(
-  label: string | undefined,
-  mode: IncrementLabelMode,
-): string | undefined {
-  switch (mode) {
-    case 'start':
-      return '1';
-    case 'increment_number': {
-      if (!label) throw new Error('lastLabel falsy, logic error');
-
-      return label.replace(/\d+/, (match) =>
-        String(Number.parseInt(match, 10) + 1),
-      );
+      case 'oneLowerLetter':
+        oneLowerLetter.add(parsedLabel.letter);
+        break;
+      default:
+        break;
     }
-    case 'increment_letter': {
-      if (!label) throw new Error('lastLabel falsy, logic error');
-      let codePoint = label.codePointAt(0);
-      if (!codePoint) throw new Error('codePoint falsy, logic error');
-      /* eslint-disable @typescript-eslint/no-non-null-assertion */
-      const Z = 'Z'.codePointAt(0)!;
-      const a = 'a'.codePointAt(0)!;
-      const z = 'z'.codePointAt(0)!;
-      /* eslint-enable @typescript-eslint/no-non-null-assertion */
-      if (codePoint === Z) codePoint = a - 1; // switch to the lowercase
-      if (codePoint === z) return; // we are at the last letter, do nothing
+  }
 
-      return String.fromCodePoint(codePoint + 1);
+  return {
+    numberOnly,
+    numberPrime,
+    numberLowerLetter,
+    lowerLetterNumber,
+    oneLowerLetter,
+  };
+}
+
+function nextParsedCustomLabel(
+  parsedLabel: ParsedCustomLabel,
+): ParsedCustomLabel {
+  switch (parsedLabel.category) {
+    case 'numberOnly':
+    case 'numberPrime':
+    case 'numberLowerLetter':
+    case 'lowerLetterNumber': {
+      return { ...parsedLabel, value: parsedLabel.value + 1 };
+    }
+    case 'oneLowerLetter': {
+      const { letter } = parsedLabel;
+      if (letter === 'z') return { category: 'numberOnly', value: 1 };
+
+      const codePoint = letter.codePointAt(0);
+      if (typeof codePoint !== 'number') {
+        throw new Error(
+          `no code point available on position 0 for "${letter}"`,
+        );
+      }
+      return { ...parsedLabel, letter: String.fromCodePoint(codePoint + 1) };
     }
     default:
+      throw new Error('Unreachable code');
   }
-
-  return undefined;
 }
+
+function labelsHasParsedCustomLabel(
+  label: ParsedCustomLabel,
+  labels: ReturnType<typeof splitCustomLabels>,
+) {
+  switch (label.category) {
+    case 'numberOnly':
+      return labels.numberOnly.has(label.value);
+    case 'numberPrime': {
+      const { prime, value } = label;
+      const numbers = labels.numberPrime.get(prime);
+      return numbers?.has(value) ?? false;
+    }
+    case 'numberLowerLetter': {
+      const { letter, value } = label;
+      const numbers = labels.numberLowerLetter.get(letter);
+      return numbers?.has(value) ?? false;
+    }
+    case 'lowerLetterNumber': {
+      const { letter, value } = label;
+      const numbers = labels.lowerLetterNumber.get(letter);
+      return numbers?.has(value) ?? false;
+    }
+    case 'oneLowerLetter': {
+      const { letter } = label;
+      return labels.oneLowerLetter.has(letter);
+    }
+    default:
+      throw new Error('Unreachable code');
+  }
+}
+
+function serializeParsedLabel(label: ParsedCustomLabel) {
+  switch (label.category) {
+    case 'numberOnly':
+      return label.value.toString();
+    case 'numberPrime': {
+      const { prime, value } = label;
+      return `${value}${"'".repeat(prime)}`;
+    }
+    case 'numberLowerLetter': {
+      const { letter, value } = label;
+      return `${value}${letter}`;
+    }
+    case 'lowerLetterNumber': {
+      const { letter, value } = label;
+      return `${letter}${value}`;
+    }
+    case 'oneLowerLetter': {
+      const { letter } = label;
+      return letter;
+    }
+    default:
+      throw new Error('Unreachable code');
+  }
+}
+
+/**
+ * Find the next possible custom label
+ * @param label - The current label.
+ * @param labels - The labels to skip.
+ * @returns The next possible custom label.
+ */
+export function getNextCustomLabel(
+  label: string | undefined,
+  labels: ReturnType<typeof splitCustomLabels>,
+) {
+  let parsedLabel = parseLabel(label ?? '0') ?? {
+    category: 'numberOnly',
+    value: 0,
+  };
+
+  while (true) {
+    parsedLabel = nextParsedCustomLabel(parsedLabel);
+    if (labelsHasParsedCustomLabel(parsedLabel, labels)) continue;
+    return serializeParsedLabel(parsedLabel);
+  }
+}
+
+/**
+ * Return an iterable of the custom labels of the molecule.
+ * It removes the `]` special characters from the labels.
+ * @param molecule - The molecule to get the custom labels from.
+ * @yields {string} - The custom labels of the molecules without the `]` special characters.
+ * @returns An iterable of the custom labels of the molecule.
+ */
+export function* moleculeCustomLabels(molecule: Molecule) {
+  for (let i = 0; i < molecule.getAllAtoms(); i++) {
+    const rawLabel = molecule.getAtomCustomLabel(i);
+    if (!rawLabel) continue;
+
+    const label = rawLabel.replaceAll(']', '');
+    if (!label) continue;
+
+    yield label;
+  }
+}
+
+export const internals = {
+  parseLabel,
+  nextParsedCustomLabel,
+  labelsHasParsedCustomLabel,
+  serializeParsedLabel,
+};

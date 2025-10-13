@@ -4,7 +4,7 @@ import type {
   KeyboardEvent as ReactKeyboardEvent,
   MouseEvent,
 } from 'react';
-import { useEffect, useMemo, useReducer, useRef } from 'react';
+import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
 
 import { useRefUpToDate } from '../../hooks/use_ref_up_to_date.js';
 import type { BaseEditorProps } from '../types.js';
@@ -14,9 +14,9 @@ import {
   isQuickNumberingEvent,
 } from './editor/events_predicate.js';
 import {
-  getLabelMode,
-  getSortedCustomLabels,
-  incrementLabel,
+  getNextCustomLabel,
+  moleculeCustomLabels,
+  splitCustomLabels,
 } from './editor/quick_numbering.js';
 import type { State } from './editor/reducer.js';
 import { stateReducer } from './editor/reducer.js';
@@ -49,9 +49,11 @@ export function SvgEditor(props: SvgEditorProps) {
     atomHighlight: atomHighlightProp,
     atomHighlightStrategy,
   });
+  const [lastInputLabel, setLastInputLabel] = useState('');
 
   const atomRef = useRefUpToDate(atomHighlight);
   const onChangeRef = useRefUpToDate(onChange);
+  const lastInputLabelRef = useRefUpToDate(lastInputLabel);
   useEffect(() => {
     if (state.mode !== 'view') return;
 
@@ -70,19 +72,19 @@ export function SvgEditor(props: SvgEditorProps) {
     function onQuickNumbering(event: KeyboardEvent) {
       if (!isQuickNumberingEvent(event)) return;
       if (atomRef.current === -1) return;
-      event.preventDefault();
+      event.preventDefault(); // numbering shortcut may be used in browser shortcuts
 
       const atomId = atomRef.current;
+      const lastInputLabel = lastInputLabelRef.current;
       const newMolecule = molecule.getCompactCopy();
 
-      const labels = getSortedCustomLabels(newMolecule);
+      const existingLabels = splitCustomLabels(
+        moleculeCustomLabels(newMolecule),
+      );
+      const nextLabel = getNextCustomLabel(lastInputLabel, existingLabels);
 
-      const lastLabel = labels.at(-1);
-      const labelMode = getLabelMode(lastLabel);
-      const quickLabel = incrementLabel(lastLabel, labelMode);
-      if (!quickLabel) return;
-
-      newMolecule.setAtomCustomLabel(atomId, `]${quickLabel}`);
+      newMolecule.setAtomCustomLabel(atomId, `]${nextLabel}`);
+      setLastInputLabel(nextLabel);
       onChangeRef.current(newMolecule);
     }
 
@@ -93,7 +95,7 @@ export function SvgEditor(props: SvgEditorProps) {
       document.removeEventListener('keydown', onClean);
       document.removeEventListener('keydown', onQuickNumbering);
     };
-  }, [state, molecule, atomRef, onChangeRef]);
+  }, [state, molecule, atomRef, onChangeRef, lastInputLabelRef]);
 
   function onAtomClick(atomId: number, event: MouseEvent<SVGElement>) {
     props.onAtomClick?.(atomId, event);
@@ -128,11 +130,12 @@ export function SvgEditor(props: SvgEditorProps) {
 
     newLabel = newLabel.replaceAll(']', '');
     const newMolecule = molecule.getCompactCopy();
-    newMolecule.setAtomCustomLabel(
-      state.atomId,
-      // types are wrong, custom label can be null
-      newLabel ? `]${newLabel}` : (null as never),
-    );
+    if (newLabel) {
+      newMolecule.setAtomCustomLabel(state.atomId, `]${newLabel}`);
+      setLastInputLabel(newLabel);
+    } else {
+      newMolecule.setAtomCustomLabel(state.atomId, null);
+    }
 
     onChange(newMolecule);
     dispatch({ type: 'stopEdit' });
