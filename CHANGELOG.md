@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.3.0](https://github.com/zakodium-oss/react-ocl/compare/v8.2.0...v8.3.0) (2025-10-14)
+
+
+### Features
+
+* **SvgEditor:** support quick numbering of atoms with space key ([#60](https://github.com/zakodium-oss/react-ocl/issues/60)) ([cf21d75](https://github.com/zakodium-oss/react-ocl/commit/cf21d759ee6d02202b6d05e368d41def2e1f99bf))
+
 ## [8.2.0](https://github.com/zakodium-oss/react-ocl/compare/v8.1.0...v8.2.0) (2025-08-29)
 
 
