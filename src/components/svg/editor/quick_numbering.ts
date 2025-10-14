@@ -42,7 +42,9 @@ function parseLabel(label: string): ParsedCustomLabel | void {
     return { category: 'lowerLetterNumber', letter, value: number };
   }
 
-  if (/^[a-z]$/.test(label)) {
+  // '`' is the char before 'a', consider it as the 0 of the lowercase letters
+  // needed for previousParsedCustomLabel in oneLowerLetter category
+  if (/^[`-z]$/.test(label)) {
     return { category: 'oneLowerLetter', letter: label };
   }
 }
@@ -215,6 +217,59 @@ export function getNextCustomLabel(
     if (labelsHasParsedCustomLabel(parsedLabel, labels)) continue;
     return serializeParsedLabel(parsedLabel);
   }
+}
+
+function previousParsedCustomLabel(
+  parsedLabel: ParsedCustomLabel,
+): ParsedCustomLabel {
+  switch (parsedLabel.category) {
+    case 'numberOnly':
+    case 'numberPrime':
+    case 'numberLowerLetter':
+    case 'lowerLetterNumber': {
+      return { ...parsedLabel, value: Math.max(parsedLabel.value - 1, 0) };
+    }
+    case 'oneLowerLetter': {
+      const { letter } = parsedLabel;
+
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      const minCodePoint = '`'.codePointAt(0)!; // ` is the char before a
+      const codePoint = letter.codePointAt(0);
+      if (typeof codePoint !== 'number') {
+        throw new Error(
+          `no code point available on position 0 for "${letter}"`,
+        );
+      }
+
+      return {
+        ...parsedLabel,
+        letter: String.fromCodePoint(Math.max(codePoint - 1, minCodePoint)),
+      };
+    }
+    default:
+      throw new Error('Unreachable code');
+  }
+}
+
+/**
+ * Get the previous possible custom label.
+ * Used by UI onClean feature, set the label as previous,
+ * so the next quick numbering to be the same as the deleted one.
+ *
+ * Known edge case issues:
+ * - If the deleted label is "`", the next label will be "a" instead of "`"
+ * - If the deleted label is "0", the next label will be "1" instead of "0"
+ *
+ * We consider users use 1-indexed and a-indexed quick numbering.
+ * So we don't consider theses edge cases as real issues.
+ * @param label - The deleted label
+ * @returns The previous possible custom label.
+ */
+export function getPreviousCustomLabel(label: string) {
+  const parsedLabel = parseLabel(label);
+  if (!parsedLabel) return;
+
+  return serializeParsedLabel(previousParsedCustomLabel(parsedLabel));
 }
 
 /**

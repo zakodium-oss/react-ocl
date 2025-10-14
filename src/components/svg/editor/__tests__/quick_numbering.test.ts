@@ -3,6 +3,7 @@ import { describe, expect, it, test } from 'vitest';
 import type { ParsedCustomLabel } from '../quick_numbering.js';
 import {
   getNextCustomLabel,
+  getPreviousCustomLabel,
   internals,
   splitCustomLabels,
 } from '../quick_numbering.js';
@@ -591,9 +592,56 @@ test('getNextCustomLabel', () => {
   expect(getNextCustomLabel('1b', groupedLabels)).toBe('4b');
   expect(getNextCustomLabel('4b', groupedLabels)).toBe('5b');
 
+  // the last input was in lowerLetterNumber a sequence
+  expect(getNextCustomLabel('a1', groupedLabels)).toBe('a4');
+  expect(getNextCustomLabel('a4', groupedLabels)).toBe('a5');
+  expect(getNextCustomLabel('b1', groupedLabels)).toBe('b4');
+  expect(getNextCustomLabel('b4', groupedLabels)).toBe('b5');
+
   // the last input was in oneLowerLetter sequence
   // b is taken so the next available is c.
   expect(getNextCustomLabel('a', groupedLabels)).toBe('c');
   // next z is 1 but 1, 2 and 3 are taken, so the next available is 4.
   expect(getNextCustomLabel('z', groupedLabels)).toBe('4');
+});
+
+test('getPreviousCustomLabel', () => {
+  // normal cases
+  expect(getPreviousCustomLabel('2')).toBe('1');
+  expect(getPreviousCustomLabel('10')).toBe('9');
+  expect(getPreviousCustomLabel('1000')).toBe('999');
+
+  expect(getPreviousCustomLabel("2'")).toBe("1'");
+  expect(getPreviousCustomLabel("10'")).toBe("9'");
+
+  expect(getPreviousCustomLabel("2''")).toBe("1''");
+  expect(getPreviousCustomLabel("10''")).toBe("9''");
+
+  expect(getPreviousCustomLabel('2a')).toBe('1a');
+  expect(getPreviousCustomLabel('10a')).toBe('9a');
+  expect(getPreviousCustomLabel('2b')).toBe('1b');
+  expect(getPreviousCustomLabel('10b')).toBe('9b');
+
+  expect(getPreviousCustomLabel('b')).toBe('a');
+  expect(getPreviousCustomLabel('z')).toBe('y');
+
+  // 1-indexed / a-indexed
+  expect(getPreviousCustomLabel('1')).toBe('0');
+  expect(getPreviousCustomLabel("1'")).toBe("0'");
+  expect(getPreviousCustomLabel("1''")).toBe("0''");
+  expect(getPreviousCustomLabel('1a')).toBe('0a');
+  expect(getPreviousCustomLabel('1b')).toBe('0b');
+  expect(getPreviousCustomLabel('a1')).toBe('a0');
+  expect(getPreviousCustomLabel('b1')).toBe('b0');
+  expect(getPreviousCustomLabel('a')).toBe('`');
+
+  // 0-indexed / `-indexed edge cases
+  expect(getPreviousCustomLabel('0')).toBe('0');
+  expect(getPreviousCustomLabel("0'")).toBe("0'");
+  expect(getPreviousCustomLabel("0''")).toBe("0''");
+  expect(getPreviousCustomLabel('0a')).toBe('0a');
+  expect(getPreviousCustomLabel('0b')).toBe('0b');
+  expect(getPreviousCustomLabel('a0')).toBe('a0');
+  expect(getPreviousCustomLabel('b0')).toBe('b0');
+  expect(getPreviousCustomLabel('`')).toBe('`');
 });

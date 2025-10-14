@@ -15,6 +15,7 @@ import {
 } from './editor/events_predicate.js';
 import {
   getNextCustomLabel,
+  getPreviousCustomLabel,
   moleculeCustomLabels,
   splitCustomLabels,
 } from './editor/quick_numbering.js';
@@ -64,6 +65,15 @@ export function SvgEditor(props: SvgEditorProps) {
 
       const atomId = atomRef.current;
       const newMolecule = molecule.getCompactCopy();
+
+      const rawLabel = molecule.getAtomCustomLabel(atomId);
+      if (rawLabel) {
+        const label = rawLabel.replaceAll(']', '');
+        const previousLabel = getPreviousCustomLabel(label);
+        if (previousLabel) {
+          setLastInputLabel(previousLabel);
+        }
+      }
 
       newMolecule.setAtomCustomLabel(atomId, null);
       onChangeRef.current(newMolecule);
