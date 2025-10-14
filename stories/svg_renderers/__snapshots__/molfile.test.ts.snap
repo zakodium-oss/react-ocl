@@ -4,7 +4,7 @@ exports[`Molecule renders molfile with default id 1`] = `
 <div>
   <svg
     height="163px"
-    id="react-ocl«r0»"
+    id="react-ocl_r_0_"
     style="user-select: none;"
     version="1.1"
     viewBox="45 15 210 163"
@@ -14,7 +14,7 @@ exports[`Molecule renders molfile with default id 1`] = `
     
   
     <style>
-       text {font-family: sans-serif;} #react-ocl«r0» { pointer-events:none; } #react-ocl«r0» .event  { pointer-events:all; } line { stroke-linecap:round; } polygon { stroke-linejoin:round; } 
+       text {font-family: sans-serif;} #react-ocl_r_0_ { pointer-events:none; } #react-ocl_r_0_ .event  { pointer-events:all; } line { stroke-linecap:round; } polygon { stroke-linejoin:round; } 
     </style>
     
   
@@ -443,7 +443,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:12"
+      id="react-ocl_r_0_:Bond:12"
       opacity="0"
       stroke-width="8"
       x1="108.49"
@@ -455,7 +455,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:16"
+      id="react-ocl_r_0_:Bond:16"
       opacity="0"
       stroke-width="8"
       x1="170.96"
@@ -467,7 +467,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:18"
+      id="react-ocl_r_0_:Bond:18"
       opacity="0"
       stroke-width="8"
       x1="212.06"
@@ -479,7 +479,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:21"
+      id="react-ocl_r_0_:Bond:21"
       opacity="0"
       stroke-width="8"
       x1="191.51"
@@ -491,7 +491,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:22"
+      id="react-ocl_r_0_:Bond:22"
       opacity="0"
       stroke-width="8"
       x1="232.61"
@@ -503,7 +503,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:0"
+      id="react-ocl_r_0_:Bond:0"
       opacity="0"
       stroke-width="8"
       x1="150.42"
@@ -515,7 +515,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:1"
+      id="react-ocl_r_0_:Bond:1"
       opacity="0"
       stroke-width="8"
       x1="171.79"
@@ -527,7 +527,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:2"
+      id="react-ocl_r_0_:Bond:2"
       opacity="0"
       stroke-width="8"
       x1="129.04"
@@ -539,7 +539,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:3"
+      id="react-ocl_r_0_:Bond:3"
       opacity="0"
       stroke-width="8"
       x1="123.76"
@@ -551,7 +551,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:4"
+      id="react-ocl_r_0_:Bond:4"
       opacity="0"
       stroke-width="8"
       x1="138.55"
@@ -563,7 +563,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:5"
+      id="react-ocl_r_0_:Bond:5"
       opacity="0"
       stroke-width="8"
       x1="162.28"
@@ -575,7 +575,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:6"
+      id="react-ocl_r_0_:Bond:6"
       opacity="0"
       stroke-width="8"
       x1="177.07"
@@ -587,7 +587,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:7"
+      id="react-ocl_r_0_:Bond:7"
       opacity="0"
       stroke-width="8"
       x1="123.76"
@@ -599,7 +599,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:8"
+      id="react-ocl_r_0_:Bond:8"
       opacity="0"
       stroke-width="8"
       x1="177.07"
@@ -611,7 +611,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:9"
+      id="react-ocl_r_0_:Bond:9"
       opacity="0"
       stroke-width="8"
       x1="150.24"
@@ -623,7 +623,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:10"
+      id="react-ocl_r_0_:Bond:10"
       opacity="0"
       stroke-width="8"
       x1="150.42"
@@ -635,7 +635,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:11"
+      id="react-ocl_r_0_:Bond:11"
       opacity="0"
       stroke-width="8"
       x1="129.04"
@@ -647,7 +647,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:13"
+      id="react-ocl_r_0_:Bond:13"
       opacity="0"
       stroke-width="8"
       x1="108.49"
@@ -659,7 +659,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:14"
+      id="react-ocl_r_0_:Bond:14"
       opacity="0"
       stroke-width="8"
       x1="87.94"
@@ -671,7 +671,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:15"
+      id="react-ocl_r_0_:Bond:15"
       opacity="0"
       stroke-width="8"
       x1="150.42"
@@ -683,7 +683,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:17"
+      id="react-ocl_r_0_:Bond:17"
       opacity="0"
       stroke-width="8"
       x1="170.96"
@@ -695,7 +695,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:19"
+      id="react-ocl_r_0_:Bond:19"
       opacity="0"
       stroke-width="8"
       x1="191.51"
@@ -707,7 +707,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:20"
+      id="react-ocl_r_0_:Bond:20"
       opacity="0"
       stroke-width="8"
       x1="212.06"
@@ -719,7 +719,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:23"
+      id="react-ocl_r_0_:Bond:23"
       opacity="0"
       stroke-width="8"
       x1="232.61"
@@ -731,7 +731,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:24"
+      id="react-ocl_r_0_:Bond:24"
       opacity="0"
       stroke-width="8"
       x1="123.76"
@@ -743,7 +743,7 @@ exports[`Molecule renders molfile with default id 1`] = `
   
     <line
       class="event"
-      id="react-ocl«r0»:Bond:25"
+      id="react-ocl_r_0_:Bond:25"
       opacity="0"
       stroke-width="8"
       x1="177.07"
@@ -757,7 +757,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="138.55"
       cy="155.65"
-      id="react-ocl«r0»:Atom:0"
+      id="react-ocl_r_0_:Atom:0"
       opacity="0"
       r="8"
     />
@@ -767,7 +767,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="162.28"
       cy="155.65"
-      id="react-ocl«r0»:Atom:1"
+      id="react-ocl_r_0_:Atom:1"
       opacity="0"
       r="8"
     />
@@ -777,7 +777,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="171.79"
       cy="113.97"
-      id="react-ocl«r0»:Atom:2"
+      id="react-ocl_r_0_:Atom:2"
       opacity="0"
       r="8"
     />
@@ -787,7 +787,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="150.24"
       cy="142.81"
-      id="react-ocl«r0»:Atom:3"
+      id="react-ocl_r_0_:Atom:3"
       opacity="0"
       r="8"
     />
@@ -797,7 +797,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="150.24"
       cy="119.09"
-      id="react-ocl«r0»:Atom:4"
+      id="react-ocl_r_0_:Atom:4"
       opacity="0"
       r="8"
     />
@@ -807,7 +807,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="150.42"
       cy="103.67"
-      id="react-ocl«r0»:Atom:5"
+      id="react-ocl_r_0_:Atom:5"
       opacity="0"
       r="8"
     />
@@ -817,7 +817,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="129.04"
       cy="113.97"
-      id="react-ocl«r0»:Atom:6"
+      id="react-ocl_r_0_:Atom:6"
       opacity="0"
       r="8"
     />
@@ -827,7 +827,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="108.49"
       cy="78.37"
-      id="react-ocl«r0»:Atom:7"
+      id="react-ocl_r_0_:Atom:7"
       opacity="0"
       r="8"
     />
@@ -837,7 +837,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="108.49"
       cy="102.1"
-      id="react-ocl«r0»:Atom:8"
+      id="react-ocl_r_0_:Atom:8"
       opacity="0"
       r="8"
     />
@@ -847,7 +847,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="87.94"
       cy="113.97"
-      id="react-ocl«r0»:Atom:9"
+      id="react-ocl_r_0_:Atom:9"
       opacity="0"
       r="8"
     />
@@ -857,7 +857,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="67.39"
       cy="102.1"
-      id="react-ocl«r0»:Atom:10"
+      id="react-ocl_r_0_:Atom:10"
       opacity="0"
       r="8"
     />
@@ -867,7 +867,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="150.42"
       cy="79.94"
-      id="react-ocl«r0»:Atom:11"
+      id="react-ocl_r_0_:Atom:11"
       opacity="0"
       r="8"
     />
@@ -877,7 +877,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="170.96"
       cy="44.35"
-      id="react-ocl«r0»:Atom:12"
+      id="react-ocl_r_0_:Atom:12"
       opacity="0"
       r="8"
     />
@@ -887,7 +887,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="170.96"
       cy="68.08"
-      id="react-ocl«r0»:Atom:13"
+      id="react-ocl_r_0_:Atom:13"
       opacity="0"
       r="8"
     />
@@ -897,7 +897,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="191.51"
       cy="79.94"
-      id="react-ocl«r0»:Atom:14"
+      id="react-ocl_r_0_:Atom:14"
       opacity="0"
       r="8"
     />
@@ -907,7 +907,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="212.06"
       cy="115.53"
-      id="react-ocl«r0»:Atom:15"
+      id="react-ocl_r_0_:Atom:15"
       opacity="0"
       r="8"
     />
@@ -917,7 +917,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="232.61"
       cy="103.67"
-      id="react-ocl«r0»:Atom:16"
+      id="react-ocl_r_0_:Atom:16"
       opacity="0"
       r="8"
     />
@@ -927,7 +927,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="232.61"
       cy="79.94"
-      id="react-ocl«r0»:Atom:17"
+      id="react-ocl_r_0_:Atom:17"
       opacity="0"
       r="8"
     />
@@ -937,7 +937,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="212.06"
       cy="68.08"
-      id="react-ocl«r0»:Atom:18"
+      id="react-ocl_r_0_:Atom:18"
       opacity="0"
       r="8"
     />
@@ -947,7 +947,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="191.51"
       cy="103.67"
-      id="react-ocl«r0»:Atom:19"
+      id="react-ocl_r_0_:Atom:19"
       opacity="0"
       r="8"
     />
@@ -957,7 +957,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="123.76"
       cy="137.1"
-      id="react-ocl«r0»:Atom:20"
+      id="react-ocl_r_0_:Atom:20"
       opacity="0"
       r="8"
     />
@@ -967,7 +967,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="177.07"
       cy="137.1"
-      id="react-ocl«r0»:Atom:21"
+      id="react-ocl_r_0_:Atom:21"
       opacity="0"
       r="8"
     />
@@ -977,7 +977,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="100.84"
       cy="143.24"
-      id="react-ocl«r0»:Atom:22"
+      id="react-ocl_r_0_:Atom:22"
       opacity="0"
       r="8"
     />
@@ -987,7 +987,7 @@ exports[`Molecule renders molfile with default id 1`] = `
       class="event"
       cx="199.99"
       cy="143.24"
-      id="react-ocl«r0»:Atom:23"
+      id="react-ocl_r_0_:Atom:23"
       opacity="0"
       r="8"
     />

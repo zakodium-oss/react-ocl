@@ -11,7 +11,7 @@ export function useHandleMemoError<T>(
       return [true, error as Error];
     }
     // TODO: avoid this hack.
-    // eslint-disable-next-line react-hooks/react-compiler,react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/use-memo, react-hooks/exhaustive-deps
   }, deps);
   return hasError ? [result, null] : [null, result];
 }

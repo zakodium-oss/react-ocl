@@ -6,8 +6,22 @@ import type {
 } from 'react';
 import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
 
+import { useRefUpToDate } from '../../hooks/use_ref_up_to_date.js';
 import type { BaseEditorProps } from '../types.js';
 
+import {
+  isCleanEvent,
+  isQuickNumberingEvent,
+} from './editor/events_predicate.js';
+import {
+  getNextCustomLabel,
+  getPreviousCustomLabel,
+  moleculeCustomLabels,
+  splitCustomLabels,
+} from './editor/quick_numbering.js';
+import type { State } from './editor/reducer.js';
+import { stateReducer } from './editor/reducer.js';
+import { useHighlight } from './editor/use_highlight.js';
 import type { SvgRendererProps } from './svg_renderer.js';
 import { SvgRenderer } from './svg_renderer.js';
 
@@ -15,47 +29,7 @@ export interface SvgEditorProps
   extends SvgRendererProps,
     BaseEditorProps<Molecule> {}
 
-type State =
-  | { mode: 'view' }
-  | {
-      mode: 'atom-label-edit';
-      atomId: number;
-      formCoords: { x: number; y: number };
-    };
 const initialState: State = { mode: 'view' };
-
-type Action =
-  | {
-      type: 'startEdit';
-      atomId: number;
-      event: MouseEvent;
-    }
-  | { type: 'stopEdit' };
-
-function stateReducer(state: State, action: Action): State {
-  switch (action.type) {
-    case 'startEdit': {
-      // Ignore if we are already in edit mode
-      if (state.mode !== 'view') return state;
-
-      const { clientX, clientY } = action.event;
-      const target = action.event.target as SVGCircleElement;
-      const svg = target.closest('svg') as SVGElement;
-      const rect = svg.getBoundingClientRect();
-      const formCoords = {
-        // offset by 5px to avoid cursor onMouseLeave not triggered
-        x: clientX - rect.x + 5,
-        y: clientY - rect.y + 5,
-      };
-      return { mode: 'atom-label-edit', atomId: action.atomId, formCoords };
-    }
-    case 'stopEdit':
-      return { mode: 'view' };
-    default:
-      // @ts-expect-error action type narrowing
-      throw new Error(`Unknown action type: ${action.type}`);
-  }
-}
 
 /**
  * A component that renders an SVG editor for a given molecule.
@@ -72,62 +46,66 @@ export function SvgEditor(props: SvgEditorProps) {
     ...svgProps
   } = props;
   const [state, dispatch] = useReducer(stateReducer, initialState);
-  const [atomHighlight, setAtomHighlight] = useState<number>(-1);
-  const atomsHighlight = useMemo(() => {
-    switch (atomHighlightStrategy) {
-      case 'prefer-editor-state':
-        if (atomHighlight !== -1) return [atomHighlight];
-        return atomHighlightProp;
-      case 'prefer-editor-props':
-        if (atomHighlightProp && atomHighlightProp.length > 0) {
-          return atomHighlightProp;
-        }
-        if (atomHighlight === -1) return undefined;
-        return [atomHighlight];
-      case 'editor-props':
-        return atomHighlightProp;
-      case 'merge': {
-        if (!atomHighlightProp) {
-          if (atomHighlight === -1) return undefined;
-          return [atomHighlight];
-        }
-        const dedupe = new Set(atomHighlightProp);
-        dedupe.add(atomHighlight);
-        return Array.from(dedupe);
-      }
-      case 'editor-state':
-        if (atomHighlight === -1) return undefined;
-        return [atomHighlight];
-      default:
-        throw new Error(
-          `Unknown atomHighlightStrategy: ${atomHighlightStrategy as string}`,
-        );
-    }
-  }, [atomHighlight, atomHighlightProp, atomHighlightStrategy]);
-
-  const atomRef = useRef(atomHighlight);
-  const onChangeRef = useRef(onChange);
-  useEffect(() => {
-    atomRef.current = atomHighlight;
-    onChangeRef.current = onChange;
+  const { atomHighlight, setAtomHighlight, atomsHighlight } = useHighlight({
+    atomHighlight: atomHighlightProp,
+    atomHighlightStrategy,
   });
+  const [lastInputLabel, setLastInputLabel] = useState('');
+
+  const atomRef = useRefUpToDate(atomHighlight);
+  const onChangeRef = useRefUpToDate(onChange);
+  const lastInputLabelRef = useRefUpToDate(lastInputLabel);
   useEffect(() => {
     if (state.mode !== 'view') return;
 
-    function onKeyDown(event: KeyboardEvent) {
-      if (event.key !== 'Backspace' && event.key !== 'Delete') return;
+    function onClean(event: KeyboardEvent) {
+      if (!isCleanEvent(event)) return;
       if (atomRef.current === -1) return;
+      event.preventDefault();
 
       const atomId = atomRef.current;
       const newMolecule = molecule.getCompactCopy();
-      // @ts-expect-error types are wrong, custom label can be null
+
+      const rawLabel = molecule.getAtomCustomLabel(atomId);
+      if (rawLabel) {
+        const label = rawLabel.replaceAll(']', '');
+        const previousLabel = getPreviousCustomLabel(label);
+        if (previousLabel) {
+          setLastInputLabel(previousLabel);
+        }
+      }
+
       newMolecule.setAtomCustomLabel(atomId, null);
       onChangeRef.current(newMolecule);
     }
 
-    document.addEventListener('keydown', onKeyDown);
-    return () => document.removeEventListener('keydown', onKeyDown);
-  }, [state, molecule]);
+    function onQuickNumbering(event: KeyboardEvent) {
+      if (!isQuickNumberingEvent(event)) return;
+      if (atomRef.current === -1) return;
+      event.preventDefault(); // numbering shortcut may be used in browser shortcuts
+
+      const atomId = atomRef.current;
+      const lastInputLabel = lastInputLabelRef.current;
+      const newMolecule = molecule.getCompactCopy();
+
+      const existingLabels = splitCustomLabels(
+        moleculeCustomLabels(newMolecule),
+      );
+      const nextLabel = getNextCustomLabel(lastInputLabel, existingLabels);
+
+      newMolecule.setAtomCustomLabel(atomId, `]${nextLabel}`);
+      setLastInputLabel(nextLabel);
+      onChangeRef.current(newMolecule);
+    }
+
+    document.addEventListener('keydown', onClean);
+    document.addEventListener('keydown', onQuickNumbering);
+
+    return () => {
+      document.removeEventListener('keydown', onClean);
+      document.removeEventListener('keydown', onQuickNumbering);
+    };
+  }, [state, molecule, atomRef, onChangeRef, lastInputLabelRef]);
 
   function onAtomClick(atomId: number, event: MouseEvent<SVGElement>) {
     props.onAtomClick?.(atomId, event);
@@ -162,11 +140,12 @@ export function SvgEditor(props: SvgEditorProps) {
 
     newLabel = newLabel.replaceAll(']', '');
     const newMolecule = molecule.getCompactCopy();
-    newMolecule.setAtomCustomLabel(
-      state.atomId,
-      // types are wrong, custom label can be null
-      newLabel ? `]${newLabel}` : (null as never),
-    );
+    if (newLabel) {
+      newMolecule.setAtomCustomLabel(state.atomId, `]${newLabel}`);
+      setLastInputLabel(newLabel);
+    } else {
+      newMolecule.setAtomCustomLabel(state.atomId, null);
+    }
 
     onChange(newMolecule);
     dispatch({ type: 'stopEdit' });
