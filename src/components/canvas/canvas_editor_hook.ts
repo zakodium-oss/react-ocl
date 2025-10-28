@@ -1,5 +1,6 @@
-import type { CanvasEditorMode } from 'openchemlib';
+import type { CanonizerOptions, CanvasEditorMode } from 'openchemlib';
 import {
+  Canonizer,
   CanvasEditor,
   Molecule,
   Reaction,
@@ -9,11 +10,25 @@ import {
 import type { RefObject } from 'react';
 import { useEffect, useLayoutEffect, useRef } from 'react';
 
+export interface CanvasEditorOnChangeMoleculeGetIdcodeOptions {
+  /**
+   * Used to initialize the canonizer.
+   */
+  canonizerOptions?: CanonizerOptions;
+  /**
+   * If keepPositionAndScale==false, then coordinate encoding will be relative
+   * (i.e. scale and absolute positions get lost during the encoding).
+   * Otherwise, the encoding retains scale and absolute positions.
+   * @default false
+   */
+  keepPositionAndScale?: boolean;
+}
+
 export interface CanvasEditorOnChangeMolecule {
   /**
    * Returns the molecule encoded as an idcode (with coordinates).
    */
-  getIdcode: () => string;
+  getIdcode: (options?: CanvasEditorOnChangeMoleculeGetIdcodeOptions) => string;
   /**
    * Returns the molecule encoded as a molfile V2000.
    */
@@ -237,10 +252,11 @@ function getMoleculeChangeApi(
   editor: CanvasEditor,
 ): CanvasEditorOnChangeMolecule {
   return {
-    getIdcode() {
-      const { idCode, coordinates } = editor
-        .getMolecule()
-        .getIDCodeAndCoordinates();
+    getIdcode(options: CanvasEditorOnChangeMoleculeGetIdcodeOptions = {}) {
+      const { canonizerOptions, keepPositionAndScale = false } = options;
+      const canonizer = new Canonizer(editor.getMolecule(), canonizerOptions);
+      const idCode = canonizer.getIDCode();
+      const coordinates = canonizer.getEncodedCoordinates(keepPositionAndScale);
       return `${idCode} ${coordinates}`;
     },
     getMolfile() {
