@@ -41,6 +41,10 @@ export interface CanvasEditorOnChangeMolecule {
    * Returns the molecule encoded as a SMILES.
    */
   getSmiles: () => string;
+  /**
+   * Returns a copy of the current molecule.
+   */
+  getMolecule: () => Molecule;
 }
 
 export interface CanvasEditorOnChangeReaction {
@@ -267,6 +271,9 @@ function getMoleculeChangeApi(
     },
     getSmiles() {
       return editor.getMolecule().toIsomericSmiles();
+    },
+    getMolecule() {
+      return editor.getMolecule().getCompactCopy();
     },
   };
 }
