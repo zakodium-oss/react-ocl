@@ -250,7 +250,7 @@ function getMoleculeChangeApi(
       return editor.getMolecule().toMolfileV3();
     },
     getSmiles() {
-      return editor.getMolecule().toSmiles();
+      return editor.getMolecule().toIsomericSmiles();
     },
   };
 }
