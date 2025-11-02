@@ -40,26 +40,26 @@
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "@storybook/addon-vitest": "^9.1.15",
-    "@storybook/react-vite": "^9.1.15",
-    "@types/node": "^24.9.1",
+    "@storybook/addon-vitest": "^9.1.16",
+    "@storybook/react-vite": "^9.1.16",
+    "@types/node": "^24.9.2",
     "@types/react": "^19.2.2",
     "@vitejs/plugin-react": "^5.1.0",
     "@vitest/browser": "^3.2.4",
     "@vitest/coverage-v8": "^3.2.4",
     "@zakodium/tsconfig": "^1.0.2",
-    "eslint": "^9.38.0",
+    "eslint": "^9.39.0",
     "eslint-config-cheminfo-react": "^18.0.1",
     "eslint-config-cheminfo-typescript": "^20.0.0",
-    "eslint-plugin-storybook": "^9.1.15",
+    "eslint-plugin-storybook": "^9.1.16",
     "jsdom": "^26.1.0",
-    "openchemlib": "^9.12.1",
+    "openchemlib": "^9.16.0",
     "playwright": "^1.56.1",
     "prettier": "^3.6.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "rimraf": "^6.0.1",
-    "storybook": "^9.1.15",
+    "rimraf": "^6.1.0",
+    "storybook": "^9.1.16",
     "typescript": "^5.9.3",
     "vite": "^7.1.12",
     "vitest": "^3.2.4"
@@ -71,6 +71,6 @@
   "bugs": "https://github.com/zakodium-oss/react-ocl/issues",
   "homepage": "https://github.com/zakodium-oss/react-ocl#readme",
   "volta": {
-    "node": "24.10.0"
+    "node": "24.11.0"
   }
 }
