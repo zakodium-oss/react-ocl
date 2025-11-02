@@ -1,5 +1,19 @@
 # Changelog
 
+## [8.4.0](https://github.com/zakodium-oss/react-ocl/compare/v8.3.0...v8.4.0) (2025-11-02)
+
+
+### Features
+
+* **canvas_editor:** add `getMolecule` method ([a2a989e](https://github.com/zakodium-oss/react-ocl/commit/a2a989ebeee434c2d9c737d16a330ebc656f37d3))
+* **canvas_editor:** allow to customize ID code in molecule changed event handler ([d2e3217](https://github.com/zakodium-oss/react-ocl/commit/d2e32177d258f62a4b8d636b93b6844a22adc68e))
+
+
+### Bug Fixes
+
+* **canvas_editor:** use non-deprecated `toIsomericSmiles` ([7807c93](https://github.com/zakodium-oss/react-ocl/commit/7807c93b4266b79ea6d031e7f9810d81dfaefe68))
+* update OpenChemLib ([#68](https://github.com/zakodium-oss/react-ocl/issues/68)) ([4e8881d](https://github.com/zakodium-oss/react-ocl/commit/4e8881d538829f7bd55a4ef5f60de8011cc4ec5e))
+
 ## [8.3.0](https://github.com/zakodium-oss/react-ocl/compare/v8.2.0...v8.3.0) (2025-10-14)
 
 
