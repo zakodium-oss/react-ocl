@@ -20,7 +20,7 @@ export const commonArgTypes = {
 export const commonArgs = {
   width: 300,
   height: 200,
-  inflateToMaxAVBL: false,
+  inflateToMaxAVBL: true,
   inflateToHighResAVBL: false,
   chiralTextBelowMolecule: false,
   chiralTextAboveMolecule: false,
