@@ -181,6 +181,22 @@ interface AtomLabelEditFormProps {
   onCancel: () => void;
 }
 
+const greekLetters = {
+  alpha: 'α',
+  beta: 'β',
+  gamma: 'γ',
+  delta: 'δ',
+  epsilon: 'ε',
+  zeta: 'ζ',
+  eta: 'η',
+  theta: 'θ',
+} as const;
+const primes = {
+  prime1: '′',
+  prime2: '″',
+  prime3: '‴',
+};
+
 function AtomLabelEditForm(props: AtomLabelEditFormProps) {
   const { defaultValue, formCoords, onSubmit, onCancel } = props;
 
@@ -245,7 +261,13 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
         position: 'absolute',
         top: formCoords.y,
         left: formCoords.x,
-        display: 'flex',
+        display: 'grid',
+        gridTemplateAreas: `
+          "input input input input input input submit cancel"
+          "${Object.keys(greekLetters).join(' ')}"
+          "${Object.keys(primes).join(' ')} . . . . ."
+        `,
+        gridTemplateColumns: 'repeat(8, 1.5em)',
         alignItems: 'stretch',
         gap: '0.25em',
         border: '1px solid lightgray',
@@ -254,6 +276,7 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
       }}
     >
       <input
+        style={{ gridArea: 'input' }}
         type="text"
         name="label"
         defaultValue={defaultValue}
@@ -261,10 +284,52 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
         autoFocus
         ref={autoSelectText}
       />
-      <input type="submit" value="✔️" aria-label="Submit" />
-      <button type="button" aria-label="Cancel" onClick={onCancelClick}>
+      <input
+        style={{ gridArea: 'submit' }}
+        type="submit"
+        value="✔️"
+        aria-label="Submit"
+      />
+      <button
+        style={{ gridArea: 'cancel' }}
+        type="button"
+        aria-label="Cancel"
+        onClick={onCancelClick}
+      >
         ❌
       </button>
+
+      {Object.entries(greekLetters).map(([charName, greekChar]) => (
+        <button
+          key={charName}
+          type="submit"
+          style={{ gridArea: charName }}
+          onClick={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
+
+            onSubmit(greekChar);
+          }}
+        >
+          {greekChar}
+        </button>
+      ))}
+
+      {Object.entries(primes).map(([primeName, primeChar]) => (
+        <button
+          key={primeName}
+          type="submit"
+          style={{ gridArea: primeName }}
+          onClick={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
+
+            onSubmit(primeChar);
+          }}
+        >
+          {primeChar}
+        </button>
+      ))}
     </form>
   );
 }
