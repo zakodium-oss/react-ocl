@@ -256,6 +256,25 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
     };
   }, []);
 
+  function onShortcut(event: MouseEvent<HTMLButtonElement>) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (!formRef.current) return;
+    const form = formRef.current;
+    const input = form.querySelector('input[type="text"]') as HTMLInputElement;
+    if (!input) return;
+
+    const value = event.currentTarget.textContent.trim();
+    input.setRangeText(
+      value,
+      input.selectionStart ?? 0,
+      input.selectionEnd ?? input.value.length,
+      'end',
+    );
+    input.focus();
+  }
+
   return (
     <form
       ref={formRef}
@@ -308,12 +327,7 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
           key={charName}
           type="submit"
           style={{ gridArea: charName }}
-          onClick={(event) => {
-            event.preventDefault();
-            event.stopPropagation();
-
-            onSubmit(greekChar);
-          }}
+          onClick={onShortcut}
         >
           {greekChar}
         </button>
@@ -324,12 +338,7 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
           key={primeName}
           type="submit"
           style={{ gridArea: primeName }}
-          onClick={(event) => {
-            event.preventDefault();
-            event.stopPropagation();
-
-            onSubmit(primeChar);
-          }}
+          onClick={onShortcut}
         >
           {primeChar}
         </button>
