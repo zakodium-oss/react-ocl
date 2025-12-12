@@ -191,6 +191,9 @@ const greekLetters = {
   eta: 'η',
   theta: 'θ',
 } as const;
+const greekLetterNames = Object.keys(greekLetters);
+const greeksFirstLine = greekLetterNames.slice(0, 4);
+const greeksLastLine = greekLetterNames.slice(4);
 const primes = {
   prime1: '′',
   prime2: '″',
@@ -263,11 +266,12 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
         left: formCoords.x,
         display: 'grid',
         gridTemplateAreas: `
-          "input input input input input input submit cancel"
-          "${Object.keys(greekLetters).join(' ')}"
-          "${Object.keys(primes).join(' ')} . . . . ."
+          "input input submit cancel"
+          "${greeksFirstLine.join(' ')}"
+          "${greeksLastLine.join(' ')}"
+          "${Object.keys(primes).join(' ')} ."
         `,
-        gridTemplateColumns: 'repeat(8, 1.5em)',
+        gridTemplateColumns: 'repeat(4, 1.5em)',
         alignItems: 'stretch',
         gap: '0.25em',
         border: '1px solid lightgray',
