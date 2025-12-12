@@ -181,6 +181,26 @@ interface AtomLabelEditFormProps {
   onCancel: () => void;
 }
 
+const greekLetters = {
+  alpha: 'α',
+  beta: 'β',
+  gamma: 'γ',
+  delta: 'δ',
+  epsilon: 'ε',
+  zeta: 'ζ',
+  eta: 'η',
+  theta: 'θ',
+} as const;
+const greekLetterNames = Object.keys(greekLetters);
+const greeksFirstLine = greekLetterNames.slice(0, 6);
+const greeksLastLine = greekLetterNames.slice(6);
+const primes = {
+  prime1: '′',
+  prime2: '″',
+  prime3: '‴',
+};
+const primeNames = Object.keys(primes);
+
 function AtomLabelEditForm(props: AtomLabelEditFormProps) {
   const { defaultValue, formCoords, onSubmit, onCancel } = props;
 
@@ -236,6 +256,25 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
     };
   }, []);
 
+  function onShortcut(event: MouseEvent<HTMLButtonElement>) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (!formRef.current) return;
+    const form = formRef.current;
+    const input = form.querySelector('input[type="text"]') as HTMLInputElement;
+    if (!input) return;
+
+    const value = event.currentTarget.textContent.trim();
+    input.setRangeText(
+      value,
+      input.selectionStart ?? 0,
+      input.selectionEnd ?? input.value.length,
+      'end',
+    );
+    input.focus();
+  }
+
   return (
     <form
       ref={formRef}
@@ -245,7 +284,13 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
         position: 'absolute',
         top: formCoords.y,
         left: formCoords.x,
-        display: 'flex',
+        display: 'grid',
+        gridTemplateAreas: `
+          "input input input input submit cancel"
+          "${greeksFirstLine.join(' ')}"
+          "${greeksLastLine.join(' ')} . ${primeNames.join(' ')}"
+        `,
+        gridTemplateColumns: 'repeat(4, 1.5em)',
         alignItems: 'stretch',
         gap: '0.25em',
         border: '1px solid lightgray',
@@ -254,6 +299,7 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
       }}
     >
       <input
+        style={{ gridArea: 'input' }}
         type="text"
         name="label"
         defaultValue={defaultValue}
@@ -261,10 +307,42 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
         autoFocus
         ref={autoSelectText}
       />
-      <input type="submit" value="✔️" aria-label="Submit" />
-      <button type="button" aria-label="Cancel" onClick={onCancelClick}>
+      <input
+        style={{ gridArea: 'submit' }}
+        type="submit"
+        value="✔️"
+        aria-label="Submit"
+      />
+      <button
+        style={{ gridArea: 'cancel' }}
+        type="button"
+        aria-label="Cancel"
+        onClick={onCancelClick}
+      >
         ❌
       </button>
+
+      {Object.entries(greekLetters).map(([charName, greekChar]) => (
+        <button
+          key={charName}
+          type="submit"
+          style={{ gridArea: charName }}
+          onClick={onShortcut}
+        >
+          {greekChar}
+        </button>
+      ))}
+
+      {Object.entries(primes).map(([primeName, primeChar]) => (
+        <button
+          key={primeName}
+          type="submit"
+          style={{ gridArea: primeName }}
+          onClick={onShortcut}
+        >
+          {primeChar}
+        </button>
+      ))}
     </form>
   );
 }
