@@ -286,10 +286,10 @@ function getReactionChangeApi(
       return ReactionEncoder.encode(editor.getReaction()) ?? '';
     },
     getRxn(programName?: string) {
-      return editor.getReaction().toRxn(programName);
+      return editor.getReaction().toRxn({ programName });
     },
     getRxnV3(programName?: string) {
-      return editor.getReaction().toRxnV3(programName);
+      return editor.getReaction().toRxnV3({ programName });
     },
     getSmiles() {
       return editor.getReaction().toSmiles();

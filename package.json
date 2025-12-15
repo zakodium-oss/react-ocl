@@ -53,7 +53,7 @@
     "eslint-config-cheminfo-typescript": "^20.0.0",
     "eslint-plugin-storybook": "^9.1.16",
     "jsdom": "^26.1.0",
-    "openchemlib": "^9.16.0",
+    "openchemlib": "^9.18.2",
     "playwright": "^1.56.1",
     "prettier": "^3.6.2",
     "react": "^19.2.0",
