@@ -1,9 +1,34 @@
+export const greekLetters = {
+  alpha: 'α',
+  beta: 'β',
+  gamma: 'γ',
+  delta: 'δ',
+  epsilon: 'ε',
+  zeta: 'ζ',
+  eta: 'η',
+  theta: 'θ',
+} as const;
+const greekLetterNames = Object.keys(greekLetters);
+const greeksFirstLine = greekLetterNames.slice(0, 6);
+const greeksLastLine = greekLetterNames.slice(6);
+
+export const primes = {
+  prime1: '′',
+  prime2: '″',
+  prime3: '‴',
+};
+const primeNames = Object.keys(primes);
+
 export const atomLabelEditCss = `
 form.react-ocl-atom-label-edit {
   position: absolute;
   z-index: 1;
   display: grid;
   grid-template-columns: repeat(4, 1.5em);
+  grid-template-areas: 
+    "input input input input submit cancel"
+    "${greeksFirstLine.join(' ')}"
+    "${greeksLastLine.join(' ')} . ${primeNames.join(' ')}";
   align-items: stretch;
   gap: 0.25em;
   border: 1px solid lightgray;

@@ -23,7 +23,7 @@ import {
 import type { State } from './editor/reducer.js';
 import { stateReducer } from './editor/reducer.js';
 import { useHighlight } from './editor/use_highlight.js';
-import { atomLabelEditCss } from './svg_editor.css.ts';
+import { atomLabelEditCss, greekLetters, primes } from './svg_editor.css.ts';
 import type { SvgRendererProps } from './svg_renderer.js';
 import { SvgRenderer } from './svg_renderer.js';
 
@@ -183,26 +183,6 @@ interface AtomLabelEditFormProps {
   onCancel: () => void;
 }
 
-const greekLetters = {
-  alpha: 'α',
-  beta: 'β',
-  gamma: 'γ',
-  delta: 'δ',
-  epsilon: 'ε',
-  zeta: 'ζ',
-  eta: 'η',
-  theta: 'θ',
-} as const;
-const greekLetterNames = Object.keys(greekLetters);
-const greeksFirstLine = greekLetterNames.slice(0, 6);
-const greeksLastLine = greekLetterNames.slice(6);
-const primes = {
-  prime1: '′',
-  prime2: '″',
-  prime3: '‴',
-};
-const primeNames = Object.keys(primes);
-
 function AtomLabelEditForm(props: AtomLabelEditFormProps) {
   const { defaultValue, formCoords, onSubmit, onCancel } = props;
 
@@ -277,27 +257,14 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
     input.focus();
   }
 
-  useCSS(atomLabelEditCss, 'react-ocl-atom-label-edit-stable');
-  useCSS(
-    `
-      form.react-ocl-atom-label-edit {
-        top: ${formCoords.y}px;
-        left: ${formCoords.x}px;
-        grid-template-areas: 
-          "input input input input submit cancel"
-          "${greeksFirstLine.join(' ')}"
-          "${greeksLastLine.join(' ')} . ${primeNames.join(' ')}";
-      }
-    `,
-    'react-ocl-atom-label-edit-dynamic',
-  );
-
+  useCSS(atomLabelEditCss);
   return (
     <form
       ref={formRef}
       onSubmit={onFormSubmit}
       onKeyDown={onKeyDown}
       className="react-ocl react-ocl-atom-label-edit"
+      style={{ top: formCoords.y, left: formCoords.x }}
     >
       <input
         className="react-ocl"

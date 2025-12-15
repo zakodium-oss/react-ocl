@@ -24,7 +24,7 @@ export function OclReset(props: OclResetProps) {
     };
   }, []);
 
-  useCSS(oclResetCss, 'react-ocl-reset');
+  useCSS(oclResetCss);
 
   return (
     <OclResetContext.Provider value>{props.children}</OclResetContext.Provider>
