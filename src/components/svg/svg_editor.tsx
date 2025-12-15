@@ -7,7 +7,7 @@ import type {
 import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
 
 import { useRefUpToDate } from '../../hooks/use_ref_up_to_date.js';
-import { useCSS } from '../../styling/use_css.ts';
+import { InlineStylesheet } from '../../styling/inline_stylesheet.tsx';
 import type { BaseEditorProps } from '../types.js';
 
 import {
@@ -257,7 +257,6 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
     input.focus();
   }
 
-  useCSS(atomLabelEditCss);
   return (
     <form
       ref={formRef}
@@ -266,6 +265,7 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
       className="react-ocl react-ocl-atom-label-edit"
       style={{ top: formCoords.y, left: formCoords.x }}
     >
+      <InlineStylesheet>{atomLabelEditCss}</InlineStylesheet>
       <input
         className="react-ocl"
         style={{ gridArea: 'input' }}

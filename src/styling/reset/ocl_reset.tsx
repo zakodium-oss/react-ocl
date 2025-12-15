@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { useLayoutEffect } from 'react';
 
-import { useCSS } from '../use_css.ts';
+import { InlineStylesheet } from '../inline_stylesheet.tsx';
 
 import { OclResetContext } from './ocl_reset_context.tsx';
 import { oclResetCss } from './ocl_reset_css.ts';
@@ -24,9 +24,10 @@ export function OclReset(props: OclResetProps) {
     };
   }, []);
 
-  useCSS(oclResetCss);
-
   return (
-    <OclResetContext.Provider value>{props.children}</OclResetContext.Provider>
+    <OclResetContext.Provider value>
+      <InlineStylesheet>{oclResetCss}</InlineStylesheet>
+      {props.children}
+    </OclResetContext.Provider>
   );
 }
