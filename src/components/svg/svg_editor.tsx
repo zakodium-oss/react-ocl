@@ -7,6 +7,7 @@ import type {
 import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
 
 import { useRefUpToDate } from '../../hooks/use_ref_up_to_date.js';
+import { useCSS } from '../../styling/use_css.ts';
 import type { BaseEditorProps } from '../types.js';
 
 import {
@@ -22,6 +23,7 @@ import {
 import type { State } from './editor/reducer.js';
 import { stateReducer } from './editor/reducer.js';
 import { useHighlight } from './editor/use_highlight.js';
+import { atomLabelEditCss } from './svg_editor.css.ts';
 import type { SvgRendererProps } from './svg_renderer.js';
 import { SvgRenderer } from './svg_renderer.js';
 
@@ -275,30 +277,30 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
     input.focus();
   }
 
+  useCSS(atomLabelEditCss, 'react-ocl-atom-label-edit-stable');
+  useCSS(
+    `
+      form.react-ocl-atom-label-edit {
+        top: ${formCoords.y}px;
+        left: ${formCoords.x}px;
+        grid-template-areas: 
+          "input input input input submit cancel"
+          "${greeksFirstLine.join(' ')}"
+          "${greeksLastLine.join(' ')} . ${primeNames.join(' ')}";
+      }
+    `,
+    'react-ocl-atom-label-edit-dynamic',
+  );
+
   return (
     <form
       ref={formRef}
       onSubmit={onFormSubmit}
       onKeyDown={onKeyDown}
-      style={{
-        position: 'absolute',
-        top: formCoords.y,
-        left: formCoords.x,
-        display: 'grid',
-        gridTemplateAreas: `
-          "input input input input submit cancel"
-          "${greeksFirstLine.join(' ')}"
-          "${greeksLastLine.join(' ')} . ${primeNames.join(' ')}"
-        `,
-        gridTemplateColumns: 'repeat(4, 1.5em)',
-        alignItems: 'stretch',
-        gap: '0.25em',
-        border: '1px solid lightgray',
-        backgroundColor: 'white',
-        padding: '0.25em',
-      }}
+      className="react-ocl react-ocl-atom-label-edit"
     >
       <input
+        className="react-ocl"
         style={{ gridArea: 'input' }}
         type="text"
         name="label"
@@ -307,13 +309,16 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
         autoFocus
         ref={autoSelectText}
       />
-      <input
+      <button
+        className="react-ocl"
         style={{ gridArea: 'submit' }}
         type="submit"
-        value="✔️"
         aria-label="Submit"
-      />
+      >
+        ✔️
+      </button>
       <button
+        className="react-ocl"
         style={{ gridArea: 'cancel' }}
         type="button"
         aria-label="Cancel"
@@ -324,6 +329,7 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
 
       {Object.entries(greekLetters).map(([charName, greekChar]) => (
         <button
+          className="react-ocl"
           key={charName}
           type="submit"
           style={{ gridArea: charName }}
@@ -335,6 +341,7 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
 
       {Object.entries(primes).map(([primeName, primeChar]) => (
         <button
+          className="react-ocl"
           key={primeName}
           type="submit"
           style={{ gridArea: primeName }}

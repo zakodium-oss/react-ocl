@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
 import { SvgEditor } from '../../src/index.js';
+import { OclReset } from '../../src/styling/reset/ocl_reset.tsx';
 import { molecule as defaultBaseMolecule } from '../data.js';
 
 const defaultMolecule = defaultBaseMolecule.getCompactCopy();
@@ -21,3 +22,12 @@ export default {
 type Story = StoryObj<typeof SvgEditor>;
 
 export const Control: Story = {};
+export const WithCssReset: Story = {
+  decorators: (Story) => {
+    return (
+      <OclReset>
+        <Story />
+      </OclReset>
+    );
+  },
+};
