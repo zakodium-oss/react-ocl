@@ -1,0 +1,8 @@
+<LanguageInjectionConfiguration>
+  <injection language="CSS" injector-id="js">
+    <display-name>CSS template literal</display-name>
+    <single-file value="true" />
+    <place><![CDATA[taggedString("css")]]></place>
+    <templateTag>css</templateTag>
+  </injection>
+</LanguageInjectionConfiguration>
