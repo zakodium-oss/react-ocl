@@ -23,19 +23,25 @@ const primeNames = Object.keys(primes);
 
 export const atomLabelEditCss = css`
   form.react-ocl-atom-label-edit {
+    --box-size: 24px;
+
     position: absolute;
     z-index: 1;
+    line-height: 1;
+    font-size: 16px;
     display: grid;
-    grid-template-columns: repeat(4, 1.5em);
+    grid-template-columns: repeat(4, var(--box-size));
+    grid-template-rows: repeat(3, var(--box-size));
     grid-template-areas:
       'input input input input submit cancel'
       '${greeksFirstLine.join(' ')}'
       '${greeksLastLine.join(' ')} . ${primeNames.join(' ')}';
-    align-items: stretch;
+    place-items: stretch;
     gap: 0.25em;
     border: 1px solid lightgray;
     background-color: white;
     padding: 0.25em;
+    box-sizing: border-box;
   }
 
   form.react-ocl-atom-label-edit button.react-ocl {
@@ -43,12 +49,17 @@ export const atomLabelEditCss = css`
     background-color: #efefef;
     border: none;
     border-radius: 5px;
+    font-family: sans-serif;
+    width: var(--box-size);
+    font-size: 13.3333px;
   }
 
   form.react-ocl-atom-label-edit input.react-ocl {
     padding: 0.25em;
     border: solid 1px lightgrey;
     border-radius: 3px;
+    font-family: sans-serif;
+    font-size: 13.3333px;
   }
 
   form.react-ocl-atom-label-edit input.react-ocl:focus {

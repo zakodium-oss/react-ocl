@@ -6,7 +6,6 @@ export * from './components/svg/molfile/molfile_svg_editor.js';
 export * from './components/svg/smiles_svg_renderer.js';
 export * from './components/canvas/canvas_editor.js';
 export * from './components/canvas/canvas_editor_hook.js';
-export { OclReset, type OclResetProps } from './styling/reset/ocl_reset.js';
 
 export type {
   BaseSvgRendererProps,
