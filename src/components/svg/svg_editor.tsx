@@ -265,7 +265,9 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
       className="react-ocl react-ocl-atom-label-edit"
       style={{ top: formCoords.y, left: formCoords.x }}
     >
-      <InlineStylesheet>{atomLabelEditCss}</InlineStylesheet>
+      <InlineStylesheet id="AtomLabelEditForm">
+        {atomLabelEditCss}
+      </InlineStylesheet>
       <input
         className="react-ocl"
         style={{ gridArea: 'input' }}

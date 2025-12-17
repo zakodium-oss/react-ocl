@@ -4,5 +4,5 @@ import { resetCss } from './ocl_reset_css.ts';
 
 // eslint-disable-next-line jsdoc/require-jsdoc
 export function OclReset() {
-  return <InlineStylesheet>{resetCss}</InlineStylesheet>;
+  return <InlineStylesheet id="Reset">{resetCss}</InlineStylesheet>;
 }
