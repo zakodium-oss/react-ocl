@@ -1,4 +1,3 @@
-import isPropValid from '@emotion/is-prop-valid';
 import styled from '@emotion/styled';
 
 export const greekLetters = {
@@ -58,9 +57,7 @@ export const AtomLabelEditInputStyled = styled.input`
   }
 `;
 
-export const AtomLabelEditButtonStyled = styled('button', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'area',
-})<{ area: string }>`
+export const AtomLabelEditButtonStyled = styled.button<{ area: string }>`
   grid-area: ${(props) => props.area};
 
   padding: 0.25em;
