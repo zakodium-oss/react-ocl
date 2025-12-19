@@ -7,7 +7,6 @@ import type {
 import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
 
 import { useRefUpToDate } from '../../hooks/use_ref_up_to_date.js';
-import { InlineStylesheet } from '../../styling/inline_stylesheet.tsx';
 import type { BaseEditorProps } from '../types.js';
 
 import {
@@ -23,7 +22,13 @@ import {
 import type { State } from './editor/reducer.js';
 import { stateReducer } from './editor/reducer.js';
 import { useHighlight } from './editor/use_highlight.js';
-import { atomLabelEditCss, greekLetters, primes } from './svg_editor.css.ts';
+import {
+  AtomLabelEditButtonStyled,
+  AtomLabelEditFormStyled,
+  AtomLabelEditInputStyled,
+  greekLetters,
+  primes,
+} from './svg_editor.styled.ts';
 import type { SvgRendererProps } from './svg_renderer.js';
 import { SvgRenderer } from './svg_renderer.js';
 
@@ -258,19 +263,13 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
   }
 
   return (
-    <form
+    <AtomLabelEditFormStyled
       ref={formRef}
       onSubmit={onFormSubmit}
       onKeyDown={onKeyDown}
-      className="react-ocl react-ocl-atom-label-edit"
       style={{ top: formCoords.y, left: formCoords.x }}
     >
-      <InlineStylesheet id="AtomLabelEditForm">
-        {atomLabelEditCss}
-      </InlineStylesheet>
-      <input
-        className="react-ocl"
-        style={{ gridArea: 'input' }}
+      <AtomLabelEditInputStyled
         type="text"
         name="label"
         defaultValue={defaultValue}
@@ -278,48 +277,44 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
         autoFocus
         ref={autoSelectText}
       />
-      <button
-        className="react-ocl"
-        style={{ gridArea: 'submit' }}
+      <AtomLabelEditButtonStyled
+        area="submit"
         type="submit"
         aria-label="Submit"
       >
         ✔️
-      </button>
-      <button
-        className="react-ocl"
-        style={{ gridArea: 'cancel' }}
+      </AtomLabelEditButtonStyled>
+      <AtomLabelEditButtonStyled
+        area="cancel"
         type="button"
         aria-label="Cancel"
         onClick={onCancelClick}
       >
         ❌
-      </button>
+      </AtomLabelEditButtonStyled>
 
       {Object.entries(greekLetters).map(([charName, greekChar]) => (
-        <button
-          className="react-ocl"
+        <AtomLabelEditButtonStyled
           key={charName}
-          type="submit"
-          style={{ gridArea: charName }}
+          area={charName}
+          type="button"
           onClick={onShortcut}
         >
           {greekChar}
-        </button>
+        </AtomLabelEditButtonStyled>
       ))}
 
       {Object.entries(primes).map(([primeName, primeChar]) => (
-        <button
-          className="react-ocl"
+        <AtomLabelEditButtonStyled
           key={primeName}
-          type="submit"
-          style={{ gridArea: primeName }}
+          area={primeName}
+          type="button"
           onClick={onShortcut}
         >
           {primeChar}
-        </button>
+        </AtomLabelEditButtonStyled>
       ))}
-    </form>
+    </AtomLabelEditFormStyled>
   );
 }
 

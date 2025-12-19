@@ -72,5 +72,9 @@
   "homepage": "https://github.com/zakodium-oss/react-ocl#readme",
   "volta": {
     "node": "24.11.0"
+  },
+  "dependencies": {
+    "@emotion/is-prop-valid": "^1.4.0",
+    "@emotion/styled": "^11.14.1"
   }
 }
