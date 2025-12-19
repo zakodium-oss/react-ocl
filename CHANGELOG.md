@@ -1,5 +1,13 @@
 # Changelog
 
+## [8.5.0](https://github.com/zakodium-oss/react-ocl/compare/v8.4.0...v8.5.0) (2025-12-19)
+
+
+### Features
+
+* add shortcuts for greek letters and primes ([#71](https://github.com/zakodium-oss/react-ocl/issues/71)) ([f00df01](https://github.com/zakodium-oss/react-ocl/commit/f00df012a074e8fa799ed72f07a656eb4e77e051))
+* stable style for `AtomLabelEditForm` ([#75](https://github.com/zakodium-oss/react-ocl/issues/75)) ([4b4645c](https://github.com/zakodium-oss/react-ocl/commit/4b4645c6edfcc2933382bf620937b631659ad857))
+
 ## [8.4.0](https://github.com/zakodium-oss/react-ocl/compare/v8.3.0...v8.4.0) (2025-11-02)
 
 
