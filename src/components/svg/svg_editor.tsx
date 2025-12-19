@@ -13,12 +13,7 @@ import {
   isCleanEvent,
   isQuickNumberingEvent,
 } from './editor/events_predicate.js';
-import {
-  getNextCustomLabel,
-  getPreviousCustomLabel,
-  moleculeCustomLabels,
-  splitCustomLabels,
-} from './editor/quick_numbering.js';
+import { getPreviousCustomLabel } from './editor/quick_numbering.js';
 import type { State } from './editor/reducer.js';
 import { stateReducer } from './editor/reducer.js';
 import { useHighlight } from './editor/use_highlight.js';
@@ -88,13 +83,13 @@ export function SvgEditor(props: SvgEditorProps) {
       const lastInputLabel = lastInputLabelRef.current;
       const newMolecule = molecule.getCompactCopy();
 
-      const existingLabels = splitCustomLabels(
-        moleculeCustomLabels(newMolecule),
+      let nextLabel = newMolecule.getNextCustomAtomLabel(
+        lastInputLabel ? `]${lastInputLabel}` : ']1',
       );
-      const nextLabel = getNextCustomLabel(lastInputLabel, existingLabels);
+      if (!nextLabel.startsWith(']')) nextLabel = `]${nextLabel}`;
 
-      newMolecule.setAtomCustomLabel(atomId, `]${nextLabel}`);
-      setLastInputLabel(nextLabel);
+      newMolecule.setAtomCustomLabel(atomId, nextLabel);
+      setLastInputLabel(nextLabel.replaceAll(']', ''));
       onChangeRef.current(newMolecule);
     }
 
