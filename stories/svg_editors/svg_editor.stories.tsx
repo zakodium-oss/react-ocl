@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import { SvgEditor } from '../../src/index.js';
 import { molecule as defaultBaseMolecule } from '../data.js';
+import { OclReset } from '../reset/ocl_reset.tsx';
 
 const defaultMolecule = defaultBaseMolecule.getCompactCopy();
 defaultMolecule.setAtomCustomLabel(0, "]5'");
@@ -21,3 +22,13 @@ export default {
 type Story = StoryObj<typeof SvgEditor>;
 
 export const Control: Story = {};
+export const WithCssReset: Story = {
+  decorators: (Story) => {
+    return (
+      <>
+        <OclReset />
+        <Story />
+      </>
+    );
+  },
+};

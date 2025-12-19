@@ -39,6 +39,9 @@
     "react": ">=18",
     "react-dom": ">=18"
   },
+  "dependencies": {
+    "@emotion/styled": "^11.14.1"
+  },
   "devDependencies": {
     "@storybook/addon-vitest": "^9.1.16",
     "@storybook/react-vite": "^9.1.16",
