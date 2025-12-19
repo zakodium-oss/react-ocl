@@ -83,9 +83,10 @@ export function SvgEditor(props: SvgEditorProps) {
       const lastInputLabel = lastInputLabelRef.current;
       const newMolecule = molecule.getCompactCopy();
 
-      const nextLabel = newMolecule.getNextCustomAtomLabel(
+      let nextLabel = newMolecule.getNextCustomAtomLabel(
         lastInputLabel ? `]${lastInputLabel}` : ']1',
       );
+      if (!nextLabel.startsWith(']')) nextLabel = `]${nextLabel}`;
 
       newMolecule.setAtomCustomLabel(atomId, nextLabel);
       setLastInputLabel(nextLabel.replaceAll(']', ''));
