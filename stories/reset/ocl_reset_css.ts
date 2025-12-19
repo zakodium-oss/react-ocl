@@ -1,8 +1,19 @@
-import { css } from '../../src/styling/css.ts';
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/raw#building_an_identity_tag
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const css = (strings: TemplateStringsArray, ...values: any[]) =>
+  String.raw({ raw: strings }, ...values);
+
+/**
+ * To get "CSS autocomplete" in CSS tagged template literal:
+ *
+ * WebStorm:
+ * Settings | Editor | Language Injections
+ * Click on the little import button and select `CSS_template_literal.xml` file.
+ */
 
 /**
  * Took from https://github.com/zakodium-oss/react-science/blob/02df0e0b21142bcd99f4a664552e3e757fc35f8c/styles/preflight.css
- * Only for test in storybook some component styling without and with css reset stylesheet.
+ * Only for test in storybook some component styling without and with CSS reset stylesheet.
  */
 export const resetCss = css`
   /*
