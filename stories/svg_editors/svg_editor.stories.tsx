@@ -1,5 +1,6 @@
+import styled from '@emotion/styled';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { SvgEditor } from '../../src/index.js';
 import { molecule as defaultBaseMolecule } from '../data.js';
@@ -29,6 +30,22 @@ export const WithCssReset: Story = {
         <OclReset />
         <Story />
       </>
+    );
+  },
+};
+
+const Container = styled.div`
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  border: 1px solid black;
+`;
+export const InSmallWidthContainer: Story = {
+  decorators: (Story) => {
+    return (
+      <Container>
+        <Story />
+      </Container>
     );
   },
 };
