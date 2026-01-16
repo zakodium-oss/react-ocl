@@ -36,7 +36,6 @@ export const WithCssReset: Story = {
 
 const Container = styled.div`
   width: 300px;
-  height: 200px;
   overflow: hidden;
   border: 1px solid black;
 `;
