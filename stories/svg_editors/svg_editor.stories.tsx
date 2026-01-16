@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { SvgEditor } from '../../src/index.js';
 import { molecule as defaultBaseMolecule } from '../data.js';
