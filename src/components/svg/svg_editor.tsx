@@ -1,3 +1,4 @@
+import { offset, shift, useFloating } from '@floating-ui/react-dom';
 import type { Molecule } from 'openchemlib';
 import type {
   FormEvent,
@@ -167,7 +168,7 @@ export function SvgEditor(props: SvgEditorProps) {
         <AtomLabelEditForm
           key={defaultAtomLabel}
           defaultValue={defaultAtomLabel}
-          formCoords={state.formCoords}
+          atomCoords={state.atomCoords}
           onSubmit={onAtomLabelSubmit}
           onCancel={() => dispatch({ type: 'stopEdit' })}
         />
@@ -178,13 +179,17 @@ export function SvgEditor(props: SvgEditorProps) {
 
 interface AtomLabelEditFormProps {
   defaultValue: string;
-  formCoords: { x: number; y: number };
+  atomCoords: { x: number; y: number };
   onSubmit: (value: string) => void;
   onCancel: () => void;
 }
 
 function AtomLabelEditForm(props: AtomLabelEditFormProps) {
-  const { defaultValue, formCoords, onSubmit, onCancel } = props;
+  const { defaultValue, atomCoords, onSubmit, onCancel } = props;
+  const floating = useFloating({
+    placement: 'bottom-start',
+    middleware: [offset({ crossAxis: 5 }), shift({ crossAxis: true })],
+  });
 
   function onFormSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -207,7 +212,6 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
     onCancel();
   }
 
-  const formRef = useRef<HTMLFormElement>(null);
   const onCancelRef = useRef(onCancel);
   useEffect(() => {
     onCancelRef.current = onCancel;
@@ -215,7 +219,7 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
 
   useEffect(() => {
     function onClickOutside(event: PointerEvent) {
-      const form = formRef.current;
+      const form = floating.refs.floating.current;
       if (!form) return;
 
       if (form === event.currentTarget) return;
@@ -236,14 +240,14 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
       clearTimeout(timeoutId);
       document.removeEventListener('click', onClickOutside);
     };
-  }, []);
+  }, [floating.refs.floating]);
 
   function onShortcut(event: MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
     event.stopPropagation();
 
-    if (!formRef.current) return;
-    const form = formRef.current;
+    if (!floating.refs.floating.current) return;
+    const form = floating.refs.floating.current;
     const input = form.querySelector('input[type="text"]') as HTMLInputElement;
     if (!input) return;
 
@@ -258,58 +262,73 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
   }
 
   return (
-    <AtomLabelEditFormStyled
-      ref={formRef}
-      onSubmit={onFormSubmit}
-      onKeyDown={onKeyDown}
-      style={{ top: formCoords.y, left: formCoords.x }}
-    >
-      <AtomLabelEditInputStyled
-        type="text"
-        name="label"
-        defaultValue={defaultValue}
-        size={5}
-        autoFocus
-        ref={autoSelectText}
+    <>
+      {/* dom node for floating ui to hook on */}
+      <span
+        ref={floating.refs.setReference}
+        style={{
+          position: 'absolute',
+          top: atomCoords.y,
+          left: atomCoords.x,
+        }}
       />
-      <AtomLabelEditButtonStyled
-        area="submit"
-        type="submit"
-        aria-label="Submit"
-      >
-        ✔️
-      </AtomLabelEditButtonStyled>
-      <AtomLabelEditButtonStyled
-        area="cancel"
-        type="button"
-        aria-label="Cancel"
-        onClick={onCancelClick}
-      >
-        ❌
-      </AtomLabelEditButtonStyled>
 
-      {Object.entries(greekLetters).map(([charName, greekChar]) => (
+      {/* The floating form */}
+      <AtomLabelEditFormStyled
+        // eslint-disable-next-line react-hooks/refs
+        ref={floating.refs.setFloating}
+        onSubmit={onFormSubmit}
+        onKeyDown={onKeyDown}
+        // eslint-disable-next-line react-hooks/refs
+        style={floating.floatingStyles}
+      >
+        <AtomLabelEditInputStyled
+          type="text"
+          name="label"
+          defaultValue={defaultValue}
+          size={5}
+          autoFocus
+          ref={autoSelectText}
+        />
         <AtomLabelEditButtonStyled
-          key={charName}
-          area={charName}
-          type="button"
-          onClick={onShortcut}
+          area="submit"
+          type="submit"
+          aria-label="Submit"
         >
-          {greekChar}
+          ✔️
         </AtomLabelEditButtonStyled>
-      ))}
+        <AtomLabelEditButtonStyled
+          area="cancel"
+          type="button"
+          aria-label="Cancel"
+          onClick={onCancelClick}
+        >
+          ❌
+        </AtomLabelEditButtonStyled>
 
-      {Object.entries(primes).map(([primeName, primeChar]) => (
-        <AtomLabelEditButtonStyled
-          key={primeName}
-          area={primeName}
-          type="button"
-          onClick={onShortcut}
-        >
-          {primeChar}
-        </AtomLabelEditButtonStyled>
-      ))}
-    </AtomLabelEditFormStyled>
+        {Object.entries(greekLetters).map(([charName, greekChar]) => (
+          <AtomLabelEditButtonStyled
+            key={charName}
+            area={charName}
+            type="button"
+            onClick={onShortcut}
+          >
+            {greekChar}
+          </AtomLabelEditButtonStyled>
+        ))}
+
+        {Object.entries(primes).map(([primeName, primeChar]) => (
+          <AtomLabelEditButtonStyled
+            key={primeName}
+            area={primeName}
+            type="button"
+            onClick={onShortcut}
+          >
+            {primeChar}
+          </AtomLabelEditButtonStyled>
+        ))}
+      </AtomLabelEditFormStyled>
+    </>
   );
 }
 

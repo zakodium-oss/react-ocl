@@ -40,7 +40,8 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@emotion/styled": "^11.14.1"
+    "@emotion/styled": "^11.14.1",
+    "@floating-ui/react-dom": "^2.1.6"
   },
   "devDependencies": {
     "@storybook/addon-vitest": "^9.1.16",
