@@ -1,3 +1,4 @@
+import styled from '@emotion/styled';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
@@ -29,6 +30,21 @@ export const WithCssReset: Story = {
         <OclReset />
         <Story />
       </>
+    );
+  },
+};
+
+const Container = styled.div`
+  width: 300px;
+  overflow: hidden;
+  border: 1px solid black;
+`;
+export const InSmallWidthContainer: Story = {
+  decorators: (Story) => {
+    return (
+      <Container>
+        <Story />
+      </Container>
     );
   },
 };

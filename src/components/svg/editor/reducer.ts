@@ -5,7 +5,7 @@ export type State =
   | {
       mode: 'atom-label-edit';
       atomId: number;
-      formCoords: { x: number; y: number };
+      atomCoords: { x: number; y: number };
     };
 
 export type Action =
@@ -32,12 +32,11 @@ export function stateReducer(state: State, action: Action): State {
       const target = action.event.target as SVGCircleElement;
       const svg = target.closest('svg') as SVGElement;
       const rect = svg.getBoundingClientRect();
-      const formCoords = {
-        // offset by 5px to avoid cursor onMouseLeave not triggered
-        x: clientX - rect.x + 5,
-        y: clientY - rect.y + 5,
+      const atomCoords = {
+        x: clientX - rect.x,
+        y: clientY - rect.y,
       };
-      return { mode: 'atom-label-edit', atomId: action.atomId, formCoords };
+      return { mode: 'atom-label-edit', atomId: action.atomId, atomCoords };
     }
     case 'stopEdit':
       return { mode: 'view' };
