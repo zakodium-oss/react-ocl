@@ -117,8 +117,7 @@ export type OnChangeMoleculeCallback = (
   event: CanvasEditorOnChangeMolecule,
 ) => void;
 
-export interface UseCanvasEditorMoleculeOptions
-  extends UseCanvasEditorBaseOptions {
+export interface UseCanvasEditorMoleculeOptions extends UseCanvasEditorBaseOptions {
   initialMode?: 'molecule';
 
   /**
@@ -135,8 +134,7 @@ export type OnChangeReactionCallback = (
   event: CanvasEditorOnChangeReaction,
 ) => void;
 
-export interface UseCanvasEditorReactionOptions
-  extends UseCanvasEditorBaseOptions {
+export interface UseCanvasEditorReactionOptions extends UseCanvasEditorBaseOptions {
   initialMode: 'reaction';
 
   /**

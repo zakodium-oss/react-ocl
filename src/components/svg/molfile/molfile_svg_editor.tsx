@@ -9,8 +9,7 @@ import type { MolfileSvgRendererProps } from './molfile_svg_renderer.js';
 import { useMolfile } from './use_molfile.js';
 
 export interface MolfileSvgEditorProps
-  extends MolfileSvgRendererProps,
-    BaseEditorProps<string> {
+  extends MolfileSvgRendererProps, BaseEditorProps<string> {
   /**
    * Used to determine which molfile version to output on change.
    * @default 'V3000'

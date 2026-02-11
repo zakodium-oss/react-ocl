@@ -29,8 +29,7 @@ import type { SvgRendererProps } from './svg_renderer.js';
 import { SvgRenderer } from './svg_renderer.js';
 
 export interface SvgEditorProps
-  extends SvgRendererProps,
-    BaseEditorProps<Molecule> {}
+  extends SvgRendererProps, BaseEditorProps<Molecule> {}
 
 const initialState: State = { mode: 'view' };
 
