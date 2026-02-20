@@ -5,7 +5,7 @@ import type {
   KeyboardEvent as ReactKeyboardEvent,
   MouseEvent,
 } from 'react';
-import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
+import { useEffect, useMemo, useReducer, useState } from 'react';
 
 import { useRefUpToDate } from '../../hooks/use_ref_up_to_date.js';
 import type { BaseEditorProps } from '../types.js';
@@ -19,6 +19,7 @@ import type { State } from './editor/reducer.js';
 import { stateReducer } from './editor/reducer.js';
 import { useHighlight } from './editor/use_highlight.js';
 import {
+  AtomLabelEditBackdropStyled,
   AtomLabelEditButtonStyled,
   AtomLabelEditFormStyled,
   AtomLabelEditInputStyled,
@@ -29,7 +30,8 @@ import type { SvgRendererProps } from './svg_renderer.js';
 import { SvgRenderer } from './svg_renderer.js';
 
 export interface SvgEditorProps
-  extends SvgRendererProps, BaseEditorProps<Molecule> {}
+  extends SvgRendererProps,
+    BaseEditorProps<Molecule> {}
 
 const initialState: State = { mode: 'view' };
 
@@ -211,36 +213,6 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
     onCancel();
   }
 
-  const onCancelRef = useRef(onCancel);
-  useEffect(() => {
-    onCancelRef.current = onCancel;
-  });
-
-  useEffect(() => {
-    function onClickOutside(event: PointerEvent) {
-      const form = floating.refs.floating.current;
-      if (!form) return;
-
-      if (form === event.currentTarget) return;
-      if (form.contains(event.target as HTMLElement)) return;
-
-      onCancelRef.current();
-    }
-
-    // It seems mounting the form is fast enough to catch the click event that
-    // triggered the edit mode.
-    // To avoid this we delay the binding of the event
-    // handler to the next event loop iteration.
-    const timeoutId = setTimeout(
-      () => document.addEventListener('click', onClickOutside),
-      0,
-    );
-    return () => {
-      clearTimeout(timeoutId);
-      document.removeEventListener('click', onClickOutside);
-    };
-  }, [floating.refs.floating]);
-
   function onShortcut(event: MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
     event.stopPropagation();
@@ -262,6 +234,8 @@ function AtomLabelEditForm(props: AtomLabelEditFormProps) {
 
   return (
     <>
+      <AtomLabelEditBackdropStyled onClick={onCancel} />
+
       {/* dom node for floating ui to hook on */}
       <span
         ref={floating.refs.setReference}
