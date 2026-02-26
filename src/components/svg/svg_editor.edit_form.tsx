@@ -1,6 +1,6 @@
 import { offset, shift, useFloating } from '@floating-ui/react-dom';
 import type { MouseEvent, SubmitEvent } from 'react';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 import {
   AtomLabelEditButtonStyled,
@@ -22,7 +22,15 @@ export function AtomLabelEditForm(props: AtomLabelEditFormProps) {
   const { defaultValue, atomCoords, onSubmit, onCancel } = props;
   const floating = useFloating({
     placement: 'bottom-start',
-    middleware: [offset({ crossAxis: 5 }), shift({ crossAxis: true })],
+    strategy: 'absolute',
+    transform: false,
+    middleware: [
+      offset({ crossAxis: 5 }),
+      shift({
+        crossAxis: true,
+        altBoundary: true,
+      }),
+    ],
   });
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -39,14 +47,6 @@ export function AtomLabelEditForm(props: AtomLabelEditFormProps) {
     event.stopPropagation();
     onCancel();
   }
-
-  useEffect(() => {
-    const dialog = floating.refs.floating.current as HTMLDialogElement | null;
-    if (!dialog) return;
-    if (dialog.open) return;
-
-    dialog.showModal();
-  }, [floating.refs.floating]);
 
   function onShortcut(event: MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
@@ -75,6 +75,11 @@ export function AtomLabelEditForm(props: AtomLabelEditFormProps) {
     onCancel();
   }
 
+  function onDialogRef(node: HTMLDialogElement | null) {
+    node?.showModal();
+    floating.refs.setFloating(node);
+  }
+
   return (
     <>
       {/* dom node for floating ui to hook on */}
@@ -89,8 +94,7 @@ export function AtomLabelEditForm(props: AtomLabelEditFormProps) {
 
       {/* The floating dialog (open at mount with `.showModal()`) */}
       <AtomLabelEditDialogStyled
-        // eslint-disable-next-line react-hooks/refs
-        ref={floating.refs.setFloating}
+        ref={onDialogRef}
         // eslint-disable-next-line react-hooks/refs
         style={floating.floatingStyles}
         closedby="any" // supports dismiss with `Escape` key
