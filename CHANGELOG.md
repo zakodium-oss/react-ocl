@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.6.0](https://github.com/zakodium-oss/react-ocl/compare/v8.5.0...v8.6.0) (2026-02-28)
+
+
+### Features
+
+* use floating-ui for form positioning ([#78](https://github.com/zakodium-oss/react-ocl/issues/78)) ([92969de](https://github.com/zakodium-oss/react-ocl/commit/92969de48d52425e8cf47a501232f36e407f8505))
+
 ## [8.5.0](https://github.com/zakodium-oss/react-ocl/compare/v8.4.0...v8.5.0) (2025-12-19)
 
 
