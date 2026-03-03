@@ -21,11 +21,22 @@ export const primes = {
 };
 const primeNames = Object.keys(primes);
 
+export const AtomLabelEditDialogStyled = styled.dialog`
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  border: none;
+
+  ::backdrop {
+    position: fixed;
+    inset: 0;
+    background: transparent;
+  }
+`;
+
 export const AtomLabelEditFormStyled = styled.form`
   --box-size: 24px;
 
-  position: absolute;
-  z-index: 1;
   line-height: 1;
   font-size: 16px;
   display: grid;

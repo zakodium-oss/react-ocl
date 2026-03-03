@@ -1,11 +1,6 @@
-import { offset, shift, useFloating } from '@floating-ui/react-dom';
 import type { Molecule } from 'openchemlib';
-import type {
-  FormEvent,
-  KeyboardEvent as ReactKeyboardEvent,
-  MouseEvent,
-} from 'react';
-import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
+import type { MouseEvent } from 'react';
+import { useEffect, useMemo, useReducer, useState } from 'react';
 
 import { useRefUpToDate } from '../../hooks/use_ref_up_to_date.js';
 import type { BaseEditorProps } from '../types.js';
@@ -18,13 +13,7 @@ import { getPreviousCustomLabel } from './editor/quick_numbering.js';
 import type { State } from './editor/reducer.js';
 import { stateReducer } from './editor/reducer.js';
 import { useHighlight } from './editor/use_highlight.js';
-import {
-  AtomLabelEditButtonStyled,
-  AtomLabelEditFormStyled,
-  AtomLabelEditInputStyled,
-  greekLetters,
-  primes,
-} from './svg_editor.styled.ts';
+import { AtomLabelEditForm } from './svg_editor.edit_form.tsx';
 import type { SvgRendererProps } from './svg_renderer.js';
 import { SvgRenderer } from './svg_renderer.js';
 
@@ -174,163 +163,4 @@ export function SvgEditor(props: SvgEditorProps) {
       )}
     </div>
   );
-}
-
-interface AtomLabelEditFormProps {
-  defaultValue: string;
-  atomCoords: { x: number; y: number };
-  onSubmit: (value: string) => void;
-  onCancel: () => void;
-}
-
-function AtomLabelEditForm(props: AtomLabelEditFormProps) {
-  const { defaultValue, atomCoords, onSubmit, onCancel } = props;
-  const floating = useFloating({
-    placement: 'bottom-start',
-    middleware: [offset({ crossAxis: 5 }), shift({ crossAxis: true })],
-  });
-
-  function onFormSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    event.stopPropagation();
-    const formData = new FormData(event.currentTarget);
-    const value = formData.get('label') as string;
-    onSubmit(value);
-  }
-
-  function onKeyDown(event: ReactKeyboardEvent<HTMLFormElement>) {
-    if (event.key !== 'Escape') return;
-    event.preventDefault();
-    event.stopPropagation();
-    onCancel();
-  }
-
-  function onCancelClick(event: MouseEvent<HTMLButtonElement>) {
-    event.preventDefault();
-    event.stopPropagation();
-    onCancel();
-  }
-
-  const onCancelRef = useRef(onCancel);
-  useEffect(() => {
-    onCancelRef.current = onCancel;
-  });
-
-  useEffect(() => {
-    function onClickOutside(event: PointerEvent) {
-      const form = floating.refs.floating.current;
-      if (!form) return;
-
-      if (form === event.currentTarget) return;
-      if (form.contains(event.target as HTMLElement)) return;
-
-      onCancelRef.current();
-    }
-
-    // It seems mounting the form is fast enough to catch the click event that
-    // triggered the edit mode.
-    // To avoid this we delay the binding of the event
-    // handler to the next event loop iteration.
-    const timeoutId = setTimeout(
-      () => document.addEventListener('click', onClickOutside),
-      0,
-    );
-    return () => {
-      clearTimeout(timeoutId);
-      document.removeEventListener('click', onClickOutside);
-    };
-  }, [floating.refs.floating]);
-
-  function onShortcut(event: MouseEvent<HTMLButtonElement>) {
-    event.preventDefault();
-    event.stopPropagation();
-
-    if (!floating.refs.floating.current) return;
-    const form = floating.refs.floating.current;
-    const input = form.querySelector('input[type="text"]') as HTMLInputElement;
-    if (!input) return;
-
-    const value = event.currentTarget.textContent.trim();
-    input.setRangeText(
-      value,
-      input.selectionStart ?? 0,
-      input.selectionEnd ?? input.value.length,
-      'end',
-    );
-    input.focus();
-  }
-
-  return (
-    <>
-      {/* dom node for floating ui to hook on */}
-      <span
-        ref={floating.refs.setReference}
-        style={{
-          position: 'absolute',
-          top: atomCoords.y,
-          left: atomCoords.x,
-        }}
-      />
-
-      {/* The floating form */}
-      <AtomLabelEditFormStyled
-        // eslint-disable-next-line react-hooks/refs
-        ref={floating.refs.setFloating}
-        onSubmit={onFormSubmit}
-        onKeyDown={onKeyDown}
-        // eslint-disable-next-line react-hooks/refs
-        style={floating.floatingStyles}
-      >
-        <AtomLabelEditInputStyled
-          type="text"
-          name="label"
-          defaultValue={defaultValue}
-          size={5}
-          autoFocus
-          ref={autoSelectText}
-        />
-        <AtomLabelEditButtonStyled
-          area="submit"
-          type="submit"
-          aria-label="Submit"
-        >
-          ✔️
-        </AtomLabelEditButtonStyled>
-        <AtomLabelEditButtonStyled
-          area="cancel"
-          type="button"
-          aria-label="Cancel"
-          onClick={onCancelClick}
-        >
-          ❌
-        </AtomLabelEditButtonStyled>
-
-        {Object.entries(greekLetters).map(([charName, greekChar]) => (
-          <AtomLabelEditButtonStyled
-            key={charName}
-            area={charName}
-            type="button"
-            onClick={onShortcut}
-          >
-            {greekChar}
-          </AtomLabelEditButtonStyled>
-        ))}
-
-        {Object.entries(primes).map(([primeName, primeChar]) => (
-          <AtomLabelEditButtonStyled
-            key={primeName}
-            area={primeName}
-            type="button"
-            onClick={onShortcut}
-          >
-            {primeChar}
-          </AtomLabelEditButtonStyled>
-        ))}
-      </AtomLabelEditFormStyled>
-    </>
-  );
-}
-
-function autoSelectText(node: HTMLInputElement | null) {
-  node?.select();
 }
