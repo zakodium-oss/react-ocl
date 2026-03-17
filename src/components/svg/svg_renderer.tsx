@@ -192,6 +192,26 @@ function useHighlight(
   });
 }
 
+type SVGOptions = Omit<
+  SvgRendererProps,
+  | 'width'
+  | 'height'
+  | 'id'
+  | 'atomHighlight'
+  | 'atomHighlightOpacity'
+  | 'atomHighlightColor'
+  | 'onAtomClick'
+  | 'onAtomEnter'
+  | 'onAtomLeave'
+  | 'bondHighlight'
+  | 'bondHighlightOpacity'
+  | 'bondHighlightColor'
+  | 'onBondClick'
+  | 'onBondEnter'
+  | 'onBondLeave'
+  | 'molecule'
+>;
+
 function getSVG(
   mol: Molecule,
   width: number,
@@ -199,11 +219,13 @@ function getSVG(
   id: string,
   serializedOptions: string,
 ) {
-  const options = JSON.parse(serializedOptions);
+  const options: SVGOptions = JSON.parse(serializedOptions);
 
   const {
     labelFontFamily = 'Arial, Helvetica, sans-serif',
     labelFontSize = 14,
+    labelFontWeight = 'normal',
+    labelFontStyle = 'normal',
     labelColor = 'rgb(0,0,0)',
     label,
     ...svgOptions
@@ -219,7 +241,7 @@ function getSVG(
       .map(Number);
     svg = svg.replace(
       /<\/svg>/,
-      `<text fill="${labelColor}" font-family="${labelFontFamily}" text-anchor="middle" x="${
+      `<text fill="${labelColor}" font-family="${labelFontFamily}" font-style="${labelFontStyle}" font-weight="${labelFontWeight}" text-anchor="middle" x="${
         realWidth / 2 + minX
       } " y="${
         realHeight + minY - labelFontSize / 3 // could be improved
