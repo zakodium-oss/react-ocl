@@ -243,7 +243,7 @@ function getSVG(
       /<\/svg>/,
       `<text fill="${labelColor}" font-family="${labelFontFamily}" font-style="${labelFontStyle}" font-weight="${labelFontWeight}" text-anchor="middle" x="${
         realWidth / 2 + minX
-      } " y="${
+      }" y="${
         realHeight + minY - labelFontSize / 3 // could be improved
       } " font-size="${labelFontSize} ">${label}</text></svg>`,
     );
