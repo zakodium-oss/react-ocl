@@ -48,3 +48,14 @@ export const InSmallWidthContainer: Story = {
     );
   },
 };
+
+export const SvgEditorWithLabel: Story = {
+  args: {
+    label: 'Marvin  07260611242D',
+    labelColor: 'red',
+    labelFontStyle: 'italic',
+    labelFontWeight: 'bold',
+    labelFontSize: 12,
+    labelFontFamily: 'Arial',
+  },
+};

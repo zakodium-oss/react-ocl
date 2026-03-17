@@ -34,6 +34,8 @@ export interface BaseSvgRendererProps extends MoleculeToSVGOptions {
 
   labelFontFamily?: string;
   labelFontSize?: number;
+  labelFontWeight?: string;
+  labelFontStyle?: string;
   labelColor?: string;
   label?: string;
 }
