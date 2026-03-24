@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.7.0](https://github.com/zakodium-oss/react-ocl/compare/v8.6.0...v8.7.0) (2026-03-24)
+
+
+### Features
+
+* **SvgRenderer:** add `labelFontWeight` and `labelFontStyle` ([#90](https://github.com/zakodium-oss/react-ocl/issues/90)) ([fed0060](https://github.com/zakodium-oss/react-ocl/commit/fed006001a5f37d51de311f7b14801fbb15da43f))
+
 ## [8.6.0](https://github.com/zakodium-oss/react-ocl/compare/v8.5.0...v8.6.0) (2026-03-03)
 
 
