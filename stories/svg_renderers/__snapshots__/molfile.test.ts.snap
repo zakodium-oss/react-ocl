@@ -997,8 +997,10 @@ exports[`Molecule renders molfile with default id 1`] = `
       fill="rgb(127,127,127)"
       font-family="Arial, Helvetica, sans-serif"
       font-size="14 "
+      font-style="normal"
+      font-weight="normal"
       text-anchor="middle"
-      x="150 "
+      x="150"
       y="173.33333333333334 "
     >
       Label p1
