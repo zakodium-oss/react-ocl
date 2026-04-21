@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.7.1](https://github.com/zakodium-oss/react-ocl/compare/v8.7.0...v8.7.1) (2026-04-21)
+
+
+### Bug Fixes
+
+* handle undefined key in keyboard event ([#97](https://github.com/zakodium-oss/react-ocl/issues/97)) ([3add08e](https://github.com/zakodium-oss/react-ocl/commit/3add08ed0e095be53f5ce58bd9c238b229e9617a))
+
 ## [8.7.0](https://github.com/zakodium-oss/react-ocl/compare/v8.6.0...v8.7.0) (2026-03-24)
 
 
