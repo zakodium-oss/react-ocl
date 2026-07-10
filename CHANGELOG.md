@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.7.2](https://github.com/zakodium-oss/react-ocl/compare/v8.7.1...v8.7.2) (2026-07-10)
+
+
+### Bug Fixes
+
+* avoid calling `showModal` on already open dialogs ([#99](https://github.com/zakodium-oss/react-ocl/issues/99)) ([f4e3365](https://github.com/zakodium-oss/react-ocl/commit/f4e3365cf2a66b76c1e85035e039674cb6fb4602))
+
 ## [8.7.1](https://github.com/zakodium-oss/react-ocl/compare/v8.7.0...v8.7.1) (2026-04-21)
 
 
