@@ -1,6 +1,6 @@
 import { offset, shift, useFloating } from '@floating-ui/react-dom';
-import type { MouseEvent, SubmitEvent } from 'react';
-import { useRef } from 'react';
+import type { MouseEvent, RefObject, SubmitEvent } from 'react';
+import { useEffect, useRef } from 'react';
 
 import {
   AtomLabelEditButtonStyled,
@@ -20,7 +20,10 @@ interface AtomLabelEditFormProps {
 
 export function AtomLabelEditForm(props: AtomLabelEditFormProps) {
   const { defaultValue, atomCoords, onSubmit, onCancel } = props;
-  const floating = useFloating({
+  const {
+    floatingStyles,
+    refs: { floating, setFloating, setReference },
+  } = useFloating<HTMLSpanElement>({
     placement: 'bottom-start',
     strategy: 'absolute',
     transform: false,
@@ -32,6 +35,19 @@ export function AtomLabelEditForm(props: AtomLabelEditFormProps) {
       }),
     ],
   });
+
+  // The type of this ref is not configurable in useFloating.
+  const floatingDialogRef = floating as RefObject<HTMLDialogElement>;
+  useEffect(() => {
+    // This effect has no cleanup and instead uses `dialog.open` to avoid calling
+    // the `showModal` method multiple times, because calling `close` would trigger
+    // the 'close' event and propagate it to the parent component which would unmount this component.
+    const dialog = floatingDialogRef.current;
+    if (dialog && !dialog.open) {
+      dialog.showModal();
+    }
+  }, [floatingDialogRef]);
+
   const formRef = useRef<HTMLFormElement>(null);
 
   function onFormSubmit(event: SubmitEvent<HTMLFormElement>) {
@@ -68,23 +84,18 @@ export function AtomLabelEditForm(props: AtomLabelEditFormProps) {
   }
 
   function handleDialogLightDismiss(event: MouseEvent<HTMLDialogElement>) {
-    if (event.target !== floating.refs.floating.current) return;
+    if (event.target !== floating.current) return;
 
     // The dialog has no padding, if it is the target of the click,
     // it means we click on the backdrop.
     onCancel();
   }
 
-  function onDialogRef(node: HTMLDialogElement | null) {
-    node?.showModal();
-    floating.refs.setFloating(node);
-  }
-
   return (
     <>
       {/* dom node for floating ui to hook on */}
       <span
-        ref={floating.refs.setReference}
+        ref={setReference}
         style={{
           position: 'absolute',
           top: atomCoords.y,
@@ -94,9 +105,8 @@ export function AtomLabelEditForm(props: AtomLabelEditFormProps) {
 
       {/* The floating dialog (open at mount with `.showModal()`) */}
       <AtomLabelEditDialogStyled
-        ref={onDialogRef}
-        // eslint-disable-next-line react-hooks/refs
-        style={floating.floatingStyles}
+        ref={setFloating}
+        style={floatingStyles}
         closedby="any" // supports dismiss with `Escape` key
         onClose={onCancel}
         onClick={handleDialogLightDismiss}
